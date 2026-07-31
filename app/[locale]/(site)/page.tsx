@@ -209,7 +209,7 @@ export default async function HomePage({ params }: Props) {
       </section>
 
       {/* ── Quién está detrás ──────────────────────────────────────────────
-          Una agencia recién fundada no tiene reseñas ni casos propios, y
+          Una práctica recién fundada no tiene reseñas ni casos propios, y
           fabricarlos es exactamente lo que hace que un sitio deje de merecer
           confianza. Lo único verificable que hay es la trayectoria del
           fundador, así que se muestra tal cual: puestos, organizaciones y

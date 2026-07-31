@@ -10,41 +10,41 @@
     "menu": "Menú",
     "close": "Cerrar",
     "skipToContent": "Saltar al contenido",
-    "headerCta": "Escribinos"
+    "headerCta": "Escribime"
   },
   "home": {
     "meta": {
       "title": "Nidra — Desarrollo de software con IA para PyMEs",
-      "description": "Automatizamos procesos y construimos software con IA para pequeñas y medianas empresas. Diagnóstico en dos semanas, sin pilotos que nunca llegan a producción."
+      "description": "Automatizo procesos y construyo software con IA para pequeñas y medianas empresas. Diagnóstico en dos semanas, sin pilotos que nunca llegan a producción."
     },
     "hero": {
-      "eyebrow": "Agencia de software con IA",
+      "eyebrow": "Ingeniería de software con IA",
       "title": "La IA sirve cuando llega a",
       "titleAccent": "producción",
-      "lead": "Trabajamos con pequeñas y medianas empresas que tienen procesos manuales caros y quieren resolverlos, no experimentar. Empezamos por medir dónde conviene y dónde no.",
+      "lead": "Trabajo con pequeñas y medianas empresas que tienen procesos manuales caros y quieren resolverlos, no experimentar. Empiezo por medir dónde conviene y dónde no.",
       "primaryCta": "Agendar una reunión de 30 minutos",
       "secondaryCta": "Ver los servicios"
     },
     "credibility": {
       "experience": "años construyendo software",
       "experienceDetail": "Microservicios, APIs y aplicaciones en producción para clientes globales.",
-      "focusDetail": "Pocos servicios, hechos a fondo. Si lo que necesitás no está, lo decimos.",
+      "focusDetail": "Pocos servicios, hechos a fondo. Si lo que necesitás no está, te lo digo.",
       "locationDetail": "Buenos Aires. Trabajo remoto con empresas de Argentina y América Latina.",
       "servicesLabel": "Servicios",
-      "regionLabel": "Dónde trabajamos",
+      "regionLabel": "Dónde trabajo",
       "regionValue": "LATAM"
     },
     "services": {
-      "eyebrow": "Qué hacemos",
+      "eyebrow": "Qué hago",
       "title": "Seis servicios,",
-      "lead": "Preferimos hacer bien pocas cosas. Si lo que necesitás no está acá, lo decimos.",
+      "lead": "Prefiero hacer bien pocas cosas. Si lo que necesitás no está acá, te lo digo.",
       "cta": "Ver el detalle de cada servicio",
       "titleAccent": "no un catálogo",
       "cardCta": "Ver detalle"
     },
     "process": {
-      "eyebrow": "Cómo trabajamos",
-      "title": "Primero medimos,",
+      "eyebrow": "Cómo trabajo",
+      "title": "Primero mido,",
       "lead": "El orden importa. La mayoría de los proyectos de IA fracasan por empezar a construir antes de saber qué problema resuelven.",
       "steps": [
         {
@@ -53,7 +53,7 @@
         },
         {
           "title": "Definición",
-          "body": "Escribimos qué se va a construir y cómo se va a verificar antes de escribir código. Las decisiones técnicas quedan documentadas y son tuyas."
+          "body": "Escribo qué se va a construir y cómo se va a verificar antes de escribir código. Las decisiones técnicas quedan documentadas y son tuyas."
         },
         {
           "title": "Construcción",
@@ -64,23 +64,23 @@
           "body": "Despliegue con medición de calidad, alertas y documentación. El código y la infraestructura quedan a tu nombre."
         }
       ],
-      "titleAccent": "después construimos"
+      "titleAccent": "después construyo"
     },
     "technologies": {
-      "eyebrow": "Tecnologías con las que trabajamos",
-      "note": "Trabajamos sobre estas plataformas. No somos socios comerciales ni estamos certificados por ellas: es la infraestructura que usamos para construir."
+      "eyebrow": "Tecnologías con las que trabajo",
+      "note": "Trabajo sobre estas plataformas. No soy socio comercial ni estoy certificado por ellas: es la infraestructura que uso para construir."
     },
     "founder": {
       "eyebrow": "Quién está detrás",
       "title": "Nidra es nueva. La experiencia que la sostiene, no.",
-      "lead": "La dirige Juan Mujica, ingeniero de software con {years} años de trayectoria, hoy enfocado en llevar soluciones de IA a producción. Todavía no tenemos casos propios que mostrar: lo que sí podés verificar es dónde estuvo cada uno de esos años.",
+      "lead": "Soy Juan Mujica, ingeniero de software con {years} años de trayectoria, hoy enfocado en llevar soluciones de IA a producción. Trabajo solo: no hay un equipo detrás, ni casos propios que mostrar todavía. Lo que sí podés verificar es dónde estuvo cada uno de esos años.",
       "trackRecord": "Trayectoria",
       "ctaProfile": "Ver el perfil completo",
       "ctaLinkedin": "LinkedIn"
     },
     "closing": {
       "title": "¿Tenés un proceso que consume horas todas las semanas?",
-      "lead": "Contanos cuál es. Si no creemos que la IA sea la respuesta, te lo vamos a decir.",
+      "lead": "Contame cuál es. Si no creo que la IA sea la respuesta, te lo voy a decir.",
       "primaryCta": "Agendar una reunión",
       "secondaryCta": "Escribir un mensaje"
     }
@@ -91,8 +91,8 @@
       "description": "Diagnóstico de IA, asistentes con documentación propia, automatización de procesos, buscador interno, producto a medida y evaluación de seguridad de IA."
     },
     "eyebrow": "Servicios",
-    "title": "Qué hacemos, con qué se entrega",
-    "lead": "Cada servicio arranca por el problema que resuelve. Los plazos son rangos honestos: si no sabemos, ampliamos el rango en vez de prometer corto.",
+    "title": "Qué hago, con qué se entrega",
+    "lead": "Cada servicio arranca por el problema que resuelve. Los plazos son rangos honestos: si no sé, amplío el rango en vez de prometer corto.",
     "problemLabel": "El problema",
     "deliverablesLabel": "Qué se entrega",
     "timelineLabel": "Plazo estimado",
@@ -111,23 +111,23 @@
   "integrations": {
     "meta": {
       "title": "Integraciones — Nidra",
-      "description": "Conectamos con modelos de IA, bases de datos, CRMs, plataformas de comercio, herramientas de gestión y servicios de nube."
+      "description": "Integro modelos de IA, bases de datos, CRMs, plataformas de comercio, herramientas de gestión y servicios de nube."
     },
     "eyebrow": "Integraciones",
-    "title": "Con qué se conecta lo que construimos",
-    "lead": "Esta lista es representativa, no exhaustiva. Podemos integrar con cualquier plataforma que exponga una interfaz de programación.",
+    "title": "Con qué se conecta lo que construyo",
+    "lead": "Esta lista es representativa, no exhaustiva. Puedo integrar con cualquier plataforma que exponga una interfaz de programación.",
     "provenLabel": "En producción",
-    "provenNote": "Marcamos con un punto las plataformas en las que ya construimos y pusimos cosas en producción. El resto se integra por sus interfaces públicas.",
+    "provenNote": "Las plataformas marcadas son en las que ya construí y puse cosas en producción. El resto se integra por sus interfaces públicas.",
     "missing": {
       "title": "¿No está la herramienta que usás?",
-      "body": "Escribinos cuál es. Si expone una interfaz de programación, casi siempre se puede integrar.",
+      "body": "Escribime cuál es. Si expone una interfaz de programación, casi siempre se puede integrar.",
       "cta": "Preguntar por una integración"
     }
   },
   "contact": {
     "meta": {
       "title": "Contacto — Nidra",
-      "description": "Agendá una reunión de 30 minutos o escribinos una consulta. Respondemos dentro de un día hábil."
+      "description": "Agendá una reunión de 30 minutos o escribime una consulta. Respondo dentro de un día hábil."
     },
     "eyebrow": "Contacto",
     "title": "Hablemos de",
@@ -136,11 +136,11 @@
       "title": "Agendar una reunión",
       "body": "Treinta minutos por videollamada. Elegís el horario en el calendario y llega la confirmación con el enlace.",
       "cta": "Ver horarios disponibles",
-      "note": "Se abre en nuestra página de agenda."
+      "note": "Se abre en mi página de agenda."
     },
     "form": {
       "title": "Escribir una consulta",
-      "body": "Contanos qué proceso querés resolver y qué herramientas usás hoy. Respondemos dentro de un día hábil.",
+      "body": "Contame qué proceso querés resolver y qué herramientas usás hoy. Respondo dentro de un día hábil.",
       "name": "Nombre",
       "email": "Correo electrónico",
       "company": "Empresa",
@@ -149,12 +149,12 @@
       "servicePlaceholder": "Elegí una opción",
       "serviceOther": "Otra cosa / todavía no sé",
       "message": "Tu consulta",
-      "messageHint": "Contanos qué proceso querés resolver y qué herramientas usás hoy.",
+      "messageHint": "Contame qué proceso querés resolver y qué herramientas usás hoy.",
       "submit": "Enviar consulta",
       "submitting": "Enviando…",
       "success": {
         "title": "Consulta enviada",
-        "body": "Te respondemos dentro de un día hábil al correo que dejaste."
+        "body": "Te respondo dentro de un día hábil al correo que dejaste."
       },
       "errors": {
         "nameRequired": "Escribí tu nombre.",
@@ -163,15 +163,15 @@
         "emailInvalid": "Ese correo no parece válido. Revisalo.",
         "serviceRequired": "Elegí sobre qué querés consultar.",
         "messageRequired": "Escribí tu consulta.",
-        "messageTooShort": "Contanos un poco más: al menos 20 caracteres.",
+        "messageTooShort": "Contame un poco más: al menos 20 caracteres.",
         "messageTooLong": "La consulta es demasiado larga. Máximo 2000 caracteres.",
-        "rejected": "No pudimos procesar el envío. Recargá la página e intentá de nuevo.",
-        "rateLimit": "Recibimos varios envíos desde tu conexión. Esperá unos minutos e intentá de nuevo.",
-        "delivery": "No pudimos entregar tu consulta en este momento.",
-        "deliveryFallback": "Escribinos directamente a {email} y te respondemos igual.",
+        "rejected": "No se pudo procesar el envío. Recargá la página e intentá de nuevo.",
+        "rateLimit": "Llegaron varios envíos desde tu conexión. Esperá unos minutos e intentá de nuevo.",
+        "delivery": "No se pudo entregar tu consulta en este momento.",
+        "deliveryFallback": "Escribime directamente a {email} y te respondo igual.",
         "unavailable": "El formulario no está disponible en este momento."
       },
-      "privacyNote": "Solo usamos estos datos para responderte. No los almacenamos ni los compartimos.",
+      "privacyNote": "Solo uso estos datos para responderte. No los almaceno ni los comparto.",
       "privacyLink": "Ver la política de privacidad",
       "requiredHint": "Los campos marcados con * son obligatorios.",
       "errorSummary": "Revisá estos campos antes de enviar:"
@@ -183,64 +183,64 @@
     "next": {
       "title": "Qué pasa después",
       "steps": [
-        "Leemos tu consulta y te respondemos dentro de un día hábil, al correo que dejaste.",
+        "Leo tu consulta y te respondo dentro de un día hábil, al correo que dejaste.",
         "Si tiene sentido avanzar, coordinamos una llamada de 30 minutos para entender el proceso en detalle.",
-        "Te pasamos un alcance con plazo y precio por escrito. Si no creemos que la IA sea la respuesta, te lo decimos ahí."
+        "Te paso un alcance con plazo y precio por escrito. Si no creo que la IA sea la respuesta, te lo digo ahí."
       ]
     },
-    "leadNoBooking": "Contanos qué proceso querés resolver. No te compromete a nada.",
+    "leadNoBooking": "Contame qué proceso querés resolver. No te compromete a nada.",
     "titleAccent": "tu proceso"
   },
   "legal": {
     "privacy": {
       "meta": {
         "title": "Política de privacidad — Nidra",
-        "description": "Qué datos personales recogemos, con qué finalidad, cuánto los conservamos y cómo ejercer tus derechos."
+        "description": "Qué datos personales recojo, con qué finalidad, cuánto los conservo y cómo ejercer tus derechos."
       },
       "title": "Política de privacidad",
       "updated": "Última actualización",
       "sections": [
         {
-          "title": "Qué datos recogemos",
+          "title": "Qué datos recojo",
           "body": [
-            "Recogemos únicamente los datos que nos dejás en el formulario de consulta: nombre, correo electrónico, empresa (opcional), el servicio sobre el que consultás y el texto de tu mensaje.",
+            "Recojo únicamente los datos que dejás en el formulario de consulta: nombre, correo electrónico, empresa (opcional), el servicio sobre el que consultás y el texto de tu mensaje.",
             "Este sitio no usa cookies ni identificadores persistentes de seguimiento. Por eso no vas a encontrar un cartel de consentimiento: no hay nada que consentir.",
-            "Medimos visitas de forma agregada y anónima, sin datos personales y sin poder reconstruir quién sos ni seguirte entre sitios."
+            "Mido visitas de forma agregada y anónima, sin datos personales y sin poder reconstruir quién sos ni seguirte entre sitios."
           ]
         },
         {
-          "title": "Para qué los usamos",
+          "title": "Para qué los uso",
           "body": [
-            "Exclusivamente para responder tu consulta. No usamos tus datos para publicidad, no los cruzamos con otras fuentes y no los vendemos ni cedemos a terceros con fines comerciales."
+            "Exclusivamente para responder tu consulta. No uso tus datos para publicidad, no los cruzo con otras fuentes y no los vendo ni cedo a terceros con fines comerciales."
           ]
         },
         {
-          "title": "Cuánto los conservamos",
+          "title": "Cuánto los conservo",
           "body": [
-            "El sitio no almacena las consultas en ninguna base de datos. El mensaje se entrega a nuestra casilla de correo y su conservación queda sujeta a nuestra gestión de correo, donde se conserva mientras dure la conversación comercial y hasta un máximo de dos años.",
-            "Si nos pedís que lo borremos antes, lo hacemos."
+            "El sitio no almacena las consultas en ninguna base de datos. El mensaje se entrega a mi casilla de correo y su conservación queda sujeta a mi gestión de correo, donde se conserva mientras dure la conversación comercial y hasta un máximo de dos años.",
+            "Si me pedís que lo borre antes, lo borro."
           ]
         },
         {
           "title": "Servicios de terceros",
           "body": [
-            "Para la entrega de los correos usamos un proveedor de correo transaccional, que procesa el mensaje para hacerlo llegar a nuestra casilla.",
+            "Para la entrega de los correos uso un proveedor de correo transaccional, que procesa el mensaje para hacerlo llegar a mi casilla.",
             "Si reservás una reunión, el agendamiento ocurre en una plataforma externa de calendario. Los datos que ingreses ahí se rigen por la política de privacidad de ese proveedor, no por esta.",
             "La medición de visitas la realiza Vercel Analytics, que recoge datos agregados y anónimos, sin cookies ni identificadores persistentes.",
-            "Si en el futuro incorporamos un asistente conversacional, actualizaremos esta política antes de ponerlo en funcionamiento, detallando qué datos recoge y con qué finalidad."
+            "Si en el futuro incorporo un asistente conversacional, actualizo esta política antes de ponerlo en funcionamiento, detallando qué datos recoge y con qué finalidad."
           ]
         },
         {
           "title": "Tus derechos",
           "body": [
-            "Podés pedirnos acceso a los datos que tengamos sobre vos, su rectificación o su supresión. Escribinos a jmujica@nidra.cloud y respondemos dentro de los plazos que fija la normativa aplicable.",
+            "Podés pedirme acceso a los datos que tenga sobre vos, su rectificación o su supresión. Escribime a jmujica@nidra.cloud y respondo dentro de los plazos que fija la normativa aplicable.",
             "En Argentina, la autoridad de control en materia de datos personales es la Agencia de Acceso a la Información Pública."
           ]
         },
         {
           "title": "Responsable",
           "body": [
-            "Nidra, Buenos Aires, Argentina. Contacto: jmujica@nidra.cloud"
+            "Juan Mujica (Nidra), Buenos Aires, Argentina. Contacto: jmujica@nidra.cloud"
           ]
         }
       ]
@@ -268,7 +268,7 @@
         {
           "title": "Marcas de terceros",
           "body": [
-            "Los nombres de plataformas, productos y empresas mencionados en este sitio pertenecen a sus respectivos titulares y se usan de forma nominativa, únicamente para describir con qué tecnologías trabajamos o con qué sistemas podemos integrar.",
+            "Los nombres de plataformas, productos y empresas mencionados en este sitio pertenecen a sus respectivos titulares y se usan de forma nominativa, únicamente para describir con qué tecnologías trabajo o con qué sistemas puedo integrar.",
             "Su mención no implica sociedad comercial, certificación, patrocinio ni respaldo de esas organizaciones hacia Nidra."
           ]
         },
@@ -281,7 +281,7 @@
         {
           "title": "Cambios",
           "body": [
-            "Podemos actualizar estos términos. La fecha de última actualización figura al comienzo de esta página."
+            "Puedo actualizar estos términos. La fecha de última actualización figura al comienzo de esta página."
           ]
         }
       ]

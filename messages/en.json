@@ -15,35 +15,35 @@
   "home": {
     "meta": {
       "title": "Nidra — AI software development for small businesses",
-      "description": "We automate processes and build AI software for small and medium businesses. A two-week assessment, without pilots that never reach production."
+      "description": "I automate processes and build AI software for small and medium businesses. A two-week assessment, without pilots that never reach production."
     },
     "hero": {
-      "eyebrow": "AI software agency",
+      "eyebrow": "AI software engineering",
       "title": "AI is useful once it reaches",
       "titleAccent": "production",
-      "lead": "We work with small and medium businesses that have costly manual processes and want them solved, not experimented on. We start by measuring where it's worth it and where it isn't.",
+      "lead": "I work with small and medium businesses that have costly manual processes and want them solved, not experimented on. I start by measuring where it is worth it and where it is not.",
       "primaryCta": "Book a 30-minute call",
       "secondaryCta": "See the services"
     },
     "credibility": {
       "experience": "years building software",
       "experienceDetail": "Microservices, APIs and production applications for global clients.",
-      "focusDetail": "A few services, done properly. If what you need is not here, we say so.",
+      "focusDetail": "A few services, done properly. If what you need is not here, I say so.",
       "locationDetail": "Buenos Aires. Remote work with companies across Argentina and Latin America.",
       "servicesLabel": "Services",
-      "regionLabel": "Where we work",
+      "regionLabel": "Where I work",
       "regionValue": "LATAM"
     },
     "services": {
-      "eyebrow": "What we do",
+      "eyebrow": "What I do",
       "title": "Six services,",
-      "lead": "We'd rather do a few things well. If what you need isn't here, we'll say so.",
+      "lead": "I'd rather do a few things well. If what you need isn't here, I'll say so.",
       "cta": "See each service in detail",
       "titleAccent": "not a catalogue",
       "cardCta": "See detail"
     },
     "process": {
-      "eyebrow": "How we work",
+      "eyebrow": "How I work",
       "title": "Measure first,",
       "lead": "The order matters. Most AI projects fail because building starts before anyone knows which problem it solves.",
       "steps": [
@@ -53,7 +53,7 @@
         },
         {
           "title": "Definition",
-          "body": "We write down what will be built and how it will be verified before writing code. Technical decisions are documented and they're yours."
+          "body": "I write down what will be built and how it will be verified before writing code. Technical decisions are documented and they are yours."
         },
         {
           "title": "Build",
@@ -67,20 +67,20 @@
       "titleAccent": "build second"
     },
     "technologies": {
-      "eyebrow": "Technologies we work with",
-      "note": "We build on these platforms. We are not commercial partners and we are not certified by them: this is the infrastructure we use to build."
+      "eyebrow": "Technologies I work with",
+      "note": "I build on these platforms. I am not a commercial partner and I am not certified by them: this is the infrastructure I build with."
     },
     "founder": {
       "eyebrow": "Who is behind this",
       "title": "Nidra is new. The experience behind it isn't.",
-      "lead": "It is led by Juan Mujica, a software engineer with {years} years of track record, now focused on bringing AI solutions to production. We have no case studies of our own yet: what you can verify is where each of those years was spent.",
+      "lead": "I am Juan Mujica, a software engineer with {years} years of track record, now focused on bringing AI solutions to production. I work on my own: there is no team behind this, and no case studies of my own yet. What you can verify is where each of those years was spent.",
       "trackRecord": "Track record",
       "ctaProfile": "See the full profile",
       "ctaLinkedin": "LinkedIn"
     },
     "closing": {
       "title": "Got a process that eats hours every week?",
-      "lead": "Tell us which one. If we don't think AI is the answer, we'll say so.",
+      "lead": "Tell me which one. If I don't think AI is the answer, I'll say so.",
       "primaryCta": "Book a call",
       "secondaryCta": "Send a message"
     }
@@ -91,8 +91,8 @@
       "description": "AI assessment, assistants grounded in your own documentation, process automation, internal search, custom products and AI security evaluation."
     },
     "eyebrow": "Services",
-    "title": "Qué hacemos, con qué se entrega",
-    "lead": "Every service starts from the problem it solves. Timelines are honest ranges: when we don't know, we widen the range instead of promising short.",
+    "title": "What I do, what you get",
+    "lead": "Every service starts from the problem it solves. Timelines are honest ranges: when I don't know, I widen the range instead of promising short.",
     "problemLabel": "The problem",
     "deliverablesLabel": "What gets delivered",
     "timelineLabel": "Estimated timeline",
@@ -111,23 +111,23 @@
   "integrations": {
     "meta": {
       "title": "Integrations — Nidra",
-      "description": "We connect with AI models, databases, CRMs, commerce platforms, management tools and cloud services."
+      "description": "I integrate AI models, databases, CRMs, commerce platforms, management tools and cloud services."
     },
     "eyebrow": "Integrations",
-    "title": "What we connect to",
-    "lead": "This list is representative, not exhaustive. We can integrate with any platform that exposes an API.",
+    "title": "What I build connects to",
+    "lead": "This list is representative, not exhaustive. I can integrate with any platform that exposes an API.",
     "provenLabel": "In production",
-    "provenNote": "A dot marks the platforms we have already built on and put into production. The rest are integrated through their public interfaces.",
+    "provenNote": "The marked platforms are the ones I have already built on and put into production. The rest are integrated through their public interfaces.",
     "missing": {
       "title": "Don't see the tool you use?",
-      "body": "Tell us which one. If it exposes an API, it can almost always be integrated.",
+      "body": "Tell me which one. If it exposes an API, it can almost always be integrated.",
       "cta": "Ask about an integration"
     }
   },
   "contact": {
     "meta": {
       "title": "Contact — Nidra",
-      "description": "Book a 30-minute call or send us a message. We reply within one business day."
+      "description": "Book a 30-minute call or send me a message. I reply within one business day."
     },
     "eyebrow": "Contact",
     "title": "Let's talk about",
@@ -136,11 +136,11 @@
       "title": "Book a call",
       "body": "Thirty minutes over video. Pick a slot on the calendar and the confirmation arrives with the link.",
       "cta": "See available times",
-      "note": "Opens our scheduling page."
+      "note": "Opens my scheduling page."
     },
     "form": {
       "title": "Send a message",
-      "body": "Tell us which process you want to solve and what tools you use today. We reply within one business day.",
+      "body": "Tell me which process you want to solve and what tools you use today. I reply within one business day.",
       "name": "Name",
       "email": "Email",
       "company": "Company",
@@ -149,12 +149,12 @@
       "servicePlaceholder": "Choose an option",
       "serviceOther": "Something else / not sure yet",
       "message": "Your message",
-      "messageHint": "Tell us which process you want to solve and which tools you use today.",
+      "messageHint": "Tell me which process you want to solve and which tools you use today.",
       "submit": "Send message",
       "submitting": "Sending…",
       "success": {
         "title": "Message sent",
-        "body": "We'll reply within one business day to the address you gave us."
+        "body": "I'll reply within one business day to the address you gave."
       },
       "errors": {
         "nameRequired": "Please enter your name.",
@@ -163,15 +163,15 @@
         "emailInvalid": "That email doesn't look valid. Please check it.",
         "serviceRequired": "Please choose what you'd like to ask about.",
         "messageRequired": "Please write your message.",
-        "messageTooShort": "Tell us a bit more: at least 20 characters.",
+        "messageTooShort": "Tell me a bit more: at least 20 characters.",
         "messageTooLong": "That message is too long. 2000 characters maximum.",
-        "rejected": "We couldn't process the submission. Please reload the page and try again.",
-        "rateLimit": "We received several submissions from your connection. Please wait a few minutes and try again.",
-        "delivery": "We couldn't deliver your message right now.",
-        "deliveryFallback": "Write to us directly at {email} and we'll reply all the same.",
+        "rejected": "The submission couldn't be processed. Please reload the page and try again.",
+        "rateLimit": "Several submissions arrived from your connection. Please wait a few minutes and try again.",
+        "delivery": "Your message couldn't be delivered right now.",
+        "deliveryFallback": "Write to me directly at {email} and I'll reply all the same.",
         "unavailable": "The form is unavailable right now."
       },
-      "privacyNote": "We only use this to reply to you. We do not store it or share it.",
+      "privacyNote": "I only use this to reply to you. I do not store it or share it.",
       "privacyLink": "Read the privacy policy",
       "requiredHint": "Fields marked with * are required.",
       "errorSummary": "Please check these fields before sending:"
@@ -183,64 +183,64 @@
     "next": {
       "title": "What happens next",
       "steps": [
-        "We read your message and reply within one business day, to the address you gave us.",
+        "I read your message and reply within one business day, to the address you gave.",
         "If it makes sense to move forward, we set up a 30-minute call to understand the process in detail.",
-        "We send you a scope with timeline and price in writing. If we don't think AI is the answer, that's where we say so."
+        "I send you a scope with timeline and price in writing. If I don't think AI is the answer, that's where I say so."
       ]
     },
-    "leadNoBooking": "Tell us which process you want to solve. It doesn't commit you to anything.",
+    "leadNoBooking": "Tell me which process you want to solve. It doesn't commit you to anything.",
     "titleAccent": "your process"
   },
   "legal": {
     "privacy": {
       "meta": {
         "title": "Privacy policy — Nidra",
-        "description": "What personal data we collect, why, how long we keep it and how to exercise your rights."
+        "description": "What personal data I collect, why, how long I keep it and how to exercise your rights."
       },
       "title": "Privacy policy",
       "updated": "Last updated",
       "sections": [
         {
-          "title": "What we collect",
+          "title": "What I collect",
           "body": [
-            "We collect only what you give us in the contact form: name, email, company (optional), the service you're asking about and the text of your message.",
+            "I collect only what you give in the contact form: name, email, company (optional), the service you're asking about and the text of your message.",
             "This site uses no cookies and no persistent tracking identifiers. That's why you won't find a consent banner: there is nothing to consent to.",
-            "We measure visits in aggregate and anonymously, without personal data and without any ability to work out who you are or follow you across sites."
+            "I measure visits in aggregate and anonymously, without personal data and without any ability to work out who you are or follow you across sites."
           ]
         },
         {
-          "title": "What we use it for",
+          "title": "What I use it for",
           "body": [
-            "Only to answer your enquiry. We don't use your data for advertising, we don't combine it with other sources, and we don't sell or hand it to third parties for commercial purposes."
+            "Only to answer your enquiry. I don't use your data for advertising, I don't combine it with other sources, and I don't sell or hand it to third parties for commercial purposes."
           ]
         },
         {
-          "title": "How long we keep it",
+          "title": "How long I keep it",
           "body": [
-            "The site stores no enquiries in any database. The message is delivered to our mailbox, and its retention is governed by our mail management, where it is kept for the duration of the commercial conversation and for at most two years.",
-            "If you ask us to delete it sooner, we do."
+            "The site stores no enquiries in any database. The message is delivered to my mailbox, and its retention is governed by my mail management, where it is kept for the duration of the commercial conversation and for at most two years.",
+            "If you ask me to delete it sooner, I do."
           ]
         },
         {
           "title": "Third-party services",
           "body": [
-            "We use a transactional email provider to deliver messages, which processes the message in order to get it to our mailbox.",
+            "I use a transactional email provider to deliver messages, which processes the message in order to get it to my mailbox.",
             "If you book a meeting, scheduling happens on an external calendar platform. Any data you enter there is governed by that provider's privacy policy, not by this one.",
             "Visit measurement is performed by Vercel Analytics, which collects aggregated, anonymous data with no cookies and no persistent identifiers.",
-            "If we add a conversational assistant in the future, we will update this policy before putting it into operation, stating what data it collects and why."
+            "If I add a conversational assistant in the future, I will update this policy before putting it into operation, stating what data it collects and why."
           ]
         },
         {
           "title": "Your rights",
           "body": [
-            "You can ask us for access to the data we hold about you, its correction or its deletion. Write to jmujica@nidra.cloud and we'll respond within the timeframes set by applicable law.",
+            "You can ask me for access to the data I hold about you, its correction or its deletion. Write to jmujica@nidra.cloud and I'll respond within the timeframes set by applicable law.",
             "In Argentina, the supervisory authority for personal data is the Agencia de Acceso a la Información Pública."
           ]
         },
         {
           "title": "Controller",
           "body": [
-            "Nidra, Buenos Aires, Argentina. Contact: jmujica@nidra.cloud"
+            "Juan Mujica (Nidra), Buenos Aires, Argentina. Contact: jmujica@nidra.cloud"
           ]
         }
       ]
@@ -268,7 +268,7 @@
         {
           "title": "Third-party trademarks",
           "body": [
-            "The names of platforms, products and companies mentioned on this site belong to their respective owners and are used nominatively, solely to describe which technologies we work with or which systems we can integrate.",
+            "The names of platforms, products and companies mentioned on this site belong to their respective owners and are used nominatively, solely to describe which technologies I work with or which systems I can integrate.",
             "Their mention implies no commercial partnership, certification, sponsorship or endorsement of Nidra by those organisations."
           ]
         },
@@ -281,7 +281,7 @@
         {
           "title": "Changes",
           "body": [
-            "We may update these terms. The last updated date appears at the top of this page."
+            "I may update these terms. The last updated date appears at the top of this page."
           ]
         }
       ]
