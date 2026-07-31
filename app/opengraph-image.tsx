@@ -55,20 +55,23 @@ export default function OpengraphImage() {
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>
+          {/* Mismo titular que el héroe. Si el relato de la portada cambia y
+              esto no, quien comparte el enlace anuncia una promesa distinta
+              de la que va a encontrar al hacer clic. */}
           <span
             style={{
-              fontSize: 74,
+              fontSize: 68,
               fontWeight: 700,
-              lineHeight: 1.05,
+              lineHeight: 1.06,
               color: '#eef4f1',
               letterSpacing: '-0.03em',
-              maxWidth: 940,
+              maxWidth: 960,
             }}
           >
-            La IA sirve cuando llega a producción.
+            El software a medida dejó de ser cosa de empresas grandes.
           </span>
-          <span style={{ fontSize: 30, color: '#94a5a0', marginTop: 28 }}>
-            Software con IA para pequeñas y medianas empresas.
+          <span style={{ fontSize: 29, color: '#94a5a0', marginTop: 26 }}>
+            Sistemas propios para PyMEs, sin licencias por usuario.
           </span>
         </div>
 

@@ -162,3 +162,24 @@ describe('relato comercial', () => {
     expect(enClose).toMatch(/doesn't add up/i)
   })
 })
+
+describe('cotización', () => {
+  // Decisión comercial: los precios NO se publican, se cotizan por correo.
+  // Un precio publicado resolvía el miedo a que el número dependa de la cara
+  // del cliente; sin precio, eso lo tiene que resolver el texto diciendo de
+  // qué depende la cotización. Si esa promesa desaparece, el sitio se queda
+  // sin respuesta para la objeción más común.
+  it('el sitio explica cómo se cotiza aunque no publique números', () => {
+    const esItems = (es.home as { investment: { items: { title: string }[] } }).investment.items
+    const enItems = (en.home as { investment: { items: { title: string }[] } }).investment.items
+    expect(esItems.some((i) => /esfuerzo/i.test(i.title))).toBe(true)
+    expect(enItems.some((i) => /effort/i.test(i.title))).toBe(true)
+  })
+
+  it('promete la cotización por escrito en ambos idiomas', () => {
+    const esSteps = (es.contact as { next: { steps: string[] } }).next.steps
+    const enSteps = (en.contact as { next: { steps: string[] } }).next.steps
+    expect(esSteps.at(-1)).toMatch(/por escrito/i)
+    expect(enSteps.at(-1)).toMatch(/in writing/i)
+  })
+})

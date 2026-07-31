@@ -103,6 +103,10 @@
       "lead": "Take the process that eats the most time. Count the hours it takes per week, multiply by what that hour costs in your company, and you have the monthly saving. The price of the work divided by that saving is how long it takes to pay for itself.",
       "items": [
         {
+          "title": "Quoted by effort, not by your size",
+          "body": "The price comes from the hours the work takes, estimated and written down before starting. It does not go up because your company bills more."
+        },
+        {
           "title": "Only what you use gets built",
           "body": "No modules that ship in the package and nobody opens. That is what brings the price down against an off-the-shelf product."
         },
@@ -115,7 +119,7 @@
           "body": "The assessment is a bounded piece of work with its own deliverable: you leave with a ranked list and an estimate, whether you use it with me or not."
         }
       ],
-      "close": "We run that calculation with your numbers on the first call. If it doesn't add up, I'll say so there and then."
+      "close": "I don't publish prices because a number means nothing without your process in front of it. Tell me what you want to solve and I'll send the quote in writing. If it doesn't add up, I'll say so and we stop there."
     },
     "technologies": {
       "eyebrow": "Technologies I work with",
@@ -236,7 +240,7 @@
       "steps": [
         "I read your message and reply within one business day, to the address you gave.",
         "If it makes sense to move forward, we set up 30 minutes to walk the process in detail and estimate how many hours go into it.",
-        "I send you a scope with timeline and price in writing, plus the payback calculation. If it doesn't add up, I'll say so."
+        "I email you the scope, the timeline and the price in writing, with the payback calculation. No strings: if it doesn't add up, I'll say so."
       ]
     },
     "leadNoBooking": "Tell me which process is eating your hours. It doesn't commit you to anything.",
