@@ -122,11 +122,38 @@ la ruta exacta del dato.
 Los textos llevan español e inglés en el mismo nodo. Eso hace imposible agregar contenido en un
 idioma y olvidarlo en el otro: es el mismo nodo del árbol.
 
-## El logotipo
+## La marca
 
-La empresa todavía no tiene logo. La marca se compone tipográficamente en
-[`components/site/Wordmark.tsx`](components/site/Wordmark.tsx), que documenta exactamente qué
-reemplazar cuando exista, y cómo, sin alterar el diseño de la cabecera.
+Nidra es sánscrito: en el yoga nidra nombra el **sueño consciente**, la frontera exacta entre la
+vigilia y el sueño. El logotipo es esa frontera — **un arco sobre una línea** — y dice tres cosas a
+la vez: el sol asomando en el horizonte, el párpado superior sobre el inferior, y la línea del
+umbral. No se sabe si el ojo se cierra o se abre, si el sol sube o baja, que es justamente la
+definición del nombre. Sin pupila a propósito: un círculo adentro lo volvería una cámara de
+vigilancia.
+
+Vive a tres escalas, y cada una es un fragmento de la anterior, así que el símbolo y el nombre se
+refuerzan en vez de competir:
+
+| Pieza | Dónde | Archivo |
+|---|---|---|
+| La palabra sobre el horizonte | Web, membrete, pie de correo | [`components/site/Wordmark.tsx`](components/site/Wordmark.tsx) |
+| El monograma (la ene partida) | Icono de aplicación, foto de perfil | `Monogram` en el mismo archivo |
+| El arco solo | Pestaña del navegador, sello | [`app/icon.svg`](app/icon.svg) · [`public/brand/`](public/brand/) |
+
+**El símbolo tiene dos cortes ópticos y no son intercambiables.** El maestro abre el arco al 32% y
+sirve para reproducción grande; el favicon lo abre al 55%. No es un capricho: con la apertura
+maestra el arco sube 4 píxeles sobre una caja de 64 mientras el trazo mide 5,5, así que a 16 píxeles
+el trazo se traga la curva y queda un bulto. Es la misma razón por la que una tipografía tiene
+cortes de texto y de titular.
+
+La línea **se interrumpe** y el arco la continúa: si la línea pasara por debajo, los extremos se
+pisarían y la unión quedaría sucia. Y nunca cruza la palabra — una horizontal a media altura sobre
+un nombre se lee como texto tachado.
+
+En la web el nombre es **texto**, no una imagen: se puede seleccionar, lo lee un lector de pantalla
+y escala solo. Únicamente el horizonte es SVG, porque únicamente el horizonte es geometría. Para una
+versión con la palabra en trazados (imprenta, bordado, un proveedor sin Manrope) hay que exportarla
+una vez; el símbolo de `public/brand/` ya es portátil porque es geometría pura.
 
 Los logotipos de integraciones **no** se usan: las plataformas se listan como texto. Evita la sopa de
 logos, evita problemas de licencia de marca y, sobre todo, evita insinuar una relación comercial que

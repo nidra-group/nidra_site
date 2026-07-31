@@ -1,7 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- ═══ CORTE ÓPTICO CHICO — apertura 55% ═══
+
+       El escalón más chico de la escalera de marca. A 16 píxeles la ene del
+       monograma se vuelve una mancha, así que acá va el símbolo solo.
+
+       NO es el corte maestro escalado, y eso es deliberado. Con la apertura
+       maestra del 32% el arco sube 4 píxeles sobre una caja de 64 mientras el
+       trazo mide 5,5: el trazo se traga la curva y a 16 píxeles queda un
+       bulto. Abrir el arco al 55% es la corrección óptica estándar — la misma
+       razón por la que una tipografía tiene cortes de texto y de titular.
+       Sigue sin ser un semicírculo, que empezaría a leerse como arcoíris.
+
+       Los colores están escritos a mano porque un favicon no lee el CSS del
+       sitio. Al cambiar la paleta en `app/globals.css` hay que actualizarlos
+       acá también. -->
   <rect width="64" height="64" rx="14" fill="#0a1322"/>
-  <text x="30" y="45" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
-        font-size="38" font-weight="800" letter-spacing="-2"
-        fill="#f4efe6" text-anchor="middle">n</text>
-  <circle cx="47" cy="42" r="4" fill="#edc27c"/>
+  <path d="M 9 38 L 17 38" stroke="#9aa9c2" stroke-width="5" stroke-linecap="round"/>
+  <path d="M 47 38 L 55 38" stroke="#9aa9c2" stroke-width="5" stroke-linecap="round"/>
+  <path d="M 17 38 A 17.761 17.761 0 0 1 47 38"
+        fill="none" stroke="#edc27c" stroke-width="5" stroke-linecap="round"/>
 </svg>

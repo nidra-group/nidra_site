@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Nidra">
+  <title>Nidra</title>
+  <!-- Corte maestro en monocromo: hereda el color del contexto con
+       `currentColor`. Para sellos, bordados, impresión a una tinta y fondos
+       claros.
+
+       El horizonte va al 55% de opacidad para conservar la jerarquía entre la
+       luz (el arco) y la noche (la línea) sin recurrir a un segundo tono. Si
+       el proceso de reproducción no admite medias tintas —un bordado, un
+       sello de goma— el horizonte se imprime al 100% y el símbolo sigue
+       funcionando: pierde la jerarquía, no la forma. -->
+  <path d="M 4 38 L 12 38" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" opacity="0.55"/>
+  <path d="M 52 38 L 60 38" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" opacity="0.55"/>
+  <path d="M 12 38 A 34.453 34.453 0 0 1 52 38"
+        fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"/>
+</svg>

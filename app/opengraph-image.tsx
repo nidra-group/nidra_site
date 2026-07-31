@@ -31,7 +31,10 @@ export default function OpengraphImage() {
           fontFamily: 'system-ui, sans-serif',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        {/* La marca: la palabra apoyada en el horizonte, con el arco naciendo
+            de la línea base justo antes de la ene. El arco se aproxima con un
+            borde superior redondeado porque `next/og` no traza arcos. */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
           <span
             style={{
               fontSize: 44,
@@ -42,16 +45,22 @@ export default function OpengraphImage() {
           >
             nidra
           </span>
-          <span
-            style={{
-              width: 11,
-              height: 11,
-              borderRadius: 11,
-              backgroundColor: '#edc27c',
-              marginLeft: 7,
-              marginTop: 20,
-            }}
-          />
+          <div style={{ display: 'flex', alignItems: 'flex-end', marginTop: 7 }}>
+            <div
+              style={{
+                width: 34,
+                height: 17,
+                borderTop: '5px solid #edc27c',
+                borderLeft: '5px solid transparent',
+                borderRight: '5px solid transparent',
+                borderTopLeftRadius: 34,
+                borderTopRightRadius: 34,
+              }}
+            />
+            <div
+              style={{ width: 80, height: 5, borderRadius: 5, backgroundColor: '#9aa9c2' }}
+            />
+          </div>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>

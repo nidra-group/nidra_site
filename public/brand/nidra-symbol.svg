@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Nidra">
+  <title>Nidra</title>
+  <!-- ═══ EL SÍMBOLO — corte MAESTRO, apertura 32% ═══
+
+       Nidra es el sueño consciente: la frontera exacta entre la vigilia y el
+       sueño. Esta forma es esa frontera, y dice tres cosas a la vez sin
+       trucos: el sol asomando en el horizonte, el párpado superior sobre el
+       inferior, y la línea del umbral. No se sabe si el ojo se cierra o se
+       abre, si el sol sube o baja — que es justamente la definición del
+       nombre.
+
+       Sin pupila a propósito: un círculo adentro lo volvería una cámara de
+       vigilancia.
+
+       La línea SE INTERRUMPE y el arco la continúa. Si la línea pasara por
+       debajo del arco, los extremos se pisarían y la unión quedaría sucia:
+       acá el horizonte es un solo trazo continuo que se levanta.
+
+       ── CUÁNDO USAR ESTE ARCHIVO ──
+       Reproducción grande: cartelería, papelería, presentaciones, cualquier
+       uso por encima de 64 píxeles. Para tamaños chicos NO se escala este
+       archivo, se usa el corte óptico de `app/icon.svg` (apertura 55%): a
+       32% el arco sube 4 píxeles sobre una caja de 64 y el grosor del trazo
+       se lo traga, así que a 16 píxeles se lee como un bulto y no como un
+       arco. -->
+  <path d="M 4 38 L 12 38" stroke="#9aa9c2" stroke-width="3.6" stroke-linecap="round"/>
+  <path d="M 52 38 L 60 38" stroke="#9aa9c2" stroke-width="3.6" stroke-linecap="round"/>
+  <path d="M 12 38 A 34.453 34.453 0 0 1 52 38"
+        fill="none" stroke="#edc27c" stroke-width="3.6" stroke-linecap="round"/>
+</svg>

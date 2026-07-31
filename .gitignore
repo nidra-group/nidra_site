@@ -54,3 +54,7 @@ public/downloads/*.pdf
 # Las candidatas en candidatas/ SÍ se versionan: son la memoria de qué se probó.
 .palettes/
 .palette-backup.css
+
+# Taller de marca: hojas de comparación y guiones de captura. Los entregables
+# reales viven en public/brand/ y app/icon.svg; esto es material de trabajo.
+.marca/
