@@ -4,13 +4,8 @@
     {
       "name": "nidra-dev",
       "runtimeExecutable": "pnpm",
-      "runtimeArgs": [
-        "dev",
-        "--port",
-        "3210"
-      ],
-      "port": 3210,
-      "autoPort": true
+      "runtimeArgs": ["dev"],
+      "port": 3210
     }
   ]
 }

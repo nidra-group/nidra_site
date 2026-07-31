@@ -183,3 +183,87 @@ describe('cotización', () => {
     expect(enSteps.at(-1)).toMatch(/in writing/i)
   })
 })
+
+describe('lenguaje llano en la portada', () => {
+  // La portada la lee un dueño de PyME que puede no saber usar una planilla
+  // de cálculo. Si encuentra una palabra que no entiende no pregunta: asume
+  // que el servicio no es para él y cierra la pestaña.
+  //
+  // Servicios, integraciones y currículum SÍ pueden ser técnicos: ahí llega
+  // quien ya decidió mirar en serio, y bajar el nivel resta credibilidad.
+  // Por eso la regla se aplica al espacio `home` y no a todo el archivo.
+  // Jerga que no se entiende en ningún idioma.
+  const JERGA = [
+    /\bAPIs?\b/,
+    /interfaz de programación/i,
+    /\bRAG\b/,
+    /embeddings?/i,
+    /base vectorial/i,
+    /\bLLMs?\b/,
+    /modelos? de lenguaje|language models?/i,
+    /microservicios?|microservices?/i,
+    /\bpipelines?\b/i,
+    /\bstack\b/i,
+    /framework/i,
+    /onboarding/i,
+    // «el código queda a tu nombre» no le dice nada a quien no programa.
+    /\bcódigo\b|\bcode\b/i,
+  ]
+
+  // Anglicismos: son jerga en español y palabras normales en inglés.
+  const ANGLICISMOS = [/\bfeatures\b/i, /\bdeploy\b/i, /escalable/i, /despliegue/i]
+
+  const PATRONES = { es: [...JERGA, ...ANGLICISMOS], en: JERGA }
+
+  it.each([
+    ['es', es],
+    ['en', en],
+  ] as const)('la portada en %s no usa vocabulario técnico', (locale, messages) => {
+    const home = JSON.stringify((messages as { home: unknown }).home)
+    for (const pattern of PATRONES[locale]) {
+      expect(home, `la portada contiene ${pattern}`).not.toMatch(pattern)
+    }
+  })
+
+  it('los resúmenes de servicio que se muestran en la portada evitan la jerga', () => {
+    for (const service of getServices()) {
+      for (const locale of ['es', 'en'] as const) {
+        for (const pattern of PATRONES[locale]) {
+          expect(service.summary[locale], `${service.id} contiene ${pattern}`).not.toMatch(pattern)
+        }
+      }
+    }
+  })
+
+  it('ninguna oración de la portada pasa de 25 palabras', () => {
+    // Una oración larga obliga a sostener dos ideas a la vez. Quien no está
+    // cómodo con el tema abandona antes de llegar al punto.
+    const collect = (value: unknown, out: string[] = []): string[] => {
+      if (typeof value === 'string') out.push(value)
+      else if (Array.isArray(value)) value.forEach((v) => collect(v, out))
+      else if (value && typeof value === 'object')
+        Object.values(value).forEach((v) => collect(v, out))
+      return out
+    }
+
+    for (const messages of [es, en]) {
+      for (const text of collect((messages as { home: unknown }).home)) {
+        for (const sentence of text.split(/(?<=[.?])\s+/)) {
+          const words = sentence.trim().split(/\s+/).filter(Boolean)
+          expect(words.length, `oración larga: "${sentence}"`).toBeLessThanOrEqual(25)
+        }
+      }
+    }
+  })
+})
+
+describe('imagen de vista previa para redes', () => {
+  // Quien comparte el enlace en LinkedIn o WhatsApp anuncia el titular de
+  // esta imagen. Ya se desincronizó dos veces del héroe: cuando pasa, el
+  // enlace promete una cosa y la página entrega otra.
+  it('repite el titular del héroe', () => {
+    const source = readFileSync(join(process.cwd(), 'app/opengraph-image.tsx'), 'utf8')
+    const hero = es.home as { hero: { title: string; titleAccent: string } }
+    expect(source).toContain(`${hero.hero.title} ${hero.hero.titleAccent}`)
+  })
+})

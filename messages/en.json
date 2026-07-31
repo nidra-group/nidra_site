@@ -15,25 +15,25 @@
   "home": {
     "meta": {
       "title": "Nidra — Custom AI software for small businesses",
-      "description": "Software of your own, without per-seat licences. I automate the processes eating your hours, and the code ends up in your name. Two-week assessment."
+      "description": "Systems built to fit your company, with no per-person licences. I automate the tasks eating your day, and what gets built is yours."
     },
     "hero": {
       "eyebrow": "AI software agency",
-      "title": "Custom software is no longer",
-      "titleAccent": "only for large companies",
-      "lead": "The tools that would fix your operation charge per seat per month, and they are built for companies of 200 people. I build the system your company needs — only what it needs — and the code ends up in your name.",
+      "title": "A system built for your company,",
+      "titleAccent": "not for one with two hundred staff",
+      "lead": "The programs that would fix your problem charge per person per month. They ship forty features and you use six. I build only what your company needs, and what gets built is yours.",
       "primaryCta": "Book a 30-minute call",
-      "secondaryCta": "See the services"
+      "secondaryCta": "See what I can fix"
     },
     "credibility": {
       "experience": "years building software",
-      "experienceDetail": "Microservices, APIs and production applications for global clients.",
+      "experienceDetail": "Systems large companies use today, built and maintained by me.",
       "ownershipLabel": "What you keep",
-      "ownershipValue": "The code",
-      "ownershipDetail": "No per-seat licence, no lock-in, no depending on me to carry on.",
+      "ownershipValue": "The system",
+      "ownershipDetail": "No per-person licences, no lock-in, and no depending on me to keep using it.",
       "regionLabel": "Where I work",
       "regionValue": "LATAM",
-      "locationDetail": "Buenos Aires. Remote work with companies across Argentina and Latin America."
+      "locationDetail": "Buenos Aires. I work remotely with companies across Argentina and Latin America."
     },
     "pain": {
       "eyebrow": "Where this starts",
@@ -43,11 +43,11 @@
       "items": [
         {
           "title": "The same data, typed in twice",
-          "body": "From email to spreadsheet, from spreadsheet to your management system. Every hop is minutes lost and an error that surfaces at month end."
+          "body": "From email to spreadsheet, from spreadsheet to your system. Every hop is minutes, and an error that shows up at month end."
         },
         {
           "title": "Licences built for a different company",
-          "body": "Charged per seat per month, forty features shipped and six actually used. You're paying the scale of a company ten times your size."
+          "body": "Charged per person per month. Forty features shipped, six actually used. You pay the scale of a company ten times your size."
         },
         {
           "title": "Everything goes through one person",
@@ -59,16 +59,16 @@
         },
         {
           "title": "You hear «AI» all day",
-          "body": "And you don't know what's useful to you, what it costs, or where to start without overspending."
+          "body": "And nobody tells you what's useful to you, what it costs, or where to start without wasting money."
         }
       ],
-      "cost": "In a small company, repetitive admin work takes between 4 and 8 hours per person per week. You are already paying for that time in salaries."
+      "cost": "Repetitive admin work takes between 4 and 8 hours per week, per person. You already pay for that time in salaries."
     },
     "services": {
       "eyebrow": "What I do",
       "title": "Six services,",
       "titleAccent": "not a catalogue",
-      "lead": "Each one starts from a concrete problem you can point at. If what you need isn't here, I'll say so.",
+      "lead": "Each one fixes something you can point at in your company. If what you need is not here, I say so.",
       "cta": "See each service in detail",
       "cardCta": "See detail"
     },
@@ -76,23 +76,23 @@
       "eyebrow": "How I work",
       "title": "Measure first,",
       "titleAccent": "build second",
-      "lead": "The order matters. Most projects fail because building starts before anyone knows which problem it solves and what solving it is worth.",
+      "lead": "The order matters. Most projects fail because building starts before anyone knows what problem it solves.",
       "steps": [
         {
           "title": "Assessment",
-          "body": "Two or three weeks surveying real processes, with measured volumes and times. The output is a list ranked by cost and benefit, including what is better left alone."
+          "body": "Two or three weeks looking at how your company works today, with real numbers. You leave with a list of what to fix first, and what to leave alone."
         },
         {
           "title": "Definition",
-          "body": "I write down what will be built and how it will be verified before writing code. Technical decisions are documented and they are yours."
+          "body": "Before any building starts, I write down what will be done and how you will know it works. It is in writing and it is yours."
         },
         {
           "title": "Build",
-          "body": "Working increments, with automated tests from day one. You see progress every week, not a demo at the end."
+          "body": "You see something working every week, not a demo at the end. Every delivery checks itself before it reaches you."
         },
         {
           "title": "Production",
-          "body": "Deployment with quality measurement, alerts and documentation. The code and the infrastructure end up in your name."
+          "body": "It ends up genuinely running, with alerts if something breaks and a manual of how it is built. All in your name."
         }
       ]
     },
@@ -100,7 +100,7 @@
       "eyebrow": "The investment",
       "title": "This isn't measured in price.",
       "titleAccent": "It's measured in months to pay back.",
-      "lead": "Take the process that eats the most time. Count the hours it takes per week, multiply by what that hour costs in your company, and you have the monthly saving. The price of the work divided by that saving is how long it takes to pay for itself.",
+      "lead": "Think of the task that eats the most time. Count the hours it takes each week and multiply by what that hour is worth in your company. That is the monthly saving.",
       "items": [
         {
           "title": "Quoted by effort, not by your size",
@@ -108,34 +108,34 @@
         },
         {
           "title": "Only what you use gets built",
-          "body": "No modules that ship in the package and nobody opens. That is what brings the price down against an off-the-shelf product."
+          "body": "No features that ship in the package and nobody opens. That is what brings the price down against a program bought off the shelf."
         },
         {
-          "title": "The code ends up in your name",
-          "body": "No per-seat licence, no lock-in, no depending on me to carry on. What gets built is yours and another team can pick it up."
+          "title": "The system ends up in your name",
+          "body": "No per-person licences and no lock-in. If tomorrow you want someone else to carry it on, they can: it is documented and in your hands."
         },
         {
           "title": "It starts small and verifiable",
-          "body": "The assessment is a bounded piece of work with its own deliverable: you leave with a ranked list and an estimate, whether you use it with me or not."
+          "body": "The assessment is a short piece of work with its own result. You leave with the list of what is worth fixing and how long it would take."
         }
       ],
       "close": "I don't publish prices because a number means nothing without your process in front of it. Tell me what you want to solve and I'll send the quote in writing. If it doesn't add up, I'll say so and we stop there."
     },
     "technologies": {
       "eyebrow": "Technologies I work with",
-      "note": "I build on these platforms. I am not a commercial partner and I am not certified by them: this is the infrastructure I build with."
+      "note": "I work on these platforms. I am not a commercial partner and I am not certified by them: they are the tools I build with."
     },
     "founder": {
       "eyebrow": "Who's behind this",
       "title": "Nidra is new. The experience behind it is not.",
-      "lead": "I am Juan Mujica, a software engineer with {years} years of track record, now focused on bringing AI solutions to production. I work on my own: there is no team behind this, and no case studies of my own yet. What you can verify is where each of those years was spent.",
+      "lead": "I am Juan Mujica, a software engineer with {years} years of work behind me, now focused on making artificial intelligence genuinely useful inside a company. I work on my own: there is no team behind this, and no clients of my own to show yet. What you can verify is where I spent each of those years.",
       "trackRecord": "Track record",
       "ctaProfile": "See the full profile",
       "ctaLinkedin": "LinkedIn"
     },
     "closing": {
-      "title": "How many hours a week go into something a system could do on its own?",
-      "lead": "Tell me which process it is. In 30 minutes you'll know whether automating it is worth it, what it would cost and how long it takes to pay back. If it doesn't add up, I'll say so.",
+      "title": "How many hours a week go into something that could run on its own?",
+      "lead": "Tell me which task it is. In 30 minutes you'll know whether it can be fixed, what it would cost and how long it takes to pay for itself. If it isn't worth it, I'll say so.",
       "primaryCta": "Book a call",
       "secondaryCta": "Send a message"
     }

@@ -14,8 +14,8 @@
     es: Diagnóstico y hoja de ruta
     en: Assessment and roadmap
   summary:
-    es: Dos semanas para saber dónde conviene aplicar IA en tu empresa y dónde no.
-    en: Two weeks to learn where AI is worth applying in your company, and where it isn't.
+    es: Dos semanas para saber qué conviene resolver primero en tu empresa, y qué no.
+    en: Two weeks to learn what is worth fixing first in your company, and what is not.
   problem:
     es: >-
       Sabés que hay procesos que consumen horas todos los días, pero no sabés cuáles se pueden
@@ -74,8 +74,8 @@
     es: Automatización de procesos
     en: Process automation
   summary:
-    es: Conectar los sistemas que ya usás para que dejen de necesitar copiar y pegar.
-    en: Connecting the systems you already use so they stop needing copy and paste.
+    es: Que los programas que ya usás se pasen los datos solos, sin copiar y pegar.
+    en: The programs you already use pass data to each other, with no copy and paste.
   problem:
     es: >-
       Los datos viajan entre sistemas a mano: del correo a la planilla, de la planilla al sistema de
@@ -127,8 +127,8 @@
     es: Producto a medida con IA
     en: Custom product with AI
   summary:
-    es: El sistema que necesitás, sin licencia por usuario y con el código a tu nombre.
-    en: The system you need, with no per-seat licence and the code in your name.
+    es: El sistema que necesitás, sin licencias por persona y con todo a tu nombre.
+    en: The system you need, with no per-person licences and everything in your name.
   problem:
     es: >-
       Lo que necesitás no existe como producto de estantería, o existe pero cobra por usuario y no
@@ -154,8 +154,8 @@
     es: Evaluación y seguridad de IA
     en: AI evaluation and security
   summary:
-    es: Medir si tu IA responde bien y evitar que filtre lo que no debe.
-    en: Measure whether your AI answers well, and stop it leaking what it shouldn't.
+    es: Saber si tu IA responde bien y que no cuente lo que no debe.
+    en: Know whether your AI answers well, and that it doesn't say what it shouldn't.
   problem:
     es: >-
       Ya tenés algo con IA funcionando, pero nadie sabe si responde bien. "Parece que anda" no es

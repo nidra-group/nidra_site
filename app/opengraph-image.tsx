@@ -68,10 +68,10 @@ export default function OpengraphImage() {
               maxWidth: 960,
             }}
           >
-            El software a medida dejó de ser cosa de empresas grandes.
+            Un sistema hecho para tu empresa, no para una de doscientas personas.
           </span>
           <span style={{ fontSize: 29, color: '#94a5a0', marginTop: 26 }}>
-            Sistemas propios para PyMEs, sin licencias por usuario.
+            Sistemas propios para PyMEs, sin licencias por persona.
           </span>
         </div>
 

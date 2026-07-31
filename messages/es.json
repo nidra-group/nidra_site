@@ -15,25 +15,25 @@
   "home": {
     "meta": {
       "title": "Nidra — Software a medida con IA para PyMEs",
-      "description": "Software propio para PyMEs, sin licencias por usuario. Automatizo los procesos que te consumen horas y el código queda a tu nombre. Diagnóstico en dos semanas."
+      "description": "Sistemas hechos a la medida de tu empresa, sin licencias por persona. Automatizo las tareas que te comen el día y lo que se construye queda tuyo."
     },
     "hero": {
       "eyebrow": "Agencia de software con IA",
-      "title": "El software a medida dejó de ser",
-      "titleAccent": "cosa de empresas grandes",
-      "lead": "Las herramientas que resolverían tu operación cobran por usuario y por mes, y están pensadas para empresas de 200 personas. Construyo el sistema que tu empresa necesita —solo lo que necesita— y el código queda a tu nombre.",
+      "title": "Un sistema hecho para tu empresa,",
+      "titleAccent": "no para una de doscientas personas",
+      "lead": "Los programas que resolverían tu problema cobran por persona y por mes. Traen cuarenta funciones y usás seis. Construyo solo lo que tu empresa necesita, y lo que se construye queda tuyo.",
       "primaryCta": "Agendar una reunión de 30 minutos",
-      "secondaryCta": "Ver los servicios"
+      "secondaryCta": "Ver qué puedo resolver"
     },
     "credibility": {
       "experience": "años construyendo software",
-      "experienceDetail": "Microservicios, APIs y aplicaciones en producción para clientes globales.",
+      "experienceDetail": "Sistemas que hoy usan empresas grandes, construidos y mantenidos por mí.",
       "ownershipLabel": "Lo que queda tuyo",
-      "ownershipValue": "El código",
-      "ownershipDetail": "Sin licencia por usuario, sin permanencia, sin depender de mí para seguir.",
+      "ownershipValue": "El sistema",
+      "ownershipDetail": "Sin licencias por persona, sin permanencia y sin depender de mí para seguir usándolo.",
       "regionLabel": "Dónde trabajo",
       "regionValue": "LATAM",
-      "locationDetail": "Buenos Aires. Trabajo remoto con empresas de Argentina y América Latina."
+      "locationDetail": "Buenos Aires. Trabajo a distancia con empresas de Argentina y América Latina."
     },
     "pain": {
       "eyebrow": "El punto de partida",
@@ -43,11 +43,11 @@
       "items": [
         {
           "title": "Los mismos datos, cargados dos veces",
-          "body": "Del correo a la planilla, de la planilla al sistema de gestión. Cada salto son minutos y un error que aparece en el cierre de mes."
+          "body": "Del correo a la planilla, de la planilla al sistema. Cada salto son minutos, y un error que aparece en el cierre de mes."
         },
         {
           "title": "Licencias pensadas para otra empresa",
-          "body": "Cobran por usuario y por mes, traen cuarenta funciones y usás seis. Estás pagando la escala de una empresa diez veces más grande."
+          "body": "Cobran por persona y por mes. Traen cuarenta funciones y usás seis. Pagás la escala de una empresa diez veces más grande."
         },
         {
           "title": "Todo pasa por la misma persona",
@@ -59,16 +59,16 @@
         },
         {
           "title": "Escuchás «IA» todo el día",
-          "body": "Y no sabés qué te sirve a vos, cuánto cuesta, ni por dónde se empieza sin gastar de más."
+          "body": "Y nadie te explica qué te sirve a vos, cuánto sale, ni por dónde se empieza sin tirar la plata."
         }
       ],
-      "cost": "En una empresa chica, las tareas administrativas repetitivas se llevan entre 4 y 8 horas por semana por persona. Ese tiempo ya lo estás pagando en sueldos."
+      "cost": "Las tareas administrativas repetitivas se llevan entre 4 y 8 horas por semana, por persona. Ese tiempo ya lo pagás en sueldos."
     },
     "services": {
       "eyebrow": "Qué hago",
       "title": "Seis servicios,",
       "titleAccent": "no un catálogo",
-      "lead": "Cada uno arranca por un problema concreto que se puede señalar. Si lo que necesitás no está acá, te lo digo.",
+      "lead": "Cada uno resuelve algo que podés señalar con el dedo en tu empresa. Si lo que necesitás no está acá, te lo digo.",
       "cta": "Ver el detalle de cada servicio",
       "cardCta": "Ver detalle"
     },
@@ -76,23 +76,23 @@
       "eyebrow": "Cómo trabajo",
       "title": "Primero mido,",
       "titleAccent": "después construyo",
-      "lead": "El orden importa. La mayoría de los proyectos fracasan por empezar a construir antes de saber qué problema resuelven y cuánto vale resolverlo.",
+      "lead": "El orden importa. La mayoría de los proyectos fallan porque se empieza a construir antes de saber qué problema resuelven.",
       "steps": [
         {
           "title": "Diagnóstico",
-          "body": "Dos o tres semanas relevando procesos reales, con volúmenes y tiempos medidos. Sale una lista ordenada por costo y beneficio, incluido lo que conviene no automatizar."
+          "body": "Dos o tres semanas mirando cómo trabaja tu empresa hoy, con números reales. Salís con una lista de qué conviene resolver primero, y qué conviene dejar como está."
         },
         {
           "title": "Definición",
-          "body": "Escribo qué se va a construir y cómo se va a verificar antes de escribir código. Las decisiones técnicas quedan documentadas y son tuyas."
+          "body": "Antes de empezar a construir, escribo qué se va a hacer y cómo vas a saber que funciona. Queda por escrito y es tuyo."
         },
         {
           "title": "Construcción",
-          "body": "Entregas parciales que funcionan, con pruebas automatizadas desde el primer día. Ves avances cada semana, no una demo al final."
+          "body": "Ves algo funcionando cada semana, no una demostración al final. Cada entrega se revisa sola antes de llegar a tus manos."
         },
         {
           "title": "Producción",
-          "body": "Despliegue con medición de calidad, alertas y documentación. El código y la infraestructura quedan a tu nombre."
+          "body": "Queda funcionando de verdad, con avisos si algo falla y un manual de cómo está hecho. Todo a tu nombre."
         }
       ]
     },
@@ -100,7 +100,7 @@
       "eyebrow": "La inversión",
       "title": "Esto no se mide en precio.",
       "titleAccent": "Se mide en meses de repago.",
-      "lead": "Tomá el proceso que más tiempo consume. Contá las horas que se van por semana, multiplicalas por lo que cuesta esa hora en tu empresa y tenés el ahorro mensual. El precio del trabajo dividido por ese ahorro es cuánto tarda en pagarse solo.",
+      "lead": "Pensá en la tarea que más tiempo te consume. Contá las horas que se van por semana y multiplicalas por lo que vale esa hora en tu empresa. Ese es el ahorro de cada mes.",
       "items": [
         {
           "title": "Se cotiza por esfuerzo, no por tu tamaño",
@@ -108,34 +108,34 @@
         },
         {
           "title": "Se construye solo lo que usás",
-          "body": "Nada de módulos que vienen en el paquete y nadie abre. Eso es lo que baja el precio frente a un producto de estantería."
+          "body": "Nada de funciones que vienen en el paquete y nadie abre. Eso es lo que baja el precio frente a un programa de los que se compran hechos."
         },
         {
-          "title": "El código queda a tu nombre",
-          "body": "Sin licencia por usuario, sin permanencia y sin depender de mí para seguir. Lo que se construye es tuyo y otro equipo puede continuarlo."
+          "title": "El sistema queda a tu nombre",
+          "body": "Sin licencias por persona y sin permanencia. Si mañana querés que lo continúe otra persona, puede: queda documentado y en tu poder."
         },
         {
           "title": "Empieza chico y comprobable",
-          "body": "El diagnóstico es un trabajo acotado con entregable propio: salís con una lista priorizada y una estimación, la uses conmigo o no."
+          "body": "El diagnóstico es un trabajo corto y con resultado propio. Salís con la lista de qué conviene resolver y cuánto llevaría, lo hagas conmigo o no."
         }
       ],
       "close": "No publico precios porque el número sin tu proceso adelante no significa nada. Contame qué querés resolver y te paso la cotización por escrito. Si no da, te lo digo ahí y no seguimos."
     },
     "technologies": {
       "eyebrow": "Tecnologías con las que trabajo",
-      "note": "Trabajo sobre estas plataformas. No soy socio comercial ni estoy certificado por ellas: es la infraestructura que uso para construir."
+      "note": "Trabajo sobre estas plataformas. No soy socio comercial ni estoy certificado por ellas: son las herramientas con las que construyo."
     },
     "founder": {
       "eyebrow": "Quién está detrás",
       "title": "Nidra es nueva. La experiencia que la sostiene, no.",
-      "lead": "Soy Juan Mujica, ingeniero de software con {years} años de trayectoria, hoy enfocado en llevar soluciones de IA a producción. Trabajo solo: no hay un equipo detrás, ni casos propios que mostrar todavía. Lo que sí podés verificar es dónde estuvo cada uno de esos años.",
+      "lead": "Soy Juan Mujica, ingeniero de software con {years} años de trabajo, hoy dedicado a que la inteligencia artificial sirva de verdad dentro de una empresa. Trabajo solo: no hay un equipo detrás, ni clientes propios que mostrar todavía. Lo que sí podés verificar es dónde estuve cada uno de esos años.",
       "trackRecord": "Trayectoria",
       "ctaProfile": "Ver el perfil completo",
       "ctaLinkedin": "LinkedIn"
     },
     "closing": {
-      "title": "¿Cuántas horas por semana se van en algo que un sistema podría hacer solo?",
-      "lead": "Contame cuál es el proceso. En 30 minutos sabés si conviene automatizarlo, cuánto costaría y en cuánto se paga. Si no da, te lo digo ahí.",
+      "title": "¿Cuántas horas por semana se te van en algo que podría hacerse solo?",
+      "lead": "Contame cuál es la tarea. En 30 minutos sabés si se puede resolver, cuánto saldría y en cuánto tiempo se paga sola. Si no te conviene, te lo digo ahí.",
       "primaryCta": "Agendar una reunión",
       "secondaryCta": "Escribir un mensaje"
     }
