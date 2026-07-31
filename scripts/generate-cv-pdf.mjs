@@ -6,9 +6,13 @@
  * resultado de imprimir la página. Si la vista se ve bien, el PDF es correcto
  * por definición.
  *
- * Corre ANTES de `next build`, porque el selector de descargas se construye
- * comprobando qué archivos existen en `public/downloads/`. Levanta un servidor
- * de desarrollo efímero, imprime y lo apaga.
+ * Corre DESPUÉS de `next build`, contra el servidor de producción: `next dev`
+ * se demoniza en Next 16 y no sirve para un script que necesita esperar a que
+ * el servidor esté listo y después apagarlo.
+ *
+ * Por eso la página `/cv` se renderiza por petición: el selector comprueba qué
+ * archivos existen en `public/downloads/`, y en un render estático esa
+ * comprobación ocurriría antes de que los documentos existan.
  *
  * Si algo falla, se avisa y se sigue: el sitio se publica con la versión web
  * imprimible, que siempre funciona. Un build roto por no poder generar un PDF
@@ -61,9 +65,9 @@ for (const file of existsSync(OUT_DIR) ? readdirSync(OUT_DIR) : []) {
   if (file.endsWith('.pdf')) rmSync(join(OUT_DIR, file))
 }
 
-const server = spawn('pnpm', ['exec', 'next', 'dev', '--port', PORT], {
+const server = spawn('pnpm', ['exec', 'next', 'start', '--port', PORT], {
   stdio: 'ignore',
-  env: { ...process.env, NODE_ENV: 'development' },
+  env: { ...process.env },
 })
 
 let ok = false

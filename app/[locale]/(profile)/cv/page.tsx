@@ -17,6 +17,19 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
 }
 
+/**
+ * Renderizado por petición, y la desviación está justificada.
+ *
+ * El selector de descargas se construye comprobando qué documentos existen en
+ * `public/downloads/` (FR-040: no ofrecer una combinación que descargaría un
+ * 404). Esos documentos se generan después del build, así que en un render
+ * estático la comprobación ocurriría cuando todavía no existen y el selector
+ * quedaría vacío para siempre.
+ *
+ * Es una página de baja circulación y sin datos por usuario: el costo es nulo.
+ */
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'cv.meta' })
