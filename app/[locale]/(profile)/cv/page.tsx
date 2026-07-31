@@ -9,7 +9,7 @@ import { getProfile } from '@/lib/content'
 import { getCvVersion } from '@/lib/cv/version'
 import { listAvailableDownloads } from '@/lib/cv/downloads'
 import { buildMetadata } from '@/lib/seo/metadata'
-import { publicEnv, profileBaseUrl } from '@/lib/env'
+import { profileBaseUrl } from '@/lib/env'
 
 type Props = { params: Promise<{ locale: Locale }> }
 

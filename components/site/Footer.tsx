@@ -1,9 +1,8 @@
 import { useTranslations } from 'next-intl'
 
 import { Link } from '@/i18n/navigation'
+import { CONTACT_EMAIL } from '@/lib/contact'
 import { Wordmark } from './Wordmark'
-
-const CONTACT_EMAIL = 'hola@nidra.cloud'
 
 export function Footer() {
   const t = useTranslations('footer')

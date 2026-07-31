@@ -3,6 +3,7 @@
 import { headers } from 'next/headers'
 import { Resend } from 'resend'
 
+import { SENDER_EMAIL } from '@/lib/contact'
 import { getEmailConfig } from '@/lib/env'
 import {
   InquirySchema,
@@ -68,7 +69,7 @@ async function deliver(inquiry: Inquiry): Promise<boolean> {
     try {
       const { error } = await resend.emails.send(
         {
-          from: 'Nidra <consultas@nidra.cloud>',
+          from: `Nidra <${SENDER_EMAIL}>`,
           to: config.inbox,
           replyTo: inquiry.email,
           subject: `[Nidra] Consulta — ${inquiry.service} — ${inquiry.name}`,

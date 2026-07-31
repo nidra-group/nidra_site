@@ -1,3 +1,4 @@
+import { CONTACT_EMAIL } from '@/lib/contact'
 import { publicEnv } from '@/lib/env'
 
 export function OrganizationJsonLd() {
@@ -8,7 +9,7 @@ export function OrganizationJsonLd() {
     url: publicEnv.SITE_URL,
     description:
       'Agencia de desarrollo de software con inteligencia artificial para pequeñas y medianas empresas.',
-    email: 'hola@nidra.cloud',
+    email: CONTACT_EMAIL,
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Buenos Aires',

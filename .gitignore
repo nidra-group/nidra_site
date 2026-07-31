@@ -48,3 +48,4 @@ public/downloads/*.pdf
 .claude/settings.local.json
 .claude/*.local.json
 .shots/
+.shots*/

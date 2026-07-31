@@ -18,9 +18,8 @@
  * imprimible, que siempre funciona. Un build roto por no poder generar un PDF
  * sería peor que un formato menos.
  */
-import { spawn } from 'node:child_process'
-import { execFileSync } from 'node:child_process'
-import { mkdirSync, rmSync, readdirSync, existsSync } from 'node:fs'
+import { spawn, execFileSync } from 'node:child_process'
+import { mkdirSync, rmSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 
 import { chromium } from 'playwright'

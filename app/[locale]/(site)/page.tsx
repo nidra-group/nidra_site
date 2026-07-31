@@ -30,9 +30,12 @@ export default async function HomePage({ params }: Props) {
   setRequestLocale(locale)
 
   const t = await getTranslations('home')
+  const present = (await getTranslations('cv'))('present')
   const services = getServices()
   const technologies = getTechnologies()
-  const years = getYearsOfExperience(getProfile())
+  const profile = getProfile()
+  const years = getYearsOfExperience(profile)
+  const linkedin = profile.person.links.find((link) => link.type === 'linkedin')
 
   const steps = t.raw('process.steps') as { title: string; body: string }[]
 
@@ -187,6 +190,66 @@ export default async function HomePage({ params }: Props) {
         <p className="measure mt-6 text-[0.8125rem] leading-relaxed text-muted">
           {t('technologies.note')}
         </p>
+      </section>
+
+      {/* ── Quién está detrás ──────────────────────────────────────────────
+          Una agencia recién fundada no tiene reseñas ni casos propios, y
+          fabricarlos es exactamente lo que hace que un sitio deje de merecer
+          confianza. Lo único verificable que hay es la trayectoria del
+          fundador, así que se muestra tal cual: puestos, organizaciones y
+          fechas, derivados del mismo YAML que produce el currículum y los PDF.
+          Si un dato cambia ahí, cambia acá. No hay una segunda copia que
+          mantener ni que se pueda maquillar por separado. */}
+      <section className="border-t border-line bg-surface/50">
+        <div className="mx-auto max-w-6xl px-5 py-(--spacing-section) sm:px-8">
+          <div className="md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)] md:gap-x-16">
+            <div>
+              <p className="eyebrow">{t('founder.eyebrow')}</p>
+              <h2 className="mt-4 max-w-[17ch] font-display text-[clamp(2rem,4.5vw,2.75rem)] leading-[1.08] tracking-[-0.02em]">
+                {t('founder.title')}
+              </h2>
+              <p className="measure mt-6 text-body text-muted">
+                {t('founder.lead', { years })}
+              </p>
+              <p className="mt-7 flex flex-wrap items-center gap-x-7 gap-y-3">
+                <Link href="/cv" className="link text-small">
+                  {t('founder.ctaProfile')} →
+                </Link>
+                {linkedin && (
+                  <a
+                    href={linkedin.url}
+                    rel="noopener"
+                    target="_blank"
+                    className="link text-small"
+                  >
+                    {t('founder.ctaLinkedin')} ↗
+                  </a>
+                )}
+              </p>
+            </div>
+
+            <div className="mt-12 md:mt-1.5">
+              <p className="eyebrow">{t('founder.trackRecord')}</p>
+              <ul className="mt-5 border-t border-line">
+                {profile.experiences.slice(0, 4).map((exp) => (
+                  <li
+                    key={exp.id}
+                    className="flex items-baseline justify-between gap-5 border-b border-line py-3.5"
+                  >
+                    <span className="text-small">
+                      <span className="text-ink">{exp.org}</span>
+                      {exp.client && <span className="text-muted"> · {exp.client}</span>}
+                      <span className="block text-muted">{exp.role[locale]}</span>
+                    </span>
+                    <span className="shrink-0 text-small tabular-nums text-muted">
+                      {`${exp.start.slice(0, 4)} – ${exp.end ? exp.end.slice(0, 4) : present}`}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* ── Cierre ─────────────────────────────────────────────────────────*/}

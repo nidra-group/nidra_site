@@ -4,12 +4,14 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { InquiryForm } from '@/components/site/InquiryForm'
 import { routing, type Locale } from '@/i18n/routing'
 import { buildMetadata } from '@/lib/seo/metadata'
+import { CONTACT_EMAIL } from '@/lib/contact'
 import { bookingUrl } from '@/lib/env'
-import { issueTimestamp } from '@/lib/validation/inquiry'
+import { issueTimestamp, SERVICE_OPTIONS } from '@/lib/validation/inquiry'
 
-const CONTACT_EMAIL = 'hola@nidra.cloud'
-
-type Props = { params: Promise<{ locale: Locale }> }
+type Props = {
+  params: Promise<{ locale: Locale }>
+  searchParams: Promise<Record<string, string | string[] | undefined>>
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
@@ -42,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   })
 }
 
-export default async function ContactPage({ params }: Props) {
+export default async function ContactPage({ params, searchParams }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
 
@@ -51,6 +53,17 @@ export default async function ContactPage({ params }: Props) {
   // La marca temporal se emite al renderizar el formulario: el servidor
   // rechaza envíos con menos de 3 segundos de antigüedad (FR-016).
   const timestamp = issueTimestamp()
+
+  // El servicio preseleccionado llega desde la página de servicios. Se resuelve
+  // en el servidor —esta página ya es dinámica por la marca temporal— para que
+  // el desplegable llegue relleno también sin JavaScript. Se valida contra el
+  // catálogo: un parámetro inventado se descarta en silencio en vez de dejar el
+  // desplegable en un estado que no corresponde a ninguna opción.
+  const requested = (await searchParams).servicio
+  const initialService =
+    typeof requested === 'string' && (SERVICE_OPTIONS as readonly string[]).includes(requested)
+      ? requested
+      : ''
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
@@ -117,7 +130,7 @@ export default async function ContactPage({ params }: Props) {
           <h2 className="text-heading text-ink">{t('form.title')}</h2>
           <p className="measure-tight mt-3 text-body text-muted">{t('form.body')}</p>
           <div className="mt-8">
-            <InquiryForm timestamp={timestamp} />
+            <InquiryForm timestamp={timestamp} initialService={initialService} />
           </div>
         </section>
       </div>

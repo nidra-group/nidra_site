@@ -30,7 +30,7 @@
       "focus": "Enfoque",
       "focusDetail": "IA aplicada a procesos concretos, con evaluación de calidad automatizada.",
       "location": "Buenos Aires, Argentina",
-      "locationDetail": "Trabajo remoto con empresas de habla hispana e inglesa."
+      "locationDetail": "Trabajo remoto con empresas de Argentina y América Latina, en tu huso horario."
     },
     "services": {
       "eyebrow": "Qué hacemos",
@@ -64,6 +64,14 @@
     "technologies": {
       "eyebrow": "Tecnologías con las que trabajamos",
       "note": "Trabajamos sobre estas plataformas. No somos socios comerciales ni estamos certificados por ellas: es la infraestructura que usamos para construir."
+    },
+    "founder": {
+      "eyebrow": "Quién está detrás",
+      "title": "Nidra es nueva. La experiencia que la sostiene, no.",
+      "lead": "La dirige Juan Mujica, ingeniero de software con {years} años de trayectoria, hoy enfocado en llevar soluciones de IA a producción. Todavía no tenemos casos propios que mostrar: lo que sí podés verificar es dónde estuvo cada uno de esos años.",
+      "trackRecord": "Trayectoria",
+      "ctaProfile": "Ver el perfil completo",
+      "ctaLinkedin": "LinkedIn"
     },
     "closing": {
       "title": "¿Tenés un proceso que consume horas todas las semanas?",
@@ -218,14 +226,14 @@
         {
           "title": "Tus derechos",
           "body": [
-            "Podés pedirnos acceso a los datos que tengamos sobre vos, su rectificación o su supresión. Escribinos a hola@nidra.cloud y respondemos dentro de los plazos que fija la normativa aplicable.",
+            "Podés pedirnos acceso a los datos que tengamos sobre vos, su rectificación o su supresión. Escribinos a jmujica@nidra.cloud y respondemos dentro de los plazos que fija la normativa aplicable.",
             "En Argentina, la autoridad de control en materia de datos personales es la Agencia de Acceso a la Información Pública."
           ]
         },
         {
           "title": "Responsable",
           "body": [
-            "Nidra, Buenos Aires, Argentina. Contacto: hola@nidra.cloud"
+            "Nidra, Buenos Aires, Argentina. Contacto: jmujica@nidra.cloud"
           ]
         }
       ]

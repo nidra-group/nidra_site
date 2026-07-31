@@ -7,8 +7,7 @@ import { submitInquiry, type InquiryResult } from '@/actions/submit-inquiry'
 import { SERVICE_OPTIONS } from '@/lib/validation/inquiry'
 import { Button } from '@/components/ui/Button'
 import { Link } from '@/i18n/navigation'
-
-const CONTACT_EMAIL = 'hola@nidra.cloud'
+import { CONTACT_EMAIL } from '@/lib/contact'
 
 /**
  * Formulario de consulta con mejora progresiva.
@@ -17,26 +16,42 @@ const CONTACT_EMAIL = 'hola@nidra.cloud'
  * no ejecuta JavaScript, y sin recarga cuando sí lo hace. Es el mismo camino de
  * código, no dos implementaciones (FR-050, SC-016).
  */
-export function InquiryForm({ timestamp }: { timestamp: string }) {
+export function InquiryForm({
+  timestamp,
+  initialService = '',
+}: {
+  timestamp: string
+  initialService?: string
+}) {
   const t = useTranslations('contact.form')
   const services = useTranslations('services')
   const locale = useLocale()
   const id = useId()
-  const [service, setService] = useState('')
-
-  // El servicio preseleccionado llega por parámetro de consulta desde la página
-  // de servicios. Se lee en el cliente y no con `searchParams` en el servidor,
-  // porque eso convertiría la página en dinámica y rompería el renderizado
-  // estático que exige la constitución. Sin JavaScript, el desplegable
-  // simplemente arranca vacío: el formulario sigue siendo usable.
-  useEffect(() => {
-    const value = new URLSearchParams(window.location.search).get('servicio')
-    if (value) setService(value)
-  }, [])
 
   const [state, formAction, pending] = useActionState<InquiryResult, FormData>(submitInquiry, {
     status: 'idle',
   })
+
+  // El desplegable necesita volver a montarse después de cada envío.
+  //
+  // Al terminar la acción, React 19 reinicia el formulario. Los campos de texto
+  // vuelven a su `defaultValue` actualizado y conservan lo escrito, pero un
+  // `<select>` vuelve al `selected` que venía en el HTML original. Controlarlo
+  // tampoco alcanza: si el estado de React no cambió, React no reescribe el
+  // nodo y el desplegable termina MOSTRANDO una cosa y ENVIANDO otra, que es el
+  // peor fallo posible en un formulario.
+  //
+  // Cambiar la `key` en cada resultado lo reconstruye con la opción correcta ya
+  // marcada, y así el DOM sigue siendo la única fuente de verdad: lo que se ve
+  // es siempre lo que se envía. Se ajusta durante el renderizado —el patrón que
+  // documenta React para reaccionar a un cambio de prop— y no en un efecto, que
+  // provocaría un renderizado en cascada.
+  const [attempt, setAttempt] = useState(0)
+  const [lastState, setLastState] = useState(state)
+  if (state !== lastState) {
+    setLastState(state)
+    setAttempt((n) => n + 1)
+  }
 
   const formRef = useRef<HTMLFormElement>(null)
 
@@ -48,15 +63,6 @@ export function InquiryForm({ timestamp }: { timestamp: string }) {
     if (!first) return
     const field = formRef.current?.querySelector<HTMLElement>(`[name="${first}"]`)
     field?.focus()
-  }, [state])
-
-  // Un envío fallido devuelve los valores para no hacer reescribir el
-  // formulario. El desplegable es el único campo controlado, así que hay que
-  // sincronizarlo a mano; si no, muestra una cosa y envía otra.
-  useEffect(() => {
-    if (state.status === 'invalid' || state.status === 'failed') {
-      setService(state.values.service ?? '')
-    }
   }, [state])
 
   if (state.status === 'success') {
@@ -156,11 +162,11 @@ export function InquiryForm({ timestamp }: { timestamp: string }) {
           {t('service')} *
         </label>
         <select
+          key={attempt}
           id={`${id}-service`}
           name="service"
           required
-          value={service}
-          onChange={(event) => setService(event.target.value)}
+          defaultValue={values.service ?? initialService}
           aria-invalid={fieldError('service') ? true : undefined}
           aria-describedby={fieldError('service') ? `${id}-service-error` : undefined}
           className="mt-2 min-h-[3rem] w-full border border-line bg-paper px-3.5 py-3 text-body text-ink"

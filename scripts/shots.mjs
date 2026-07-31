@@ -1,7 +1,7 @@
 import { chromium } from 'playwright'
 import { mkdirSync } from 'node:fs'
 
-const BASE = process.env.BASE_URL ?? 'http://localhost:61033'
+const BASE = process.env.BASE_URL ?? 'http://localhost:3210'
 const OUT = process.env.OUT_DIR ?? '.shots'
 
 const TARGETS = [

@@ -30,7 +30,7 @@
       "focus": "Focus",
       "focusDetail": "AI applied to concrete processes, with automated quality evaluation.",
       "location": "Buenos Aires, Argentina",
-      "locationDetail": "Remote work with Spanish- and English-speaking companies."
+      "locationDetail": "Remote work with companies in Argentina and Latin America, in your time zone."
     },
     "services": {
       "eyebrow": "What we do",
@@ -64,6 +64,14 @@
     "technologies": {
       "eyebrow": "Technologies we work with",
       "note": "We build on these platforms. We are not commercial partners and we are not certified by them: this is the infrastructure we use to build."
+    },
+    "founder": {
+      "eyebrow": "Who is behind this",
+      "title": "Nidra is new. The experience behind it isn't.",
+      "lead": "It is led by Juan Mujica, a software engineer with {years} years of track record, now focused on bringing AI solutions to production. We have no case studies of our own yet: what you can verify is where each of those years was spent.",
+      "trackRecord": "Track record",
+      "ctaProfile": "See the full profile",
+      "ctaLinkedin": "LinkedIn"
     },
     "closing": {
       "title": "Got a process that eats hours every week?",
@@ -218,14 +226,14 @@
         {
           "title": "Your rights",
           "body": [
-            "You can ask us for access to the data we hold about you, its correction or its deletion. Write to hola@nidra.cloud and we'll respond within the timeframes set by applicable law.",
+            "You can ask us for access to the data we hold about you, its correction or its deletion. Write to jmujica@nidra.cloud and we'll respond within the timeframes set by applicable law.",
             "In Argentina, the supervisory authority for personal data is the Agencia de Acceso a la Información Pública."
           ]
         },
         {
           "title": "Controller",
           "body": [
-            "Nidra, Buenos Aires, Argentina. Contact: hola@nidra.cloud"
+            "Nidra, Buenos Aires, Argentina. Contact: jmujica@nidra.cloud"
           ]
         }
       ]

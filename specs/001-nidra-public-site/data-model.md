@@ -170,7 +170,7 @@ person:
   name: Juan Mujica
   headline: { es: "Ingeniero de IA / GenAI", en: "AI / GenAI Engineer" }
   location: { es: "Buenos Aires, Argentina · Remoto", en: "Buenos Aires, Argentina · Remote" }
-  email: mujica.juancarlos@gmail.com
+  email: jmujica@nidra.cloud
   links:
     - { type: linkedin, url: "https://www.linkedin.com/in/-jmujica" }
 

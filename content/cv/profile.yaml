@@ -18,7 +18,7 @@ person:
   location:
     es: Buenos Aires, Argentina · Remoto
     en: Buenos Aires, Argentina · Remote
-  email: mujica.juancarlos@gmail.com
+  email: jmujica@nidra.cloud
   phone: '+54 9 11 3216 5480'
   links:
     - type: linkedin
@@ -42,11 +42,11 @@ summary:
 
 experiences:
   - id: freelance-ai
-    org: Independiente
+    org: Freelance
     start: 2025-08
     role:
-      es: Ingeniero de IA — Freelance
-      en: AI Engineer — Freelance
+      es: Ingeniero de IA
+      en: AI Engineer
     achievements:
       - es: >-
           Diseñé y construí Umbral, una aplicación móvil para iOS y Android con motor de

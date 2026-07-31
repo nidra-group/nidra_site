@@ -23,20 +23,26 @@ pnpm dev
 
 | URL | Qué es |
 |---|---|
-| `localhost:3000` | Redirige según el idioma del navegador |
-| `localhost:3000/es` · `/en` | Sitio comercial |
-| `localhost:3000/es/cv` | Espacio profesional del fundador |
-| `profile.localhost:3000` | Simula el subdominio del perfil |
+| `localhost:3210` | Redirige según el idioma del navegador |
+| `localhost:3210/es` · `/en` | Sitio comercial |
+| `localhost:3210/es/cv` | Espacio profesional del fundador |
+| `profile.localhost:3210` | Simula el subdominio del perfil |
 
 ## Comandos
 
 ```bash
-pnpm dev          # desarrollo
+pnpm dev          # desarrollo (puerto 3210)
 pnpm build        # build + genera los PDF del currículum
 pnpm test         # pruebas unitarias
+pnpm test:e2e     # formulario en un navegador real, con y sin JavaScript
 pnpm typecheck    # tipos
+pnpm lint         # eslint
 pnpm generate:cv  # regenera solo los PDF del currículum
 ```
+
+El puerto 3210 no es el de Next por defecto: el 3000 está reservado para otra aplicación en la
+máquina de desarrollo. Está fijado en `package.json`, en
+[`playwright.config.ts`](playwright.config.ts) y en `.claude/launch.json`.
 
 ## Cambiar la paleta de colores
 
@@ -61,6 +67,7 @@ Ningún cambio de texto requiere tocar código de presentación.
 | Catálogo de integraciones | [`content/integrations.yaml`](content/integrations.yaml) |
 | Tecnologías de la portada | [`content/technologies.yaml`](content/technologies.yaml) |
 | Currículum del fundador | [`content/cv/profile.yaml`](content/cv/profile.yaml) |
+| Dirección de contacto | [`lib/contact.ts`](lib/contact.ts) |
 | Cualquier otro texto | `messages/es.json` y `messages/en.json` |
 
 Los archivos de contenido se validan al construir: si falta una traducción, si hay dos puestos
@@ -120,5 +127,5 @@ Los escenarios de validación están en
 Para capturas en varios anchos:
 
 ```bash
-BASE_URL=http://localhost:3000 node scripts/shots.mjs
+BASE_URL=http://localhost:3210 node scripts/shots.mjs
 ```
