@@ -1,0 +1,46 @@
+# Dependencias
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/versions
+
+# Build
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# Entorno y secretos
+.env
+.env.*
+!.env.example
+
+# Testing y cobertura
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+
+# Cachés de herramientas
+.turbo/
+.eslintcache
+.cache/
+.vercel/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editores
+.idea/
+*.swp
+
+# Configuración local de Claude Code (puede contener credenciales)
+.claude/settings.local.json
+.claude/*.local.json
