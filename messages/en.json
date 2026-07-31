@@ -19,9 +19,9 @@
     },
     "hero": {
       "eyebrow": "AI software agency",
-      "title": "A system built for your company,",
-      "titleAccent": "not for one with two hundred staff",
-      "lead": "The programs that would fix your problem charge per person per month. They ship forty features and you use six. I build only what your company needs, and what gets built is yours.",
+      "title": "The hours you lose every week",
+      "titleAccent": "have a fix",
+      "lead": "Typing the same data twice. Hunting for the file only one person can find. Closing the month by hand. I build the system that does all of it on its own, made to fit your company, with no per-person licences.",
       "primaryCta": "Book a 30-minute call",
       "secondaryCta": "See what I can fix"
     },

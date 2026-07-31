@@ -1,0 +1,15 @@
+{
+  "nombre": "bandhuka",
+  "paper": "#0F0A0B",
+  "surface": "#191113",
+  "ink": "#F6EBE7",
+  "muted": "#B6A2A0",
+  "accent": "#FF6B4A",
+  "accent-deep": "#EE5334",
+  "critical": "#FF93B4",
+  "line": "#26191C",
+  "line-strong": "#736F7D",
+  "aurora-a": "#5E180E",
+  "aurora-b": "#1E2A5E",
+  "aurora-c": "#402457"
+}

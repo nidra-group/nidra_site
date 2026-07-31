@@ -26,7 +26,7 @@ export default function OpengraphImage() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          backgroundColor: '#070b0d',
+          backgroundColor: '#0a1322',
           padding: '80px',
           fontFamily: 'system-ui, sans-serif',
         }}
@@ -36,7 +36,7 @@ export default function OpengraphImage() {
             style={{
               fontSize: 44,
               fontWeight: 700,
-              color: '#eef4f1',
+              color: '#f4efe6',
               letterSpacing: '-0.02em',
             }}
           >
@@ -47,7 +47,7 @@ export default function OpengraphImage() {
               width: 11,
               height: 11,
               borderRadius: 11,
-              backgroundColor: '#2fe0b0',
+              backgroundColor: '#edc27c',
               marginLeft: 7,
               marginTop: 20,
             }}
@@ -63,21 +63,21 @@ export default function OpengraphImage() {
               fontSize: 68,
               fontWeight: 700,
               lineHeight: 1.06,
-              color: '#eef4f1',
+              color: '#f4efe6',
               letterSpacing: '-0.03em',
               maxWidth: 960,
             }}
           >
-            Un sistema hecho para tu empresa, no para una de doscientas personas.
+            Las horas que perdés todas las semanas tienen solución
           </span>
-          <span style={{ fontSize: 29, color: '#94a5a0', marginTop: 26 }}>
-            Sistemas propios para PyMEs, sin licencias por persona.
+          <span style={{ fontSize: 29, color: '#9aa9c2', marginTop: 26 }}>
+            Sistemas hechos a la medida de tu empresa, sin licencias por persona.
           </span>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <div style={{ width: 64, height: 3, backgroundColor: '#2fe0b0' }} />
-          <span style={{ fontSize: 24, color: '#94a5a0', marginLeft: 20 }}>nidra.cloud</span>
+          <div style={{ width: 64, height: 3, backgroundColor: '#edc27c' }} />
+          <span style={{ fontSize: 24, color: '#9aa9c2', marginLeft: 20 }}>nidra.cloud</span>
         </div>
       </div>
     ),

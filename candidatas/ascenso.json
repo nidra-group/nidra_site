@@ -1,0 +1,15 @@
+{
+  "nombre": "ascenso",
+  "paper": "#0A0C18",
+  "surface": "#141830",
+  "ink": "#E8E6F5",
+  "muted": "#A3A6C8",
+  "accent": "#5FD9A8",
+  "accent-deep": "#3CC08D",
+  "critical": "#FF9AA5",
+  "line": "#262B4A",
+  "line-strong": "#5F67A0",
+  "aurora-a": "#1E6F58",
+  "aurora-b": "#2A4E9B",
+  "aurora-c": "#5B3A9E"
+}

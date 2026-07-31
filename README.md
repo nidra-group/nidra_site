@@ -54,6 +54,36 @@ El sitio es **oscuro por defecto**: `--brand-paper` es el fondo de noche y `--br
 claro. Los nombres conservan su rol semántico (papel = fondo, tinta = texto), así que una paleta
 clara se instala invirtiendo esos dos valores.
 
+### «El umbral»
+
+Nidra es sánscrito: en el yoga nidra nombra el sueño consciente, la frontera exacta entre la vigilia
+y el sueño. La paleta es esa frontera a una hora concreta — las 05:40 en Buenos Aires, cuando el
+cenit todavía no soltó la noche, el horizonte ya está encendido y el alumbrado de sodio sigue
+prendido.
+
+Dos decisiones la sostienen: el fondo **tiene tono** (índigo azul, no negro neutro) y el acento es
+**cálido y desaturado** (oro pálido de crepúsculo civil, no ámbar ni neón). Frío y cálido en la misma
+pantalla es lo que evita que la marca parezca un spa o un laboratorio.
+
+Las tres auroras reproducen el cielo en secuencia vertical: el cenit que se retira, la franja
+verde-cian del crepúsculo y el cinturón de Venus. La del medio es la clave — existe de verdad en el
+crepúsculo civil, y las paletas de «amanecer» inventadas siempre la saltean.
+
+**Disciplina obligatoria:** el oro aparece poco y solo en lo funcional —un botón primario por
+sección, enlaces, un dato destacado—. Nunca como fondo de bloque grande, nunca en tipografía fina,
+nunca oro sobre oro. Oro sobre azul marino es también el uniforme del lujo aspiracional, y un dueño
+de PyME que ve demasiado oro lee «esto es caro, no es para mí» antes de leer una palabra.
+
+### Probar una paleta candidata
+
+```bash
+node scripts/try-palette.mjs candidatas/umbral.json
+```
+
+Calcula los once contrastes, **se niega a instalarla si alguno falla** y fotografía la portada real
+con ella en `.palettes/`. `--restore` deja el CSS como estaba. Las candidatas descartadas se
+conservan en `candidatas/`: son la memoria de qué se probó y por qué.
+
 Dos tokens de borde y no uno, a propósito: `--brand-line` es para separadores decorativos y
 `--brand-line-strong` para **bordes de control** —campos de formulario y botones secundarios—, donde
 el borde es lo único que delimita el elemento y WCAG 1.4.11 exige 3:1. Usar el token decorativo en

@@ -1,0 +1,15 @@
+{
+  "nombre": "umbral",
+  "paper": "#0A1322",
+  "surface": "#141E32",
+  "ink": "#F4EFE6",
+  "muted": "#9AA9C2",
+  "accent": "#EDC27C",
+  "accent-deep": "#D3A052",
+  "critical": "#FF8A79",
+  "line": "#1F2B45",
+  "line-strong": "#5F708D",
+  "aurora-a": "#2A3D86",
+  "aurora-b": "#1C7C74",
+  "aurora-c": "#B85C63"
+}

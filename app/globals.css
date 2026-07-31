@@ -12,6 +12,32 @@
    (papel = fondo, tinta = texto) para que una paleta clara se pueda instalar
    invirtiendo solo estos dos valores.
 
+   ── LA PALETA: «EL UMBRAL» ──────────────────────────────────────────────
+
+   Nidra es sánscrito. En el yoga nidra nombra el sueño consciente: la
+   frontera exacta entre la vigilia y el sueño. La paleta es esa frontera,
+   pero a una hora concreta y no a una idea vaga: las 05:40 en Buenos Aires,
+   cuando el cenit todavía no soltó la noche, el horizonte ya está encendido
+   en una franja de paja dorada y el alumbrado de sodio sigue prendido.
+
+   De ahí salen las dos decisiones que sostienen todo:
+
+   1. El fondo TIENE TONO. Es índigo azul, no negro neutro. El casi-negro
+      con acento neón es el uniforme de las webs de IA; un fondo con tono
+      ya se despega en el primer scroll.
+   2. El acento es CÁLIDO Y DESATURADO, no neón. Oro pálido de crepúsculo
+      civil, no ámbar ni naranja de atardecer: el naranja saturado aparece
+      recién con el sol sobre la línea del horizonte. Frío y cálido en la
+      misma pantalla es lo que evita que la marca parezca un spa (todo
+      cálido pastel) o un laboratorio (todo frío neón).
+
+   DISCIPLINA OBLIGATORIA: el oro aparece POCO y solo en lo funcional —un
+   botón primario por sección, enlaces, un dato destacado—. Nunca como fondo
+   de bloque grande, nunca en tipografía fina, nunca oro sobre oro. Oro
+   sobre azul marino es también el uniforme del lujo aspiracional (whisky,
+   banca privada, hotelería), y un dueño de PyME que ve demasiado oro lee
+   «esto es caro, no es para mí» antes de leer una palabra.
+
    Reglas al reemplazar (las verifica tests/unit/palette.test.ts — una
    paleta que las incumpla rompe el build):
    - `--brand-ink` sobre `--brand-paper` y sobre `--brand-surface` >= 7:1
@@ -27,22 +53,27 @@
      `--brand-line` da 1.31:1 y sirve para separadores, nunca para controles)
    ========================================================================== */
 :root {
-  --brand-paper: #070b0d; /* fondo: noche fría, casi negro */
-  --brand-surface: #111a1d; /* tarjetas y bloques elevados */
-  --brand-ink: #eef4f1; /* texto principal */
-  --brand-muted: #94a5a0; /* texto secundario */
-  --brand-accent: #2fe0b0; /* acento: enlaces, botones, datos */
-  --brand-accent-deep: #68f0ca; /* estado activo del acento (más claro sobre fondo oscuro) */
-  --brand-critical: #ff8c72; /* texto de error */
-  --brand-line: #1e282c; /* separadores decorativos: reglas y bordes de tarjeta */
-  --brand-line-strong: #546a6e; /* bordes de CONTROL: campos y botones (3.45:1 sobre papel, 3.08 sobre tarjeta) */
+  --brand-paper: #0a1322; /* cenit 05:40 — índigo azul; el negro neutro es la noche cerrada, el umbral ya tiene azul */
+  --brand-surface: #141e32; /* bruma baja — el mismo cielo un grado más cerca del horizonte */
+  --brand-ink: #f4efe6; /* cal amanecida — blanco cálido; el blanco puro sobre índigo vibra y cansa */
+  --brand-muted: #9aa9c2; /* azul náutico — texto secundario que pertenece al cielo, no un gris importado */
+  --brand-accent: #edc27c; /* filo del horizonte — oro pálido de crepúsculo civil, NO ámbar ni naranja */
+  --brand-accent-deep: #d3a052; /* sodio de las seis — al pasar el cursor la luz gana cuerpo, no brillo */
+  --brand-critical: #ff8a79; /* arrebol — el coral real de las nubes al amanecer; un rojo semáforo sería un objeto ajeno */
+  --brand-line: #1f2b45; /* sombra de agua — en un cielo no hay líneas, hay cambios de densidad */
+  --brand-line-strong: #5f708d; /* contraluz — bordes de CONTROL: campos y botones (3.71:1 sobre papel, 3.32 sobre tarjeta) */
 
-  /* Segundo y tercer matiz de la aurora del héroe y de los realces de las
-     tarjetas. No llevan texto encima nunca, así que no tienen regla de
-     contraste: son luz ambiente. */
-  --brand-aurora-a: #2fe0b0;
-  --brand-aurora-b: #2f9be0;
-  --brand-aurora-c: #7c5cff;
+  /* Las tres manchas de luz difusa del fondo. No llevan texto encima nunca,
+     así que no tienen regla de contraste: son atmósfera.
+
+     Reproducen el cielo real de arriba hacia abajo, y por eso el orden
+     importa. `b` es la clave de la paleta: la franja verde-cian que existe
+     de verdad en el crepúsculo civil entre el azul y el dorado, y que las
+     paletas de «amanecer» inventadas siempre saltean. Sin ella esto sería
+     un degradado azul→naranja como cualquier otro. */
+  --brand-aurora-a: #2a3d86; /* noche que se retira — el cenit, arriba */
+  --brand-aurora-b: #1c7c74; /* banda de transición — la franja verde-cian, a media altura */
+  --brand-aurora-c: #b85c63; /* cinturón de Venus — el arco rosado anti-solar, abajo */
 }
 
 /* --------------------------------------------------------------------------
@@ -342,12 +373,19 @@
   }
 
   /* ------------------------------------------------------------------------
-     AURORA — la luz ambiente del sitio.
+     AURORA — la luz ambiente del sitio, y el cielo del umbral.
 
-     Tres manchas de color muy difusas detrás del contenido. Es la diferencia
-     entre «fondo negro» y «espacio con profundidad». Puro CSS: no hay lienzo,
-     ni imágenes, ni JavaScript, así que no cuesta nada en el presupuesto de
-     rendimiento.
+     Tres manchas muy difusas detrás del contenido, en secuencia VERTICAL:
+     arriba el cenit que se retira, a media altura la franja verde-cian del
+     crepúsculo, abajo el cinturón de Venus. El orden reproduce un amanecer
+     real y por eso no se puede reordenar por gusto.
+
+     La del medio es deliberadamente la más chica y la más difusa: en el
+     cielo esa banda es una franja, no un globo. Es también la que evita que
+     esto se lea como el degradado azul→naranja de siempre.
+
+     Puro CSS: no hay lienzo, ni imágenes, ni JavaScript, así que no cuesta
+     nada en el presupuesto de rendimiento.
      ------------------------------------------------------------------------ */
   .aurora {
     position: absolute;
@@ -357,7 +395,7 @@
     z-index: 0;
     /* Halo central detrás del titular: es lo que separa «fondo negro» de
        «espacio iluminado». Va en el propio elemento para que los dos
-       pseudoelementos queden libres para las manchas laterales. */
+       pseudoelementos queden libres para las manchas del cielo. */
     background: radial-gradient(
       ellipse 70% 52% at 50% 22%,
       color-mix(in srgb, var(--brand-aurora-a) 15%, transparent),
@@ -373,6 +411,7 @@
     filter: blur(100px);
   }
 
+  /* Cenit: la noche que se retira, arriba a la izquierda. */
   .aurora::before {
     width: 52rem;
     height: 38rem;
@@ -386,6 +425,8 @@
     opacity: 0.55;
   }
 
+  /* Cinturón de Venus: el arco rosado anti-solar, arriba a la derecha.
+     Cierra el cielo por el lado opuesto al sol naciente. */
   .aurora::after {
     width: 46rem;
     height: 36rem;
@@ -397,6 +438,27 @@
       transparent 66%
     );
     opacity: 0.42;
+  }
+
+  /* La franja de transición. Es un elemento propio y no un tercer
+     pseudoelemento porque `::before` y `::after` ya están tomados, y porque
+     así se puede omitir donde no corresponde. Va desplazada del centro: en
+     el cielo la banda nunca está perfectamente centrada. */
+  .aurora-band {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: 46%;
+    height: 12rem;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(110px);
+    opacity: 0.3;
+    background: radial-gradient(
+      ellipse 60% 100% at 45% 50%,
+      color-mix(in srgb, var(--brand-aurora-b) 62%, transparent),
+      transparent 72%
+    );
   }
 
   /* La aurora NO se anima.

@@ -49,3 +49,8 @@ public/downloads/*.pdf
 .claude/*.local.json
 .shots/
 .shots*/
+
+# Banco de pruebas de paletas: capturas y copia de seguridad temporal del CSS.
+# Las candidatas en candidatas/ SÍ se versionan: son la memoria de qué se probó.
+.palettes/
+.palette-backup.css

@@ -1,0 +1,15 @@
+{
+  "nombre": "actual",
+  "paper": "#070b0d",
+  "surface": "#111a1d",
+  "ink": "#eef4f1",
+  "muted": "#94a5a0",
+  "accent": "#2fe0b0",
+  "accent-deep": "#68f0ca",
+  "critical": "#ff8c72",
+  "line": "#1e282c",
+  "line-strong": "#546a6e",
+  "aurora-a": "#2fe0b0",
+  "aurora-b": "#2f9be0",
+  "aurora-c": "#7c5cff"
+}

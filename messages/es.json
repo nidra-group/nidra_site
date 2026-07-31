@@ -19,9 +19,9 @@
     },
     "hero": {
       "eyebrow": "Agencia de software con IA",
-      "title": "Un sistema hecho para tu empresa,",
-      "titleAccent": "no para una de doscientas personas",
-      "lead": "Los programas que resolverían tu problema cobran por persona y por mes. Traen cuarenta funciones y usás seis. Construyo solo lo que tu empresa necesita, y lo que se construye queda tuyo.",
+      "title": "Las horas que perdés todas las semanas",
+      "titleAccent": "tienen solución",
+      "lead": "Cargar los mismos datos dos veces. Buscar el archivo que solo una persona sabe dónde está. Cerrar el mes a mano. Construyo el sistema que hace todo eso solo, a la medida de tu empresa y sin licencias por persona.",
       "primaryCta": "Agendar una reunión de 30 minutos",
       "secondaryCta": "Ver qué puedo resolver"
     },

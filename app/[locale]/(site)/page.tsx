@@ -51,7 +51,12 @@ export default async function HomePage({ params }: Props) {
           descargar, así que el efecto no cuesta nada en el presupuesto de
           rendimiento. */}
       <section className="relative isolate overflow-hidden">
-        <div className="aurora" aria-hidden="true" />
+        <div className="aurora" aria-hidden="true">
+          {/* La franja verde-cian del crepúsculo, a media altura. Solo va en
+              el héroe: es el momento más alto del cielo de la marca y
+              repetirla en cada sección la volvería un adorno. */}
+          <div className="aurora-band" />
+        </div>
         <div className="grid-veil" aria-hidden="true" />
 
         <div className="relative z-10 mx-auto max-w-5xl px-5 pb-24 pt-20 text-center sm:px-8 sm:pb-32 sm:pt-28">
