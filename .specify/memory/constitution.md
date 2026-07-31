@@ -16,12 +16,21 @@ Added sections:
 
 Removed sections: none
 
-Deferred TODOs:
-  - TODO(PRODUCT_POSITIONING): la propuesta de valor, audiencia y oferta concreta de Nidra
-    todavía no están definidas. No bloquea esta constitución (es gobernanza, no contenido),
-    pero se requiere antes de ejecutar /speckit-specify.
-  - TODO(ANALYTICS_VENDOR): proveedor de analítica sin cookies pendiente de elegir
-    (candidatos: Plausible, Umami, Vercel Analytics). Se resuelve en /speckit-plan.
+Deferred TODOs: ninguno pendiente.
+
+---
+
+Version change: 1.0.0 → 1.0.1 (2026-07-30)
+Bump rationale: PATCH — resolución de un TODO diferido, sin cambio semántico de ningún principio.
+
+Modified sections:
+  Restricciones Técnicas → se cierra TODO(ANALYTICS_VENDOR) con el proveedor decidido en la fase
+  de plan de la funcionalidad 001 (specs/001-nidra-public-site/research.md, R-007).
+
+Resolved TODOs:
+  - TODO(PRODUCT_POSITIONING): resuelto en specs/001-nidra-public-site/spec.md — agencia de
+    desarrollo de software con IA para PyMEs y emprendedores, con seis servicios definidos.
+  - TODO(ANALYTICS_VENDOR): resuelto — Vercel Web Analytics.
 -->
 
 # Nidra Site Constitution
@@ -119,9 +128,10 @@ de vida real es editar contenido, no ampliar arquitectura.
   REQUIERE un comentario que explique el motivo.
 - Ningún secreto MUST vivir en el repositorio. La configuración por entorno MUST leerse de
   variables de entorno, validadas al arrancar.
-- La analítica, si se incorpora, MUST ser sin cookies y sin datos personales, de modo que el
-  sitio no requiera un banner de consentimiento.
-  TODO(ANALYTICS_VENDOR): proveedor a definir en la fase de plan.
+- La analítica MUST ser sin cookies y sin datos personales, de modo que el sitio no requiera un
+  banner de consentimiento. El proveedor es Vercel Web Analytics, resuelto en la fase de plan de la
+  funcionalidad 001 (research.md, R-007). Cambiarlo REQUIERE verificar que el reemplazo tampoco use
+  cookies ni identificadores persistentes.
 - Los formularios MUST degradar a un envío HTTP estándar y MUST validarse también en servidor.
 
 ## Flujo de Desarrollo y Puertas de Calidad
@@ -159,4 +169,4 @@ constitución.
   con el principio afectado, el motivo y la condición de salida. Una excepción sin condición
   de salida MUST NOT aprobarse.
 
-**Version**: 1.0.0 | **Ratified**: 2026-07-30 | **Last Amended**: 2026-07-30
+**Version**: 1.0.1 | **Ratified**: 2026-07-30 | **Last Amended**: 2026-07-30
