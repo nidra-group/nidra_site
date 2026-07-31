@@ -40,6 +40,8 @@ export default async function HomePage({ params }: Props) {
   const linkedin = profile.person.links.find((link) => link.type === 'linkedin')
 
   const steps = t.raw('process.steps') as { title: string; body: string }[]
+  const pains = t.raw('pain.items') as { title: string; body: string }[]
+  const investment = t.raw('investment.items') as { title: string; body: string }[]
 
   return (
     <>
@@ -107,9 +109,9 @@ export default async function HomePage({ params }: Props) {
               },
               {
                 hue: 'b',
-                label: t('credibility.servicesLabel'),
-                value: services.length,
-                detail: t('credibility.focusDetail'),
+                label: t('credibility.ownershipLabel'),
+                value: t('credibility.ownershipValue'),
+                detail: t('credibility.ownershipDetail'),
               },
               {
                 hue: 'c',
@@ -129,6 +131,43 @@ export default async function HomePage({ params }: Props) {
             ))}
           </dl>
         </div>
+      </section>
+
+      {/* ── El punto de partida ────────────────────────────────────────────
+          Reconocimiento antes que oferta.
+
+          Quien llega acá no busca «una agencia de IA»: tiene un problema
+          concreto y todavía no sabe que tiene nombre. Esta sección describe
+          su semana con precisión para que se reconozca, y recién después la
+          página le ofrece algo. Sin este bloque, el sitio arrancaba hablando
+          de sí mismo.
+
+          El costo va al final y en su propia caja: es el dato que convierte
+          una molestia tolerada en un número que se puede comparar contra un
+          presupuesto. */}
+      <section className="mx-auto max-w-6xl px-5 pb-24 pt-4 sm:px-8">
+        <div className="text-center">
+          <p className="eyebrow">{t('pain.eyebrow')}</p>
+          <h2 className="mx-auto mt-5 max-w-[20ch] font-display text-[clamp(2rem,4.5vw,3rem)] font-extrabold leading-[1.06] tracking-[-0.03em]">
+            {t('pain.title')} <span className="accent-word">{t('pain.titleAccent')}</span>
+          </h2>
+          <p className="measure mx-auto mt-5 text-body text-muted">{t('pain.lead')}</p>
+        </div>
+
+        <ul className="reveal mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {pains.map((pain) => (
+            <li key={pain.title} className="surface flex flex-col p-7">
+              <h3 className="text-heading font-bold text-ink">{pain.title}</h3>
+              <p className="mt-3 text-small text-muted">{pain.body}</p>
+            </li>
+          ))}
+
+          {/* El costo ocupa la última celda de la grilla: cierra la lista de
+              síntomas con la cifra, en vez de quedar suelto debajo. */}
+          <li className="surface flex flex-col justify-center border-accent/30 bg-accent/5 p-7">
+            <p className="text-body font-medium text-ink">{t('pain.cost')}</p>
+          </li>
+        </ul>
       </section>
 
       {/* ── Servicios ──────────────────────────────────────────────────────
@@ -204,6 +243,43 @@ export default async function HomePage({ params }: Props) {
                 </li>
               ))}
             </ol>
+          </div>
+        </div>
+      </section>
+
+      {/* ── La inversión ───────────────────────────────────────────────────
+          La objeción real de una PyME no es «no me sirve»: es «no me da el
+          presupuesto». Esta sección no baja el precio, cambia la unidad de
+          medida — de cuánto sale a en cuánto se paga — y entrega el método
+          para que el lector haga la cuenta con sus propios números.
+
+          El cierre es deliberadamente el argumento más fuerte del sitio:
+          decir «si no da, te lo digo» es lo único que distingue a un
+          proveedor de alguien que quiere vender igual. */}
+      <section className="mx-auto max-w-6xl px-5 py-(--spacing-section) sm:px-8">
+        <div className="lg:grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-x-20">
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <p className="eyebrow">{t('investment.eyebrow')}</p>
+            <h2 className="mt-5 max-w-[16ch] font-display text-[clamp(2rem,4.5vw,3rem)] font-extrabold leading-[1.06] tracking-[-0.03em]">
+              {t('investment.title')}{' '}
+              <span className="accent-word">{t('investment.titleAccent')}</span>
+            </h2>
+            <p className="measure-tight mt-5 text-body text-muted">{t('investment.lead')}</p>
+          </div>
+
+          <div className="mt-14 lg:mt-0">
+            <ul className="reveal space-y-4">
+              {investment.map((item) => (
+                <li key={item.title} className="surface p-6 sm:p-7">
+                  <h3 className="text-heading font-bold text-ink">{item.title}</h3>
+                  <p className="mt-2.5 text-small text-muted">{item.body}</p>
+                </li>
+              ))}
+            </ul>
+
+            <p className="surface mt-4 border-accent/30 bg-accent/5 p-6 text-body font-medium text-ink sm:p-7">
+              {t('investment.close')}
+            </p>
           </div>
         </div>
       </section>

@@ -115,3 +115,50 @@ describe('perfil profesional', () => {
     expect(profile.summary.en).toContain(`${years}+ years`)
   })
 })
+
+describe('relato comercial', () => {
+  // El sitio le habla a dueños de PyME, no a directores de tecnología. Estas
+  // construcciones son las que vacían un texto comercial: se pueden copiar al
+  // sitio de cualquier competidor sin que quede mal, así que no dicen nada.
+  const VACIAS = [
+    /soluciones innovadoras/i,
+    /tecnología de vanguardia/i,
+    /transformación digital/i,
+    /llevar tu (empresa|negocio) al siguiente nivel/i,
+    /potenciar tu negocio/i,
+    /somos (líderes|apasionados)/i,
+    /cutting[- ]edge/i,
+    /next level/i,
+    /industry[- ]leading/i,
+    /state of the art/i,
+  ]
+
+  it.each([
+    ['es', es],
+    ['en', en],
+  ])('los mensajes de %s no usan frases de relleno', (_locale, messages) => {
+    const raw = JSON.stringify(messages)
+    for (const pattern of VACIAS) {
+      expect(raw, `coincide con ${pattern}`).not.toMatch(pattern)
+    }
+  })
+
+  it('la portada nombra un dolor concreto antes de ofrecer servicios', () => {
+    // Orden del relato: reconocimiento -> oferta. Si `pain` desaparece, la
+    // página vuelve a arrancar hablando de sí misma.
+    for (const messages of [es, en]) {
+      const home = messages.home as { pain?: { items?: unknown[]; cost?: string } }
+      expect(home.pain?.items).toHaveLength(5)
+      expect(home.pain?.cost).toBeTruthy()
+    }
+  })
+
+  it('la sección de inversión conserva el límite honesto', () => {
+    // «Si no da, te lo digo» es el argumento que distingue a un proveedor de
+    // alguien que quiere vender igual. Borrarlo sin querer es fácil.
+    const esClose = (es.home as { investment: { close: string } }).investment.close
+    const enClose = (en.home as { investment: { close: string } }).investment.close
+    expect(esClose).toMatch(/si no da/i)
+    expect(enClose).toMatch(/doesn't add up/i)
+  })
+})

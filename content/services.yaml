@@ -44,8 +44,8 @@
     es: Asistentes que responden con tu documentación
     en: Assistants that answer from your documentation
   summary:
-    es: Un asistente que contesta sobre tus productos y procesos, citando la fuente.
-    en: An assistant that answers about your products and processes, citing its source.
+    es: Dejás de contestar a mano las mismas diez preguntas todos los días.
+    en: You stop answering the same ten questions by hand every day.
   problem:
     es: >-
       El mismo puñado de preguntas se repite todos los días: precios, plazos, estado de un pedido,
@@ -100,8 +100,8 @@
     es: Buscador interno de conocimiento
     en: Internal knowledge search
   summary:
-    es: Preguntar en lenguaje natural sobre los documentos que ya tiene tu equipo.
-    en: Ask in plain language about the documents your team already has.
+    es: Encontrar en segundos el dato que hoy sabe una sola persona.
+    en: Find in seconds the fact only one person knows today.
   problem:
     es: >-
       La información existe: está en contratos, manuales, actas y carpetas compartidas. El problema
@@ -127,8 +127,8 @@
     es: Producto a medida con IA
     en: Custom product with AI
   summary:
-    es: Desarrollo completo de una aplicación web o móvil con IA adentro, no pegada encima.
-    en: Full development of a web or mobile application with AI built in, not bolted on.
+    es: El sistema que necesitás, sin licencia por usuario y con el código a tu nombre.
+    en: The system you need, with no per-seat licence and the code in your name.
   problem:
     es: >-
       Lo que necesitás no existe como producto de estantería, o existe pero cobra por usuario y no

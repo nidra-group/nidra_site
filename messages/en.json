@@ -14,38 +14,69 @@
   },
   "home": {
     "meta": {
-      "title": "Nidra — AI software development for small businesses",
-      "description": "I automate processes and build AI software for small and medium businesses. A two-week assessment, without pilots that never reach production."
+      "title": "Nidra — Custom AI software for small businesses",
+      "description": "Software of your own, without per-seat licences. I automate the processes eating your hours, and the code ends up in your name. Two-week assessment."
     },
     "hero": {
       "eyebrow": "AI software agency",
-      "title": "AI is useful once it reaches",
-      "titleAccent": "production",
-      "lead": "I work with small and medium businesses that have costly manual processes and want them solved, not experimented on. I start by measuring where it is worth it and where it is not.",
+      "title": "Custom software is no longer",
+      "titleAccent": "only for large companies",
+      "lead": "The tools that would fix your operation charge per seat per month, and they are built for companies of 200 people. I build the system your company needs — only what it needs — and the code ends up in your name.",
       "primaryCta": "Book a 30-minute call",
       "secondaryCta": "See the services"
     },
     "credibility": {
       "experience": "years building software",
       "experienceDetail": "Microservices, APIs and production applications for global clients.",
-      "focusDetail": "A few services, done properly. If what you need is not here, I say so.",
-      "locationDetail": "Buenos Aires. Remote work with companies across Argentina and Latin America.",
-      "servicesLabel": "Services",
+      "ownershipLabel": "What you keep",
+      "ownershipValue": "The code",
+      "ownershipDetail": "No per-seat licence, no lock-in, no depending on me to carry on.",
       "regionLabel": "Where I work",
-      "regionValue": "LATAM"
+      "regionValue": "LATAM",
+      "locationDetail": "Buenos Aires. Remote work with companies across Argentina and Latin America."
+    },
+    "pain": {
+      "eyebrow": "Where this starts",
+      "title": "What you already pay for",
+      "titleAccent": "that never shows up on an invoice",
+      "lead": "You don't need an AI project to know something is costing you. These are the most common signs in a company under 50 people.",
+      "items": [
+        {
+          "title": "The same data, typed in twice",
+          "body": "From email to spreadsheet, from spreadsheet to your management system. Every hop is minutes lost and an error that surfaces at month end."
+        },
+        {
+          "title": "Licences built for a different company",
+          "body": "Charged per seat per month, forty features shipped and six actually used. You're paying the scale of a company ten times your size."
+        },
+        {
+          "title": "Everything goes through one person",
+          "body": "The one who knows where things are and how they were done. When they take leave, the company slows down."
+        },
+        {
+          "title": "Month-end close is a race",
+          "body": "Reconcile, review, correct. It ends late at night with the spreadsheet open, and something is always missing."
+        },
+        {
+          "title": "You hear «AI» all day",
+          "body": "And you don't know what's useful to you, what it costs, or where to start without overspending."
+        }
+      ],
+      "cost": "In a small company, repetitive admin work takes between 4 and 8 hours per person per week. You are already paying for that time in salaries."
     },
     "services": {
       "eyebrow": "What I do",
       "title": "Six services,",
-      "lead": "I'd rather do a few things well. If what you need isn't here, I'll say so.",
-      "cta": "See each service in detail",
       "titleAccent": "not a catalogue",
+      "lead": "Each one starts from a concrete problem you can point at. If what you need isn't here, I'll say so.",
+      "cta": "See each service in detail",
       "cardCta": "See detail"
     },
     "process": {
       "eyebrow": "How I work",
       "title": "Measure first,",
-      "lead": "The order matters. Most AI projects fail because building starts before anyone knows which problem it solves.",
+      "titleAccent": "build second",
+      "lead": "The order matters. Most projects fail because building starts before anyone knows which problem it solves and what solving it is worth.",
       "steps": [
         {
           "title": "Assessment",
@@ -63,24 +94,44 @@
           "title": "Production",
           "body": "Deployment with quality measurement, alerts and documentation. The code and the infrastructure end up in your name."
         }
+      ]
+    },
+    "investment": {
+      "eyebrow": "The investment",
+      "title": "This isn't measured in price.",
+      "titleAccent": "It's measured in months to pay back.",
+      "lead": "Take the process that eats the most time. Count the hours it takes per week, multiply by what that hour costs in your company, and you have the monthly saving. The price of the work divided by that saving is how long it takes to pay for itself.",
+      "items": [
+        {
+          "title": "Only what you use gets built",
+          "body": "No modules that ship in the package and nobody opens. That is what brings the price down against an off-the-shelf product."
+        },
+        {
+          "title": "The code ends up in your name",
+          "body": "No per-seat licence, no lock-in, no depending on me to carry on. What gets built is yours and another team can pick it up."
+        },
+        {
+          "title": "It starts small and verifiable",
+          "body": "The assessment is a bounded piece of work with its own deliverable: you leave with a ranked list and an estimate, whether you use it with me or not."
+        }
       ],
-      "titleAccent": "build second"
+      "close": "We run that calculation with your numbers on the first call. If it doesn't add up, I'll say so there and then."
     },
     "technologies": {
       "eyebrow": "Technologies I work with",
       "note": "I build on these platforms. I am not a commercial partner and I am not certified by them: this is the infrastructure I build with."
     },
     "founder": {
-      "eyebrow": "Who is behind this",
-      "title": "Nidra is new. The experience behind it isn't.",
+      "eyebrow": "Who's behind this",
+      "title": "Nidra is new. The experience behind it is not.",
       "lead": "I am Juan Mujica, a software engineer with {years} years of track record, now focused on bringing AI solutions to production. I work on my own: there is no team behind this, and no case studies of my own yet. What you can verify is where each of those years was spent.",
       "trackRecord": "Track record",
       "ctaProfile": "See the full profile",
       "ctaLinkedin": "LinkedIn"
     },
     "closing": {
-      "title": "Got a process that eats hours every week?",
-      "lead": "Tell me which one. If I don't think AI is the answer, I'll say so.",
+      "title": "How many hours a week go into something a system could do on its own?",
+      "lead": "Tell me which process it is. In 30 minutes you'll know whether automating it is worth it, what it would cost and how long it takes to pay back. If it doesn't add up, I'll say so.",
       "primaryCta": "Book a call",
       "secondaryCta": "Send a message"
     }
@@ -92,7 +143,7 @@
     },
     "eyebrow": "Services",
     "title": "What I do, what you get",
-    "lead": "Every service starts from the problem it solves. Timelines are honest ranges: when I don't know, I widen the range instead of promising short.",
+    "lead": "Every service starts from the problem it solves, not from the technology. Timelines are honest ranges: when I don't know, I widen the range instead of promising short.",
     "problemLabel": "The problem",
     "deliverablesLabel": "What gets delivered",
     "timelineLabel": "Estimated timeline",
@@ -106,7 +157,7 @@
       "custom-ai-product": "Custom product with AI",
       "ai-evaluation-security": "AI evaluation and security"
     },
-    "titleAccent": "y en cuánto tiempo"
+    "titleAccent": "and how long it takes"
   },
   "integrations": {
     "meta": {
@@ -115,12 +166,12 @@
     },
     "eyebrow": "Integrations",
     "title": "What I build connects to",
-    "lead": "This list is representative, not exhaustive. I can integrate with any platform that exposes an API.",
+    "lead": "If you already pay for a tool, the point is not to replace it: it is to stop it needing someone to copy data across. This list is representative, not exhaustive.",
     "provenLabel": "In production",
     "provenNote": "The marked platforms are the ones I have already built on and put into production. The rest are integrated through their public interfaces.",
     "missing": {
-      "title": "Don't see the tool you use?",
-      "body": "Tell me which one. If it exposes an API, it can almost always be integrated.",
+      "title": "Not seeing the tool you use?",
+      "body": "Tell me which one. If it exposes an API, it can almost always be integrated without changing how your team works.",
       "cta": "Ask about an integration"
     }
   },
@@ -131,10 +182,10 @@
     },
     "eyebrow": "Contact",
     "title": "Let's talk about",
-    "lead": "Two ways to start. Neither commits you to anything.",
+    "lead": "Two ways to start. Neither commits you to anything, and both end with you knowing something you don't know today.",
     "booking": {
       "title": "Book a call",
-      "body": "Thirty minutes over video. Pick a slot on the calendar and the confirmation arrives with the link.",
+      "body": "Thirty minutes over video. You leave knowing whether automating your process is worth it and what order of magnitude it sits at.",
       "cta": "See available times",
       "note": "Opens my scheduling page."
     },
@@ -184,11 +235,11 @@
       "title": "What happens next",
       "steps": [
         "I read your message and reply within one business day, to the address you gave.",
-        "If it makes sense to move forward, we set up a 30-minute call to understand the process in detail.",
-        "I send you a scope with timeline and price in writing. If I don't think AI is the answer, that's where I say so."
+        "If it makes sense to move forward, we set up 30 minutes to walk the process in detail and estimate how many hours go into it.",
+        "I send you a scope with timeline and price in writing, plus the payback calculation. If it doesn't add up, I'll say so."
       ]
     },
-    "leadNoBooking": "Tell me which process you want to solve. It doesn't commit you to anything.",
+    "leadNoBooking": "Tell me which process is eating your hours. It doesn't commit you to anything.",
     "titleAccent": "your process"
   },
   "legal": {

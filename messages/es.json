@@ -14,38 +14,69 @@
   },
   "home": {
     "meta": {
-      "title": "Nidra — Desarrollo de software con IA para PyMEs",
-      "description": "Automatizo procesos y construyo software con IA para pequeñas y medianas empresas. Diagnóstico en dos semanas, sin pilotos que nunca llegan a producción."
+      "title": "Nidra — Software a medida con IA para PyMEs",
+      "description": "Software propio para PyMEs, sin licencias por usuario. Automatizo los procesos que te consumen horas y el código queda a tu nombre. Diagnóstico en dos semanas."
     },
     "hero": {
       "eyebrow": "Agencia de software con IA",
-      "title": "La IA sirve cuando llega a",
-      "titleAccent": "producción",
-      "lead": "Trabajo con pequeñas y medianas empresas que tienen procesos manuales caros y quieren resolverlos, no experimentar. Empiezo por medir dónde conviene y dónde no.",
+      "title": "El software a medida dejó de ser",
+      "titleAccent": "cosa de empresas grandes",
+      "lead": "Las herramientas que resolverían tu operación cobran por usuario y por mes, y están pensadas para empresas de 200 personas. Construyo el sistema que tu empresa necesita —solo lo que necesita— y el código queda a tu nombre.",
       "primaryCta": "Agendar una reunión de 30 minutos",
       "secondaryCta": "Ver los servicios"
     },
     "credibility": {
       "experience": "años construyendo software",
       "experienceDetail": "Microservicios, APIs y aplicaciones en producción para clientes globales.",
-      "focusDetail": "Pocos servicios, hechos a fondo. Si lo que necesitás no está, te lo digo.",
-      "locationDetail": "Buenos Aires. Trabajo remoto con empresas de Argentina y América Latina.",
-      "servicesLabel": "Servicios",
+      "ownershipLabel": "Lo que queda tuyo",
+      "ownershipValue": "El código",
+      "ownershipDetail": "Sin licencia por usuario, sin permanencia, sin depender de mí para seguir.",
       "regionLabel": "Dónde trabajo",
-      "regionValue": "LATAM"
+      "regionValue": "LATAM",
+      "locationDetail": "Buenos Aires. Trabajo remoto con empresas de Argentina y América Latina."
+    },
+    "pain": {
+      "eyebrow": "El punto de partida",
+      "title": "Lo que ya estás pagando",
+      "titleAccent": "sin que aparezca en ninguna factura",
+      "lead": "No hace falta un proyecto de IA para saber que algo cuesta. Estas son las señales más frecuentes en una empresa de menos de 50 personas.",
+      "items": [
+        {
+          "title": "Los mismos datos, cargados dos veces",
+          "body": "Del correo a la planilla, de la planilla al sistema de gestión. Cada salto son minutos y un error que aparece en el cierre de mes."
+        },
+        {
+          "title": "Licencias pensadas para otra empresa",
+          "body": "Cobran por usuario y por mes, traen cuarenta funciones y usás seis. Estás pagando la escala de una empresa diez veces más grande."
+        },
+        {
+          "title": "Todo pasa por la misma persona",
+          "body": "La que sabe dónde está cada cosa y cómo se hacía. Cuando se toma vacaciones, la empresa baja el ritmo."
+        },
+        {
+          "title": "El cierre de mes es una carrera",
+          "body": "Conciliar, revisar, corregir. Se termina de noche y con la planilla abierta, y siempre falta un dato."
+        },
+        {
+          "title": "Escuchás «IA» todo el día",
+          "body": "Y no sabés qué te sirve a vos, cuánto cuesta, ni por dónde se empieza sin gastar de más."
+        }
+      ],
+      "cost": "En una empresa chica, las tareas administrativas repetitivas se llevan entre 4 y 8 horas por semana por persona. Ese tiempo ya lo estás pagando en sueldos."
     },
     "services": {
       "eyebrow": "Qué hago",
       "title": "Seis servicios,",
-      "lead": "Prefiero hacer bien pocas cosas. Si lo que necesitás no está acá, te lo digo.",
-      "cta": "Ver el detalle de cada servicio",
       "titleAccent": "no un catálogo",
+      "lead": "Cada uno arranca por un problema concreto que se puede señalar. Si lo que necesitás no está acá, te lo digo.",
+      "cta": "Ver el detalle de cada servicio",
       "cardCta": "Ver detalle"
     },
     "process": {
       "eyebrow": "Cómo trabajo",
       "title": "Primero mido,",
-      "lead": "El orden importa. La mayoría de los proyectos de IA fracasan por empezar a construir antes de saber qué problema resuelven.",
+      "titleAccent": "después construyo",
+      "lead": "El orden importa. La mayoría de los proyectos fracasan por empezar a construir antes de saber qué problema resuelven y cuánto vale resolverlo.",
       "steps": [
         {
           "title": "Diagnóstico",
@@ -63,8 +94,28 @@
           "title": "Producción",
           "body": "Despliegue con medición de calidad, alertas y documentación. El código y la infraestructura quedan a tu nombre."
         }
+      ]
+    },
+    "investment": {
+      "eyebrow": "La inversión",
+      "title": "Esto no se mide en precio.",
+      "titleAccent": "Se mide en meses de repago.",
+      "lead": "Tomá el proceso que más tiempo consume. Contá las horas que se van por semana, multiplicalas por lo que cuesta esa hora en tu empresa y tenés el ahorro mensual. El precio del trabajo dividido por ese ahorro es cuánto tarda en pagarse solo.",
+      "items": [
+        {
+          "title": "Se construye solo lo que usás",
+          "body": "Nada de módulos que vienen en el paquete y nadie abre. Eso es lo que baja el precio frente a un producto de estantería."
+        },
+        {
+          "title": "El código queda a tu nombre",
+          "body": "Sin licencia por usuario, sin permanencia y sin depender de mí para seguir. Lo que se construye es tuyo y otro equipo puede continuarlo."
+        },
+        {
+          "title": "Empieza chico y comprobable",
+          "body": "El diagnóstico es un trabajo acotado con entregable propio: salís con una lista priorizada y una estimación, la uses conmigo o no."
+        }
       ],
-      "titleAccent": "después construyo"
+      "close": "Ese cálculo lo hacemos con tus números en la primera llamada. Si no da, te lo digo ahí y no seguimos."
     },
     "technologies": {
       "eyebrow": "Tecnologías con las que trabajo",
@@ -79,8 +130,8 @@
       "ctaLinkedin": "LinkedIn"
     },
     "closing": {
-      "title": "¿Tenés un proceso que consume horas todas las semanas?",
-      "lead": "Contame cuál es. Si no creo que la IA sea la respuesta, te lo voy a decir.",
+      "title": "¿Cuántas horas por semana se van en algo que un sistema podría hacer solo?",
+      "lead": "Contame cuál es el proceso. En 30 minutos sabés si conviene automatizarlo, cuánto costaría y en cuánto se paga. Si no da, te lo digo ahí.",
       "primaryCta": "Agendar una reunión",
       "secondaryCta": "Escribir un mensaje"
     }
@@ -92,7 +143,7 @@
     },
     "eyebrow": "Servicios",
     "title": "Qué hago, con qué se entrega",
-    "lead": "Cada servicio arranca por el problema que resuelve. Los plazos son rangos honestos: si no sé, amplío el rango en vez de prometer corto.",
+    "lead": "Cada servicio arranca por el problema que resuelve, no por la tecnología. Los plazos son rangos honestos: si no sé, amplío el rango en vez de prometer corto.",
     "problemLabel": "El problema",
     "deliverablesLabel": "Qué se entrega",
     "timelineLabel": "Plazo estimado",
@@ -115,12 +166,12 @@
     },
     "eyebrow": "Integraciones",
     "title": "Con qué se conecta lo que construyo",
-    "lead": "Esta lista es representativa, no exhaustiva. Puedo integrar con cualquier plataforma que exponga una interfaz de programación.",
+    "lead": "Si ya pagás por una herramienta, la idea no es reemplazarla: es que deje de necesitar que alguien copie datos de un lado al otro. Esta lista es representativa, no exhaustiva.",
     "provenLabel": "En producción",
     "provenNote": "Las plataformas marcadas son en las que ya construí y puse cosas en producción. El resto se integra por sus interfaces públicas.",
     "missing": {
       "title": "¿No está la herramienta que usás?",
-      "body": "Escribime cuál es. Si expone una interfaz de programación, casi siempre se puede integrar.",
+      "body": "Escribime cuál es. Si expone una interfaz de programación, casi siempre se puede integrar sin cambiar cómo trabaja tu equipo.",
       "cta": "Preguntar por una integración"
     }
   },
@@ -131,10 +182,10 @@
     },
     "eyebrow": "Contacto",
     "title": "Hablemos de",
-    "lead": "Dos formas de empezar. Ninguna te compromete a nada.",
+    "lead": "Dos formas de empezar. Ninguna te compromete a nada y las dos terminan con vos sabiendo algo que hoy no sabés.",
     "booking": {
       "title": "Agendar una reunión",
-      "body": "Treinta minutos por videollamada. Elegís el horario en el calendario y llega la confirmación con el enlace.",
+      "body": "Treinta minutos por videollamada. Salís sabiendo si tu proceso conviene automatizarlo y qué orden de magnitud tiene.",
       "cta": "Ver horarios disponibles",
       "note": "Se abre en mi página de agenda."
     },
@@ -184,11 +235,11 @@
       "title": "Qué pasa después",
       "steps": [
         "Leo tu consulta y te respondo dentro de un día hábil, al correo que dejaste.",
-        "Si tiene sentido avanzar, coordinamos una llamada de 30 minutos para entender el proceso en detalle.",
-        "Te paso un alcance con plazo y precio por escrito. Si no creo que la IA sea la respuesta, te lo digo ahí."
+        "Si tiene sentido avanzar, coordinamos 30 minutos para ver el proceso en detalle y estimar cuántas horas se van en él.",
+        "Te paso un alcance con plazo y precio por escrito, y la cuenta de en cuánto se paga. Si no da, te lo digo ahí."
       ]
     },
-    "leadNoBooking": "Contame qué proceso querés resolver. No te compromete a nada.",
+    "leadNoBooking": "Contame qué proceso te está consumiendo horas. No te compromete a nada.",
     "titleAccent": "tu proceso"
   },
   "legal": {
