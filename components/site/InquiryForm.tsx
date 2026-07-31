@@ -1,6 +1,6 @@
 'use client'
 
-import { useActionState, useId } from 'react'
+import { useActionState, useEffect, useId, useState } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 
 import { submitInquiry, type InquiryResult } from '@/actions/submit-inquiry'
@@ -16,17 +16,22 @@ const CONTACT_EMAIL = 'hola@nidra.cloud'
  * no ejecuta JavaScript, y sin recarga cuando sí lo hace. Es el mismo camino de
  * código, no dos implementaciones (FR-050, SC-016).
  */
-export function InquiryForm({
-  timestamp,
-  defaultService,
-}: {
-  timestamp: string
-  defaultService?: string
-}) {
+export function InquiryForm({ timestamp }: { timestamp: string }) {
   const t = useTranslations('contact.form')
   const services = useTranslations('services')
   const locale = useLocale()
   const id = useId()
+  const [preselected, setPreselected] = useState('')
+
+  // El servicio preseleccionado llega por parámetro de consulta desde la página
+  // de servicios. Se lee en el cliente y no con `searchParams` en el servidor,
+  // porque eso convertiría la página en dinámica y rompería el renderizado
+  // estático que exige la constitución. Sin JavaScript, el desplegable
+  // simplemente arranca vacío: el formulario sigue siendo usable.
+  useEffect(() => {
+    const value = new URLSearchParams(window.location.search).get('servicio')
+    if (value) setPreselected(value)
+  }, [])
 
   const [state, formAction, pending] = useActionState<InquiryResult, FormData>(submitInquiry, {
     status: 'idle',
@@ -117,7 +122,8 @@ export function InquiryForm({
           id={`${id}-service`}
           name="service"
           required
-          defaultValue={values.service || defaultService || ''}
+          value={values.service || preselected}
+          onChange={(event) => setPreselected(event.target.value)}
           aria-invalid={fieldError('service') ? true : undefined}
           aria-describedby={fieldError('service') ? `${id}-service-error` : undefined}
           className="mt-2 min-h-[3rem] w-full border border-line bg-paper px-3.5 py-3 text-body text-ink"

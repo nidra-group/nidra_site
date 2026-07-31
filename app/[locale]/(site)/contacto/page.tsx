@@ -9,10 +9,7 @@ import { issueTimestamp } from '@/lib/validation/inquiry'
 
 const CONTACT_EMAIL = 'hola@nidra.cloud'
 
-type Props = {
-  params: Promise<{ locale: Locale }>
-  searchParams: Promise<{ servicio?: string }>
-}
+type Props = { params: Promise<{ locale: Locale }> }
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
@@ -29,9 +26,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   })
 }
 
-export default async function ContactPage({ params, searchParams }: Props) {
+export default async function ContactPage({ params }: Props) {
   const { locale } = await params
-  const { servicio } = await searchParams
   setRequestLocale(locale)
 
   const t = await getTranslations('contact')
@@ -79,7 +75,7 @@ export default async function ContactPage({ params, searchParams }: Props) {
           <h2 className="text-heading text-ink">{t('form.title')}</h2>
           <p className="measure-tight mt-3 text-body text-muted">{t('form.body')}</p>
           <div className="mt-8">
-            <InquiryForm timestamp={timestamp} defaultService={servicio} />
+            <InquiryForm timestamp={timestamp} />
           </div>
         </section>
       </div>

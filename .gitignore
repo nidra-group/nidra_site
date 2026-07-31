@@ -44,3 +44,4 @@ Thumbs.db
 # Configuración local de Claude Code (puede contener credenciales)
 .claude/settings.local.json
 .claude/*.local.json
+.shots/

@@ -60,8 +60,8 @@
       en: An assistant connected to your actual documentation, not to a generic model.
     - es: Respuestas con cita de la fuente, para que se pueda verificar de dónde salió cada dato.
       en: Answers with source citations, so every claim can be traced.
-    - es: Límites explícitos: qué contesta y qué deriva a una persona.
-      en: Explicit boundaries: what it answers and what it hands off to a human.
+    - es: "Límites explícitos: qué contesta y qué deriva a una persona."
+      en: "Explicit boundaries: what it answers and what it hands off to a human."
     - es: Panel de consultas sin resolver, para saber qué falta en la documentación.
       en: A dashboard of unresolved queries, to reveal documentation gaps.
   timeline:
@@ -113,8 +113,8 @@
   deliverables:
     - es: Búsqueda por significado sobre tus documentos, no por coincidencia de palabras.
       en: Meaning-based search across your documents, not keyword matching.
-    - es: Permisos por área: cada persona encuentra lo que le corresponde ver.
-      en: Per-area permissions: each person finds only what they're allowed to see.
+    - es: "Permisos por área: cada persona encuentra lo que le corresponde ver."
+      en: "Per-area permissions: each person finds only what they're allowed to see."
     - es: Actualización automática cuando se agregan o cambian documentos.
       en: Automatic updates when documents are added or changed.
   timeline:

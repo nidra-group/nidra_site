@@ -72,26 +72,28 @@ export default async function HomePage({ params }: Props) {
           Datos verificables separados por reglas finas, no tarjetas con
           sombra. Tres tarjetas idénticas con ícono redondo arriba es el otro
           patrón que delata una plantilla. */}
-      <section className="border-b border-line bg-surface/60">
-        <div className="mx-auto grid max-w-6xl gap-px bg-line px-0 sm:px-8 md:grid-cols-3">
-          <div className="bg-surface px-5 py-8 sm:bg-transparent sm:px-0 sm:py-10 md:pr-10">
-            <p className="font-display text-[2.75rem] leading-none text-ink">{years}</p>
-            <p className="mt-2 text-small font-medium text-ink">{t('credibility.experience')}</p>
-            <p className="measure-tight mt-1.5 text-small text-muted">
-              {t('credibility.experienceDetail')}
-            </p>
-          </div>
-          <div className="bg-surface px-5 py-8 sm:bg-transparent sm:px-0 sm:py-10 md:px-10">
-            <p className="eyebrow">{t('credibility.focus')}</p>
-            <p className="measure-tight mt-3 text-small text-muted">
-              {t('credibility.focusDetail')}
-            </p>
-          </div>
-          <div className="bg-surface px-5 py-8 sm:bg-transparent sm:px-0 sm:py-10 md:pl-10">
-            <p className="eyebrow">{t('credibility.location')}</p>
-            <p className="measure-tight mt-3 text-small text-muted">
-              {t('credibility.locationDetail')}
-            </p>
+      <section className="border-b border-line bg-surface">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
+          <div className="grid divide-y divide-line md:grid-cols-3 md:divide-x md:divide-y-0">
+            <div className="py-9 md:pr-10">
+              <p className="font-display text-[3rem] leading-none text-ink">{years}</p>
+              <p className="mt-2 text-small font-medium text-ink">{t('credibility.experience')}</p>
+              <p className="measure-tight mt-1.5 text-small text-muted">
+                {t('credibility.experienceDetail')}
+              </p>
+            </div>
+            <div className="py-9 md:px-10">
+              <p className="eyebrow">{t('credibility.focus')}</p>
+              <p className="measure-tight mt-3 text-small text-muted">
+                {t('credibility.focusDetail')}
+              </p>
+            </div>
+            <div className="py-9 md:pl-10">
+              <p className="eyebrow">{t('credibility.location')}</p>
+              <p className="measure-tight mt-3 text-small text-muted">
+                {t('credibility.locationDetail')}
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -100,7 +102,7 @@ export default async function HomePage({ params }: Props) {
           Lista numerada de dos columnas en vez de una grilla de tarjetas. Se
           lee como un índice editorial y deja que los títulos —que es lo que
           importa— tengan peso tipográfico real. */}
-      <section className="mx-auto max-w-6xl px-5 py-[--spacing-section] sm:px-8">
+      <section className="mx-auto max-w-6xl px-5 py-(--spacing-section) sm:px-8">
         <div className="md:flex md:items-end md:justify-between md:gap-12">
           <div>
             <p className="eyebrow">{t('services.eyebrow')}</p>
@@ -144,7 +146,7 @@ export default async function HomePage({ params }: Props) {
 
       {/* ── Proceso ────────────────────────────────────────────────────────*/}
       <section className="border-y border-line bg-surface/50">
-        <div className="mx-auto max-w-6xl px-5 py-[--spacing-section] sm:px-8">
+        <div className="mx-auto max-w-6xl px-5 py-(--spacing-section) sm:px-8">
           <p className="eyebrow">{t('process.eyebrow')}</p>
           <div className="mt-4 md:flex md:items-end md:justify-between md:gap-12">
             <h2 className="max-w-[16ch] font-display text-[clamp(2rem,4.5vw,2.75rem)] leading-[1.08] tracking-[-0.02em]">
@@ -189,7 +191,7 @@ export default async function HomePage({ params }: Props) {
 
       {/* ── Cierre ─────────────────────────────────────────────────────────*/}
       <section className="border-t border-line">
-        <div className="mx-auto max-w-6xl px-5 py-[--spacing-section] sm:px-8">
+        <div className="mx-auto max-w-6xl px-5 py-(--spacing-section) sm:px-8">
           <h2 className="max-w-[20ch] font-display text-[clamp(2rem,5vw,3.25rem)] leading-[1.05] tracking-[-0.02em]">
             {t('closing.title')}
           </h2>

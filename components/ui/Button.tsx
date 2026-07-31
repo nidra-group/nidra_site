@@ -5,7 +5,7 @@ import { Link } from '@/i18n/navigation'
 type Variant = 'primary' | 'secondary' | 'ghost'
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-[--radius-md] px-6 py-3.5 ' +
+  'inline-flex items-center justify-center gap-2 rounded-(--radius-md) px-6 py-3.5 ' +
   'text-[0.9375rem] font-medium leading-none transition-colors duration-150 ' +
   // 44px de alto mínimo: objetivo táctil accesible.
   'min-h-[3rem] text-center'

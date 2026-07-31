@@ -37,7 +37,7 @@ export function CvDownload({
             key={download.locale}
             href={download.href}
             download={download.fileName}
-            className="inline-flex min-h-[2.75rem] items-center rounded-[--radius-md] bg-accent px-5 text-[0.9375rem] font-medium text-paper hover:bg-accent-deep"
+            className="inline-flex min-h-[2.75rem] items-center rounded-(--radius-md) bg-accent px-5 text-[0.9375rem] font-medium text-paper hover:bg-accent-deep"
           >
             {t('formatPdf')} · {download.locale.toUpperCase()}
           </a>
@@ -45,7 +45,7 @@ export function CvDownload({
 
         <Link
           href={printHref}
-          className="inline-flex min-h-[2.75rem] items-center rounded-[--radius-md] border border-ink/25 px-5 text-[0.9375rem] font-medium text-ink hover:border-ink hover:bg-ink hover:text-paper"
+          className="inline-flex min-h-[2.75rem] items-center rounded-(--radius-md) border border-ink/25 px-5 text-[0.9375rem] font-medium text-ink hover:border-ink hover:bg-ink hover:text-paper"
         >
           {t('formatWeb')}
         </Link>
