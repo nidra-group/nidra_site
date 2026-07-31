@@ -1,0 +1,179 @@
+# Los seis servicios de Nidra (FR-002).
+#
+# Reglas de redacción, no negociables:
+# - `summary` <= 120 caracteres. Describe el resultado, no la tecnología.
+# - `problem` arranca por la situación del cliente, no por lo que hacemos.
+# - `deliverables` son cosas que se entregan y se pueden señalar. Nada de
+#   "acompañamiento" ni "asesoramiento continuo".
+# - `timeline` es un rango honesto. Si no se sabe, se amplía el rango; no se
+#   inventa uno corto para vender.
+
+- id: ai-roadmap
+  order: 1
+  name:
+    es: Diagnóstico y hoja de ruta
+    en: Assessment and roadmap
+  summary:
+    es: Dos semanas para saber dónde conviene aplicar IA en tu empresa y dónde no.
+    en: Two weeks to learn where AI is worth applying in your company, and where it isn't.
+  problem:
+    es: >-
+      Sabés que hay procesos que consumen horas todos los días, pero no sabés cuáles se pueden
+      automatizar de verdad ni cuánto cuesta intentarlo. El riesgo real no es equivocarse de
+      herramienta: es gastar seis meses en un piloto que nunca llega a producción.
+    en: >-
+      You know some processes eat hours every day, but not which ones can actually be automated or
+      what trying costs. The real risk isn't picking the wrong tool: it's spending six months on a
+      pilot that never reaches production.
+  deliverables:
+    - es: Relevamiento de los procesos candidatos, con volumen y tiempo que consume cada uno.
+      en: Survey of candidate processes, with the volume and time each one consumes.
+    - es: Estimación de esfuerzo y retorno por caso, ordenada por relación costo-beneficio.
+      en: Effort and return estimate per case, ranked by cost-benefit.
+    - es: Lista explícita de lo que NO conviene automatizar todavía, y por qué.
+      en: An explicit list of what is not worth automating yet, and why.
+    - es: Documento de decisiones técnicas para que cualquier proveedor pueda ejecutarlo.
+      en: Technical decision record so any vendor can execute it.
+  timeline:
+    es: 2 a 3 semanas
+    en: 2 to 3 weeks
+
+- id: conversational-assistants
+  order: 2
+  name:
+    es: Asistentes que responden con tu documentación
+    en: Assistants that answer from your documentation
+  summary:
+    es: Un asistente que contesta sobre tus productos y procesos, citando la fuente.
+    en: An assistant that answers about your products and processes, citing its source.
+  problem:
+    es: >-
+      El mismo puñado de preguntas se repite todos los días: precios, plazos, estado de un pedido,
+      cómo funciona tal cosa. Se responden a mano, con demora, y la respuesta cambia según quién
+      conteste.
+    en: >-
+      The same handful of questions comes up every day: pricing, lead times, order status, how
+      something works. They're answered by hand, late, and the answer changes depending on who
+      replies.
+  deliverables:
+    - es: Asistente conectado a tu documentación real, no a un modelo genérico.
+      en: An assistant connected to your actual documentation, not to a generic model.
+    - es: Respuestas con cita de la fuente, para que se pueda verificar de dónde salió cada dato.
+      en: Answers with source citations, so every claim can be traced.
+    - es: Límites explícitos: qué contesta y qué deriva a una persona.
+      en: Explicit boundaries: what it answers and what it hands off to a human.
+    - es: Panel de consultas sin resolver, para saber qué falta en la documentación.
+      en: A dashboard of unresolved queries, to reveal documentation gaps.
+  timeline:
+    es: 4 a 8 semanas
+    en: 4 to 8 weeks
+
+- id: workflow-automation
+  order: 3
+  name:
+    es: Automatización de procesos
+    en: Process automation
+  summary:
+    es: Conectar los sistemas que ya usás para que dejen de necesitar copiar y pegar.
+    en: Connecting the systems you already use so they stop needing copy and paste.
+  problem:
+    es: >-
+      Los datos viajan entre sistemas a mano: del correo a la planilla, de la planilla al sistema de
+      gestión. Cada salto es tiempo perdido y una oportunidad de error que aparece semanas después.
+    en: >-
+      Data moves between systems by hand: from email to spreadsheet, from spreadsheet to your
+      management system. Every hop is lost time and a chance for an error that surfaces weeks later.
+  deliverables:
+    - es: Flujos que corren solos, con registro de cada ejecución.
+      en: Workflows that run on their own, with a log of every execution.
+    - es: Alertas cuando algo falla, antes de que lo note un cliente.
+      en: Alerts when something fails, before a customer notices.
+    - es: Documentación del proceso para que no dependa de quien lo construyó.
+      en: Process documentation so it doesn't depend on whoever built it.
+  timeline:
+    es: 3 a 6 semanas
+    en: 3 to 6 weeks
+
+- id: internal-knowledge-base
+  order: 4
+  name:
+    es: Buscador interno de conocimiento
+    en: Internal knowledge search
+  summary:
+    es: Preguntar en lenguaje natural sobre los documentos que ya tiene tu equipo.
+    en: Ask in plain language about the documents your team already has.
+  problem:
+    es: >-
+      La información existe: está en contratos, manuales, actas y carpetas compartidas. El problema
+      es encontrarla. Se termina preguntándole a la persona con más antigüedad, que se convierte en
+      un cuello de botella.
+    en: >-
+      The information exists: it's in contracts, manuals, minutes and shared folders. The problem is
+      finding it. People end up asking whoever has been there longest, who becomes a bottleneck.
+  deliverables:
+    - es: Búsqueda por significado sobre tus documentos, no por coincidencia de palabras.
+      en: Meaning-based search across your documents, not keyword matching.
+    - es: Permisos por área: cada persona encuentra lo que le corresponde ver.
+      en: Per-area permissions: each person finds only what they're allowed to see.
+    - es: Actualización automática cuando se agregan o cambian documentos.
+      en: Automatic updates when documents are added or changed.
+  timeline:
+    es: 4 a 8 semanas
+    en: 4 to 8 weeks
+
+- id: custom-ai-product
+  order: 5
+  name:
+    es: Producto a medida con IA
+    en: Custom product with AI
+  summary:
+    es: Desarrollo completo de una aplicación web o móvil con IA adentro, no pegada encima.
+    en: Full development of a web or mobile application with AI built in, not bolted on.
+  problem:
+    es: >-
+      Lo que necesitás no existe como producto de estantería, o existe pero cobra por usuario y no
+      se adapta a cómo trabajás. Necesitás algo propio, y que no quede sin mantenimiento a los seis
+      meses.
+    en: >-
+      What you need doesn't exist off the shelf, or it does but charges per seat and doesn't fit how
+      you work. You need something of your own that won't go unmaintained in six months.
+  deliverables:
+    - es: Aplicación web o móvil funcionando en producción, con su código en tu poder.
+      en: A web or mobile application running in production, with the code in your hands.
+    - es: Pruebas automatizadas y despliegue continuo desde el primer día.
+      en: Automated tests and continuous deployment from day one.
+    - es: Arquitectura documentada, para que otro equipo pueda continuarla.
+      en: Documented architecture, so another team can pick it up.
+  timeline:
+    es: 8 a 16 semanas
+    en: 8 to 16 weeks
+
+- id: ai-evaluation-security
+  order: 6
+  name:
+    es: Evaluación y seguridad de IA
+    en: AI evaluation and security
+  summary:
+    es: Medir si tu IA responde bien y evitar que filtre lo que no debe.
+    en: Measure whether your AI answers well, and stop it leaking what it shouldn't.
+  problem:
+    es: >-
+      Ya tenés algo con IA funcionando, pero nadie sabe si responde bien. "Parece que anda" no es
+      una métrica, y el día que conteste cualquier cosa a un cliente, o repita un dato privado, te
+      vas a enterar por el cliente.
+    en: >-
+      You already have something with AI running, but nobody knows whether it answers well. "Seems
+      fine" is not a metric, and the day it tells a customer something wrong, or repeats private
+      data, you'll hear it from the customer.
+  deliverables:
+    - es: Conjunto de casos de prueba con respuestas esperadas, ejecutado en cada cambio.
+      en: A suite of test cases with expected answers, run on every change.
+    - es: Puerta de calidad que bloquea el despliegue si la calidad baja del umbral.
+      en: A quality gate that blocks deployment if quality drops below threshold.
+    - es: Filtros de entrada y salida contra fuga de datos y uso indebido.
+      en: Input and output filters against data leakage and misuse.
+    - es: Revisión contra los riesgos conocidos de aplicaciones con modelos de lenguaje.
+      en: Review against the known risk catalogue for language-model applications.
+  timeline:
+    es: 3 a 5 semanas
+    en: 3 to 5 weeks

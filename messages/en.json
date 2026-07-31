@@ -1,0 +1,311 @@
+{
+  "site": {
+    "name": "Nidra",
+    "tagline": "AI software for companies that already have something to work with"
+  },
+  "nav": {
+    "services": "Services",
+    "integrations": "Integrations",
+    "contact": "Contact",
+    "menu": "Menu",
+    "close": "Close",
+    "skipToContent": "Skip to content"
+  },
+  "home": {
+    "meta": {
+      "title": "Nidra — AI software development for small businesses",
+      "description": "We automate processes and build AI software for small and medium businesses. A two-week assessment, without pilots that never reach production."
+    },
+    "hero": {
+      "eyebrow": "AI software agency",
+      "title": "AI is useful once it reaches production.",
+      "titleAccent": "Everything else is an expensive pilot.",
+      "lead": "We work with small and medium businesses that have costly manual processes and want them solved, not experimented on. We start by measuring where it's worth it and where it isn't.",
+      "primaryCta": "Book a 30-minute call",
+      "secondaryCta": "See the services"
+    },
+    "credibility": {
+      "experience": "years building software",
+      "experienceDetail": "Microservices, APIs and production applications for global clients.",
+      "focus": "Focus",
+      "focusDetail": "AI applied to concrete processes, with automated quality evaluation.",
+      "location": "Buenos Aires, Argentina",
+      "locationDetail": "Remote work with Spanish- and English-speaking companies."
+    },
+    "services": {
+      "eyebrow": "What we do",
+      "title": "Six services, not a catalogue",
+      "lead": "We'd rather do a few things well. If what you need isn't here, we'll say so.",
+      "cta": "See each service in detail"
+    },
+    "process": {
+      "eyebrow": "How we work",
+      "title": "Measure first, build second",
+      "lead": "The order matters. Most AI projects fail because building starts before anyone knows which problem it solves.",
+      "steps": [
+        {
+          "title": "Assessment",
+          "body": "Two or three weeks surveying real processes, with measured volumes and times. The output is a list ranked by cost and benefit, including what is better left alone."
+        },
+        {
+          "title": "Definition",
+          "body": "We write down what will be built and how it will be verified before writing code. Technical decisions are documented and they're yours."
+        },
+        {
+          "title": "Build",
+          "body": "Working increments, with automated tests from day one. You see progress every week, not a demo at the end."
+        },
+        {
+          "title": "Production",
+          "body": "Deployment with quality measurement, alerts and documentation. The code and the infrastructure end up in your name."
+        }
+      ]
+    },
+    "technologies": {
+      "eyebrow": "Technologies we work with",
+      "note": "We build on these platforms. We are not commercial partners and we are not certified by them: this is the infrastructure we use to build."
+    },
+    "closing": {
+      "title": "Got a process that eats hours every week?",
+      "lead": "Tell us which one. If we don't think AI is the answer, we'll say so.",
+      "primaryCta": "Book a call",
+      "secondaryCta": "Send a message"
+    }
+  },
+  "services": {
+    "meta": {
+      "title": "Services — Nidra",
+      "description": "AI assessment, assistants grounded in your own documentation, process automation, internal search, custom products and AI security evaluation."
+    },
+    "eyebrow": "Services",
+    "title": "What we do, what gets delivered, and how long it takes",
+    "lead": "Every service starts from the problem it solves. Timelines are honest ranges: when we don't know, we widen the range instead of promising short.",
+    "problemLabel": "The problem",
+    "deliverablesLabel": "What gets delivered",
+    "timelineLabel": "Estimated timeline",
+    "indexLabel": "Jump to",
+    "cta": "Ask about this service",
+    "items": {
+      "ai-roadmap": "Assessment and roadmap",
+      "conversational-assistants": "Assistants that answer from your documentation",
+      "workflow-automation": "Process automation",
+      "internal-knowledge-base": "Internal knowledge search",
+      "custom-ai-product": "Custom product with AI",
+      "ai-evaluation-security": "AI evaluation and security"
+    }
+  },
+  "integrations": {
+    "meta": {
+      "title": "Integrations — Nidra",
+      "description": "We connect with AI models, databases, CRMs, commerce platforms, management tools and cloud services."
+    },
+    "eyebrow": "Integrations",
+    "title": "What we connect to",
+    "lead": "This list is representative, not exhaustive. We can integrate with any platform that exposes an API.",
+    "provenLabel": "With proven experience",
+    "provenNote": "A dot marks the platforms we have already built on and put into production. The rest are integrated through their public interfaces.",
+    "missing": {
+      "title": "Don't see the tool you use?",
+      "body": "Tell us which one. If it exposes an API, it can almost always be integrated.",
+      "cta": "Ask about an integration"
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact — Nidra",
+      "description": "Book a 30-minute call or send us a message. We reply within one business day."
+    },
+    "eyebrow": "Contact",
+    "title": "Let's talk about your process",
+    "lead": "Two ways to start. Neither commits you to anything.",
+    "booking": {
+      "title": "Book a call",
+      "body": "Thirty minutes over video. Pick a slot on the calendar and the confirmation arrives with the link.",
+      "cta": "See available times",
+      "note": "Opens our scheduling page."
+    },
+    "form": {
+      "title": "Send a message",
+      "body": "Tell us which process you want to solve. We reply within one business day.",
+      "name": "Name",
+      "email": "Email",
+      "company": "Company",
+      "companyOptional": "optional",
+      "service": "What would you like to ask about",
+      "servicePlaceholder": "Choose an option",
+      "serviceOther": "Something else / not sure yet",
+      "message": "Your message",
+      "messageHint": "Tell us which process you want to solve and which tools you use today.",
+      "submit": "Send message",
+      "submitting": "Sending…",
+      "success": {
+        "title": "Message sent",
+        "body": "We'll reply within one business day to the address you gave us."
+      },
+      "errors": {
+        "nameRequired": "Please enter your name.",
+        "nameTooShort": "That name is too short.",
+        "emailRequired": "Please enter your email.",
+        "emailInvalid": "That email doesn't look valid. Please check it.",
+        "serviceRequired": "Please choose what you'd like to ask about.",
+        "messageRequired": "Please write your message.",
+        "messageTooShort": "Tell us a bit more: at least 20 characters.",
+        "messageTooLong": "That message is too long. 2000 characters maximum.",
+        "rejected": "We couldn't process the submission. Please reload the page and try again.",
+        "rateLimit": "We received several submissions from your connection. Please wait a few minutes and try again.",
+        "delivery": "We couldn't deliver your message right now.",
+        "deliveryFallback": "Write to us directly at {email} and we'll reply all the same.",
+        "unavailable": "The form is unavailable right now."
+      }
+    },
+    "direct": {
+      "title": "Direct email",
+      "body": "If you'd rather write from your own mail client."
+    }
+  },
+  "legal": {
+    "privacy": {
+      "meta": {
+        "title": "Privacy policy — Nidra",
+        "description": "What personal data we collect, why, how long we keep it and how to exercise your rights."
+      },
+      "title": "Privacy policy",
+      "updated": "Last updated",
+      "sections": [
+        {
+          "title": "What we collect",
+          "body": [
+            "We collect only what you give us in the contact form: name, email, company (optional), the service you're asking about and the text of your message.",
+            "This site uses no cookies and no persistent tracking identifiers. That's why you won't find a consent banner: there is nothing to consent to.",
+            "We measure visits in aggregate and anonymously, without personal data and without any ability to work out who you are or follow you across sites."
+          ]
+        },
+        {
+          "title": "What we use it for",
+          "body": [
+            "Only to answer your enquiry. We don't use your data for advertising, we don't combine it with other sources, and we don't sell or hand it to third parties for commercial purposes."
+          ]
+        },
+        {
+          "title": "How long we keep it",
+          "body": [
+            "The site stores no enquiries in any database. The message is delivered to our mailbox, and its retention is governed by our mail management, where it is kept for the duration of the commercial conversation and for at most two years.",
+            "If you ask us to delete it sooner, we do."
+          ]
+        },
+        {
+          "title": "Third-party services",
+          "body": [
+            "We use a transactional email provider to deliver messages, which processes the message in order to get it to our mailbox.",
+            "If you book a meeting, scheduling happens on an external calendar platform. Any data you enter there is governed by that provider's privacy policy, not by this one.",
+            "If we add a conversational assistant in the future, we will update this policy before putting it into operation, stating what data it collects and why."
+          ]
+        },
+        {
+          "title": "Your rights",
+          "body": [
+            "You can ask us for access to the data we hold about you, its correction or its deletion. Write to hola@nidra.cloud and we'll respond within the timeframes set by applicable law.",
+            "In Argentina, the supervisory authority for personal data is the Agencia de Acceso a la Información Pública."
+          ]
+        },
+        {
+          "title": "Controller",
+          "body": ["Nidra, Buenos Aires, Argentina. Contact: hola@nidra.cloud"]
+        }
+      ]
+    },
+    "terms": {
+      "meta": {
+        "title": "Terms of use — Nidra",
+        "description": "Terms of use for the Nidra website."
+      },
+      "title": "Terms of use",
+      "updated": "Last updated",
+      "sections": [
+        {
+          "title": "Scope of this site",
+          "body": [
+            "This site describes Nidra's services for information purposes. Its content is not a contractual offer or a quote: the scope, timeline and price of any work are agreed in writing case by case."
+          ]
+        },
+        {
+          "title": "Timelines and estimates",
+          "body": [
+            "The timelines published in the services section are estimates based on work of comparable scope. A project's actual timeline depends on its scope, on the availability of information and on client dependencies, and is confirmed when the work is agreed."
+          ]
+        },
+        {
+          "title": "Third-party trademarks",
+          "body": [
+            "The names of platforms, products and companies mentioned on this site belong to their respective owners and are used nominatively, solely to describe which technologies we work with or which systems we can integrate.",
+            "Their mention implies no commercial partnership, certification, sponsorship or endorsement of Nidra by those organisations."
+          ]
+        },
+        {
+          "title": "Ownership of content",
+          "body": [
+            "The text and design of this site are the property of Nidra. You may quote them with attribution and a link to the source."
+          ]
+        },
+        {
+          "title": "Changes",
+          "body": [
+            "We may update these terms. The last updated date appears at the top of this page."
+          ]
+        }
+      ]
+    }
+  },
+  "cv": {
+    "meta": {
+      "title": "Juan Mujica — AI / GenAI Engineer",
+      "description": "Professional profile of Juan Mujica: 13+ years in software engineering, now focused on bringing AI solutions to production."
+    },
+    "backToSite": "Go to Nidra",
+    "download": {
+      "title": "Download the CV",
+      "language": "Language",
+      "format": "Format",
+      "formatPdf": "PDF document",
+      "formatWeb": "Printable web version",
+      "submit": "Download",
+      "openPrintView": "Open printable version",
+      "unavailable": "Documents are generated at build time. In development, use the printable web version.",
+      "version": "Version"
+    },
+    "sections": {
+      "summary": "Profile",
+      "experience": "Experience",
+      "education": "Education",
+      "certifications": "Certifications",
+      "skills": "Technical skills",
+      "languages": "Languages",
+      "contact": "Contact"
+    },
+    "present": "Present",
+    "printHint": "Use your browser's print function to save it as a PDF."
+  },
+  "notFound": {
+    "meta": { "title": "Page not found — Nidra" },
+    "title": "This page doesn't exist",
+    "lead": "The link may be mistyped, or the page may have moved.",
+    "cta": "Back to home"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "founder": "Founder's profile",
+    "sections": {
+      "site": "Site",
+      "legal": "Legal",
+      "contact": "Contact"
+    }
+  },
+  "language": {
+    "label": "Language",
+    "es": "Español",
+    "en": "English",
+    "switchTo": "View this page in Spanish"
+  }
+}

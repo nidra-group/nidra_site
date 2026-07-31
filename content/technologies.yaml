@@ -1,0 +1,26 @@
+# Sección "Tecnologías con las que trabajamos" (FR-027).
+#
+# `relationship` es un enum cerrado: `technology` | `vendor`.
+#
+# NO existe el valor `partner`, y no es un olvido. Declarar una alianza
+# comercial inexistente exigiría cambiar el esquema en
+# lib/content/schemas/integrations.ts, no solo este archivo. Cuando exista un
+# acuerdo verificable, se agrega el valor junto con el campo que documente su
+# origen.
+
+- name: OpenAI
+  relationship: technology
+- name: PostgreSQL
+  relationship: technology
+- name: Supabase
+  relationship: technology
+- name: Qdrant
+  relationship: technology
+- name: n8n
+  relationship: technology
+- name: AWS
+  relationship: technology
+- name: Docker
+  relationship: technology
+- name: Apache Kafka
+  relationship: technology

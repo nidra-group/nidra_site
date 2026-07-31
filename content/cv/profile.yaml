@@ -1,0 +1,253 @@
+# Fuente única de verdad del perfil profesional (FR-043, FR-047).
+#
+# La página del subdominio, la vista de impresión y cada documento descargable
+# derivan de este archivo. No hay copias.
+#
+# Los campos de texto llevan `es` y `en` en el mismo nodo. Esto hace que la
+# paridad entre idiomas sea estructural: no se puede agregar una experiencia en
+# español sin abrir el hueco en inglés, porque es el mismo nodo del árbol.
+#
+# La versión del currículum NO se declara acá: se deriva del hash y la fecha del
+# último commit que tocó este archivo. El historial de git es el versionado.
+
+person:
+  name: Juan Mujica
+  headline:
+    es: Ingeniero de IA / GenAI
+    en: AI / GenAI Engineer
+  location:
+    es: Buenos Aires, Argentina · Remoto
+    en: Buenos Aires, Argentina · Remote
+  email: mujica.juancarlos@gmail.com
+  phone: '+54 9 11 3216 5480'
+  links:
+    - type: linkedin
+      label: in/-jmujica
+      url: https://www.linkedin.com/in/-jmujica
+
+summary:
+  es: >-
+    Ingeniero de IA/GenAI con más de 13 años de experiencia en ingeniería de software, hoy enfocado
+    en llevar soluciones de IA a producción. Integro modelos de lenguaje con arquitecturas de
+    recuperación aumentada, embeddings y bases vectoriales, aplicando ingeniería de prompts,
+    evaluación de calidad y buenas prácticas de seguridad. Trabajo con desarrollo guiado por
+    especificación y flujos agénticos, sobre una base sólida de microservicios, APIs, arquitectura
+    limpia, TDD e integración continua.
+  en: >-
+    AI/GenAI Engineer with 13+ years of software engineering experience, now focused on bringing AI
+    solutions to production. I integrate large language models with retrieval-augmented
+    architectures, embeddings and vector databases, applying prompt engineering, quality evaluation
+    and security best practices. I work with spec-driven development and agentic workflows, on a
+    solid foundation of microservices, APIs, clean architecture, TDD and CI/CD.
+
+experiences:
+  - id: freelance-ai
+    org: Independiente
+    start: 2025-08
+    role:
+      es: Ingeniero de IA — Freelance
+      en: AI Engineer — Freelance
+    achievements:
+      - es: >-
+          Diseñé y construí Umbral, una aplicación móvil para iOS y Android con motor de
+          interpretación basado en modelos de lenguaje, sobre arquitectura hexagonal.
+        en: >-
+          Designed and built Umbral, an iOS/Android mobile app with an LLM-based interpretation
+          engine, on a hexagonal architecture.
+      - es: >-
+          Implementé recuperación aumentada con búsqueda semántica y memoria documental sobre
+          Supabase y pgvector: chat contextual y análisis simbólico.
+        en: >-
+          Implemented RAG with semantic search and document memory over Supabase and pgvector:
+          contextual chat and symbolic analysis.
+      - es: >-
+          Construí una puerta de evaluación de calidad de IA por similitud de embeddings que rompe
+          el build cuando la calidad baja del umbral.
+        en: >-
+          Built an AI quality evaluation gate using embedding similarity that breaks the build when
+          quality drops below threshold.
+      - es: >-
+          Agregué seguridad de IA: barreras de contención, moderación que falla cerrada,
+          privacidad por defecto y anonimización.
+        en: >-
+          Added AI security: guardrails, fail-closed moderation, privacy by default and
+          anonymization.
+      - es: >-
+          Automaticé campañas de Google Ads con Node.js y OpenAI para optimización de pujas y
+          reportes, integrado sobre una base de código existente.
+        en: >-
+          Automated Google Ads campaigns with Node.js and OpenAI for bid optimization and
+          reporting, integrated into an existing codebase.
+    tech:
+      [
+        TypeScript,
+        Node.js,
+        Fastify,
+        OpenAI,
+        Supabase,
+        pgvector,
+        Qdrant,
+        React Native,
+        Docker,
+      ]
+
+  - id: epam-bayer
+    org: EPAM Systems
+    client: Bayer
+    start: 2019-06
+    end: 2025-07
+    role:
+      es: Ingeniero de Software Full Stack Senior
+      en: Senior Full Stack Software Engineer
+    achievements:
+      - es: >-
+          Participé en la migración de un sistema monolítico a microservicios para un cliente
+          global.
+        en: >-
+          Contributed to the migration of a monolithic system to microservices for a global client.
+      - es: >-
+          Lideré el análisis de requisitos, el diseño y la definición de la arquitectura de
+          microservicios.
+        en: >-
+          Led requirements analysis, design and definition of the microservices architecture.
+      - es: >-
+          Desarrollé soluciones full stack de punta a punta con pruebas automatizadas y despliegue
+          continuo.
+        en: >-
+          Developed end-to-end full stack solutions with automated testing and continuous
+          deployment.
+    tech:
+      [Java, Spring Boot, Kotlin, Node.js, NestJS, Angular, PostgreSQL, MongoDB, Kafka, AWS]
+
+  - id: gire
+    org: Gire
+    start: 2018-09
+    end: 2019-06
+    role:
+      es: Desarrollador Full Stack
+      en: Full Stack Developer
+    achievements:
+      - es: >-
+          Construí soluciones full stack para logística con TDD y arquitectura limpia, con
+          mentoría a perfiles junior.
+        en: >-
+          Built full stack logistics solutions with TDD and clean architecture, mentoring junior
+          developers.
+    tech: [Java, Spring Boot, Angular, PostgreSQL, Jenkins]
+
+  - id: grinbold
+    org: Grinbold
+    start: 2016-07
+    end: 2018-09
+    role:
+      es: Desarrollador Full Stack
+      en: Full Stack Developer
+    achievements:
+      - es: >-
+          Desarrollé plataformas de marketing y publicidad: backends escalables con TDD y
+          frontends en Angular.
+        en: >-
+          Built marketing and advertising platforms: scalable backends with TDD and Angular
+          frontends.
+    tech: [Java, Spring, Angular, PostgreSQL, RabbitMQ]
+
+  - id: huenei-telecom
+    org: Huenei
+    client: Telecom
+    start: 2012-03
+    end: 2016-06
+    role:
+      es: Desarrollador Full Stack
+      en: Full Stack Developer
+    achievements:
+      - es: >-
+          Desarrollé aplicaciones web en entornos heredados y modernos, con foco en calidad
+          mediante TDD.
+        en: >-
+          Built web applications in legacy and modern environments, focused on quality through TDD.
+    tech: [Java, JavaScript, jQuery, Smalltalk, Seaside]
+
+education:
+  - institution: Universidad Tecnológica Nacional — Buenos Aires
+    start: 2011
+    end: 2018
+    degree:
+      es: Ingeniería en Sistemas de Información
+      en: Information Systems Engineering
+
+certifications:
+  - name:
+      es: Ingeniería de Prompts
+      en: Prompt Engineering
+  - name:
+      es: AWS — Básico y Avanzado (EPAM)
+      en: AWS — Basic and Advanced (EPAM)
+  - name:
+      es: Java y Spring Framework (Educación IT)
+      en: Java and Spring Framework (Educación IT)
+  - name:
+      es: Programación Web Avanzada (IT College)
+      en: Advanced Web Programming (IT College)
+  - name:
+      es: Fundamentos de Gestión de Proyectos (Educación IT)
+      en: Project Management Fundamentals (Educación IT)
+
+skills:
+  - order: 1
+    category:
+      es: IA / GenAI
+      en: AI / GenAI
+    items:
+      [
+        OpenAI API,
+        LLMs,
+        RAG,
+        Embeddings,
+        pgvector,
+        Qdrant,
+        Prompt Engineering,
+        AI Evaluation,
+        AI Security,
+        Agentes,
+        MCP,
+        n8n,
+      ]
+  - order: 2
+    category:
+      es: Lenguajes
+      en: Languages
+    items: [Python, FastAPI, TypeScript, Node.js, Java, Kotlin]
+  - order: 3
+    category:
+      es: Backend y arquitectura
+      en: Backend and architecture
+    items: [Microservicios, REST/OpenAPI, Fastify, Spring Boot, NestJS, Clean/Hexagonal]
+  - order: 4
+    category:
+      es: Frontend
+      en: Frontend
+    items: [Angular, React, React Native]
+  - order: 5
+    category:
+      es: Datos
+      en: Data
+    items: [PostgreSQL, Supabase, MongoDB, Kafka, RabbitMQ]
+  - order: 6
+    category:
+      es: DevOps y calidad
+      en: DevOps and quality
+    items: [Docker, CI/CD, TDD, AWS, Spec-Driven Development]
+
+languages:
+  - name:
+      es: Español
+      en: Spanish
+    level:
+      es: Nativo
+      en: Native
+  - name:
+      es: Inglés
+      en: English
+    level:
+      es: A2 — Elemental
+      en: A2 — Elementary

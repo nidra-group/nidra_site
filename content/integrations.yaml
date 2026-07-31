@@ -1,0 +1,130 @@
+# Catálogo de integraciones (Anexo A de la especificación).
+#
+# `proven: true` = experiencia demostrable del equipo. Se ordena primero dentro
+# de su categoría.
+#
+# El esquema NO tiene campo de texto libre por integración, y es a propósito:
+# sin lugar donde escribir una afirmación sobre el dominio de una plataforma,
+# no se puede exagerar por descuido. La diferencia entre probada y no probada
+# se expresa solo en el orden.
+
+categories:
+  - id: ai-models
+    order: 1
+    name:
+      es: Modelos y plataformas de IA
+      en: AI models and platforms
+    items:
+      - { name: OpenAI, proven: true }
+      - { name: Anthropic, proven: false }
+      - { name: Google Gemini, proven: false }
+      - { name: Azure OpenAI, proven: false }
+
+  - id: data-vectors
+    order: 2
+    name:
+      es: Bases de datos y vectores
+      en: Databases and vector stores
+    items:
+      - { name: PostgreSQL, proven: true }
+      - { name: Supabase, proven: true }
+      - { name: pgvector, proven: true }
+      - { name: Qdrant, proven: true }
+      - { name: MongoDB, proven: true }
+
+  - id: automation
+    order: 3
+    name:
+      es: Automatización y orquestación
+      en: Automation and orchestration
+    items:
+      - { name: n8n, proven: true }
+      - { name: Make, proven: false }
+      - { name: Zapier, proven: false }
+
+  - id: messaging
+    order: 4
+    name:
+      es: Mensajería y eventos
+      en: Messaging and events
+    items:
+      - { name: Apache Kafka, proven: true }
+      - { name: RabbitMQ, proven: true }
+
+  - id: communication
+    order: 5
+    name:
+      es: Comunicación y colaboración
+      en: Communication and collaboration
+    items:
+      - { name: Gmail, proven: true }
+      - { name: Google Workspace, proven: true }
+      - { name: Slack, proven: false }
+      - { name: Microsoft Teams, proven: false }
+      - { name: WhatsApp Business, proven: false }
+      - { name: Telegram, proven: false }
+
+  - id: crm
+    order: 6
+    name:
+      es: CRM y ventas
+      en: CRM and sales
+    items:
+      - { name: HubSpot, proven: false }
+      - { name: Salesforce, proven: false }
+      - { name: Pipedrive, proven: false }
+      - { name: Zoho, proven: false }
+
+  - id: marketing
+    order: 7
+    name:
+      es: Marketing y publicidad
+      en: Marketing and advertising
+    items:
+      - { name: Google Ads, proven: true }
+      - { name: Meta Ads, proven: false }
+      - { name: Mailchimp, proven: false }
+
+  - id: commerce
+    order: 8
+    name:
+      es: Comercio y pagos
+      en: Commerce and payments
+    items:
+      - { name: Mercado Pago, proven: false }
+      - { name: Shopify, proven: false }
+      - { name: WooCommerce, proven: false }
+      - { name: Stripe, proven: false }
+
+  - id: productivity
+    order: 9
+    name:
+      es: Gestión y productividad
+      en: Management and productivity
+    items:
+      - { name: Google Sheets, proven: true }
+      - { name: Notion, proven: false }
+      - { name: Airtable, proven: false }
+      - { name: Jira, proven: false }
+      - { name: Trello, proven: false }
+
+  - id: cloud
+    order: 10
+    name:
+      es: Nube e infraestructura
+      en: Cloud and infrastructure
+    items:
+      - { name: AWS, proven: true }
+      - { name: Docker, proven: true }
+      - { name: Vercel, proven: false }
+      - { name: Cloudflare, proven: false }
+
+  - id: storage
+    order: 11
+    name:
+      es: Documentos y almacenamiento
+      en: Documents and storage
+    items:
+      - { name: Google Drive, proven: true }
+      - { name: Microsoft 365, proven: false }
+      - { name: Dropbox, proven: false }

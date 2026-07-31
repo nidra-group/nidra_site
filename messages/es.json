@@ -1,0 +1,313 @@
+{
+  "site": {
+    "name": "Nidra",
+    "tagline": "Software con IA para empresas que ya tienen con qué trabajar"
+  },
+  "nav": {
+    "services": "Servicios",
+    "integrations": "Integraciones",
+    "contact": "Contacto",
+    "menu": "Menú",
+    "close": "Cerrar",
+    "skipToContent": "Saltar al contenido"
+  },
+  "home": {
+    "meta": {
+      "title": "Nidra — Desarrollo de software con IA para PyMEs",
+      "description": "Automatizamos procesos y construimos software con IA para pequeñas y medianas empresas. Diagnóstico en dos semanas, sin pilotos que nunca llegan a producción."
+    },
+    "hero": {
+      "eyebrow": "Agencia de software con IA",
+      "title": "La IA sirve cuando llega a producción.",
+      "titleAccent": "El resto es un piloto caro.",
+      "lead": "Trabajamos con pequeñas y medianas empresas que tienen procesos manuales caros y quieren resolverlos, no experimentar. Empezamos por medir dónde conviene y dónde no.",
+      "primaryCta": "Agendar una reunión de 30 minutos",
+      "secondaryCta": "Ver los servicios"
+    },
+    "credibility": {
+      "experience": "años construyendo software",
+      "experienceDetail": "Microservicios, APIs y aplicaciones en producción para clientes globales.",
+      "focus": "Enfoque",
+      "focusDetail": "IA aplicada a procesos concretos, con evaluación de calidad automatizada.",
+      "location": "Buenos Aires, Argentina",
+      "locationDetail": "Trabajo remoto con empresas de habla hispana e inglesa."
+    },
+    "services": {
+      "eyebrow": "Qué hacemos",
+      "title": "Seis servicios, no un catálogo",
+      "lead": "Preferimos hacer bien pocas cosas. Si lo que necesitás no está acá, lo decimos.",
+      "cta": "Ver el detalle de cada servicio"
+    },
+    "process": {
+      "eyebrow": "Cómo trabajamos",
+      "title": "Primero medimos, después construimos",
+      "lead": "El orden importa. La mayoría de los proyectos de IA fracasan por empezar a construir antes de saber qué problema resuelven.",
+      "steps": [
+        {
+          "title": "Diagnóstico",
+          "body": "Dos o tres semanas relevando procesos reales, con volúmenes y tiempos medidos. Sale una lista ordenada por costo y beneficio, incluido lo que conviene no automatizar."
+        },
+        {
+          "title": "Definición",
+          "body": "Escribimos qué se va a construir y cómo se va a verificar antes de escribir código. Las decisiones técnicas quedan documentadas y son tuyas."
+        },
+        {
+          "title": "Construcción",
+          "body": "Entregas parciales que funcionan, con pruebas automatizadas desde el primer día. Ves avances cada semana, no una demo al final."
+        },
+        {
+          "title": "Producción",
+          "body": "Despliegue con medición de calidad, alertas y documentación. El código y la infraestructura quedan a tu nombre."
+        }
+      ]
+    },
+    "technologies": {
+      "eyebrow": "Tecnologías con las que trabajamos",
+      "note": "Trabajamos sobre estas plataformas. No somos socios comerciales ni estamos certificados por ellas: es la infraestructura que usamos para construir."
+    },
+    "closing": {
+      "title": "¿Tenés un proceso que consume horas todas las semanas?",
+      "lead": "Contanos cuál es. Si no creemos que la IA sea la respuesta, te lo vamos a decir.",
+      "primaryCta": "Agendar una reunión",
+      "secondaryCta": "Escribir un mensaje"
+    }
+  },
+  "services": {
+    "meta": {
+      "title": "Servicios — Nidra",
+      "description": "Diagnóstico de IA, asistentes con documentación propia, automatización de procesos, buscador interno, producto a medida y evaluación de seguridad de IA."
+    },
+    "eyebrow": "Servicios",
+    "title": "Qué hacemos, con qué se entrega y en cuánto tiempo",
+    "lead": "Cada servicio arranca por el problema que resuelve. Los plazos son rangos honestos: si no sabemos, ampliamos el rango en vez de prometer corto.",
+    "problemLabel": "El problema",
+    "deliverablesLabel": "Qué se entrega",
+    "timelineLabel": "Plazo estimado",
+    "indexLabel": "Ir a",
+    "cta": "Consultar por este servicio",
+    "items": {
+      "ai-roadmap": "Diagnóstico y hoja de ruta",
+      "conversational-assistants": "Asistentes que responden con tu documentación",
+      "workflow-automation": "Automatización de procesos",
+      "internal-knowledge-base": "Buscador interno de conocimiento",
+      "custom-ai-product": "Producto a medida con IA",
+      "ai-evaluation-security": "Evaluación y seguridad de IA"
+    }
+  },
+  "integrations": {
+    "meta": {
+      "title": "Integraciones — Nidra",
+      "description": "Conectamos con modelos de IA, bases de datos, CRMs, plataformas de comercio, herramientas de gestión y servicios de nube."
+    },
+    "eyebrow": "Integraciones",
+    "title": "Con qué se conecta lo que construimos",
+    "lead": "Esta lista es representativa, no exhaustiva. Podemos integrar con cualquier plataforma que exponga una interfaz de programación.",
+    "provenLabel": "Con experiencia comprobada",
+    "provenNote": "Marcamos con un punto las plataformas en las que ya construimos y pusimos cosas en producción. El resto se integra por sus interfaces públicas.",
+    "missing": {
+      "title": "¿No está la herramienta que usás?",
+      "body": "Escribinos cuál es. Si expone una interfaz de programación, casi siempre se puede integrar.",
+      "cta": "Preguntar por una integración"
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contacto — Nidra",
+      "description": "Agendá una reunión de 30 minutos o escribinos una consulta. Respondemos dentro de un día hábil."
+    },
+    "eyebrow": "Contacto",
+    "title": "Hablemos de tu proceso",
+    "lead": "Dos formas de empezar. Ninguna te compromete a nada.",
+    "booking": {
+      "title": "Agendar una reunión",
+      "body": "Treinta minutos por videollamada. Elegís el horario en el calendario y llega la confirmación con el enlace.",
+      "cta": "Ver horarios disponibles",
+      "note": "Se abre en nuestra página de agenda."
+    },
+    "form": {
+      "title": "Escribir una consulta",
+      "body": "Contanos qué proceso querés resolver. Respondemos dentro de un día hábil.",
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "company": "Empresa",
+      "companyOptional": "opcional",
+      "service": "Sobre qué querés consultar",
+      "servicePlaceholder": "Elegí una opción",
+      "serviceOther": "Otra cosa / todavía no sé",
+      "message": "Tu consulta",
+      "messageHint": "Contanos qué proceso querés resolver y qué herramientas usás hoy.",
+      "submit": "Enviar consulta",
+      "submitting": "Enviando…",
+      "success": {
+        "title": "Consulta enviada",
+        "body": "Te respondemos dentro de un día hábil al correo que dejaste."
+      },
+      "errors": {
+        "nameRequired": "Escribí tu nombre.",
+        "nameTooShort": "El nombre es demasiado corto.",
+        "emailRequired": "Escribí tu correo electrónico.",
+        "emailInvalid": "Ese correo no parece válido. Revisalo.",
+        "serviceRequired": "Elegí sobre qué querés consultar.",
+        "messageRequired": "Escribí tu consulta.",
+        "messageTooShort": "Contanos un poco más: al menos 20 caracteres.",
+        "messageTooLong": "La consulta es demasiado larga. Máximo 2000 caracteres.",
+        "rejected": "No pudimos procesar el envío. Recargá la página e intentá de nuevo.",
+        "rateLimit": "Recibimos varios envíos desde tu conexión. Esperá unos minutos e intentá de nuevo.",
+        "delivery": "No pudimos entregar tu consulta en este momento.",
+        "deliveryFallback": "Escribinos directamente a {email} y te respondemos igual.",
+        "unavailable": "El formulario no está disponible en este momento."
+      }
+    },
+    "direct": {
+      "title": "Correo directo",
+      "body": "Si preferís escribir desde tu propio cliente de correo."
+    }
+  },
+  "legal": {
+    "privacy": {
+      "meta": {
+        "title": "Política de privacidad — Nidra",
+        "description": "Qué datos personales recogemos, con qué finalidad, cuánto los conservamos y cómo ejercer tus derechos."
+      },
+      "title": "Política de privacidad",
+      "updated": "Última actualización",
+      "sections": [
+        {
+          "title": "Qué datos recogemos",
+          "body": [
+            "Recogemos únicamente los datos que nos dejás en el formulario de consulta: nombre, correo electrónico, empresa (opcional), el servicio sobre el que consultás y el texto de tu mensaje.",
+            "Este sitio no usa cookies ni identificadores persistentes de seguimiento. Por eso no vas a encontrar un cartel de consentimiento: no hay nada que consentir.",
+            "Medimos visitas de forma agregada y anónima, sin datos personales y sin poder reconstruir quién sos ni seguirte entre sitios."
+          ]
+        },
+        {
+          "title": "Para qué los usamos",
+          "body": [
+            "Exclusivamente para responder tu consulta. No usamos tus datos para publicidad, no los cruzamos con otras fuentes y no los vendemos ni cedemos a terceros con fines comerciales."
+          ]
+        },
+        {
+          "title": "Cuánto los conservamos",
+          "body": [
+            "El sitio no almacena las consultas en ninguna base de datos. El mensaje se entrega a nuestra casilla de correo y su conservación queda sujeta a nuestra gestión de correo, donde se conserva mientras dure la conversación comercial y hasta un máximo de dos años.",
+            "Si nos pedís que lo borremos antes, lo hacemos."
+          ]
+        },
+        {
+          "title": "Servicios de terceros",
+          "body": [
+            "Para la entrega de los correos usamos un proveedor de correo transaccional, que procesa el mensaje para hacerlo llegar a nuestra casilla.",
+            "Si reservás una reunión, el agendamiento ocurre en una plataforma externa de calendario. Los datos que ingreses ahí se rigen por la política de privacidad de ese proveedor, no por esta.",
+            "Si en el futuro incorporamos un asistente conversacional, actualizaremos esta política antes de ponerlo en funcionamiento, detallando qué datos recoge y con qué finalidad."
+          ]
+        },
+        {
+          "title": "Tus derechos",
+          "body": [
+            "Podés pedirnos acceso a los datos que tengamos sobre vos, su rectificación o su supresión. Escribinos a hola@nidra.cloud y respondemos dentro de los plazos que fija la normativa aplicable.",
+            "En Argentina, la autoridad de control en materia de datos personales es la Agencia de Acceso a la Información Pública."
+          ]
+        },
+        {
+          "title": "Responsable",
+          "body": [
+            "Nidra, Buenos Aires, Argentina. Contacto: hola@nidra.cloud"
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "meta": {
+        "title": "Términos de uso — Nidra",
+        "description": "Condiciones de uso del sitio de Nidra."
+      },
+      "title": "Términos de uso",
+      "updated": "Última actualización",
+      "sections": [
+        {
+          "title": "Alcance de este sitio",
+          "body": [
+            "Este sitio describe los servicios de Nidra con fines informativos. Su contenido no constituye una oferta contractual ni un presupuesto: los alcances, plazos y precios de un trabajo se acuerdan por escrito en cada caso."
+          ]
+        },
+        {
+          "title": "Plazos y estimaciones",
+          "body": [
+            "Los plazos publicados en la sección de servicios son estimaciones basadas en trabajos de alcance comparable. El plazo real de un proyecto depende de su alcance, de la disponibilidad de información y de las dependencias del cliente, y se confirma al momento de acordar el trabajo."
+          ]
+        },
+        {
+          "title": "Marcas de terceros",
+          "body": [
+            "Los nombres de plataformas, productos y empresas mencionados en este sitio pertenecen a sus respectivos titulares y se usan de forma nominativa, únicamente para describir con qué tecnologías trabajamos o con qué sistemas podemos integrar.",
+            "Su mención no implica sociedad comercial, certificación, patrocinio ni respaldo de esas organizaciones hacia Nidra."
+          ]
+        },
+        {
+          "title": "Propiedad del contenido",
+          "body": [
+            "Los textos y el diseño de este sitio son propiedad de Nidra. Podés citarlos con atribución y enlace a la fuente."
+          ]
+        },
+        {
+          "title": "Cambios",
+          "body": [
+            "Podemos actualizar estos términos. La fecha de última actualización figura al comienzo de esta página."
+          ]
+        }
+      ]
+    }
+  },
+  "cv": {
+    "meta": {
+      "title": "Juan Mujica — Ingeniero de IA / GenAI",
+      "description": "Perfil profesional de Juan Mujica: más de 13 años en ingeniería de software, hoy enfocado en llevar soluciones de IA a producción."
+    },
+    "backToSite": "Ir a Nidra",
+    "download": {
+      "title": "Descargar el currículum",
+      "language": "Idioma",
+      "format": "Formato",
+      "formatPdf": "Documento PDF",
+      "formatWeb": "Versión web imprimible",
+      "submit": "Descargar",
+      "openPrintView": "Abrir versión imprimible",
+      "unavailable": "Los documentos se generan al construir el sitio. En desarrollo, usá la versión web imprimible.",
+      "version": "Versión"
+    },
+    "sections": {
+      "summary": "Perfil",
+      "experience": "Experiencia",
+      "education": "Formación",
+      "certifications": "Certificaciones",
+      "skills": "Capacidades técnicas",
+      "languages": "Idiomas",
+      "contact": "Contacto"
+    },
+    "present": "Actualidad",
+    "printHint": "Usá la función de impresión del navegador para guardarlo como PDF."
+  },
+  "notFound": {
+    "meta": { "title": "Página no encontrada — Nidra" },
+    "title": "Esta página no existe",
+    "lead": "Puede que el enlace esté mal escrito o que la página haya cambiado de dirección.",
+    "cta": "Volver al inicio"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "founder": "Perfil del fundador",
+    "sections": {
+      "site": "Sitio",
+      "legal": "Legales",
+      "contact": "Contacto"
+    }
+  },
+  "language": {
+    "label": "Idioma",
+    "es": "Español",
+    "en": "English",
+    "switchTo": "Ver esta página en inglés"
+  }
+}
