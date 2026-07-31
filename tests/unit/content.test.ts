@@ -1,0 +1,117 @@
+import { describe, expect, it } from 'vitest'
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
+
+import es from '@/messages/es.json'
+import en from '@/messages/en.json'
+import { getServices, getIntegrations, getTechnologies, getProfile, getYearsOfExperience } from '@/lib/content'
+import { ServicesFile, TechnologiesFile } from '@/lib/content/schemas'
+import { Profile } from '@/lib/content/profile-schema'
+
+function keys(value: unknown, prefix = ''): Set<string> {
+  const out = new Set<string>()
+  if (value && typeof value === 'object' && !Array.isArray(value)) {
+    for (const [k, v] of Object.entries(value)) {
+      out.add(prefix + k)
+      for (const nested of keys(v, `${prefix}${k}.`)) out.add(nested)
+    }
+  }
+  return out
+}
+
+describe('paridad de idiomas', () => {
+  it('los archivos de mensajes tienen exactamente las mismas claves', () => {
+    const esKeys = keys(es)
+    const enKeys = keys(en)
+    const soloEs = [...esKeys].filter((k) => !enKeys.has(k))
+    const soloEn = [...enKeys].filter((k) => !esKeys.has(k))
+    expect({ soloEs, soloEn }).toEqual({ soloEs: [], soloEn: [] })
+  })
+})
+
+describe('servicios', () => {
+  it('son exactamente seis y validan contra el esquema', () => {
+    const services = getServices()
+    expect(services).toHaveLength(6)
+  })
+
+  it('rechaza un catálogo con siete servicios', () => {
+    const services = getServices()
+    const result = ServicesFile.safeParse([...services, services[0]])
+    expect(result.success).toBe(false)
+  })
+
+  it('cada resumen entra en la tarjeta de la portada', () => {
+    for (const service of getServices()) {
+      expect(service.summary.es.length).toBeLessThanOrEqual(120)
+      expect(service.summary.en.length).toBeLessThanOrEqual(120)
+    }
+  })
+
+  it('cada servicio tiene una entrada de traducción para el formulario', () => {
+    const items = (es.services as { items: Record<string, string> }).items
+    for (const service of getServices()) {
+      expect(items[service.id]).toBeTruthy()
+    }
+  })
+})
+
+describe('integraciones y tecnologías', () => {
+  it('ninguna herramienta aparece en dos categorías', () => {
+    const names = getIntegrations().flatMap((c) => c.items.map((i) => i.name))
+    expect(new Set(names).size).toBe(names.length)
+  })
+
+  it('las probadas se presentan primero dentro de su categoría', () => {
+    for (const category of getIntegrations()) {
+      const flags = category.items.map((i) => i.proven)
+      const sorted = [...flags].sort((a, b) => Number(b) - Number(a))
+      expect(flags).toEqual(sorted)
+    }
+  })
+
+  it('el esquema rechaza declarar una alianza comercial inexistente', () => {
+    // FR-028: el enum no contiene `partner`. Declararla exige cambiar código,
+    // no solo contenido.
+    const result = TechnologiesFile.safeParse([{ name: 'OpenAI', relationship: 'partner' }])
+    expect(result.success).toBe(false)
+  })
+
+  it('el contenido publicado no usa la palabra partner', () => {
+    const raw = readFileSync(join(process.cwd(), 'content/technologies.yaml'), 'utf8')
+    expect(raw).not.toMatch(/relationship:\s*partner/)
+    expect(getTechnologies().length).toBeGreaterThan(0)
+  })
+})
+
+describe('perfil profesional', () => {
+  it('valida y tiene un solo puesto vigente', () => {
+    const profile = getProfile()
+    expect(profile.experiences.filter((e) => !e.end)).toHaveLength(1)
+  })
+
+  it('rechaza una experiencia que termina antes de empezar', () => {
+    const profile = getProfile()
+    const broken = structuredClone(profile) as unknown as Record<string, unknown>
+    const experiences = broken.experiences as { start: string; end?: string }[]
+    experiences[0]!.start = '2020-01'
+    experiences[0]!.end = '2019-01'
+    expect(Profile.safeParse(broken).success).toBe(false)
+  })
+
+  it('rechaza dos puestos vigentes a la vez', () => {
+    const broken = structuredClone(getProfile()) as unknown as Record<string, unknown>
+    const experiences = broken.experiences as { end?: string }[]
+    delete experiences[1]!.end
+    expect(Profile.safeParse(broken).success).toBe(false)
+  })
+
+  it('los años declarados en la prosa coinciden con los calculados', () => {
+    // La portada CALCULA los años; el resumen del CV los tiene escritos. Sin
+    // esta prueba, el 1 de enero se desincronizan solos y nadie se entera.
+    const profile = getProfile()
+    const years = getYearsOfExperience(profile)
+    expect(profile.summary.es).toContain(`${years} años`)
+    expect(profile.summary.en).toContain(`${years}+ years`)
+  })
+})

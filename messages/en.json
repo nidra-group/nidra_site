@@ -173,7 +173,8 @@
         "If it makes sense to move forward, we set up a 30-minute call to understand the process in detail.",
         "We send you a scope with timeline and price in writing. If we don't think AI is the answer, that's where we say so."
       ]
-    }
+    },
+    "leadNoBooking": "Tell us which process you want to solve. It doesn't commit you to anything."
   },
   "legal": {
     "privacy": {

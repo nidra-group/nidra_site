@@ -42,11 +42,16 @@ export function buildMetadata({
       title,
       description,
       url: canonical,
+      // Declarar `summary_large_image` sin imagen produce una tarjeta grande y
+      // vacía cada vez que alguien comparte el enlace. Al fijar `openGraph` a
+      // mano hay que declararla acá: Next ya no la agrega sola.
+      images: [{ url: `${publicEnv.SITE_URL}/opengraph-image`, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
+      images: [`${publicEnv.SITE_URL}/opengraph-image`],
     },
   }
 }

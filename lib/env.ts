@@ -9,8 +9,31 @@ import { z } from 'zod'
  */
 const serverSchema = z.object({
   RESEND_API_KEY: z.string().min(1).optional(),
-  CONTACT_INBOX: z.string().email().optional(),
+  CONTACT_INBOX: z.email().optional(),
 })
+
+/**
+ * El secreto que firma la marca temporal anti-bot se valida AL CARGAR EL
+ * MÓDULO, no al renderizar el formulario.
+ *
+ * Validarlo dentro de la función que lo usa hacía que un despliegue sin la
+ * variable pasara cualquier comprobación de salud —portada, servicios y CV
+ * respondían 200— y solo fallara /contacto. El sitio parecía sano mientras
+ * perdía el 100% de las consultas.
+ */
+function assertFormSecret(): void {
+  if (typeof window !== 'undefined') return
+  const value = process.env.FORM_SECRET
+  if (process.env.NODE_ENV === 'production' && (!value || value.length < 16)) {
+    throw new Error(
+      'FORM_SECRET no está definida o tiene menos de 16 caracteres.\n' +
+        'Es la clave que firma la marca temporal anti-bot del formulario.\n' +
+        'Generá una con: openssl rand -hex 32',
+    )
+  }
+}
+
+assertFormSecret()
 
 /**
  * `BOOKING_URL` y `PROFILE_URL` son OPCIONALES a propósito, y no tienen valor

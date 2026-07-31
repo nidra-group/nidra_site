@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react'
 import { useTranslations } from 'next-intl'
 
-import { Link } from '@/i18n/navigation'
+import { Link, usePathname } from '@/i18n/navigation'
 import { LocaleSwitcher } from './LocaleSwitcher'
 
 const NAV = [
@@ -23,6 +23,7 @@ const NAV = [
 export function MobileNav() {
   const t = useTranslations('nav')
   const ref = useRef<HTMLDetailsElement>(null)
+  const pathname = usePathname()
 
   useEffect(() => {
     const details = ref.current
@@ -52,6 +53,11 @@ export function MobileNav() {
       document.removeEventListener('pointerdown', onPointerDown)
     }
   }, [])
+
+  // Al navegar, el panel quedaba abierto tapando el título de la página nueva.
+  useEffect(() => {
+    if (ref.current) ref.current.open = false
+  }, [pathname])
 
   return (
     <details ref={ref} className="group relative md:hidden">

@@ -10,6 +10,7 @@
    Reglas al reemplazar:
    - `--brand-ink` sobre `--brand-paper` debe dar contraste >= 7:1
    - `--brand-muted` sobre `--brand-paper` debe dar contraste >= 4.5:1
+   - `--brand-critical` sobre `--brand-paper` debe dar contraste >= 4.5:1
    - `--brand-accent` sobre `--brand-paper` debe dar contraste >= 4.5:1
      (se usa en texto de enlace, no solo en fondos)
    - `--brand-paper` sobre `--brand-accent` debe dar contraste >= 4.5:1
@@ -22,7 +23,8 @@
   --brand-muted: #5b6167; /* texto secundario */
   --brand-accent: #1e5c50; /* acento: enlaces, botones, detalles */
   --brand-accent-deep: #16443b; /* estado activo del acento */
-  --brand-highlight: #c9622f; /* segundo acento, uso escaso y deliberado */
+  --brand-highlight: #c9622f; /* segundo acento decorativo: bordes y fondos */
+  --brand-critical: #a8481c; /* texto de error; 5.34:1 sobre papel, el decorativo solo da 3.66 */
   --brand-line: #dcd7cd; /* bordes y reglas */
 }
 
@@ -38,6 +40,7 @@
   --color-accent: var(--brand-accent);
   --color-accent-deep: var(--brand-accent-deep);
   --color-highlight: var(--brand-highlight);
+  --color-critical: var(--brand-critical);
   --color-line: var(--brand-line);
 
   --font-display: var(--font-instrument-serif), Georgia, 'Times New Roman', serif;

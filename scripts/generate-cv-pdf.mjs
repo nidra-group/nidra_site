@@ -59,12 +59,6 @@ async function waitForServer(url, timeoutMs = 120_000) {
 const version = cvVersion()
 mkdirSync(OUT_DIR, { recursive: true })
 
-// Los documentos de versiones anteriores quedarían huérfanos y ocupando
-// espacio: el selector solo ofrece los de la versión vigente.
-for (const file of existsSync(OUT_DIR) ? readdirSync(OUT_DIR) : []) {
-  if (file.endsWith('.pdf')) rmSync(join(OUT_DIR, file))
-}
-
 const server = spawn('pnpm', ['exec', 'next', 'start', '--port', PORT], {
   stdio: 'ignore',
   env: { ...process.env },
@@ -93,6 +87,18 @@ try {
   }
 
   await browser.close()
+
+  // Recién ahora que los nuevos existen se borran los de versiones anteriores.
+  // Borrarlos antes dejaba el sitio sin descargas si la generación fallaba.
+  const current = new Set(
+    LOCALES.map(
+      ({ locale }) => `Juan_Mujica_CV_${locale.toUpperCase()}_${version.date}_${version.hash}.pdf`,
+    ),
+  )
+  for (const file of readdirSync(OUT_DIR)) {
+    if (file.endsWith('.pdf') && !current.has(file)) rmSync(join(OUT_DIR, file))
+  }
+
   ok = true
 } catch (error) {
   console.warn(`⚠ No se generaron los PDF del currículum: ${error.message}`)
@@ -101,4 +107,6 @@ try {
   server.kill('SIGTERM')
 }
 
-process.exit(ok ? 0 : 0)
+// Falla el build si no quedó ningún documento disponible: publicar un selector
+// de descargas vacío incumple la promesa de la página.
+process.exit(ok || readdirSync(OUT_DIR).some((f) => f.endsWith('.pdf')) ? 0 : 1)

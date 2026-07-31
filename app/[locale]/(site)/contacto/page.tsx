@@ -58,7 +58,9 @@ export default async function ContactPage({ params }: Props) {
       <h1 className="mt-5 max-w-[16ch] font-display text-[clamp(2.25rem,6vw,3.5rem)] leading-[1.04] tracking-[-0.025em]">
         {t('title')}
       </h1>
-      <p className="measure mt-6 text-lead text-muted">{t('lead')}</p>
+      <p className="measure mt-6 text-lead text-muted">
+        {bookingUrl ? t('lead') : t('leadNoBooking')}
+      </p>
 
       <div className="mt-16 grid gap-x-16 gap-y-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
         {/* Agenda primero: es el camino más corto a una conversación. Es un

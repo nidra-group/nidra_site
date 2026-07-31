@@ -1,4 +1,4 @@
-import { publicEnv, profileBaseUrl } from '@/lib/env'
+import { publicEnv } from '@/lib/env'
 
 export function OrganizationJsonLd() {
   const data = {
@@ -17,7 +17,9 @@ export function OrganizationJsonLd() {
     founder: {
       '@type': 'Person',
       name: 'Juan Mujica',
-      url: profileBaseUrl,
+      // Sin subdominio configurado, el perfil vive dentro del sitio. Apuntar a
+      // la home diría que la página personal de Juan Mujica es la de la empresa.
+      url: `${publicEnv.PROFILE_URL ?? `${publicEnv.SITE_URL}/es/cv`}`,
     },
   }
 

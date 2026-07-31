@@ -173,7 +173,8 @@
         "Si tiene sentido avanzar, coordinamos una llamada de 30 minutos para entender el proceso en detalle.",
         "Te pasamos un alcance con plazo y precio por escrito. Si no creemos que la IA sea la respuesta, te lo decimos ahí."
       ]
-    }
+    },
+    "leadNoBooking": "Contanos qué proceso querés resolver. No te compromete a nada."
   },
   "legal": {
     "privacy": {

@@ -22,7 +22,7 @@ export function InquiryForm({ timestamp }: { timestamp: string }) {
   const services = useTranslations('services')
   const locale = useLocale()
   const id = useId()
-  const [preselected, setPreselected] = useState('')
+  const [service, setService] = useState('')
 
   // El servicio preseleccionado llega por parámetro de consulta desde la página
   // de servicios. Se lee en el cliente y no con `searchParams` en el servidor,
@@ -31,7 +31,7 @@ export function InquiryForm({ timestamp }: { timestamp: string }) {
   // simplemente arranca vacío: el formulario sigue siendo usable.
   useEffect(() => {
     const value = new URLSearchParams(window.location.search).get('servicio')
-    if (value) setPreselected(value)
+    if (value) setService(value)
   }, [])
 
   const [state, formAction, pending] = useActionState<InquiryResult, FormData>(submitInquiry, {
@@ -48,6 +48,15 @@ export function InquiryForm({ timestamp }: { timestamp: string }) {
     if (!first) return
     const field = formRef.current?.querySelector<HTMLElement>(`[name="${first}"]`)
     field?.focus()
+  }, [state])
+
+  // Un envío fallido devuelve los valores para no hacer reescribir el
+  // formulario. El desplegable es el único campo controlado, así que hay que
+  // sincronizarlo a mano; si no, muestra una cosa y envía otra.
+  useEffect(() => {
+    if (state.status === 'invalid' || state.status === 'failed') {
+      setService(state.values.service ?? '')
+    }
   }, [state])
 
   if (state.status === 'success') {
@@ -100,8 +109,10 @@ export function InquiryForm({ timestamp }: { timestamp: string }) {
           <p className="text-small font-medium text-ink">{t('errorSummary')}</p>
           <ul className="mt-2 space-y-1">
             {Object.entries(errors).map(([field, key]) => (
-              <li key={field} className="text-small text-muted">
-                {t(`errors.${key}`)}
+              <li key={field} className="text-small">
+                <a href={`#${id}-${field}`} className="link">
+                  {t(`errors.${key}`)}
+                </a>
               </li>
             ))}
           </ul>
@@ -148,8 +159,8 @@ export function InquiryForm({ timestamp }: { timestamp: string }) {
           id={`${id}-service`}
           name="service"
           required
-          value={values.service || preselected}
-          onChange={(event) => setPreselected(event.target.value)}
+          value={service}
+          onChange={(event) => setService(event.target.value)}
           aria-invalid={fieldError('service') ? true : undefined}
           aria-describedby={fieldError('service') ? `${id}-service-error` : undefined}
           className="mt-2 min-h-[3rem] w-full border border-line bg-paper px-3.5 py-3 text-body text-ink"
@@ -165,7 +176,7 @@ export function InquiryForm({ timestamp }: { timestamp: string }) {
           <option value="other">{t('serviceOther')}</option>
         </select>
         {fieldError('service') && (
-          <p id={`${id}-service-error`} className="mt-1.5 text-small text-highlight">
+          <p id={`${id}-service-error`} className="mt-1.5 text-small text-critical">
             {fieldError('service')}
           </p>
         )}
@@ -193,7 +204,7 @@ export function InquiryForm({ timestamp }: { timestamp: string }) {
           className="mt-2 w-full border border-line bg-paper px-3.5 py-3 text-body text-ink"
         />
         {fieldError('message') && (
-          <p id={`${id}-message-error`} className="mt-1.5 text-small text-highlight">
+          <p id={`${id}-message-error`} className="mt-1.5 text-small text-critical">
             {fieldError('message')}
           </p>
         )}
@@ -243,7 +254,7 @@ function Field({
         {...rest}
       />
       {error && (
-        <p id={`${id}-error`} className="mt-1.5 text-small text-highlight">
+        <p id={`${id}-error`} className="mt-1.5 text-small text-critical">
           {error}
         </p>
       )}

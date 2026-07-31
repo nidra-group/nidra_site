@@ -1,0 +1,96 @@
+{
+  "focoBotonPrimario": {
+    "texto": "Escribir un mensaje",
+    "outlineColor": "rgb(247, 245, 241)",
+    "outlineWidth": "2px",
+    "outlineOffset": "3px",
+    "color": "rgb(247, 245, 241)",
+    "fondoBoton": "rgb(30, 92, 80)",
+    "fondoDetras": "rgba(0, 0, 0, 0)"
+  },
+  "proceso": {
+    "gridTemplateColumns": "516px 516px",
+    "columnas": 2,
+    "pasos": 4,
+    "filas": 2
+  },
+  "encabezadosDecorativos": [
+    {
+      "tag": "P",
+      "txt": "Agencia de software con IA"
+    },
+    {
+      "tag": "P",
+      "txt": "Enfoque"
+    },
+    {
+      "tag": "P",
+      "txt": "Buenos Aires, Argentina"
+    },
+    {
+      "tag": "P",
+      "txt": "Qué hacemos"
+    },
+    {
+      "tag": "P",
+      "txt": "Cómo trabajamos"
+    },
+    {
+      "tag": "P",
+      "txt": "01"
+    },
+    {
+      "tag": "P",
+      "txt": "02"
+    },
+    {
+      "tag": "P",
+      "txt": "03"
+    },
+    {
+      "tag": "P",
+      "txt": "04"
+    },
+    {
+      "tag": "P",
+      "txt": "Tecnologías con las que trabaj"
+    },
+    {
+      "tag": "P",
+      "txt": "Sitio"
+    },
+    {
+      "tag": "P",
+      "txt": "Legales"
+    },
+    {
+      "tag": "P",
+      "txt": "Contacto"
+    }
+  ],
+  "contactoColumnas": {
+    "izquierdaAlto": 1070,
+    "derechaAlto": 1070,
+    "huecoVertical": 0,
+    "seccionesIzquierda": [
+      "Qué pasa después",
+      "Correo directo"
+    ]
+  },
+  "cvDescargas": [
+    {
+      "href": "/downloads/Juan_Mujica_CV_ES_2026-07-30_1ad0cf6.pdf",
+      "texto": "Documento PDF · ES",
+      "status": 200,
+      "contentType": "application/pdf",
+      "bytes": 145061
+    },
+    {
+      "href": "/downloads/Juan_Mujica_CV_EN_2026-07-30_1ad0cf6.pdf",
+      "texto": "Documento PDF · EN",
+      "status": 200,
+      "contentType": "application/pdf",
+      "bytes": 142120
+    }
+  ]
+}
