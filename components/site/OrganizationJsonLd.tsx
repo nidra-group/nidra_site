@@ -8,7 +8,7 @@ export function OrganizationJsonLd() {
     name: 'Nidra',
     url: publicEnv.SITE_URL,
     description:
-      'Desarrollo de software con inteligencia artificial para pequeñas y medianas empresas.',
+      'Agencia de desarrollo de software con inteligencia artificial para pequeñas y medianas empresas.',
     email: CONTACT_EMAIL,
     address: {
       '@type': 'PostalAddress',
