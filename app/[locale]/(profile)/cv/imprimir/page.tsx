@@ -42,7 +42,7 @@ export default async function CvPrintPage({ params }: Props) {
       </p>
 
       <header className="print-block border-b border-line pb-5">
-        <h1 className="font-display text-[2.5rem] leading-none tracking-[-0.02em] print:text-[24pt]">
+        <h1 className="font-display text-[2.5rem] font-extrabold leading-none tracking-[-0.03em] print:text-[24pt]">
           {profile.person.name}
         </h1>
         <p className="mt-2 text-lead text-muted print:text-[11pt]">

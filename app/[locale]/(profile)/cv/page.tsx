@@ -70,31 +70,30 @@ export default async function CvPage({ params }: Props) {
 
       <div className="mx-auto max-w-4xl px-5 py-14 sm:px-8 sm:py-20">
         <header className="border-b border-line pb-10">
-          <div className="flex flex-wrap items-start justify-between gap-6">
-            <div>
-              <h1 className="font-display text-[clamp(2.5rem,7vw,3.75rem)] leading-none tracking-[-0.025em]">
-                {profile.person.name}
-              </h1>
-              <p className="mt-3 text-lead text-muted">{profile.person.headline[locale]}</p>
-              <p className="mt-1 text-small text-muted">{profile.person.location[locale]}</p>
-            </div>
-            <Link
-              href="/"
-              className="text-small text-muted underline-offset-4 hover:text-ink hover:underline"
-            >
-              {t('backToSite')} →
-            </Link>
+          {/* La vuelta al sitio vive en la barra del envoltorio, no acá: en
+              una esquina y a 13 px era invisible, y esta página es el destino
+              de «Ver el perfil completo» desde la portada. */}
+          <div>
+            <h1 className="font-display text-[clamp(2.5rem,7vw,3.75rem)] font-extrabold leading-none tracking-[-0.035em]">
+              {profile.person.name}
+            </h1>
+            <p className="mt-3 text-lead text-muted">{profile.person.headline[locale]}</p>
+            <p className="mt-1 text-small text-muted">{profile.person.location[locale]}</p>
           </div>
 
-          <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-small">
+          <ul className="mt-4 flex flex-wrap items-center gap-x-6 text-small">
             <li>
-              <a href={`mailto:${profile.person.email}`} className="link">
+              <a href={`mailto:${profile.person.email}`} className="link inline-flex min-h-[2.75rem] items-center">
                 {profile.person.email}
               </a>
             </li>
             {profile.person.links.map((link) => (
               <li key={link.url}>
-                <a href={link.url} rel="noopener" className="link">
+                <a
+                  href={link.url}
+                  rel="noopener"
+                  className="link inline-flex min-h-[2.75rem] items-center"
+                >
                   {link.label}
                 </a>
               </li>
@@ -115,7 +114,7 @@ export default async function CvPage({ params }: Props) {
         <footer className="mt-14 border-t border-line pt-5 text-[0.8125rem] text-muted">
           {t('download.version')} {version.date} · {version.hash}
           {' · '}
-          <Link href="/cv/imprimir" className="link">
+          <Link href="/cv/imprimir" className="link inline-flex min-h-[2.75rem] items-center">
             {t('download.openPrintView')}
           </Link>
         </footer>

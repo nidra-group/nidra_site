@@ -1,9 +1,10 @@
 import { useTranslations } from 'next-intl'
 
-import { Link } from '@/i18n/navigation'
+import { ButtonLink } from '@/components/ui/Button'
 import { Wordmark } from './Wordmark'
 import { LocaleSwitcher } from './LocaleSwitcher'
 import { MobileNav } from './MobileNav'
+import { NavLink } from './NavLink'
 
 const NAV = [
   { href: '/servicios', key: 'services' },
@@ -25,7 +26,7 @@ export function Header() {
     // Fija con desenfoque: mantiene la navegación y el cambio de idioma a un
     // clic en páginas largas sin robar protagonismo — el fondo translúcido la
     // funde con el papel.
-    <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-line/80 bg-paper/70 backdrop-blur-xl">
       <a
         href="#contenido"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-(--radius-md) focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"
@@ -41,18 +42,19 @@ export function Header() {
             <ul className="flex items-center gap-7 text-[0.9375rem]">
               {NAV.map((item) => (
                 <li key={item.key}>
-                  <Link
-                    href={item.href}
-                    className="text-muted underline-offset-[6px] transition-colors hover:text-ink hover:underline"
-                  >
-                    {t(item.key)}
-                  </Link>
+                  <NavLink href={item.href}>{t(item.key)}</NavLink>
                 </li>
               ))}
             </ul>
           </nav>
           <span aria-hidden="true" className="h-4 w-px bg-line" />
           <LocaleSwitcher />
+          <ButtonLink
+            href="/contacto"
+            className="min-h-0 px-5 py-2.5 text-[0.875rem]"
+          >
+            {t('headerCta')}
+          </ButtonLink>
         </div>
 
         <MobileNav />

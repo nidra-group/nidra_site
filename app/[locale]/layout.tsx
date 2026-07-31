@@ -2,28 +2,23 @@ import type { Metadata, Viewport } from 'next'
 import { notFound } from 'next/navigation'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import { setRequestLocale } from 'next-intl/server'
-import { Bricolage_Grotesque, Instrument_Sans, JetBrains_Mono } from 'next/font/google'
+import { Manrope, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 
 import { routing } from '@/i18n/routing'
 
 import '../globals.css'
 
-const sans = Instrument_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-instrument-sans',
-})
-
 /**
- * Bricolage Grotesque para títulos: una grotesca con carácter propio —trampas
- * de tinta, aperturas cerradas— que se distingue de las sans neutrales sin
- * caer en la serif editorial que hoy delata a las webs generadas con IA.
+ * Manrope en todos los roles de texto. Es una grotesca geométrica con un
+ * rango de pesos muy amplio: el mismo tipo sirve para un titular en 800 y
+ * para el cuerpo en 400, así que la página tiene una sola voz y no dos
+ * familias peleando.
  */
-const display = Bricolage_Grotesque({
+const sans = Manrope({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-bricolage',
+  variable: '--font-manrope',
 })
 
 /**
@@ -38,7 +33,7 @@ const mono = JetBrains_Mono({
 })
 
 export const viewport: Viewport = {
-  themeColor: '#f4f6f2',
+  themeColor: '#070b0d',
   width: 'device-width',
   initialScale: 1,
 }
@@ -69,7 +64,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale)
 
   return (
-    <html lang={locale} className={`${sans.variable} ${display.variable} ${mono.variable}`}>
+    <html lang={locale} className={`${sans.variable} ${mono.variable}`}>
       <body>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
         <Analytics />

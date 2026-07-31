@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import { ButtonLink, ButtonExternal } from '@/components/ui/Button'
-import { NightShift } from '@/components/site/NightShift'
+import { ServiceIcon } from '@/components/ui/ServiceIcon'
+import { FlowDiagram } from '@/components/site/FlowDiagram'
 import { Link } from '@/i18n/navigation'
 import { routing, type Locale } from '@/i18n/routing'
 import { getServices, getTechnologies, getProfile, getYearsOfExperience } from '@/lib/content'
@@ -43,160 +44,168 @@ export default async function HomePage({ params }: Props) {
   return (
     <>
       {/* ── Héroe ──────────────────────────────────────────────────────────
-          Asimétrico: el mensaje a la izquierda y, a la derecha, el turno
-          noche — la tesis de la empresa mostrada en su forma nativa, un
-          registro de ejecución de madrugada, en lugar de afirmada con un
-          eslogan. El héroe centrado con título gigante y dos botones es el
-          patrón más repetido de la web de IA y le resta credibilidad. */}
-      <section className="border-b border-line">
-        <div className="mx-auto grid max-w-6xl items-center gap-x-16 gap-y-14 px-5 pb-20 pt-16 sm:px-8 sm:pb-24 sm:pt-20 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:pb-28 lg:pt-24">
-          <div>
-            <p className="eyebrow">{t('hero.eyebrow')}</p>
+          Centrado y a gran escala sobre la aurora. La luz ambiente y la
+          retícula son puro CSS: no hay lienzo, ni vídeo, ni imagen que
+          descargar, así que el efecto no cuesta nada en el presupuesto de
+          rendimiento. */}
+      <section className="relative isolate overflow-hidden">
+        <div className="aurora" aria-hidden="true" />
+        <div className="grid-veil" aria-hidden="true" />
 
-            <h1 className="mt-6 max-w-[17ch] font-display text-[clamp(2.5rem,6.5vw,4.25rem)] leading-[1.02] tracking-[-0.03em]">
-              {t('hero.title')}{' '}
-              <span className="text-muted">{t('hero.titleAccent')}</span>
-            </h1>
+        <div className="relative z-10 mx-auto max-w-5xl px-5 pb-24 pt-20 text-center sm:px-8 sm:pb-32 sm:pt-28">
+          <p className="pill mx-auto font-mono text-[0.75rem] uppercase tracking-[0.12em] text-accent">
+            {t('hero.eyebrow')}
+          </p>
 
-            <p className="measure mt-7 text-lead text-muted">{t('hero.lead')}</p>
+          <h1 className="mx-auto mt-8 max-w-[15ch] font-display text-[clamp(2.25rem,7vw,5rem)] font-extrabold leading-[1.02] tracking-[-0.035em]">
+            {t('hero.title')} <span className="accent-word">{t('hero.titleAccent')}</span>
+          </h1>
 
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-              {bookingUrl ? (
-                <ButtonExternal href={bookingUrl} rel="noopener">
-                  {t('hero.primaryCta')}
-                </ButtonExternal>
-              ) : (
-                <ButtonLink href="/contacto">{t('closing.secondaryCta')}</ButtonLink>
-              )}
-              <ButtonLink href="/servicios" variant="secondary">
-                {t('hero.secondaryCta')}
-              </ButtonLink>
-            </div>
+          <p className="mx-auto mt-7 max-w-[52ch] text-lead text-muted">{t('hero.lead')}</p>
+
+          <div className="mt-11 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            {bookingUrl ? (
+              <ButtonExternal href={bookingUrl} rel="noopener">
+                {t('hero.primaryCta')}
+              </ButtonExternal>
+            ) : (
+              <ButtonLink href="/contacto">{t('closing.secondaryCta')}</ButtonLink>
+            )}
+            <ButtonLink href="/servicios" variant="secondary">
+              {t('hero.secondaryCta')}
+            </ButtonLink>
           </div>
 
-          <NightShift />
-        </div>
-      </section>
-
-      {/* ── Franja de credibilidad ─────────────────────────────────────────
-          Datos verificables separados por reglas finas, no tarjetas con
-          sombra. Tres tarjetas idénticas con ícono redondo arriba es el otro
-          patrón que delata una plantilla. */}
-      <section className="border-b border-line bg-surface">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8">
-          <div className="grid divide-y divide-line md:grid-cols-3 md:divide-x md:divide-y-0">
-            <div className="py-9 md:pr-10">
-              <p className="font-display text-[3rem] leading-none text-ink">{years}</p>
-              <p className="mt-2 text-small font-medium text-ink">{t('credibility.experience')}</p>
-              <p className="measure-tight mt-1.5 text-small text-muted">
-                {t('credibility.experienceDetail')}
-              </p>
-            </div>
-            <div className="py-9 md:px-10">
-              <p className="eyebrow">{t('credibility.focus')}</p>
-              <p className="measure-tight mt-3 text-small text-muted">
-                {t('credibility.focusDetail')}
-              </p>
-            </div>
-            <div className="py-9 md:pl-10">
-              <p className="eyebrow">{t('credibility.location')}</p>
-              <p className="measure-tight mt-3 text-small text-muted">
-                {t('credibility.locationDetail')}
-              </p>
-            </div>
+          {/* El objeto del héroe: sistemas sueltos que entran, un proceso en
+              el medio, salidas ya en producción. Es lo que Nidra construye,
+              dibujado como lo dibujaría un equipo de ingeniería. Se oculta en
+              móvil, donde no hay ancho para que se lea. */}
+          <div
+            aria-hidden="true"
+            className="mx-auto mt-16 hidden h-[300px] w-full max-w-4xl md:block"
+          >
+            <FlowDiagram />
           </div>
+
+          {/* Franja de credibilidad. Los tres datos son verificables: los años
+              se calculan del currículum, el foco describe el trabajo y la
+              ubicación es la real. No hay métricas de clientes porque la
+              empresa todavía no las tiene, e inventarlas es la forma más
+              rápida de perder la confianza que el sitio busca. */}
+          <dl className="mt-16 grid gap-4 text-left sm:grid-cols-3">
+            {[
+              {
+                hue: 'a',
+                label: t('credibility.experience'),
+                value: (
+                  <>
+                    {years}
+                    <span className="accent-word">+</span>
+                  </>
+                ),
+                detail: t('credibility.experienceDetail'),
+              },
+              {
+                hue: 'b',
+                label: t('credibility.servicesLabel'),
+                value: services.length,
+                detail: t('credibility.focusDetail'),
+              },
+              {
+                hue: 'c',
+                label: t('credibility.regionLabel'),
+                value: t('credibility.regionValue'),
+                detail: t('credibility.locationDetail'),
+              },
+            ].map((stat) => (
+              <div key={stat.label} data-hue={stat.hue} className="surface p-7 text-left">
+                <span aria-hidden="true" className="dot" />
+                <dt className="eyebrow eyebrow-muted mt-4">{stat.label}</dt>
+                <dd className="mt-3 font-display text-[2.75rem] font-extrabold leading-none tracking-[-0.03em]">
+                  {stat.value}
+                </dd>
+                <dd className="mt-3 text-small text-muted">{stat.detail}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
       {/* ── Servicios ──────────────────────────────────────────────────────
-          Lista numerada de dos columnas en vez de una grilla de tarjetas. Se
-          lee como un índice editorial y deja que los títulos —que es lo que
-          importa— tengan peso tipográfico real. */}
-      <section className="mx-auto max-w-6xl px-5 py-(--spacing-section) sm:px-8">
-        <div className="md:flex md:items-end md:justify-between md:gap-12">
-          <div>
-            <p className="eyebrow">{t('services.eyebrow')}</p>
-            <h2 className="mt-4 font-display text-[clamp(2rem,4.5vw,2.75rem)] leading-[1.08] tracking-[-0.02em]">
-              {t('services.title')}
-            </h2>
-          </div>
-          <p className="measure-tight mt-4 text-body text-muted md:mt-0">
-            {t('services.lead')}
-          </p>
+          Grilla de tarjetas enlazadas. Cada una lleva el icono de su propio
+          servicio, no un adorno intercambiable. */}
+      <section className="mx-auto max-w-6xl px-5 pb-28 pt-24 sm:px-8">
+        <div className="text-center">
+          <p className="eyebrow">{t('services.eyebrow')}</p>
+          <h2 className="mx-auto mt-5 max-w-[18ch] font-display text-[clamp(2rem,4.5vw,3rem)] font-extrabold leading-[1.06] tracking-[-0.03em]">
+            {t('services.title')} <span className="accent-word">{t('services.titleAccent')}</span>
+          </h2>
+          <p className="measure mx-auto mt-5 text-body text-muted">{t('services.lead')}</p>
         </div>
 
-        <ol className="reveal mt-14 border-t border-line">
-          {services.map((service, index) => (
-            <li key={service.id} className="border-b border-line">
+        <ul className="reveal mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
+            <li key={service.id}>
               <Link
                 href={{ pathname: '/servicios', hash: service.id }}
-                className="group grid gap-x-8 gap-y-2 py-7 md:grid-cols-[3rem_minmax(0,1fr)_minmax(0,1.1fr)] md:items-baseline"
+                className="surface surface-interactive group flex h-full flex-col p-7"
               >
-                <span
-                  aria-hidden="true"
-                  className="font-mono text-[0.9375rem] text-muted md:text-[1.0625rem]"
-                >
-                  {String(index + 1).padStart(2, '0')}
+                <span className="chip">
+                  <ServiceIcon id={service.id} />
                 </span>
-                <h3 className="text-heading text-ink underline-offset-[6px] group-hover:underline">
+                <h3 className="mt-6 text-heading font-bold text-ink transition-colors group-hover:text-accent">
                   {service.name[locale]}
                 </h3>
-                <p className="text-small text-muted">{service.summary[locale]}</p>
+                <p className="mt-3 text-small text-muted">{service.summary[locale]}</p>
+                <span className="mt-auto flex items-center gap-2.5 pt-7 font-mono text-[0.75rem] uppercase tracking-[0.12em] text-muted transition-colors group-hover:text-accent">
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+                  {service.timeline[locale]}
+                </span>
               </Link>
             </li>
           ))}
-        </ol>
+        </ul>
 
-        <p className="mt-8">
-          <Link href="/servicios" className="link text-small">
+        <p className="mt-10 text-center">
+          <Link href="/servicios" className="link inline-flex min-h-[2.75rem] items-center text-small font-semibold">
             {t('services.cta')} →
           </Link>
         </p>
       </section>
 
-      {/* ── Proceso ────────────────────────────────────────────────────────*/}
-      <section className="border-y border-line bg-surface/50">
+      {/* ── Proceso ────────────────────────────────────────────────────────
+          Línea de tiempo real: el orden importa porque cada etapa depende de
+          la anterior. Acá la numeración sí informa, no decora. */}
+      <section className="border-y border-line bg-surface/35">
         <div className="mx-auto max-w-6xl px-5 py-(--spacing-section) sm:px-8">
-          <p className="eyebrow">{t('process.eyebrow')}</p>
-          <div className="mt-4 md:flex md:items-end md:justify-between md:gap-12">
-            <h2 className="max-w-[16ch] font-display text-[clamp(2rem,4.5vw,2.75rem)] leading-[1.08] tracking-[-0.02em]">
-              {t('process.title')}
-            </h2>
-            <p className="measure-tight mt-4 text-body text-muted md:mt-0">{t('process.lead')}</p>
+          <div className="lg:grid lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-x-20">
+            <div className="lg:sticky lg:top-28 lg:self-start">
+              <p className="eyebrow">{t('process.eyebrow')}</p>
+              <h2 className="mt-5 max-w-[14ch] font-display text-[clamp(2rem,4.5vw,3rem)] font-extrabold leading-[1.06] tracking-[-0.03em]">
+                {t('process.title')}{' '}
+                <span className="accent-word">{t('process.titleAccent')}</span>
+              </h2>
+              <p className="measure-tight mt-5 text-body text-muted">{t('process.lead')}</p>
+            </div>
+
+            <ol className="reveal mt-14 space-y-4 lg:mt-0">
+              {steps.map((step, index) => (
+                <li key={step.title} className="surface flex gap-5 p-6 sm:p-7">
+                  <span
+                    aria-hidden="true"
+                    className="mt-0.5 shrink-0 font-mono text-[0.8125rem] font-medium text-accent"
+                  >
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <h3 className="text-heading font-bold text-ink">{step.title}</h3>
+                    <p className="mt-2.5 text-small text-muted">{step.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
-
-          <ol className="reveal mt-14 grid gap-x-14 gap-y-12 sm:grid-cols-2">
-            {steps.map((step, index) => (
-              <li key={step.title} className="border-t border-ink/20 pt-5">
-                <p className="eyebrow text-accent">
-                  {String(index + 1).padStart(2, '0')}
-                </p>
-                <h3 className="mt-3 text-[1.1875rem] font-medium leading-snug text-ink">
-                  {step.title}
-                </h3>
-                <p className="mt-2.5 text-small text-muted">{step.body}</p>
-              </li>
-            ))}
-          </ol>
         </div>
-      </section>
-
-      {/* ── Tecnologías ────────────────────────────────────────────────────
-          Marcas denominativas en texto, no logotipos. Evita la "sopa de
-          logos" y, sobre todo, evita insinuar una relación comercial que no
-          existe (FR-028). La nota lo dice de forma explícita. */}
-      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-        <p className="eyebrow">{t('technologies.eyebrow')}</p>
-        <ul className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3">
-          {technologies.map((tech) => (
-            <li key={tech.name} className="text-[1.0625rem] text-ink/70">
-              {tech.name}
-            </li>
-          ))}
-        </ul>
-        <p className="measure mt-6 text-[0.8125rem] leading-relaxed text-muted">
-          {t('technologies.note')}
-        </p>
       </section>
 
       {/* ── Quién está detrás ──────────────────────────────────────────────
@@ -205,71 +214,84 @@ export default async function HomePage({ params }: Props) {
           confianza. Lo único verificable que hay es la trayectoria del
           fundador, así que se muestra tal cual: puestos, organizaciones y
           fechas, derivados del mismo YAML que produce el currículum y los PDF.
-          Si un dato cambia ahí, cambia acá. No hay una segunda copia que
-          mantener ni que se pueda maquillar por separado. */}
-      <section className="border-t border-line bg-surface/50">
-        <div className="mx-auto max-w-6xl px-5 py-(--spacing-section) sm:px-8">
-          <div className="md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)] md:gap-x-16">
+          Si un dato cambia ahí, cambia acá. */}
+      <section className="mx-auto max-w-6xl px-5 py-(--spacing-section) sm:px-8">
+        <div className="surface relative overflow-hidden p-8 sm:p-12">
+          <div className="aurora opacity-40" aria-hidden="true" />
+          <div className="relative z-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:gap-x-16">
             <div>
               <p className="eyebrow">{t('founder.eyebrow')}</p>
-              <h2 className="mt-4 max-w-[17ch] font-display text-[clamp(2rem,4.5vw,2.75rem)] leading-[1.08] tracking-[-0.02em]">
+              <h2 className="mt-5 max-w-[16ch] font-display text-[clamp(1.75rem,3.5vw,2.5rem)] font-extrabold leading-[1.08] tracking-[-0.03em]">
                 {t('founder.title')}
               </h2>
-              <p className="measure mt-6 text-body text-muted">
-                {t('founder.lead', { years })}
-              </p>
-              <p className="mt-7 flex flex-wrap items-center gap-x-7 gap-y-3">
-                <Link href="/cv" className="link text-small">
+              <p className="measure mt-6 text-body text-muted">{t('founder.lead', { years })}</p>
+              <p className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
+                <Link href="/cv" className="link inline-flex min-h-[2.75rem] items-center text-small font-semibold">
                   {t('founder.ctaProfile')} →
                 </Link>
                 {linkedin && (
-                  <a
-                    href={linkedin.url}
-                    rel="noopener"
-                    target="_blank"
-                    className="link text-small"
-                  >
+                  <a href={linkedin.url} rel="noopener" target="_blank" className="link text-small">
                     {t('founder.ctaLinkedin')} ↗
                   </a>
                 )}
               </p>
             </div>
 
-            <div className="reveal mt-12 md:mt-1.5">
-              <p className="eyebrow">{t('founder.trackRecord')}</p>
-              <ul className="mt-5 border-t border-line">
+            <div className="mt-12 lg:mt-1.5">
+              <p className="eyebrow eyebrow-muted">{t('founder.trackRecord')}</p>
+              <ul className="mt-5">
                 {profile.experiences.slice(0, 4).map((exp) => (
                   <li
                     key={exp.id}
-                    className="flex items-baseline justify-between gap-5 border-b border-line py-3.5"
+                    className="flex items-baseline justify-between gap-5 border-b border-line py-4 last:border-0"
                   >
                     <span className="text-small">
-                      <span className="text-ink">{exp.org}</span>
+                      <span className="font-semibold text-ink">{exp.org}</span>
                       {exp.client && <span className="text-muted"> · {exp.client}</span>}
                       <span className="block text-muted">{exp.role[locale]}</span>
                     </span>
-                    <span className="shrink-0 text-small tabular-nums text-muted">
-                      {`${exp.start.slice(0, 4)} – ${exp.end ? exp.end.slice(0, 4) : present}`}
+                    <span className="shrink-0 font-mono text-[0.8125rem] tabular-nums text-muted">
+                      {`${exp.start.slice(0, 4)}–${exp.end ? exp.end.slice(0, 4) : present}`}
                     </span>
                   </li>
                 ))}
               </ul>
             </div>
+
+            {/* Las tecnologías viven acá y no en una sección propia: son un
+                dato de respaldo de la trayectoria, no un capítulo. Marcas
+                denominativas en texto, nunca logotipos: evita la sopa de
+                logos y, sobre todo, evita insinuar una relación comercial que
+                no existe (FR-028). */}
+            <div className="mt-12 border-t border-line pt-8 lg:col-span-2">
+              <p className="eyebrow eyebrow-muted">{t('technologies.eyebrow')}</p>
+              <ul className="mt-5 flex flex-wrap gap-2.5">
+                {technologies.map((tech) => (
+                  <li
+                    key={tech.name}
+                    className="rounded-full border border-line bg-paper/60 px-4 py-2 text-small text-ink/85"
+                  >
+                    {tech.name}
+                  </li>
+                ))}
+              </ul>
+              <p className="measure mt-5 text-[0.8125rem] leading-relaxed text-muted">
+                {t('technologies.note')}
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Cierre ─────────────────────────────────────────────────────────
-          La segunda ventana de noche: la página abre con el turno noche y
-          cierra a oscuras. Los tokens invertidos de `data-night` hacen que
-          los botones y textos se adapten sin variantes propias. */}
-      <section data-night>
-        <div className="mx-auto max-w-6xl px-5 py-(--spacing-section) sm:px-8">
-          <h2 className="max-w-[20ch] font-display text-[clamp(2rem,5vw,3.25rem)] leading-[1.05] tracking-[-0.025em]">
+      {/* ── Cierre ─────────────────────────────────────────────────────────*/}
+      <section className="relative isolate overflow-hidden border-t border-line">
+        <div className="aurora" aria-hidden="true" />
+        <div className="relative z-10 mx-auto max-w-4xl px-5 py-(--spacing-section) text-center sm:px-8">
+          <h2 className="mx-auto max-w-[18ch] font-display text-[clamp(2rem,5vw,3.5rem)] font-extrabold leading-[1.04] tracking-[-0.035em]">
             {t('closing.title')}
           </h2>
-          <p className="measure mt-6 text-lead text-muted">{t('closing.lead')}</p>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <p className="measure mx-auto mt-6 text-lead text-muted">{t('closing.lead')}</p>
+          <div className="mt-11 flex flex-col items-center justify-center gap-3 sm:flex-row">
             {bookingUrl && (
               <ButtonExternal href={bookingUrl} rel="noopener">
                 {t('closing.primaryCta')}

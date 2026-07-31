@@ -11,10 +11,7 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    // El pie vive en la noche: la página abre con el turno noche y termina a
-    // oscuras. `data-night` invierte los tokens, así que los enlaces y textos
-    // de adentro se adaptan solos.
-    <footer data-night className="border-t border-line">
+    <footer className="border-t border-line">
       <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
@@ -24,19 +21,19 @@ export function Footer() {
 
           <nav aria-label={t('sections.site')}>
             <p className="eyebrow mb-4">{t('sections.site')}</p>
-            <ul className="flex flex-col gap-2.5 text-small">
+            <ul className="flex flex-col text-small">
               <li>
-                <Link href="/servicios" className="text-muted hover:text-ink">
+                <Link href="/servicios" className="flex min-h-[2.75rem] items-center text-muted hover:text-ink">
                   {nav('services')}
                 </Link>
               </li>
               <li>
-                <Link href="/integraciones" className="text-muted hover:text-ink">
+                <Link href="/integraciones" className="flex min-h-[2.75rem] items-center text-muted hover:text-ink">
                   {nav('integrations')}
                 </Link>
               </li>
               <li>
-                <Link href="/contacto" className="text-muted hover:text-ink">
+                <Link href="/contacto" className="flex min-h-[2.75rem] items-center text-muted hover:text-ink">
                   {nav('contact')}
                 </Link>
               </li>
@@ -45,14 +42,14 @@ export function Footer() {
 
           <nav aria-label={t('sections.legal')}>
             <p className="eyebrow mb-4">{t('sections.legal')}</p>
-            <ul className="flex flex-col gap-2.5 text-small">
+            <ul className="flex flex-col text-small">
               <li>
-                <Link href="/privacidad" className="text-muted hover:text-ink">
+                <Link href="/privacidad" className="flex min-h-[2.75rem] items-center text-muted hover:text-ink">
                   {t('privacy')}
                 </Link>
               </li>
               <li>
-                <Link href="/terminos" className="text-muted hover:text-ink">
+                <Link href="/terminos" className="flex min-h-[2.75rem] items-center text-muted hover:text-ink">
                   {t('terms')}
                 </Link>
               </li>
@@ -61,14 +58,14 @@ export function Footer() {
 
           <div>
             <p className="eyebrow mb-4">{t('sections.contact')}</p>
-            <ul className="flex flex-col gap-2.5 text-small">
+            <ul className="flex flex-col text-small">
               <li>
-                <a href={`mailto:${CONTACT_EMAIL}`} className="link">
+                <a href={`mailto:${CONTACT_EMAIL}`} className="link inline-flex min-h-[2.75rem] items-center">
                   {CONTACT_EMAIL}
                 </a>
               </li>
               <li>
-                <Link href="/cv" className="text-muted hover:text-ink">
+                <Link href="/cv" className="flex min-h-[2.75rem] items-center text-muted hover:text-ink">
                   {t('founder')}
                 </Link>
               </li>

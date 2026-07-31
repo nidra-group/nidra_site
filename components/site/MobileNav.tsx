@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import { useTranslations } from 'next-intl'
 
 import { Link, usePathname } from '@/i18n/navigation'
+import { ButtonLink } from '@/components/ui/Button'
 import { LocaleSwitcher } from './LocaleSwitcher'
 
 const NAV = [
@@ -71,20 +72,32 @@ export function MobileNav() {
 
       {/* Fondo distinto del de la página y sombra marcada: sin eso el panel se
           confunde con el contenido que hay detrás. */}
-      <div className="absolute right-0 top-full z-40 mt-4 w-60 border border-ink/15 bg-surface p-5 shadow-[0_20px_50px_-20px_rgba(23,25,28,0.45)]">
-        <nav>
+      <div className="fixed inset-x-0 top-[var(--header-h,4.5rem)] z-40 border-y border-line bg-paper/95 px-5 py-4 shadow-[0_24px_60px_-24px_rgb(0_0_0/0.85)] backdrop-blur-xl">
+        <nav aria-label={t('menu')}>
           <ul className="flex flex-col">
-            {NAV.map((item) => (
-              <li key={item.key}>
-                <Link href={item.href} className="block py-3 text-[1.0625rem] text-ink">
-                  {t(item.key)}
-                </Link>
-              </li>
-            ))}
+            {NAV.map((item) => {
+              const active = pathname === item.href
+              return (
+                <li key={item.key}>
+                  <Link
+                    href={item.href}
+                    aria-current={active ? 'page' : undefined}
+                    className={`flex min-h-[3rem] items-center border-b border-line text-[1.0625rem] ${
+                      active ? 'font-semibold text-accent' : 'text-ink'
+                    }`}
+                  >
+                    {t(item.key)}
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         </nav>
-        <div className="mt-3 border-t border-line pt-3">
+        <div className="mt-4 flex items-center justify-between gap-4">
           <LocaleSwitcher />
+          <ButtonLink href="/contacto" className="min-h-[2.75rem] px-5 py-2.5 text-[0.875rem]">
+            {t('headerCta')}
+          </ButtonLink>
         </div>
       </div>
     </details>

@@ -14,7 +14,7 @@ export function LegalDocument({ namespace }: { namespace: 'legal.privacy' | 'leg
 
   return (
     <article className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-      <h1 className="max-w-[18ch] font-display text-[clamp(2.25rem,5.5vw,3.25rem)] leading-[1.06] tracking-[-0.02em]">
+      <h1 className="max-w-[18ch] font-display text-[clamp(2.25rem,5.5vw,3.25rem)] font-extrabold leading-[1.06] tracking-[-0.03em]">
         {t('title')}
       </h1>
       <p className="mt-4 text-small text-muted">

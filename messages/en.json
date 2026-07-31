@@ -9,7 +9,8 @@
     "contact": "Contact",
     "menu": "Menu",
     "close": "Close",
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "headerCta": "Get in touch"
   },
   "home": {
     "meta": {
@@ -18,56 +19,32 @@
     },
     "hero": {
       "eyebrow": "AI software agency",
-      "title": "AI is useful once it reaches production.",
-      "titleAccent": "Everything else is an expensive pilot.",
+      "title": "AI is useful once it reaches",
+      "titleAccent": "production",
       "lead": "We work with small and medium businesses that have costly manual processes and want them solved, not experimented on. We start by measuring where it's worth it and where it isn't.",
       "primaryCta": "Book a 30-minute call",
       "secondaryCta": "See the services"
     },
-    "nightShift": {
-      "title": "night shift",
-      "badge": "illustrative example",
-      "description": "Illustrative log of an automation processing invoices in the small hours, with no human involved.",
-      "lines": [
-        {
-          "time": "03:07",
-          "text": "overnight run started"
-        },
-        {
-          "time": "03:08",
-          "text": "42 new invoices in the inbox"
-        },
-        {
-          "time": "03:09",
-          "text": "data extracted and validated"
-        },
-        {
-          "time": "03:11",
-          "text": "39 posted to the system · 3 flagged for review"
-        },
-        {
-          "time": "03:12",
-          "text": "summary ready for 9:00 am"
-        }
-      ]
-    },
     "credibility": {
       "experience": "years building software",
       "experienceDetail": "Microservices, APIs and production applications for global clients.",
-      "focus": "Focus",
-      "focusDetail": "AI applied to concrete processes, with automated quality evaluation.",
-      "location": "Buenos Aires, Argentina",
-      "locationDetail": "Remote work with companies in Argentina and Latin America, in your time zone."
+      "focusDetail": "A few services, done properly. If what you need is not here, we say so.",
+      "locationDetail": "Buenos Aires. Remote work with companies across Argentina and Latin America.",
+      "servicesLabel": "Services",
+      "regionLabel": "Where we work",
+      "regionValue": "LATAM"
     },
     "services": {
       "eyebrow": "What we do",
-      "title": "Six services, not a catalogue",
+      "title": "Six services,",
       "lead": "We'd rather do a few things well. If what you need isn't here, we'll say so.",
-      "cta": "See each service in detail"
+      "cta": "See each service in detail",
+      "titleAccent": "not a catalogue",
+      "cardCta": "See detail"
     },
     "process": {
       "eyebrow": "How we work",
-      "title": "Measure first, build second",
+      "title": "Measure first,",
       "lead": "The order matters. Most AI projects fail because building starts before anyone knows which problem it solves.",
       "steps": [
         {
@@ -86,7 +63,8 @@
           "title": "Production",
           "body": "Deployment with quality measurement, alerts and documentation. The code and the infrastructure end up in your name."
         }
-      ]
+      ],
+      "titleAccent": "build second"
     },
     "technologies": {
       "eyebrow": "Technologies we work with",
@@ -113,7 +91,7 @@
       "description": "AI assessment, assistants grounded in your own documentation, process automation, internal search, custom products and AI security evaluation."
     },
     "eyebrow": "Services",
-    "title": "What we do, what gets delivered, and how long it takes",
+    "title": "Qué hacemos, con qué se entrega",
     "lead": "Every service starts from the problem it solves. Timelines are honest ranges: when we don't know, we widen the range instead of promising short.",
     "problemLabel": "The problem",
     "deliverablesLabel": "What gets delivered",
@@ -127,7 +105,8 @@
       "internal-knowledge-base": "Internal knowledge search",
       "custom-ai-product": "Custom product with AI",
       "ai-evaluation-security": "AI evaluation and security"
-    }
+    },
+    "titleAccent": "y en cuánto tiempo"
   },
   "integrations": {
     "meta": {
@@ -137,7 +116,7 @@
     "eyebrow": "Integrations",
     "title": "What we connect to",
     "lead": "This list is representative, not exhaustive. We can integrate with any platform that exposes an API.",
-    "provenLabel": "With proven experience",
+    "provenLabel": "In production",
     "provenNote": "A dot marks the platforms we have already built on and put into production. The rest are integrated through their public interfaces.",
     "missing": {
       "title": "Don't see the tool you use?",
@@ -151,7 +130,7 @@
       "description": "Book a 30-minute call or send us a message. We reply within one business day."
     },
     "eyebrow": "Contact",
-    "title": "Let's talk about your process",
+    "title": "Let's talk about",
     "lead": "Two ways to start. Neither commits you to anything.",
     "booking": {
       "title": "Book a call",
@@ -161,7 +140,7 @@
     },
     "form": {
       "title": "Send a message",
-      "body": "Tell us which process you want to solve. We reply within one business day.",
+      "body": "Tell us which process you want to solve and what tools you use today. We reply within one business day.",
       "name": "Name",
       "email": "Email",
       "company": "Company",
@@ -209,7 +188,8 @@
         "We send you a scope with timeline and price in writing. If we don't think AI is the answer, that's where we say so."
       ]
     },
-    "leadNoBooking": "Tell us which process you want to solve. It doesn't commit you to anything."
+    "leadNoBooking": "Tell us which process you want to solve. It doesn't commit you to anything.",
+    "titleAccent": "your process"
   },
   "legal": {
     "privacy": {

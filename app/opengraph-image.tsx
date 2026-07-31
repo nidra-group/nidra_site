@@ -12,8 +12,8 @@ export const contentType = 'image/png'
  * declarado en los metadatos—, que es el peor primer contacto posible para un
  * sitio cuyo objetivo es generar confianza.
  *
- * Usa la paleta «madrugada» en su ventana nocturna: fondo tinta con la luz de
- * alba, que es la cara más reconocible de la marca. Al cambiar la paleta en
+ * Usa la paleta de noche del sitio: fondo casi negro con el acento menta,
+ * que es la cara con la que la marca se presenta. Al cambiar la paleta en
  * `app/globals.css`, actualizar también estos valores: `next/og` no lee CSS.
  */
 export default function OpengraphImage() {
@@ -26,7 +26,7 @@ export default function OpengraphImage() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          backgroundColor: '#10241e',
+          backgroundColor: '#070b0d',
           padding: '80px',
           fontFamily: 'system-ui, sans-serif',
         }}
@@ -36,7 +36,7 @@ export default function OpengraphImage() {
             style={{
               fontSize: 44,
               fontWeight: 700,
-              color: '#f4f6f2',
+              color: '#eef4f1',
               letterSpacing: '-0.02em',
             }}
           >
@@ -47,7 +47,7 @@ export default function OpengraphImage() {
               width: 11,
               height: 11,
               borderRadius: 11,
-              backgroundColor: '#9be8c6',
+              backgroundColor: '#2fe0b0',
               marginLeft: 7,
               marginTop: 20,
             }}
@@ -60,21 +60,21 @@ export default function OpengraphImage() {
               fontSize: 74,
               fontWeight: 700,
               lineHeight: 1.05,
-              color: '#f4f6f2',
+              color: '#eef4f1',
               letterSpacing: '-0.03em',
               maxWidth: 940,
             }}
           >
             La IA sirve cuando llega a producción.
           </span>
-          <span style={{ fontSize: 30, color: '#9fb3a9', marginTop: 28 }}>
+          <span style={{ fontSize: 30, color: '#94a5a0', marginTop: 28 }}>
             Software con IA para pequeñas y medianas empresas.
           </span>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <div style={{ width: 64, height: 3, backgroundColor: '#9be8c6' }} />
-          <span style={{ fontSize: 24, color: '#9fb3a9', marginLeft: 20 }}>nidra.cloud</span>
+          <div style={{ width: 64, height: 3, backgroundColor: '#2fe0b0' }} />
+          <span style={{ fontSize: 24, color: '#94a5a0', marginLeft: 20 }}>nidra.cloud</span>
         </div>
       </div>
     ),

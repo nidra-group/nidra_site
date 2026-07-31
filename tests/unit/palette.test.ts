@@ -40,13 +40,19 @@ const palette = parsePalette()
 /** Las reglas documentadas en el bloque de la paleta, verbatim. */
 const RULES: [string, string, number][] = [
   ['ink', 'paper', 7],
+  ['ink', 'surface', 7], // el texto de las tarjetas
   ['muted', 'paper', 4.5],
   ['muted', 'surface', 4.5],
   ['critical', 'paper', 4.5],
   ['accent', 'paper', 4.5],
-  ['paper', 'accent', 4.5], // botón primario: texto claro sobre acento
-  ['glow', 'ink', 4.5], // secciones nocturnas: acento sobre tinta
-  ['paper', 'ink', 7], // secciones nocturnas: texto sobre tinta
+  ['accent', 'surface', 4.5], // enlaces y datos dentro de una tarjeta
+  ['paper', 'accent', 4.5], // botón primario: el acento es el fondo
+  ['paper', 'accent-deep', 4.5], // botón primario al pasar el cursor
+  // WCAG 1.4.11: el borde es lo único que delimita un campo o un botón
+  // secundario. Los formularios viven dentro de tarjetas, así que la regla
+  // tiene que cumplirse contra AMBOS fondos, no solo contra el papel.
+  ['line-strong', 'paper', 3],
+  ['line-strong', 'surface', 3],
 ]
 
 describe('paleta de marca', () => {

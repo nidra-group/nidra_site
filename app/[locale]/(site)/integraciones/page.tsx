@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import { Link } from '@/i18n/navigation'
+import { PageHeader } from '@/components/site/PageHeader'
 import { routing, type Locale } from '@/i18n/routing'
 import { getIntegrations } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo/metadata'
@@ -32,43 +33,36 @@ export default async function IntegrationsPage({ params }: Props) {
 
   return (
     <>
-      <section className="border-b border-line">
-        <div className="mx-auto max-w-6xl px-5 pb-16 pt-16 sm:px-8 sm:pb-20 sm:pt-20">
-          <p className="eyebrow">{t('eyebrow')}</p>
-          <h1 className="mt-5 max-w-[18ch] font-display text-[clamp(2.25rem,6vw,3.5rem)] leading-[1.04] tracking-[-0.025em]">
-            {t('title')}
-          </h1>
-          <p className="measure mt-7 text-lead text-muted">{t('lead')}</p>
-          <p className="measure mt-5 flex items-start gap-2.5 text-small text-muted">
-            <span
-              aria-hidden="true"
-              className="mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
-            />
-            {t('provenNote')}
-          </p>
-        </div>
-      </section>
+      <PageHeader eyebrow={t('eyebrow')} title={t('title')} lead={t('lead')}>
+        <p className="measure mt-6 flex items-start gap-2.5 text-small text-muted">
+          <span
+            aria-hidden="true"
+            className="mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
+          />
+          {t('provenNote')}
+        </p>
+      </PageHeader>
 
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-        <div className="grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {categories.map((category) => (
-            <section key={category.id} id={category.id} className="scroll-mt-8">
-              <h2 className="border-b border-line pb-3 text-[1.0625rem] font-medium text-ink">
+            <section key={category.id} id={category.id} className="surface scroll-mt-28 p-6">
+              <h2 className="border-b border-line pb-4 text-[1.0625rem] font-bold text-ink">
                 {category.name[locale]}
               </h2>
-              <ul className="mt-4 space-y-2.5">
+              <ul className="mt-5 space-y-3">
                 {category.items.map((item) => (
-                  <li key={item.name} className="flex items-baseline gap-2.5 text-body">
-                    <span
-                      aria-hidden="true"
-                      className={
-                        item.proven
-                          ? 'h-1.5 w-1.5 shrink-0 rounded-full bg-accent'
-                          : 'h-1.5 w-1.5 shrink-0 rounded-full border border-line'
-                      }
-                    />
+                  <li key={item.name} className="flex items-baseline justify-between gap-3 text-body">
                     <span className={item.proven ? 'text-ink' : 'text-muted'}>{item.name}</span>
-                    {item.proven && <span className="sr-only">— {t('provenLabel')}</span>}
+                    {item.proven && (
+                      /* Antes la distinción era un punto hueco con `border-line`:
+                         1.31:1 contra la tarjeta, o sea invisible, y el resto de
+                         la diferencia quedaba cifrada solo en el color del texto
+                         (WCAG 1.4.1). Ahora se lee. */
+                      <span className="shrink-0 rounded-full border border-accent/35 bg-accent/10 px-2.5 py-1 font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-accent">
+                        {t('provenLabel')}
+                      </span>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -76,16 +70,19 @@ export default async function IntegrationsPage({ params }: Props) {
           ))}
         </div>
 
-        <aside className="mt-20 border-t border-ink/20 pt-10">
-          <h2 className="max-w-[18ch] font-display text-[clamp(1.75rem,4vw,2.5rem)] leading-[1.1] tracking-[-0.02em]">
-            {t('missing.title')}
-          </h2>
-          <p className="measure mt-4 text-body text-muted">{t('missing.body')}</p>
-          <p className="mt-6">
-            <Link href="/contacto" className="link">
-              {t('missing.cta')} →
-            </Link>
-          </p>
+        <aside className="surface relative mt-16 overflow-hidden p-8 text-center sm:p-12">
+          <div className="aurora opacity-50" aria-hidden="true" />
+          <div className="relative z-10">
+            <h2 className="mx-auto max-w-[18ch] font-display text-[clamp(1.75rem,4vw,2.5rem)] font-extrabold leading-[1.1] tracking-[-0.03em]">
+              {t('missing.title')}
+            </h2>
+            <p className="measure mx-auto mt-5 text-body text-muted">{t('missing.body')}</p>
+            <p className="mt-8">
+              <Link href="/contacto" className="link inline-flex min-h-[2.75rem] items-center font-semibold">
+                {t('missing.cta')} →
+              </Link>
+            </p>
+          </div>
         </aside>
       </div>
     </>

@@ -169,7 +169,7 @@ export function InquiryForm({
           defaultValue={values.service ?? initialService}
           aria-invalid={fieldError('service') ? true : undefined}
           aria-describedby={fieldError('service') ? `${id}-service-error` : undefined}
-          className="mt-2 min-h-[3rem] w-full rounded-(--radius-sm) border border-line bg-paper px-3.5 py-3 text-body text-ink"
+          className="mt-2 min-h-[3rem] w-full rounded-(--radius-sm) border border-line-strong bg-paper px-3.5 py-3 text-body text-ink"
         >
           <option value="" disabled>
             {t('servicePlaceholder')}
@@ -207,7 +207,7 @@ export function InquiryForm({
           aria-describedby={
             fieldError('message') ? `${id}-message-error` : `${id}-message-hint`
           }
-          className="mt-2 w-full rounded-(--radius-sm) border border-line bg-paper px-3.5 py-3 text-body text-ink"
+          className="mt-2 w-full rounded-(--radius-sm) border border-line-strong bg-paper px-3.5 py-3 text-body text-ink"
         />
         {fieldError('message') && (
           <p id={`${id}-message-error`} className="mt-1.5 text-small text-critical">
@@ -256,7 +256,7 @@ function Field({
         type={type}
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? `${id}-error` : undefined}
-        className="mt-2 min-h-[3rem] w-full rounded-(--radius-sm) border border-line bg-paper px-3.5 py-3 text-body text-ink"
+        className="mt-2 min-h-[3rem] w-full rounded-(--radius-sm) border border-line-strong bg-paper px-3.5 py-3 text-body text-ink"
         {...rest}
       />
       {error && (

@@ -9,7 +9,8 @@
     "contact": "Contacto",
     "menu": "Menú",
     "close": "Cerrar",
-    "skipToContent": "Saltar al contenido"
+    "skipToContent": "Saltar al contenido",
+    "headerCta": "Escribinos"
   },
   "home": {
     "meta": {
@@ -18,56 +19,32 @@
     },
     "hero": {
       "eyebrow": "Agencia de software con IA",
-      "title": "La IA sirve cuando llega a producción.",
-      "titleAccent": "El resto es un piloto caro.",
+      "title": "La IA sirve cuando llega a",
+      "titleAccent": "producción",
       "lead": "Trabajamos con pequeñas y medianas empresas que tienen procesos manuales caros y quieren resolverlos, no experimentar. Empezamos por medir dónde conviene y dónde no.",
       "primaryCta": "Agendar una reunión de 30 minutos",
       "secondaryCta": "Ver los servicios"
     },
-    "nightShift": {
-      "title": "turno noche",
-      "badge": "ejemplo ilustrativo",
-      "description": "Registro ilustrativo de una automatización que procesa facturas de madrugada, sin intervención humana.",
-      "lines": [
-        {
-          "time": "03:07",
-          "text": "proceso nocturno iniciado"
-        },
-        {
-          "time": "03:08",
-          "text": "42 facturas nuevas en la casilla"
-        },
-        {
-          "time": "03:09",
-          "text": "datos extraídos y validados"
-        },
-        {
-          "time": "03:11",
-          "text": "39 cargadas al sistema · 3 marcadas para revisar"
-        },
-        {
-          "time": "03:12",
-          "text": "resumen listo para las 09:00"
-        }
-      ]
-    },
     "credibility": {
       "experience": "años construyendo software",
       "experienceDetail": "Microservicios, APIs y aplicaciones en producción para clientes globales.",
-      "focus": "Enfoque",
-      "focusDetail": "IA aplicada a procesos concretos, con evaluación de calidad automatizada.",
-      "location": "Buenos Aires, Argentina",
-      "locationDetail": "Trabajo remoto con empresas de Argentina y América Latina, en tu huso horario."
+      "focusDetail": "Pocos servicios, hechos a fondo. Si lo que necesitás no está, lo decimos.",
+      "locationDetail": "Buenos Aires. Trabajo remoto con empresas de Argentina y América Latina.",
+      "servicesLabel": "Servicios",
+      "regionLabel": "Dónde trabajamos",
+      "regionValue": "LATAM"
     },
     "services": {
       "eyebrow": "Qué hacemos",
-      "title": "Seis servicios, no un catálogo",
+      "title": "Seis servicios,",
       "lead": "Preferimos hacer bien pocas cosas. Si lo que necesitás no está acá, lo decimos.",
-      "cta": "Ver el detalle de cada servicio"
+      "cta": "Ver el detalle de cada servicio",
+      "titleAccent": "no un catálogo",
+      "cardCta": "Ver detalle"
     },
     "process": {
       "eyebrow": "Cómo trabajamos",
-      "title": "Primero medimos, después construimos",
+      "title": "Primero medimos,",
       "lead": "El orden importa. La mayoría de los proyectos de IA fracasan por empezar a construir antes de saber qué problema resuelven.",
       "steps": [
         {
@@ -86,7 +63,8 @@
           "title": "Producción",
           "body": "Despliegue con medición de calidad, alertas y documentación. El código y la infraestructura quedan a tu nombre."
         }
-      ]
+      ],
+      "titleAccent": "después construimos"
     },
     "technologies": {
       "eyebrow": "Tecnologías con las que trabajamos",
@@ -113,7 +91,7 @@
       "description": "Diagnóstico de IA, asistentes con documentación propia, automatización de procesos, buscador interno, producto a medida y evaluación de seguridad de IA."
     },
     "eyebrow": "Servicios",
-    "title": "Qué hacemos, con qué se entrega y en cuánto tiempo",
+    "title": "Qué hacemos, con qué se entrega",
     "lead": "Cada servicio arranca por el problema que resuelve. Los plazos son rangos honestos: si no sabemos, ampliamos el rango en vez de prometer corto.",
     "problemLabel": "El problema",
     "deliverablesLabel": "Qué se entrega",
@@ -127,7 +105,8 @@
       "internal-knowledge-base": "Buscador interno de conocimiento",
       "custom-ai-product": "Producto a medida con IA",
       "ai-evaluation-security": "Evaluación y seguridad de IA"
-    }
+    },
+    "titleAccent": "y en cuánto tiempo"
   },
   "integrations": {
     "meta": {
@@ -137,7 +116,7 @@
     "eyebrow": "Integraciones",
     "title": "Con qué se conecta lo que construimos",
     "lead": "Esta lista es representativa, no exhaustiva. Podemos integrar con cualquier plataforma que exponga una interfaz de programación.",
-    "provenLabel": "Con experiencia comprobada",
+    "provenLabel": "En producción",
     "provenNote": "Marcamos con un punto las plataformas en las que ya construimos y pusimos cosas en producción. El resto se integra por sus interfaces públicas.",
     "missing": {
       "title": "¿No está la herramienta que usás?",
@@ -151,7 +130,7 @@
       "description": "Agendá una reunión de 30 minutos o escribinos una consulta. Respondemos dentro de un día hábil."
     },
     "eyebrow": "Contacto",
-    "title": "Hablemos de tu proceso",
+    "title": "Hablemos de",
     "lead": "Dos formas de empezar. Ninguna te compromete a nada.",
     "booking": {
       "title": "Agendar una reunión",
@@ -161,7 +140,7 @@
     },
     "form": {
       "title": "Escribir una consulta",
-      "body": "Contanos qué proceso querés resolver. Respondemos dentro de un día hábil.",
+      "body": "Contanos qué proceso querés resolver y qué herramientas usás hoy. Respondemos dentro de un día hábil.",
       "name": "Nombre",
       "email": "Correo electrónico",
       "company": "Empresa",
@@ -209,7 +188,8 @@
         "Te pasamos un alcance con plazo y precio por escrito. Si no creemos que la IA sea la respuesta, te lo decimos ahí."
       ]
     },
-    "leadNoBooking": "Contanos qué proceso querés resolver. No te compromete a nada."
+    "leadNoBooking": "Contanos qué proceso querés resolver. No te compromete a nada.",
+    "titleAccent": "tu proceso"
   },
   "legal": {
     "privacy": {

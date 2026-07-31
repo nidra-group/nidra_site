@@ -50,15 +50,23 @@ Todos los colores del sitio salen de **un solo bloque** al comienzo de
 [`app/globals.css`](app/globals.css). Cambiar la identidad visual completa es cambiar esos nueve
 valores; ningún otro archivo define un color.
 
-La paleta actual es «madrugada»: Nidra es *sueño* en sánscrito, y el sitio lo usa — fondo de niebla
-fría, tinta verde-noche, y `--brand-glow`, la luz menta que solo aparece en las secciones nocturnas
-(la tarjeta del turno noche del héroe, el cierre y el pie). Esas secciones se marcan con
-`data-night`, que invierte los tokens localmente: los componentes de adentro se adaptan solos.
+El sitio es **oscuro por defecto**: `--brand-paper` es el fondo de noche y `--brand-ink` el texto
+claro. Los nombres conservan su rol semántico (papel = fondo, tinta = texto), así que una paleta
+clara se instala invirtiendo esos dos valores.
+
+Dos tokens de borde y no uno, a propósito: `--brand-line` es para separadores decorativos y
+`--brand-line-strong` para **bordes de control** —campos de formulario y botones secundarios—, donde
+el borde es lo único que delimita el elemento y WCAG 1.4.11 exige 3:1. Usar el token decorativo en
+un campo lo vuelve invisible.
+
+La aurora del fondo **no se anima**. Animar `transform` sobre un elemento con `filter: blur()`
+impide componer la capa y obliga a re-rasterizar el desenfoque en cada cuadro: medido, el
+desplazamiento caía de 60 a 22 fps. Quieta se ve igual y cuesta cero.
 
 El bloque documenta los contrastes mínimos que cada valor debe cumplir para no romper la
 accesibilidad. Respetarlos no es opcional:
-[`tests/unit/palette.test.ts`](tests/unit/palette.test.ts) los verifica leyendo el CSS real — una
-paleta que los incumpla **rompe el build**.
+[`tests/unit/palette.test.ts`](tests/unit/palette.test.ts) verifica las once reglas leyendo los
+valores reales del CSS — una paleta que las incumpla **rompe el build**.
 
 La imagen de vista previa para redes ([`app/opengraph-image.tsx`](app/opengraph-image.tsx)) es la
 única excepción — `next/og` no lee CSS, así que sus colores están escritos a mano y hay que

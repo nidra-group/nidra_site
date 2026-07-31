@@ -5,14 +5,23 @@ import { Link } from '@/i18n/navigation'
 type Variant = 'primary' | 'secondary' | 'ghost'
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-(--radius-md) px-6 py-3.5 ' +
-  'text-[0.9375rem] font-medium leading-none transition-colors duration-150 ' +
-  // 44px de alto mínimo: objetivo táctil accesible.
+  'inline-flex items-center justify-center gap-2 rounded-(--radius-md) px-7 py-3.5 ' +
+  'text-[0.9375rem] font-semibold leading-none ' +
+  'transition-[background-color,border-color,box-shadow,transform] duration-200 ' +
+  // 48px de alto mínimo: objetivo táctil accesible con margen.
   'min-h-[3rem] text-center'
 
 const variants: Record<Variant, string> = {
-  primary: 'bg-accent text-paper hover:bg-accent-deep',
-  secondary: 'border border-ink/25 text-ink hover:border-ink hover:bg-ink hover:text-paper',
+  // El primario lleva un halo del propio acento: sobre un fondo oscuro, un
+  // botón plano se hunde; el halo lo despega del papel.
+  primary:
+    'bg-accent text-paper shadow-[0_0_0_0_transparent] ' +
+    'hover:bg-accent-deep hover:shadow-[0_8px_28px_-8px_var(--color-accent)]',
+  // El borde usa `line-strong` y no `line`: es lo único que delimita el
+  // control, y `line` da 1.31:1 contra el papel — invisible (WCAG 1.4.11).
+  secondary:
+    'border border-line-strong bg-surface/60 text-ink backdrop-blur-sm ' +
+    'hover:border-accent hover:bg-surface',
   ghost: 'text-accent hover:text-accent-deep underline underline-offset-4 px-0 min-h-0 py-1',
 }
 
