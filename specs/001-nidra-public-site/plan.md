@@ -204,6 +204,38 @@ de diseño y una sola configuración de i18n para servir en total ~22 rutas. Los
 La separación `content/` ↔ `components/` es la que hace cumplible el Principio I: un cambio de texto
 nunca toca un archivo de `components/`.
 
+### Rutas localizadas
+
+FR-030 exige que cada página tenga **su propia dirección estable por idioma**. Publicar
+`/en/servicios` cumpliría la letra pero no el propósito: una URL en inglés con el segmento en
+español es peor para el posicionamiento y le dice al visitante angloparlante que el sitio no está
+realmente traducido.
+
+La traducción de segmentos se declara en `i18n/pathnames.ts` y la consume `next-intl`. La carpeta de
+`app/` conserva el nombre canónico en español (es la clave interna de la ruta); lo que cambia es la
+URL pública:
+
+| Ruta interna (carpeta) | URL en español | URL en inglés |
+|---|---|---|
+| `/` | `/es` | `/en` |
+| `/servicios` | `/es/servicios` | `/en/services` |
+| `/integraciones` | `/es/integraciones` | `/en/integrations` |
+| `/contacto` | `/es/contacto` | `/en/contact` |
+| `/privacidad` | `/es/privacidad` | `/en/privacy` |
+| `/terminos` | `/es/terminos` | `/en/terms` |
+| `/cv` | `/es/cv` | `/en/cv` |
+| `/cv/print` | `/es/cv/imprimir` | `/en/cv/print` |
+
+**Consecuencias en cadena** — tres piezas dejan de poder construir URLs concatenando cadenas y deben
+resolverlas a través del enrutado de `next-intl`:
+
+- El mapa del sitio, que debe emitir la URL localizada de cada ruta, no la interna.
+- El enlace alterno por idioma (`hreflang`), que debe apuntar a la URL traducida.
+- El selector de idioma, que debe traducir el segmento al cambiar de idioma en vez de conservarlo.
+
+**Estas rutas son permanentes desde la publicación** (FR-056). Cambiar un segmento después exige una
+redirección permanente; por eso conviene cerrar esta tabla antes de T036, no después.
+
 ## Complexity Tracking
 
 > Desviaciones respecto de la constitución que requieren justificación explícita.

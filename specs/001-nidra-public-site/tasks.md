@@ -31,6 +31,12 @@ Aplicación Next.js única en la raíz del repositorio, según
 [plan.md § Project Structure](./plan.md#project-structure): `app/`, `components/`, `content/`,
 `messages/`, `lib/`, `actions/`, `scripts/`, `tests/`.
 
+Las carpetas de `app/` usan el nombre canónico en español; la URL pública en inglés se traduce por
+configuración (T102). Ver [plan.md § Rutas localizadas](./plan.md#rutas-localizadas).
+
+**Rama de trabajo**: `001-nidra-public-site`. La constitución exige que la funcionalidad se
+desarrolle fuera de `main`, que debe permanecer desplegable.
+
 ---
 
 ## Nota sobre el orden de las historias
@@ -73,6 +79,7 @@ historia sigue siendo entregable y verificable por separado.
 **⚠️ CRÍTICO**: ninguna historia puede empezar hasta completar esta fase.
 
 - [ ] T012 Configurar `next-intl` con locales `es` (por defecto) y `en`, `localePrefix: 'always'`, en `i18n/routing.ts` e `i18n/request.ts`
+- [ ] T102 Declarar la traducción de segmentos de ruta según la tabla de [plan.md § Rutas localizadas](./plan.md#rutas-localizadas) en `i18n/pathnames.ts`, y exportar los ayudantes de navegación tipados (`Link`, `redirect`, `getPathname`) que el resto del código MUST usar en lugar de construir URLs concatenando cadenas (bloquea T021, T036, T050, T058, T061, T070, T080, T081, T094)
 - [ ] T013 Implementar `middleware.ts` con negociación de idioma en `/` y reescritura del host `jmujica.nidra.cloud` hacia el grupo de rutas del perfil
 - [ ] T014 Crear el layout raíz por idioma con `setRequestLocale`, `generateStaticParams` para ambos locales y los atributos `lang`/`dir` en `app/[locale]/layout.tsx`
 - [ ] T015 [P] Crear la estructura de espacios de nombres de `messages/es.json` y `messages/en.json` según [data-model.md § 7](./data-model.md#7-contenido-de-página-y-cadenas-de-interfaz)
@@ -81,7 +88,8 @@ historia sigue siendo entregable y verificable por separado.
 - [ ] T018 [P] Definir el esquema `I18nText` y los ayudantes de campos bilingües compartidos en `lib/validation/i18n.ts`
 - [ ] T019 [P] Crear los componentes base del sistema de diseño (`Button`, `Card`, `Section`, `Field`) en `components/ui/`
 - [ ] T020 [P] Implementar el ayudante de metadatos por página con título, descripción, canónica y vista previa social en `lib/seo/metadata.ts`
-- [ ] T021 Implementar la generación de mapa del sitio y directivas para rastreadores desde las rutas reales, con salida diferenciada por dominio, en `app/sitemap.ts` y `app/robots.ts`
+- [ ] T021 Implementar la generación de mapa del sitio y directivas para rastreadores desde las rutas reales, con salida diferenciada por dominio, emitiendo la URL **localizada** de cada ruta resuelta con los ayudantes de T102, en `app/sitemap.ts` y `app/robots.ts` (depende de T102)
+- [ ] T103 Implementar la infraestructura de redirecciones permanentes con un registro explícito de rutas retiradas o renombradas, en `lib/seo/redirects.ts`, consumido desde `next.config.ts` (FR-056)
 - [ ] T022 [P] Crear la página de error para direcciones inexistentes conservando navegación y retorno a la portada en `app/[locale]/not-found.tsx`
 - [ ] T023 Integrar Vercel Web Analytics en el layout raíz, verificando que no instala cookies, en `app/[locale]/layout.tsx` (depende de T014)
 - [ ] T024 [P] Crear el layout del sitio comercial con encabezado, navegación principal persistente y pie en `app/[locale]/(site)/layout.tsx`
@@ -170,14 +178,15 @@ identificadores de traducción, y comprobar que un enlace en inglés abre en ing
 
 - [ ] T055 [P] [US3] Prueba unitaria de paridad: los conjuntos de claves de `messages/es.json` y `messages/en.json` son idénticos y ninguna queda vacía, en `tests/unit/messages-parity.test.ts`
 - [ ] T056 [P] [US3] Prueba E2E: cambiar de idioma mantiene al visitante en la misma página y el idioma persiste al navegar, en `tests/e2e/us3-locale-switch.spec.ts`
-- [ ] T057 [P] [US3] Prueba E2E: cada página declara canónica y enlace alterno al otro idioma, en `tests/e2e/us3-seo-i18n.spec.ts`
+- [ ] T057 [P] [US3] Prueba E2E: cada página declara canónica y enlace alterno al otro idioma, apuntando a la URL **traducida** y no al segmento en español, en `tests/e2e/us3-seo-i18n.spec.ts`
+- [ ] T104 [P] [US3] Prueba E2E: cada ruta de la tabla de rutas localizadas responde en ambos idiomas con su segmento traducido, y ninguna URL en inglés contiene un segmento en español, en `tests/e2e/us3-pathnames.spec.ts`
 
 ### Implementation for User Story 3
 
-- [ ] T058 [P] [US3] Crear el selector de idioma que preserva la ruta actual en `components/site/LocaleSwitcher.tsx`
+- [ ] T058 [P] [US3] Crear el selector de idioma que traduce el segmento de la ruta actual al cambiar de idioma, usando los ayudantes de T102, en `components/site/LocaleSwitcher.tsx` (depende de T102)
 - [ ] T059 [US3] Completar la traducción íntegra de la interfaz en `messages/en.json`
 - [ ] T060 [US3] Completar los campos `en` de los seis servicios en `content/services.yaml`
-- [ ] T061 [US3] Añadir enlace alterno por idioma y canónica por locale en `lib/seo/metadata.ts`
+- [ ] T061 [US3] Añadir enlace alterno por idioma y canónica por locale, resolviendo la URL localizada con los ayudantes de T102, en `lib/seo/metadata.ts` (depende de T102)
 - [ ] T062 [US3] Implementar la puerta de build que falla ante claves o campos bilingües faltantes en `scripts/check-content-parity.ts`
 
 **Checkpoint**: el sitio es completamente bilingüe y verificado.
@@ -282,6 +291,7 @@ publican sin intervención manual y que el historial permite reconstruir version
 - [ ] T096 [P] Prueba E2E de comportamiento adaptable en 320, 768 y 1280 px, y con el texto ampliado al 200 % sin desplazamiento horizontal, en `tests/e2e/responsive.spec.ts`
 - [ ] T097 [P] Auditoría de accesibilidad sobre todas las rutas, sin violaciones de nivel A ni AA, en `tests/a11y/all-routes.spec.ts`
 - [ ] T098 Verificar el presupuesto de JavaScript de ≤ 120 KB comprimido por ruta y corregir lo que lo exceda, ajustando `next.config.ts`
+- [ ] T105 [P] Prueba E2E: cada redirección declarada en el registro responde con estado permanente y su destino existe, sin cadenas de más de un salto, en `tests/e2e/redirects.spec.ts` (FR-056)
 - [ ] T099 Ejecutar los once escenarios de validación de [quickstart.md](./quickstart.md#escenarios-de-validación) y registrar los resultados
 - [ ] T100 [P] Escribir el `README.md` con puesta en marcha, variables de entorno y despliegue
 - [ ] T101 Configurar en Vercel ambos dominios y cargar las variables de entorno como secretos del proyecto, sin incorporarlas al repositorio
@@ -383,6 +393,13 @@ se paga dos veces. Cuanto más estable esté el contenido en español, más bara
 
 ## Notes
 
+- **Tareas T102–T105**: incorporadas tras el informe de `/speckit-analyze` (issues C1, I1 y G1). Están
+  ubicadas físicamente en la fase que les corresponde, pero conservan un identificador alto para no
+  renumerar las 101 tareas anteriores y romper las referencias cruzadas existentes. **Para estas
+  cuatro, el número de identificador no indica orden de ejecución**: vale la ubicación en el archivo
+  y las dependencias declaradas.
+- **T102 es bloqueante y temprana**: define las rutas públicas, y una URL publicada es permanente
+  (FR-056). Cambiarla después obliga a una redirección. Debe cerrarse antes de T036.
 - `[P]` = archivos distintos, sin dependencias pendientes
 - Verificar que cada prueba falla antes de implementarla
 - Commitear por tarea o por grupo lógico coherente
