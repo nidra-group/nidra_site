@@ -156,11 +156,23 @@
         "delivery": "We couldn't deliver your message right now.",
         "deliveryFallback": "Write to us directly at {email} and we'll reply all the same.",
         "unavailable": "The form is unavailable right now."
-      }
+      },
+      "privacyNote": "We only use this to reply to you. We do not store it or share it.",
+      "privacyLink": "Read the privacy policy",
+      "requiredHint": "Fields marked with * are required.",
+      "errorSummary": "Please check these fields before sending:"
     },
     "direct": {
       "title": "Direct email",
       "body": "If you'd rather write from your own mail client."
+    },
+    "next": {
+      "title": "What happens next",
+      "steps": [
+        "We read your message and reply within one business day, to the address you gave us.",
+        "If it makes sense to move forward, we set up a 30-minute call to understand the process in detail.",
+        "We send you a scope with timeline and price in writing. If we don't think AI is the answer, that's where we say so."
+      ]
     }
   },
   "legal": {
@@ -198,6 +210,7 @@
           "body": [
             "We use a transactional email provider to deliver messages, which processes the message in order to get it to our mailbox.",
             "If you book a meeting, scheduling happens on an external calendar platform. Any data you enter there is governed by that provider's privacy policy, not by this one.",
+            "Visit measurement is performed by Vercel Analytics, which collects aggregated, anonymous data with no cookies and no persistent identifiers.",
             "If we add a conversational assistant in the future, we will update this policy before putting it into operation, stating what data it collects and why."
           ]
         },
@@ -210,7 +223,9 @@
         },
         {
           "title": "Controller",
-          "body": ["Nidra, Buenos Aires, Argentina. Contact: hola@nidra.cloud"]
+          "body": [
+            "Nidra, Buenos Aires, Argentina. Contact: hola@nidra.cloud"
+          ]
         }
       ]
     },
@@ -259,7 +274,7 @@
   "cv": {
     "meta": {
       "title": "Juan Mujica — AI / GenAI Engineer",
-      "description": "Professional profile of Juan Mujica: 13+ years in software engineering, now focused on bringing AI solutions to production."
+      "description": "Professional profile of Juan Mujica: 14+ years in software engineering, now focused on bringing AI solutions to production."
     },
     "backToSite": "Go to Nidra",
     "download": {
@@ -286,7 +301,9 @@
     "printHint": "Use your browser's print function to save it as a PDF."
   },
   "notFound": {
-    "meta": { "title": "Page not found — Nidra" },
+    "meta": {
+      "title": "Page not found — Nidra"
+    },
     "title": "This page doesn't exist",
     "lead": "The link may be mistyped, or the page may have moved.",
     "cta": "Back to home"

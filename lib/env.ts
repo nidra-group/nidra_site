@@ -12,18 +12,31 @@ const serverSchema = z.object({
   CONTACT_INBOX: z.string().email().optional(),
 })
 
+/**
+ * `BOOKING_URL` y `PROFILE_URL` son OPCIONALES a propósito, y no tienen valor
+ * por defecto.
+ *
+ * Un valor por defecto plausible pero inexistente —una página de agenda que
+ * todavía no se creó, un subdominio cuyo DNS no resuelve— se publica en
+ * silencio y convierte la llamada a la acción principal del sitio en un 404 sin
+ * que nadie se entere. Es peor que la ausencia del enlace.
+ *
+ * Cuando faltan, la interfaz se adapta: la reserva no se ofrece y el perfil
+ * enlaza a la ruta interna. Ver `components/site/Footer.tsx` y el uso de
+ * `bookingUrl` en las páginas.
+ */
 const publicSchema = z.object({
-  SITE_URL: z.string().url(),
-  PROFILE_URL: z.string().url(),
-  BOOKING_URL: z.string().url(),
-  CHAT_EMBED_URL: z.string().url().optional(),
+  SITE_URL: z.url(),
+  PROFILE_URL: z.url().optional(),
+  BOOKING_URL: z.url().optional(),
+  CHAT_EMBED_URL: z.url().optional(),
 })
 
 function readPublic() {
   const parsed = publicSchema.safeParse({
-    SITE_URL: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nidra.cloud',
-    PROFILE_URL: process.env.NEXT_PUBLIC_PROFILE_URL ?? 'https://jmujica.nidra.cloud',
-    BOOKING_URL: process.env.NEXT_PUBLIC_BOOKING_URL ?? 'https://cal.com/nidra/30min',
+    SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://nidra.cloud',
+    PROFILE_URL: process.env.NEXT_PUBLIC_PROFILE_URL || undefined,
+    BOOKING_URL: process.env.NEXT_PUBLIC_BOOKING_URL || undefined,
     CHAT_EMBED_URL: process.env.NEXT_PUBLIC_CHAT_EMBED_URL || undefined,
   })
 
@@ -58,3 +71,9 @@ export function getEmailConfig(): { apiKey: string; inbox: string } | null {
 }
 
 export const isChatEnabled = Boolean(publicEnv.CHAT_EMBED_URL)
+
+/** Enlace de agenda, o `null` si todavía no se configuró. */
+export const bookingUrl = publicEnv.BOOKING_URL ?? null
+
+/** Base del espacio profesional. Sin subdominio configurado, vive en el sitio. */
+export const profileBaseUrl = publicEnv.PROFILE_URL ?? publicEnv.SITE_URL

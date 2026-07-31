@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { Wordmark } from './Wordmark'
 import { LocaleSwitcher } from './LocaleSwitcher'
+import { MobileNav } from './MobileNav'
 
 const NAV = [
   { href: '/servicios', key: 'services' },
@@ -51,31 +52,7 @@ export function Header() {
           <LocaleSwitcher />
         </div>
 
-        <details className="group relative md:hidden">
-          <summary
-            className="flex min-h-[2.75rem] min-w-[2.75rem] cursor-pointer list-none items-center justify-center text-[0.875rem] font-medium [&::-webkit-details-marker]:hidden"
-            aria-label={t('menu')}
-          >
-            <span className="group-open:hidden">{t('menu')}</span>
-            <span className="hidden group-open:inline">{t('close')}</span>
-          </summary>
-          <div className="absolute right-0 top-full z-40 mt-4 w-56 border border-line bg-paper p-5 shadow-[0_12px_40px_-24px_rgba(23,25,28,0.5)]">
-            <nav>
-              <ul className="flex flex-col gap-4 text-[1rem]">
-                {NAV.map((item) => (
-                  <li key={item.key}>
-                    <Link href={item.href} className="block py-1 text-ink">
-                      {t(item.key)}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-            <div className="mt-5 border-t border-line pt-4">
-              <LocaleSwitcher />
-            </div>
-          </div>
-        </details>
+        <MobileNav />
       </div>
     </header>
   )

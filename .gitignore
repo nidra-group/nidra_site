@@ -37,6 +37,9 @@ test-results/
 .DS_Store
 Thumbs.db
 
+# Documentos generados en build (se regeneran desde content/cv/profile.yaml)
+public/downloads/*.pdf
+
 # Editores
 .idea/
 *.swp

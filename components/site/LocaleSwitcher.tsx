@@ -22,7 +22,7 @@ export function LocaleSwitcher() {
   const pathname = usePathname()
 
   return (
-    <nav aria-label={t('label')} className="flex items-center gap-1 text-[0.8125rem]">
+    <nav aria-label={t('label')} className="-my-2 flex items-center text-[0.8125rem]">
       {locales.map((locale, index) => {
         const isCurrent = locale === current
         return (
@@ -37,10 +37,12 @@ export function LocaleSwitcher() {
               locale={locale}
               hrefLang={locale}
               aria-current={isCurrent ? 'true' : undefined}
+              aria-label={isCurrent ? undefined : t('switchTo')}
               className={
-                isCurrent
+                'inline-flex min-h-[2.75rem] min-w-[2.75rem] items-center justify-center ' +
+                (isCurrent
                   ? 'font-medium text-ink'
-                  : 'text-muted underline-offset-4 hover:text-ink hover:underline'
+                  : 'text-muted underline-offset-4 hover:text-ink hover:underline')
               }
             >
               {locale.toUpperCase()}

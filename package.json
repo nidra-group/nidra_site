@@ -10,7 +10,8 @@
     "lint": "next lint",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "generate:cv": "node --experimental-strip-types scripts/generate-cv-pdf.ts"
+    "generate:cv": "node scripts/generate-cv-pdf.mjs",
+    "prebuild": "node scripts/generate-cv-pdf.mjs"
   },
   "keywords": [],
   "author": "",

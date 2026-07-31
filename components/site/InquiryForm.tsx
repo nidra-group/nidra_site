@@ -1,11 +1,12 @@
 'use client'
 
-import { useActionState, useEffect, useId, useState } from 'react'
+import { useActionState, useEffect, useId, useRef, useState } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 
 import { submitInquiry, type InquiryResult } from '@/actions/submit-inquiry'
 import { SERVICE_OPTIONS } from '@/lib/validation/inquiry'
 import { Button } from '@/components/ui/Button'
+import { Link } from '@/i18n/navigation'
 
 const CONTACT_EMAIL = 'hola@nidra.cloud'
 
@@ -37,6 +38,18 @@ export function InquiryForm({ timestamp }: { timestamp: string }) {
     status: 'idle',
   })
 
+  const formRef = useRef<HTMLFormElement>(null)
+
+  // Sin esto, quien navega por teclado o con lector de pantalla envía el
+  // formulario, la página vuelve y nada le indica qué pasó ni dónde.
+  useEffect(() => {
+    if (state.status !== 'invalid') return
+    const first = Object.keys(state.errors)[0]
+    if (!first) return
+    const field = formRef.current?.querySelector<HTMLElement>(`[name="${first}"]`)
+    field?.focus()
+  }, [state])
+
   if (state.status === 'success') {
     return (
       <div role="status" className="border border-accent/30 bg-accent/5 p-6">
@@ -55,7 +68,7 @@ export function InquiryForm({ timestamp }: { timestamp: string }) {
   }
 
   return (
-    <form action={formAction} noValidate className="space-y-6">
+    <form ref={formRef} action={formAction} noValidate className="space-y-6">
       <input type="hidden" name="ts" value={timestamp} />
       <input type="hidden" name="locale" value={locale} />
 
@@ -76,18 +89,31 @@ export function InquiryForm({ timestamp }: { timestamp: string }) {
             {state.reason === 'delivery' && t('errors.delivery')}
             {state.reason === 'unavailable' && t('errors.unavailable')}
           </p>
-          {(state.reason === 'delivery' || state.reason === 'unavailable') && (
-            <p className="mt-1.5 text-small text-muted">
-              {t('errors.deliveryFallback', { email: CONTACT_EMAIL })}
-            </p>
-          )}
+          <p className="mt-1.5 text-small text-muted">
+            {t('errors.deliveryFallback', { email: CONTACT_EMAIL })}
+          </p>
         </div>
       )}
+
+      {state.status === 'invalid' && (
+        <div role="alert" className="border-l-2 border-highlight bg-highlight/5 p-4">
+          <p className="text-small font-medium text-ink">{t('errorSummary')}</p>
+          <ul className="mt-2 space-y-1">
+            {Object.entries(errors).map(([field, key]) => (
+              <li key={field} className="text-small text-muted">
+                {t(`errors.${key}`)}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <p className="text-small text-muted">{t('requiredHint')}</p>
 
       <Field
         id={`${id}-name`}
         name="name"
-        label={t('name')}
+        label={`${t('name')} *`}
         defaultValue={values.name}
         error={fieldError('name')}
         autoComplete="name"
@@ -98,7 +124,7 @@ export function InquiryForm({ timestamp }: { timestamp: string }) {
         id={`${id}-email`}
         name="email"
         type="email"
-        label={t('email')}
+        label={`${t('email')} *`}
         defaultValue={values.email}
         error={fieldError('email')}
         autoComplete="email"
@@ -116,7 +142,7 @@ export function InquiryForm({ timestamp }: { timestamp: string }) {
 
       <div>
         <label htmlFor={`${id}-service`} className="block text-small font-medium text-ink">
-          {t('service')}
+          {t('service')} *
         </label>
         <select
           id={`${id}-service`}
@@ -147,7 +173,7 @@ export function InquiryForm({ timestamp }: { timestamp: string }) {
 
       <div>
         <label htmlFor={`${id}-message`} className="block text-small font-medium text-ink">
-          {t('message')}
+          {t('message')} *
         </label>
         <p id={`${id}-message-hint`} className="mt-1 text-small text-muted">
           {t('messageHint')}
@@ -173,9 +199,17 @@ export function InquiryForm({ timestamp }: { timestamp: string }) {
         )}
       </div>
 
-      <Button type="submit" disabled={pending}>
-        {pending ? t('submitting') : t('submit')}
-      </Button>
+      <div>
+        <Button type="submit" disabled={pending}>
+          {pending ? t('submitting') : t('submit')}
+        </Button>
+        <p className="measure-tight mt-4 text-small text-muted">
+          {t('privacyNote')}{' '}
+          <Link href="/privacidad" className="link">
+            {t('privacyLink')}
+          </Link>
+        </p>
+      </div>
     </form>
   )
 }

@@ -1,7 +1,6 @@
 import { useTranslations } from 'next-intl'
 
 import { Link } from '@/i18n/navigation'
-import { publicEnv } from '@/lib/env'
 import { Wordmark } from './Wordmark'
 
 const CONTACT_EMAIL = 'hola@nidra.cloud'
@@ -22,7 +21,7 @@ export function Footer() {
           </div>
 
           <nav aria-label={t('sections.site')}>
-            <h2 className="eyebrow mb-4">{t('sections.site')}</h2>
+            <p className="eyebrow mb-4">{t('sections.site')}</p>
             <ul className="flex flex-col gap-2.5 text-small">
               <li>
                 <Link href="/servicios" className="text-muted hover:text-ink">
@@ -43,7 +42,7 @@ export function Footer() {
           </nav>
 
           <nav aria-label={t('sections.legal')}>
-            <h2 className="eyebrow mb-4">{t('sections.legal')}</h2>
+            <p className="eyebrow mb-4">{t('sections.legal')}</p>
             <ul className="flex flex-col gap-2.5 text-small">
               <li>
                 <Link href="/privacidad" className="text-muted hover:text-ink">
@@ -59,7 +58,7 @@ export function Footer() {
           </nav>
 
           <div>
-            <h2 className="eyebrow mb-4">{t('sections.contact')}</h2>
+            <p className="eyebrow mb-4">{t('sections.contact')}</p>
             <ul className="flex flex-col gap-2.5 text-small">
               <li>
                 <a href={`mailto:${CONTACT_EMAIL}`} className="link">
@@ -67,13 +66,9 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href={publicEnv.PROFILE_URL}
-                  className="text-muted hover:text-ink"
-                  rel="noopener"
-                >
+                <Link href="/cv" className="text-muted hover:text-ink">
                   {t('founder')}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

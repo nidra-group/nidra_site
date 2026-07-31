@@ -1,4 +1,4 @@
-import { publicEnv } from '@/lib/env'
+import { publicEnv, profileBaseUrl } from '@/lib/env'
 
 export function OrganizationJsonLd() {
   const data = {
@@ -17,7 +17,7 @@ export function OrganizationJsonLd() {
     founder: {
       '@type': 'Person',
       name: 'Juan Mujica',
-      url: publicEnv.PROFILE_URL,
+      url: profileBaseUrl,
     },
   }
 

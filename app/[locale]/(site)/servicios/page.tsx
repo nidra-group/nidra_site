@@ -91,10 +91,10 @@ export default async function ServicesPage({ params }: Props) {
               </div>
 
               <div className="lg:pt-14">
-                <h3 className="eyebrow">{t('problemLabel')}</h3>
+                <p className="eyebrow">{t('problemLabel')}</p>
                 <p className="measure mt-3 text-body">{service.problem[locale]}</p>
 
-                <h3 className="eyebrow mt-10">{t('deliverablesLabel')}</h3>
+                <p className="eyebrow mt-10">{t('deliverablesLabel')}</p>
                 <ul className="mt-4 space-y-3">
                   {service.deliverables.map((item) => (
                     <li key={item[locale]} className="flex gap-3 text-body text-muted">

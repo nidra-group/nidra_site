@@ -156,11 +156,23 @@
         "delivery": "No pudimos entregar tu consulta en este momento.",
         "deliveryFallback": "Escribinos directamente a {email} y te respondemos igual.",
         "unavailable": "El formulario no está disponible en este momento."
-      }
+      },
+      "privacyNote": "Solo usamos estos datos para responderte. No los almacenamos ni los compartimos.",
+      "privacyLink": "Ver la política de privacidad",
+      "requiredHint": "Los campos marcados con * son obligatorios.",
+      "errorSummary": "Revisá estos campos antes de enviar:"
     },
     "direct": {
       "title": "Correo directo",
       "body": "Si preferís escribir desde tu propio cliente de correo."
+    },
+    "next": {
+      "title": "Qué pasa después",
+      "steps": [
+        "Leemos tu consulta y te respondemos dentro de un día hábil, al correo que dejaste.",
+        "Si tiene sentido avanzar, coordinamos una llamada de 30 minutos para entender el proceso en detalle.",
+        "Te pasamos un alcance con plazo y precio por escrito. Si no creemos que la IA sea la respuesta, te lo decimos ahí."
+      ]
     }
   },
   "legal": {
@@ -198,6 +210,7 @@
           "body": [
             "Para la entrega de los correos usamos un proveedor de correo transaccional, que procesa el mensaje para hacerlo llegar a nuestra casilla.",
             "Si reservás una reunión, el agendamiento ocurre en una plataforma externa de calendario. Los datos que ingreses ahí se rigen por la política de privacidad de ese proveedor, no por esta.",
+            "La medición de visitas la realiza Vercel Analytics, que recoge datos agregados y anónimos, sin cookies ni identificadores persistentes.",
             "Si en el futuro incorporamos un asistente conversacional, actualizaremos esta política antes de ponerlo en funcionamiento, detallando qué datos recoge y con qué finalidad."
           ]
         },
@@ -261,7 +274,7 @@
   "cv": {
     "meta": {
       "title": "Juan Mujica — Ingeniero de IA / GenAI",
-      "description": "Perfil profesional de Juan Mujica: más de 13 años en ingeniería de software, hoy enfocado en llevar soluciones de IA a producción."
+      "description": "Perfil profesional de Juan Mujica: más de 14 años en ingeniería de software, hoy enfocado en llevar soluciones de IA a producción."
     },
     "backToSite": "Ir a Nidra",
     "download": {
@@ -288,7 +301,9 @@
     "printHint": "Usá la función de impresión del navegador para guardarlo como PDF."
   },
   "notFound": {
-    "meta": { "title": "Página no encontrada — Nidra" },
+    "meta": {
+      "title": "Página no encontrada — Nidra"
+    },
     "title": "Esta página no existe",
     "lead": "Puede que el enlace esté mal escrito o que la página haya cambiado de dirección.",
     "cta": "Volver al inicio"

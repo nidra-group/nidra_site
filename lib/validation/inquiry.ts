@@ -36,9 +36,25 @@ const MIN_AGE_MS = 3_000 // menos de 3 s no es humano
 const MAX_AGE_MS = 60 * 60 * 1000 // más de 1 h es un formulario viejo
 
 function secret(): string {
-  // En desarrollo no hay secreto configurado; se usa uno fijo para que el
-  // formulario funcione localmente. En producción llega por entorno.
-  return process.env.FORM_SECRET ?? 'nidra-dev-secret'
+  const configured = process.env.FORM_SECRET
+
+  if (configured && configured.length >= 16) {
+    return configured
+  }
+
+  // En producción, un secreto ausente o débil anula por completo la firma de la
+  // marca temporal: cualquiera podría forjar tokens válidos y la segunda capa
+  // anti-automatización dejaría de existir. Es preferible romper el arranque
+  // que publicar una defensa que aparenta funcionar.
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error(
+      'FORM_SECRET no está definida o tiene menos de 16 caracteres.\n' +
+        'Es la clave que firma la marca temporal anti-bot del formulario.\n' +
+        'Generá una con: openssl rand -hex 32',
+    )
+  }
+
+  return 'nidra-dev-secret-only-for-local-development'
 }
 
 export function issueTimestamp(now = Date.now()): string {

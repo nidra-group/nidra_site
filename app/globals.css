@@ -144,11 +144,11 @@
 @layer components {
   /* Ancho de línea legible: entre 45 y 80 caracteres en texto corrido. */
   .measure {
-    max-width: 62ch;
+    max-width: 34em; /* ~70 caracteres reales; `ch` mide el ancho del 0 y se queda corto */
   }
 
   .measure-tight {
-    max-width: 48ch;
+    max-width: 27em;
   }
 
   /* Etiqueta de sección en versalitas. Da estructura editorial sin

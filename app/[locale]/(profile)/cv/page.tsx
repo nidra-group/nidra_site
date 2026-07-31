@@ -9,7 +9,7 @@ import { getProfile } from '@/lib/content'
 import { getCvVersion } from '@/lib/cv/version'
 import { listAvailableDownloads } from '@/lib/cv/downloads'
 import { buildMetadata } from '@/lib/seo/metadata'
-import { publicEnv } from '@/lib/env'
+import { publicEnv, profileBaseUrl } from '@/lib/env'
 
 type Props = { params: Promise<{ locale: Locale }> }
 
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     href: '/cv',
     title: t('title'),
     description: t('description'),
-    baseUrl: publicEnv.PROFILE_URL,
+    baseUrl: profileBaseUrl,
   })
 }
 
@@ -44,7 +44,7 @@ export default async function CvPage({ params }: Props) {
     name: profile.person.name,
     jobTitle: profile.person.headline[locale],
     email: profile.person.email,
-    url: publicEnv.PROFILE_URL,
+    url: profileBaseUrl,
     sameAs: profile.person.links.map((link) => link.url),
   }
 
@@ -65,13 +65,12 @@ export default async function CvPage({ params }: Props) {
               <p className="mt-3 text-lead text-muted">{profile.person.headline[locale]}</p>
               <p className="mt-1 text-small text-muted">{profile.person.location[locale]}</p>
             </div>
-            <a
-              href={publicEnv.SITE_URL}
-              rel="noopener"
+            <Link
+              href="/"
               className="text-small text-muted underline-offset-4 hover:text-ink hover:underline"
             >
               {t('backToSite')} →
-            </a>
+            </Link>
           </div>
 
           <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-small">

@@ -6,7 +6,7 @@ import { Link } from '@/i18n/navigation'
 import { routing, type Locale } from '@/i18n/routing'
 import { getServices, getTechnologies, getProfile, getYearsOfExperience } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo/metadata'
-import { publicEnv } from '@/lib/env'
+import { bookingUrl } from '@/lib/env'
 
 type Props = { params: Promise<{ locale: Locale }> }
 
@@ -54,13 +54,13 @@ export default async function HomePage({ params }: Props) {
           <p className="measure mt-8 text-lead text-muted">{t('hero.lead')}</p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <ButtonExternal
-              href={publicEnv.BOOKING_URL}
-              rel="noopener"
-              className="sm:w-auto"
-            >
-              {t('hero.primaryCta')}
-            </ButtonExternal>
+            {bookingUrl ? (
+              <ButtonExternal href={bookingUrl} rel="noopener">
+                {t('hero.primaryCta')}
+              </ButtonExternal>
+            ) : (
+              <ButtonLink href="/contacto">{t('closing.secondaryCta')}</ButtonLink>
+            )}
             <ButtonLink href="/servicios" variant="secondary">
               {t('hero.secondaryCta')}
             </ButtonLink>
@@ -110,7 +110,7 @@ export default async function HomePage({ params }: Props) {
               {t('services.title')}
             </h2>
           </div>
-          <p className="measure-tight mt-4 text-body text-muted md:mt-0 md:text-right">
+          <p className="measure-tight mt-4 text-body text-muted md:mt-0">
             {t('services.lead')}
           </p>
         </div>
@@ -155,7 +155,7 @@ export default async function HomePage({ params }: Props) {
             <p className="measure-tight mt-4 text-body text-muted md:mt-0">{t('process.lead')}</p>
           </div>
 
-          <ol className="mt-14 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="mt-14 grid gap-x-14 gap-y-12 sm:grid-cols-2">
             {steps.map((step, index) => (
               <li key={step.title} className="border-t border-ink/20 pt-5">
                 <p className="eyebrow text-accent">
@@ -197,10 +197,12 @@ export default async function HomePage({ params }: Props) {
           </h2>
           <p className="measure mt-6 text-lead text-muted">{t('closing.lead')}</p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <ButtonExternal href={publicEnv.BOOKING_URL} rel="noopener">
-              {t('closing.primaryCta')}
-            </ButtonExternal>
-            <ButtonLink href="/contacto" variant="secondary">
+            {bookingUrl && (
+              <ButtonExternal href={bookingUrl} rel="noopener">
+                {t('closing.primaryCta')}
+              </ButtonExternal>
+            )}
+            <ButtonLink href="/contacto" variant={bookingUrl ? 'secondary' : 'primary'}>
               {t('closing.secondaryCta')}
             </ButtonLink>
           </div>
