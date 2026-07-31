@@ -67,7 +67,7 @@ export function InquiryForm({
 
   if (state.status === 'success') {
     return (
-      <div role="status" className="border border-accent/30 bg-accent/5 p-6">
+      <div role="status" className="rounded-(--radius-md) border border-accent/30 bg-accent/5 p-6">
         <h3 className="text-heading text-ink">{t('success.title')}</h3>
         <p className="measure mt-2 text-body text-muted">{t('success.body')}</p>
       </div>
@@ -97,7 +97,7 @@ export function InquiryForm({
       </div>
 
       {state.status === 'failed' && (
-        <div role="alert" className="border-l-2 border-highlight bg-highlight/5 p-4">
+        <div role="alert" className="rounded-(--radius-sm) border-l-2 border-critical bg-critical/5 p-4">
           <p className="text-small text-ink">
             {state.reason === 'rate_limit' && t('errors.rateLimit')}
             {state.reason === 'rejected' && t('errors.rejected')}
@@ -111,7 +111,7 @@ export function InquiryForm({
       )}
 
       {state.status === 'invalid' && (
-        <div role="alert" className="border-l-2 border-highlight bg-highlight/5 p-4">
+        <div role="alert" className="rounded-(--radius-sm) border-l-2 border-critical bg-critical/5 p-4">
           <p className="text-small font-medium text-ink">{t('errorSummary')}</p>
           <ul className="mt-2 space-y-1">
             {Object.entries(errors).map(([field, key]) => (
@@ -169,7 +169,7 @@ export function InquiryForm({
           defaultValue={values.service ?? initialService}
           aria-invalid={fieldError('service') ? true : undefined}
           aria-describedby={fieldError('service') ? `${id}-service-error` : undefined}
-          className="mt-2 min-h-[3rem] w-full border border-line bg-paper px-3.5 py-3 text-body text-ink"
+          className="mt-2 min-h-[3rem] w-full rounded-(--radius-sm) border border-line bg-paper px-3.5 py-3 text-body text-ink"
         >
           <option value="" disabled>
             {t('servicePlaceholder')}
@@ -207,7 +207,7 @@ export function InquiryForm({
           aria-describedby={
             fieldError('message') ? `${id}-message-error` : `${id}-message-hint`
           }
-          className="mt-2 w-full border border-line bg-paper px-3.5 py-3 text-body text-ink"
+          className="mt-2 w-full rounded-(--radius-sm) border border-line bg-paper px-3.5 py-3 text-body text-ink"
         />
         {fieldError('message') && (
           <p id={`${id}-message-error`} className="mt-1.5 text-small text-critical">
@@ -256,7 +256,7 @@ function Field({
         type={type}
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? `${id}-error` : undefined}
-        className="mt-2 min-h-[3rem] w-full border border-line bg-paper px-3.5 py-3 text-body text-ink"
+        className="mt-2 min-h-[3rem] w-full rounded-(--radius-sm) border border-line bg-paper px-3.5 py-3 text-body text-ink"
         {...rest}
       />
       {error && (

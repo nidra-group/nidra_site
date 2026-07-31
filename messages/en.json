@@ -24,6 +24,33 @@
       "primaryCta": "Book a 30-minute call",
       "secondaryCta": "See the services"
     },
+    "nightShift": {
+      "title": "night shift",
+      "badge": "illustrative example",
+      "description": "Illustrative log of an automation processing invoices in the small hours, with no human involved.",
+      "lines": [
+        {
+          "time": "03:07",
+          "text": "overnight run started"
+        },
+        {
+          "time": "03:08",
+          "text": "42 new invoices in the inbox"
+        },
+        {
+          "time": "03:09",
+          "text": "data extracted and validated"
+        },
+        {
+          "time": "03:11",
+          "text": "39 posted to the system · 3 flagged for review"
+        },
+        {
+          "time": "03:12",
+          "text": "summary ready for 9:00 am"
+        }
+      ]
+    },
     "credibility": {
       "experience": "years building software",
       "experienceDetail": "Microservices, APIs and production applications for global clients.",

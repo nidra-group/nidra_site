@@ -3,29 +3,38 @@
 /* ==========================================================================
    PALETA DE MARCA — ÚNICO LUGAR A EDITAR PARA CAMBIAR LOS COLORES DEL SITIO
 
-   Cambiar la identidad visual completa = cambiar los ocho valores de este
-   bloque. Nada más en el proyecto define un color: el resto de los archivos
-   consume los tokens semánticos de más abajo, que apuntan acá.
+   Cambiar la identidad visual completa = cambiar los valores de este bloque.
+   Nada más en el proyecto define un color: el resto de los archivos consume
+   los tokens semánticos de más abajo, que apuntan acá.
 
-   Reglas al reemplazar:
+   La paleta actual es «madrugada»: Nidra es sueño en sánscrito y el servicio
+   real de la empresa es que los procesos corran solos, también de noche. El
+   fondo es una niebla fría de amanecer; la tinta, un verde-negro de noche
+   cerrada; y `--brand-glow` es la luz menta que SOLO aparece sobre
+   superficies oscuras —la señal de que el sistema sigue corriendo.
+
+   Reglas al reemplazar (las verifica tests/unit/palette.test.ts — una
+   paleta que las incumpla rompe el build):
    - `--brand-ink` sobre `--brand-paper` debe dar contraste >= 7:1
-   - `--brand-muted` sobre `--brand-paper` debe dar contraste >= 4.5:1
+   - `--brand-muted` sobre `--brand-paper` y `--brand-surface` >= 4.5:1
    - `--brand-critical` sobre `--brand-paper` debe dar contraste >= 4.5:1
    - `--brand-accent` sobre `--brand-paper` debe dar contraste >= 4.5:1
      (se usa en texto de enlace, no solo en fondos)
    - `--brand-paper` sobre `--brand-accent` debe dar contraste >= 4.5:1
      (botón primario: texto claro sobre acento)
+   - `--brand-glow` y `--brand-paper` sobre `--brand-ink` >= 4.5:1
+     (las secciones nocturnas: texto claro sobre fondo tinta)
    ========================================================================== */
 :root {
-  --brand-paper: #f7f5f1; /* fondo principal, blanco cálido */
-  --brand-surface: #efece5; /* bloques elevados y separadores suaves */
-  --brand-ink: #17191c; /* texto principal, casi negro cálido */
-  --brand-muted: #5b6167; /* texto secundario */
-  --brand-accent: #1e5c50; /* acento: enlaces, botones, detalles */
-  --brand-accent-deep: #16443b; /* estado activo del acento */
-  --brand-highlight: #c9622f; /* segundo acento decorativo: bordes y fondos */
-  --brand-critical: #a8481c; /* texto de error; 5.34:1 sobre papel, el decorativo solo da 3.66 */
-  --brand-line: #dcd7cd; /* bordes y reglas */
+  --brand-paper: #f4f6f2; /* fondo principal: niebla fría de madrugada */
+  --brand-surface: #e7ece4; /* bloques elevados y separadores suaves */
+  --brand-ink: #10241e; /* texto principal y secciones nocturnas: verde-negro */
+  --brand-muted: #46564e; /* texto secundario */
+  --brand-accent: #0c6b52; /* acento: enlaces, botones, detalles */
+  --brand-accent-deep: #084a39; /* estado activo del acento */
+  --brand-glow: #9be8c6; /* luz de alba: acentos SOLO sobre fondo tinta */
+  --brand-critical: #a8481c; /* texto de error; 5.35:1 sobre papel */
+  --brand-line: #d5ddd2; /* bordes y reglas */
 }
 
 /* --------------------------------------------------------------------------
@@ -39,12 +48,13 @@
   --color-muted: var(--brand-muted);
   --color-accent: var(--brand-accent);
   --color-accent-deep: var(--brand-accent-deep);
-  --color-highlight: var(--brand-highlight);
+  --color-glow: var(--brand-glow);
   --color-critical: var(--brand-critical);
   --color-line: var(--brand-line);
 
-  --font-display: var(--font-instrument-serif), Georgia, 'Times New Roman', serif;
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, 'SF Mono', monospace;
 
   /* Escala tipográfica con contraste real entre niveles.
      Un salto chico entre título y cuerpo es lo que hace que una página
@@ -74,8 +84,9 @@
   --text-label--line-height: 1.4;
   --text-label--letter-spacing: 0.09em;
 
-  --radius-sm: 2px;
-  --radius-md: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
 
   --spacing-section: 7.5rem;
 }
@@ -108,6 +119,11 @@
   h4 {
     font-weight: 400;
     text-wrap: balance;
+  }
+
+  /* La grotesca de títulos pide peso: en regular parece sans de cuerpo. */
+  .font-display {
+    font-weight: 640;
   }
 
   p {
@@ -154,9 +170,11 @@
     max-width: 27em;
   }
 
-  /* Etiqueta de sección en versalitas. Da estructura editorial sin
-     agregar otra tarjeta más. */
+  /* Etiqueta de sección en mono y versalitas: la voz de operaciones del
+     sitio. Todo lo que es artefacto de máquina —etiquetas, marcas de tiempo,
+     versiones, contadores— se escribe en mono. */
   .eyebrow {
+    font-family: var(--font-mono);
     font-size: var(--text-label);
     line-height: var(--text-label--line-height);
     letter-spacing: var(--text-label--letter-spacing);
@@ -176,6 +194,101 @@
   .link:hover {
     color: var(--color-accent-deep);
     text-decoration-thickness: 2px;
+  }
+
+  /* ------------------------------------------------------------------------
+     SECCIONES NOCTURNAS — la firma del sitio.
+
+     La página es clara con dos ventanas de noche: la tarjeta del turno noche
+     en el héroe y la banda de cierre. `data-night` invierte los tokens
+     semánticos localmente, así que los componentes de adentro (botones,
+     enlaces, eyebrows) se adaptan sin variantes propias.
+     ------------------------------------------------------------------------ */
+  [data-night] {
+    --color-paper: var(--brand-ink);
+    --color-surface: color-mix(in srgb, var(--brand-ink) 88%, white);
+    --color-ink: var(--brand-paper);
+    --color-muted: color-mix(in srgb, var(--brand-paper) 72%, var(--brand-ink));
+    --color-accent: var(--brand-glow);
+    --color-accent-deep: color-mix(in srgb, var(--brand-glow) 80%, white);
+    --color-line: color-mix(in srgb, var(--brand-paper) 16%, var(--brand-ink));
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  /* ------------------------------------------------------------------------
+     EL TURNO NOCHE — registro de automatización del héroe.
+
+     Las líneas se encienden en secuencia al cargar, como un proceso que corre
+     de madrugada. Sin animación (reduced motion o navegador sin soporte) el
+     registro simplemente está completo: el contenido nunca depende del efecto.
+     ------------------------------------------------------------------------ */
+  .nightlog-line {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .nightlog-line {
+      animation: nightlog-on 0.4s ease-out both;
+      animation-delay: calc(var(--line-index) * 0.55s + 0.4s);
+    }
+
+    .nightlog-cursor::after {
+      content: '▊';
+      animation: nightlog-blink 1.1s steps(1) infinite;
+      animation-delay: calc(var(--line-count) * 0.55s + 0.8s);
+      opacity: 0;
+    }
+  }
+
+  @keyframes nightlog-on {
+    from {
+      opacity: 0;
+      transform: translateY(0.25em);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes nightlog-blink {
+    0%,
+    49% {
+      opacity: 1;
+    }
+    50%,
+    100% {
+      opacity: 0.15;
+    }
+  }
+
+  /* ------------------------------------------------------------------------
+     REVELADO AL DESPLAZAR — solo CSS, sin JavaScript.
+
+     `animation-timeline: view()` es mejora progresiva pura: donde no hay
+     soporte, o con reduced motion, el contenido está visible desde el primer
+     píxel. Nunca se oculta nada por defecto.
+     ------------------------------------------------------------------------ */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal {
+        animation: reveal-up 1ms linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 36%;
+      }
+    }
+  }
+
+  @keyframes reveal-up {
+    from {
+      opacity: 0.01;
+      transform: translateY(1.25rem);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 }
 

@@ -24,12 +24,12 @@ export function Wordmark({ className = '' }: { className?: string }) {
       aria-label="Nidra — inicio"
       className={`inline-flex h-8 items-center ${className}`}
     >
-      <span className="font-display text-[1.75rem] leading-none tracking-[-0.01em] text-ink">
-        Nidra
+      <span className="font-display text-[1.5rem] font-bold leading-none tracking-[-0.02em] text-ink">
+        nidra
       </span>
       <span
         aria-hidden="true"
-        className="ml-[0.15em] inline-block h-[5px] w-[5px] translate-y-[0.35em] rounded-full bg-accent"
+        className="ml-[0.18em] inline-block h-[6px] w-[6px] translate-y-[0.3em] rounded-full bg-accent"
       />
     </Link>
   )

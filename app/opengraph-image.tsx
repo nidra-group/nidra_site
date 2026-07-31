@@ -12,7 +12,8 @@ export const contentType = 'image/png'
  * declarado en los metadatos—, que es el peor primer contacto posible para un
  * sitio cuyo objetivo es generar confianza.
  *
- * Usa los mismos colores que la paleta de marca. Al cambiar la paleta en
+ * Usa la paleta «madrugada» en su ventana nocturna: fondo tinta con la luz de
+ * alba, que es la cara más reconocible de la marca. Al cambiar la paleta en
  * `app/globals.css`, actualizar también estos valores: `next/og` no lee CSS.
  */
 export default function OpengraphImage() {
@@ -25,21 +26,30 @@ export default function OpengraphImage() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          backgroundColor: '#f7f5f1',
+          backgroundColor: '#10241e',
           padding: '80px',
-          fontFamily: 'Georgia, serif',
+          fontFamily: 'system-ui, sans-serif',
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <span style={{ fontSize: 44, color: '#17191c', letterSpacing: '-0.01em' }}>Nidra</span>
           <span
             style={{
-              width: 10,
-              height: 10,
-              borderRadius: 10,
-              backgroundColor: '#1e5c50',
-              marginLeft: 6,
-              marginTop: 18,
+              fontSize: 44,
+              fontWeight: 700,
+              color: '#f4f6f2',
+              letterSpacing: '-0.02em',
+            }}
+          >
+            nidra
+          </span>
+          <span
+            style={{
+              width: 11,
+              height: 11,
+              borderRadius: 11,
+              backgroundColor: '#9be8c6',
+              marginLeft: 7,
+              marginTop: 20,
             }}
           />
         </div>
@@ -47,23 +57,24 @@ export default function OpengraphImage() {
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <span
             style={{
-              fontSize: 76,
+              fontSize: 74,
+              fontWeight: 700,
               lineHeight: 1.05,
-              color: '#17191c',
-              letterSpacing: '-0.025em',
-              maxWidth: 900,
+              color: '#f4f6f2',
+              letterSpacing: '-0.03em',
+              maxWidth: 940,
             }}
           >
             La IA sirve cuando llega a producción.
           </span>
-          <span style={{ fontSize: 30, color: '#5b6167', marginTop: 28 }}>
+          <span style={{ fontSize: 30, color: '#9fb3a9', marginTop: 28 }}>
             Software con IA para pequeñas y medianas empresas.
           </span>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <div style={{ width: 64, height: 3, backgroundColor: '#1e5c50' }} />
-          <span style={{ fontSize: 24, color: '#5b6167', marginLeft: 20 }}>nidra.cloud</span>
+          <div style={{ width: 64, height: 3, backgroundColor: '#9be8c6' }} />
+          <span style={{ fontSize: 24, color: '#9fb3a9', marginLeft: 20 }}>nidra.cloud</span>
         </div>
       </div>
     ),

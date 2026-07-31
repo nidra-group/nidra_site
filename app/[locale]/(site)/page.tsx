@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import { ButtonLink, ButtonExternal } from '@/components/ui/Button'
+import { NightShift } from '@/components/site/NightShift'
 import { Link } from '@/i18n/navigation'
 import { routing, type Locale } from '@/i18n/routing'
 import { getServices, getTechnologies, getProfile, getYearsOfExperience } from '@/lib/content'
@@ -42,32 +43,38 @@ export default async function HomePage({ params }: Props) {
   return (
     <>
       {/* ── Héroe ──────────────────────────────────────────────────────────
-          Alineado a la izquierda y asimétrico a propósito. El héroe centrado
-          con título gigante y dos botones debajo es el patrón más repetido de
-          la web de IA y le resta credibilidad al mensaje. */}
+          Asimétrico: el mensaje a la izquierda y, a la derecha, el turno
+          noche — la tesis de la empresa mostrada en su forma nativa, un
+          registro de ejecución de madrugada, en lugar de afirmada con un
+          eslogan. El héroe centrado con título gigante y dos botones es el
+          patrón más repetido de la web de IA y le resta credibilidad. */}
       <section className="border-b border-line">
-        <div className="mx-auto max-w-6xl px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24">
-          <p className="eyebrow">{t('hero.eyebrow')}</p>
+        <div className="mx-auto grid max-w-6xl items-center gap-x-16 gap-y-14 px-5 pb-20 pt-16 sm:px-8 sm:pb-24 sm:pt-20 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:pb-28 lg:pt-24">
+          <div>
+            <p className="eyebrow">{t('hero.eyebrow')}</p>
 
-          <h1 className="mt-6 max-w-[19ch] font-display text-[clamp(2.5rem,7.5vw,4.5rem)] leading-[1.02] tracking-[-0.025em]">
-            {t('hero.title')}{' '}
-            <span className="italic text-muted">{t('hero.titleAccent')}</span>
-          </h1>
+            <h1 className="mt-6 max-w-[17ch] font-display text-[clamp(2.5rem,6.5vw,4.25rem)] leading-[1.02] tracking-[-0.03em]">
+              {t('hero.title')}{' '}
+              <span className="text-muted">{t('hero.titleAccent')}</span>
+            </h1>
 
-          <p className="measure mt-8 text-lead text-muted">{t('hero.lead')}</p>
+            <p className="measure mt-7 text-lead text-muted">{t('hero.lead')}</p>
 
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-            {bookingUrl ? (
-              <ButtonExternal href={bookingUrl} rel="noopener">
-                {t('hero.primaryCta')}
-              </ButtonExternal>
-            ) : (
-              <ButtonLink href="/contacto">{t('closing.secondaryCta')}</ButtonLink>
-            )}
-            <ButtonLink href="/servicios" variant="secondary">
-              {t('hero.secondaryCta')}
-            </ButtonLink>
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+              {bookingUrl ? (
+                <ButtonExternal href={bookingUrl} rel="noopener">
+                  {t('hero.primaryCta')}
+                </ButtonExternal>
+              ) : (
+                <ButtonLink href="/contacto">{t('closing.secondaryCta')}</ButtonLink>
+              )}
+              <ButtonLink href="/servicios" variant="secondary">
+                {t('hero.secondaryCta')}
+              </ButtonLink>
+            </div>
           </div>
+
+          <NightShift />
         </div>
       </section>
 
@@ -118,7 +125,7 @@ export default async function HomePage({ params }: Props) {
           </p>
         </div>
 
-        <ol className="mt-14 border-t border-line">
+        <ol className="reveal mt-14 border-t border-line">
           {services.map((service, index) => (
             <li key={service.id} className="border-b border-line">
               <Link
@@ -127,7 +134,7 @@ export default async function HomePage({ params }: Props) {
               >
                 <span
                   aria-hidden="true"
-                  className="font-display text-[1.25rem] text-muted md:text-[1.5rem]"
+                  className="font-mono text-[0.9375rem] text-muted md:text-[1.0625rem]"
                 >
                   {String(index + 1).padStart(2, '0')}
                 </span>
@@ -158,7 +165,7 @@ export default async function HomePage({ params }: Props) {
             <p className="measure-tight mt-4 text-body text-muted md:mt-0">{t('process.lead')}</p>
           </div>
 
-          <ol className="mt-14 grid gap-x-14 gap-y-12 sm:grid-cols-2">
+          <ol className="reveal mt-14 grid gap-x-14 gap-y-12 sm:grid-cols-2">
             {steps.map((step, index) => (
               <li key={step.title} className="border-t border-ink/20 pt-5">
                 <p className="eyebrow text-accent">
@@ -228,7 +235,7 @@ export default async function HomePage({ params }: Props) {
               </p>
             </div>
 
-            <div className="mt-12 md:mt-1.5">
+            <div className="reveal mt-12 md:mt-1.5">
               <p className="eyebrow">{t('founder.trackRecord')}</p>
               <ul className="mt-5 border-t border-line">
                 {profile.experiences.slice(0, 4).map((exp) => (
@@ -252,10 +259,13 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
 
-      {/* ── Cierre ─────────────────────────────────────────────────────────*/}
-      <section className="border-t border-line">
+      {/* ── Cierre ─────────────────────────────────────────────────────────
+          La segunda ventana de noche: la página abre con el turno noche y
+          cierra a oscuras. Los tokens invertidos de `data-night` hacen que
+          los botones y textos se adapten sin variantes propias. */}
+      <section data-night>
         <div className="mx-auto max-w-6xl px-5 py-(--spacing-section) sm:px-8">
-          <h2 className="max-w-[20ch] font-display text-[clamp(2rem,5vw,3.25rem)] leading-[1.05] tracking-[-0.02em]">
+          <h2 className="max-w-[20ch] font-display text-[clamp(2rem,5vw,3.25rem)] leading-[1.05] tracking-[-0.025em]">
             {t('closing.title')}
           </h2>
           <p className="measure mt-6 text-lead text-muted">{t('closing.lead')}</p>

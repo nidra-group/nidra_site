@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { notFound } from 'next/navigation'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import { setRequestLocale } from 'next-intl/server'
-import { Instrument_Sans, Instrument_Serif } from 'next/font/google'
+import { Bricolage_Grotesque, Instrument_Sans, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 
 import { routing } from '@/i18n/routing'
@@ -15,16 +15,30 @@ const sans = Instrument_Sans({
   variable: '--font-instrument-sans',
 })
 
-const serif = Instrument_Serif({
+/**
+ * Bricolage Grotesque para títulos: una grotesca con carácter propio —trampas
+ * de tinta, aperturas cerradas— que se distingue de las sans neutrales sin
+ * caer en la serif editorial que hoy delata a las webs generadas con IA.
+ */
+const display = Bricolage_Grotesque({
   subsets: ['latin'],
-  weight: '400',
-  style: ['normal', 'italic'],
   display: 'swap',
-  variable: '--font-instrument-serif',
+  variable: '--font-bricolage',
+})
+
+/**
+ * JetBrains Mono es la voz de operaciones del sitio: marcas de tiempo,
+ * versiones, contadores, líneas de registro. Todo lo que es artefacto de
+ * máquina se escribe en mono; es estructura con significado, no decoración.
+ */
+const mono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jetbrains',
 })
 
 export const viewport: Viewport = {
-  themeColor: '#f7f5f1',
+  themeColor: '#f4f6f2',
   width: 'device-width',
   initialScale: 1,
 }
@@ -55,7 +69,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale)
 
   return (
-    <html lang={locale} className={`${sans.variable} ${serif.variable}`}>
+    <html lang={locale} className={`${sans.variable} ${display.variable} ${mono.variable}`}>
       <body>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
         <Analytics />

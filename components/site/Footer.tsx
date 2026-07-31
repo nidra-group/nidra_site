@@ -11,7 +11,10 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-line">
+    // El pie vive en la noche: la página abre con el turno noche y termina a
+    // oscuras. `data-night` invierte los tokens, así que los enlaces y textos
+    // de adentro se adaptan solos.
+    <footer data-night className="border-t border-line">
       <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">

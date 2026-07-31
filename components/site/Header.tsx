@@ -22,7 +22,10 @@ export function Header() {
   const t = useTranslations('nav')
 
   return (
-    <header className="border-b border-line">
+    // Fija con desenfoque: mantiene la navegación y el cambio de idioma a un
+    // clic en páginas largas sin robar protagonismo — el fondo translúcido la
+    // funde con el papel.
+    <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur-md">
       <a
         href="#contenido"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-(--radius-md) focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"

@@ -24,6 +24,33 @@
       "primaryCta": "Agendar una reunión de 30 minutos",
       "secondaryCta": "Ver los servicios"
     },
+    "nightShift": {
+      "title": "turno noche",
+      "badge": "ejemplo ilustrativo",
+      "description": "Registro ilustrativo de una automatización que procesa facturas de madrugada, sin intervención humana.",
+      "lines": [
+        {
+          "time": "03:07",
+          "text": "proceso nocturno iniciado"
+        },
+        {
+          "time": "03:08",
+          "text": "42 facturas nuevas en la casilla"
+        },
+        {
+          "time": "03:09",
+          "text": "datos extraídos y validados"
+        },
+        {
+          "time": "03:11",
+          "text": "39 cargadas al sistema · 3 marcadas para revisar"
+        },
+        {
+          "time": "03:12",
+          "text": "resumen listo para las 09:00"
+        }
+      ]
+    },
     "credibility": {
       "experience": "años construyendo software",
       "experienceDetail": "Microservicios, APIs y aplicaciones en producción para clientes globales.",

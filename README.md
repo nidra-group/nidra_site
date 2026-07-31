@@ -50,8 +50,15 @@ Todos los colores del sitio salen de **un solo bloque** al comienzo de
 [`app/globals.css`](app/globals.css). Cambiar la identidad visual completa es cambiar esos nueve
 valores; ningún otro archivo define un color.
 
+La paleta actual es «madrugada»: Nidra es *sueño* en sánscrito, y el sitio lo usa — fondo de niebla
+fría, tinta verde-noche, y `--brand-glow`, la luz menta que solo aparece en las secciones nocturnas
+(la tarjeta del turno noche del héroe, el cierre y el pie). Esas secciones se marcan con
+`data-night`, que invierte los tokens localmente: los componentes de adentro se adaptan solos.
+
 El bloque documenta los contrastes mínimos que cada valor debe cumplir para no romper la
-accesibilidad. Respetarlos no es opcional: hay una prueba que los verifica.
+accesibilidad. Respetarlos no es opcional:
+[`tests/unit/palette.test.ts`](tests/unit/palette.test.ts) los verifica leyendo el CSS real — una
+paleta que los incumpla **rompe el build**.
 
 La imagen de vista previa para redes ([`app/opengraph-image.tsx`](app/opengraph-image.tsx)) es la
 única excepción — `next/og` no lee CSS, así que sus colores están escritos a mano y hay que

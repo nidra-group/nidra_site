@@ -26,6 +26,10 @@ for (const vp of VIEWPORTS) {
   const context = await browser.newContext({
     viewport: { width: vp.width, height: vp.height },
     deviceScaleFactor: 2,
+    // Sin animaciones: la captura de página completa no hace scroll, así que
+    // los revelados quedarían congelados en invisible. Además verifica el
+    // estado que ve un usuario con reduced motion.
+    reducedMotion: 'reduce',
   })
   const page = await context.newPage()
 
