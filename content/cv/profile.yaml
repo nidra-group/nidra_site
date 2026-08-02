@@ -28,15 +28,15 @@ person:
 summary:
   es: >-
     Ingeniero de IA/GenAI con más de 14 años de experiencia en ingeniería de software, hoy enfocado
-    en llevar soluciones de IA a producción. Integro modelos de lenguaje con arquitecturas de
-    recuperación aumentada, embeddings y bases vectoriales, aplicando ingeniería de prompts,
-    evaluación de calidad y buenas prácticas de seguridad. Trabajo con desarrollo guiado por
-    especificación y flujos agénticos, sobre una base sólida de microservicios, APIs, arquitectura
-    limpia, TDD e integración continua.
+    en llevar soluciones de IA a producción. Integro modelos de lenguaje con arquitecturas RAG
+    (generación aumentada por recuperación), embeddings y bases vectoriales, aplicando ingeniería
+    de prompts, evaluación de calidad y buenas prácticas de seguridad. Trabajo con desarrollo
+    guiado por especificación y flujos agénticos, sobre una base sólida de microservicios, APIs,
+    arquitectura limpia, TDD e integración continua.
   en: >-
     AI/GenAI Engineer with 14+ years of software engineering experience, now focused on bringing AI
-    solutions to production. I integrate large language models with retrieval-augmented
-    architectures, embeddings and vector databases, applying prompt engineering, quality evaluation
+    solutions to production. I integrate large language models with retrieval-augmented generation
+    (RAG), embeddings and vector databases, applying prompt engineering, quality evaluation
     and security best practices. I work with spec-driven development and agentic workflows, on a
     solid foundation of microservices, APIs, clean architecture, TDD and CI/CD.
 
