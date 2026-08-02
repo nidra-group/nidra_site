@@ -154,12 +154,21 @@ describe('relato comercial', () => {
   })
 
   it('la sección de inversión conserva el límite honesto', () => {
-    // «Si no da, te lo digo» es el argumento que distingue a un proveedor de
-    // alguien que quiere vender igual. Borrarlo sin querer es fácil.
+    // Decir «si el retorno no justifica la inversión, lo vas a saber antes de
+    // firmar» es el argumento que distingue a un proveedor de alguien que
+    // quiere vender igual. Borrarlo sin querer es fácil.
+    //
+    // La prueba busca el CONCEPTO, no una frase textual: antes exigía «si no
+    // da», que era lunfardo, y eso ataba el test a una redacción concreta en
+    // vez de a la promesa que hay que conservar.
     const esClose = (es.home as { investment: { close: string } }).investment.close
     const enClose = (en.home as { investment: { close: string } }).investment.close
-    expect(esClose).toMatch(/si no da/i)
-    expect(enClose).toMatch(/doesn't add up/i)
+    expect(esClose, 'falta la condición de retorno').toMatch(/no justifica|no conviene|no da/i)
+    expect(esClose, 'falta el momento en que se avisa').toMatch(/antes de firmar|te lo digo/i)
+    expect(enClose, 'falta la condición de retorno').toMatch(
+      /does not justify|doesn't justify|doesn't add up/i,
+    )
+    expect(enClose, 'falta el momento en que se avisa').toMatch(/before you sign|I'll say so/i)
   })
 })
 

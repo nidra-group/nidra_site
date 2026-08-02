@@ -21,9 +21,9 @@
       "eyebrow": "AI software agency",
       "title": "The hours you lose every week",
       "titleAccent": "have a fix",
-      "lead": "Typing the same data twice. Hunting for the file only one person can find. Closing the month by hand. I build the system that does all of it on its own, made to fit your company, with no per-person licences.",
+      "lead": "I build custom systems that solve the manual work pulling you away from the business. Entering the same data twice, reconciling spreadsheets, answering the same questions. No per-seat licences, and the system ends up in your name.",
       "primaryCta": "Book a 30-minute call",
-      "secondaryCta": "See what I can fix"
+      "secondaryCta": "See the services"
     },
     "credibility": {
       "experience": "years building software",
@@ -37,9 +37,9 @@
     },
     "pain": {
       "eyebrow": "Where this starts",
-      "title": "What you already pay for",
-      "titleAccent": "that never shows up on an invoice",
-      "lead": "You don't need an AI project to know something is costing you. These are the most common signs in a company under 50 people.",
+      "title": "The most common problems",
+      "titleAccent": "in companies under 50 people",
+      "lead": "Each of these consumes hours every week and never appears in a cost report. If you recognise any of them, there is something concrete to fix.",
       "items": [
         {
           "title": "The same data, typed in twice",
@@ -58,25 +58,25 @@
           "body": "Reconcile, review, correct. It ends late at night with the spreadsheet open, and something is always missing."
         },
         {
-          "title": "You hear «AI» all day",
-          "body": "And nobody tells you what's useful to you, what it costs, or where to start without wasting money."
+          "title": "You don't know where to start with AI",
+          "body": "You hear the term every day and nobody explains what is useful to you, what it costs, or what to begin with."
         }
       ],
-      "cost": "Repetitive admin work takes between 4 and 8 hours per week, per person. You already pay for that time in salaries."
+      "cost": "Repetitive admin work consumes between 4 and 8 hours per person per week. That time is already paid for in salaries."
     },
     "services": {
-      "eyebrow": "What I do",
-      "title": "Six services,",
-      "titleAccent": "not a catalogue",
-      "lead": "Each one fixes something you can point at in your company. If what you need is not here, I say so.",
+      "eyebrow": "Services",
+      "title": "What can be solved",
+      "titleAccent": "with custom software",
+      "lead": "Six services, each with a defined problem, a deliverable and an estimated timeline. If what you need is not here, I will say so.",
       "cta": "See each service in detail",
       "cardCta": "See detail"
     },
     "process": {
       "eyebrow": "How I work",
-      "title": "Measure first,",
-      "titleAccent": "build second",
-      "lead": "The order matters. Most projects fail because building starts before anyone knows what problem it solves.",
+      "title": "Four stages,",
+      "titleAccent": "each with its own deliverable",
+      "lead": "Before building anything you need to know which problem is being solved and what solving it is worth. That order avoids the most common waste: paying for something nobody ends up using.",
       "steps": [
         {
           "title": "Assessment",
@@ -98,28 +98,24 @@
     },
     "investment": {
       "eyebrow": "The investment",
-      "title": "This isn't measured in price.",
-      "titleAccent": "It's measured in months to pay back.",
-      "lead": "Think of the task that eats the most time. Count the hours it takes each week and multiply by what that hour is worth in your company. That is the monthly saving.",
+      "title": "What it costs",
+      "titleAccent": "and how long it takes to pay back",
+      "lead": "The price depends on scope. But the decision criterion is always the same: how many hours a week the process consumes today, and what that hour costs in your company. From there you get how many months of savings cover the investment.",
       "items": [
         {
-          "title": "Quoted by effort, not by your size",
-          "body": "The price comes from the hours the work takes, estimated and written down before starting. It does not go up because your company bills more."
-        },
-        {
           "title": "Only what you use gets built",
-          "body": "No features that ship in the package and nobody opens. That is what brings the price down against a program bought off the shelf."
+          "body": "No modules that ship in the package and nobody opens. That is the price difference against an off-the-shelf product."
         },
         {
           "title": "The system ends up in your name",
-          "body": "No per-person licences and no lock-in. If tomorrow you want someone else to carry it on, they can: it is documented and in your hands."
+          "body": "No per-seat licences, no lock-in, and no depending on me to keep using it. Another team can pick it up."
         },
         {
-          "title": "It starts small and verifiable",
-          "body": "The assessment is a short piece of work with its own result. You leave with the list of what is worth fixing and how long it would take."
+          "title": "The effort estimate is the deliverable",
+          "body": "The assessment is a short piece of work with its own result. You get a list of processes ranked by return, and how many hours each one takes."
         }
       ],
-      "close": "I don't publish prices because a number means nothing without your process in front of it. Tell me what you want to solve and I'll send the quote in writing. If it doesn't add up, I'll say so and we stop there."
+      "close": "I do not publish prices because a figure without knowing your process means nothing. After the first call you receive a written quote with scope, timeline and a fixed price. If the return does not justify the investment, you will know before you sign."
     },
     "technologies": {
       "eyebrow": "Technologies I work with",
@@ -127,17 +123,17 @@
     },
     "founder": {
       "eyebrow": "Who's behind this",
-      "title": "Nidra is new. The experience behind it is not.",
-      "lead": "I am Juan Mujica, a software engineer with {years} years of work behind me, now focused on making artificial intelligence genuinely useful inside a company. I work on my own: there is no team behind this, and no clients of my own to show yet. What you can verify is where I spent each of those years.",
+      "title": "Who will build your system",
+      "lead": "I am Juan Mujica, a software engineer with {years} years of work in development and architecture, now focused on bringing AI solutions into production. Nidra is new and does not have a client portfolio yet. What you can verify is where each of those years was spent.",
       "trackRecord": "Track record",
       "ctaProfile": "See the full profile",
       "ctaLinkedin": "LinkedIn"
     },
     "closing": {
-      "title": "How many hours a week go into something that could run on its own?",
-      "lead": "Tell me which task it is. In 30 minutes you'll know whether it can be fixed, what it would cost and how long it takes to pay for itself. If it isn't worth it, I'll say so.",
+      "title": "Which process is consuming the most hours?",
+      "lead": "Describe it in the form. In a 30-minute call you will know whether automating it is worth it. You will also know the scope and how long it takes to pay back.",
       "primaryCta": "Book a call",
-      "secondaryCta": "Send a message"
+      "secondaryCta": "Send an enquiry"
     }
   },
   "services": {
@@ -146,8 +142,8 @@
       "description": "AI assessment, assistants grounded in your own documentation, process automation, internal search, custom products and AI security evaluation."
     },
     "eyebrow": "Services",
-    "title": "What I do, what you get",
-    "lead": "Every service starts from the problem it solves, not from the technology. Timelines are honest ranges: when I don't know, I widen the range instead of promising short.",
+    "title": "What each service includes",
+    "lead": "Every service starts from the problem it solves. Timelines are estimates based on work of comparable scope: when a case carries more uncertainty, the range widens instead of promising short.",
     "problemLabel": "The problem",
     "deliverablesLabel": "What gets delivered",
     "timelineLabel": "Estimated timeline",
@@ -186,16 +182,16 @@
     },
     "eyebrow": "Contact",
     "title": "Let's talk about",
-    "lead": "Two ways to start. Neither commits you to anything, and both end with you knowing something you don't know today.",
+    "lead": "Two ways to start. Neither commits you to anything, and both end with concrete information about your process.",
     "booking": {
       "title": "Book a call",
-      "body": "Thirty minutes over video. You leave knowing whether automating your process is worth it and what order of magnitude it sits at.",
+      "body": "Thirty minutes over video. You leave knowing whether automating your process is worth it and what order of magnitude the work sits at.",
       "cta": "See available times",
       "note": "Opens my scheduling page."
     },
     "form": {
       "title": "Send a message",
-      "body": "Tell me which process you want to solve and what tools you use today. I reply within one business day.",
+      "body": "Describe the process you want to solve and what tools you use today. I reply within one business day.",
       "name": "Name",
       "email": "Email",
       "company": "Company",
@@ -204,7 +200,7 @@
       "servicePlaceholder": "Choose an option",
       "serviceOther": "Something else / not sure yet",
       "message": "Your message",
-      "messageHint": "Tell me which process you want to solve and which tools you use today.",
+      "messageHint": "Describe the process you want to solve and which tools you use today.",
       "submit": "Send message",
       "submitting": "Sending…",
       "success": {
@@ -218,7 +214,7 @@
         "emailInvalid": "That email doesn't look valid. Please check it.",
         "serviceRequired": "Please choose what you'd like to ask about.",
         "messageRequired": "Please write your message.",
-        "messageTooShort": "Tell me a bit more: at least 20 characters.",
+        "messageTooShort": "Add a bit more detail: at least 20 characters.",
         "messageTooLong": "That message is too long. 2000 characters maximum.",
         "rejected": "The submission couldn't be processed. Please reload the page and try again.",
         "rateLimit": "Several submissions arrived from your connection. Please wait a few minutes and try again.",
@@ -238,12 +234,12 @@
     "next": {
       "title": "What happens next",
       "steps": [
-        "I read your message and reply within one business day, to the address you gave.",
-        "If it makes sense to move forward, we set up 30 minutes to walk the process in detail and estimate how many hours go into it.",
-        "I email you the scope, the timeline and the price in writing, with the payback calculation. No strings: if it doesn't add up, I'll say so."
+        "I read your message and reply within one business day to the address you gave.",
+        "If it makes sense to move forward, we set up 30 minutes to walk the process in detail and estimate how many hours it consumes.",
+        "You receive the scope, timeline and a fixed price in writing, with the payback calculation. If the return does not justify the investment, you will know before you sign."
       ]
     },
-    "leadNoBooking": "Tell me which process is eating your hours. It doesn't commit you to anything.",
+    "leadNoBooking": "Describe the process you want to solve. It does not commit you to anything.",
     "titleAccent": "your process"
   },
   "legal": {

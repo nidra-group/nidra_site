@@ -10,7 +10,7 @@
     "menu": "Menú",
     "close": "Cerrar",
     "skipToContent": "Saltar al contenido",
-    "headerCta": "Escribime"
+    "headerCta": "Contactar"
   },
   "home": {
     "meta": {
@@ -21,9 +21,9 @@
       "eyebrow": "Agencia de software con IA",
       "title": "Las horas que perdés todas las semanas",
       "titleAccent": "tienen solución",
-      "lead": "Cargar los mismos datos dos veces. Buscar el archivo que solo una persona sabe dónde está. Cerrar el mes a mano. Construyo el sistema que hace todo eso solo, a la medida de tu empresa y sin licencias por persona.",
+      "lead": "Construyo sistemas a medida que resuelven los procesos manuales que hoy te distraen del negocio: cargar datos dos veces, conciliar planillas, responder siempre lo mismo. Sin licencias por persona y con el sistema a tu nombre.",
       "primaryCta": "Agendar una reunión de 30 minutos",
-      "secondaryCta": "Ver qué puedo resolver"
+      "secondaryCta": "Ver los servicios"
     },
     "credibility": {
       "experience": "años construyendo software",
@@ -37,9 +37,9 @@
     },
     "pain": {
       "eyebrow": "El punto de partida",
-      "title": "Lo que ya estás pagando",
-      "titleAccent": "sin que aparezca en ninguna factura",
-      "lead": "No hace falta un proyecto de IA para saber que algo cuesta. Estas son las señales más frecuentes en una empresa de menos de 50 personas.",
+      "title": "Los problemas más frecuentes",
+      "titleAccent": "en empresas de menos de 50 personas",
+      "lead": "Cada una de estas situaciones consume horas todas las semanas y no figura en ningún informe de costos. Si reconocés alguna, hay algo concreto para resolver.",
       "items": [
         {
           "title": "Los mismos datos, cargados dos veces",
@@ -58,25 +58,25 @@
           "body": "Conciliar, revisar, corregir. Se termina de noche y con la planilla abierta, y siempre falta un dato."
         },
         {
-          "title": "Escuchás «IA» todo el día",
-          "body": "Y nadie te explica qué te sirve a vos, cuánto sale, ni por dónde se empieza sin tirar la plata."
+          "title": "No sabés por dónde empezar con IA",
+          "body": "Escuchás el término todos los días y nadie te explica qué te sirve a vos, cuánto cuesta ni con qué conviene arrancar."
         }
       ],
-      "cost": "Las tareas administrativas repetitivas se llevan entre 4 y 8 horas por semana, por persona. Ese tiempo ya lo pagás en sueldos."
+      "cost": "Las tareas administrativas repetitivas consumen entre 4 y 8 horas por semana, por persona. Ese tiempo ya está pago en sueldos."
     },
     "services": {
-      "eyebrow": "Qué hago",
-      "title": "Seis servicios,",
-      "titleAccent": "no un catálogo",
-      "lead": "Cada uno resuelve algo que podés señalar con el dedo en tu empresa. Si lo que necesitás no está acá, te lo digo.",
+      "eyebrow": "Servicios",
+      "title": "Qué se puede resolver",
+      "titleAccent": "con software a medida",
+      "lead": "Seis servicios, cada uno con un problema definido, un entregable y un plazo estimado. Si lo que necesitás no está acá, te lo digo.",
       "cta": "Ver el detalle de cada servicio",
       "cardCta": "Ver detalle"
     },
     "process": {
       "eyebrow": "Cómo trabajo",
-      "title": "Primero mido,",
-      "titleAccent": "después construyo",
-      "lead": "El orden importa. La mayoría de los proyectos fallan porque se empieza a construir antes de saber qué problema resuelven.",
+      "title": "Cuatro etapas,",
+      "titleAccent": "con un entregable en cada una",
+      "lead": "Antes de empezar a construir hay que saber qué problema se resuelve y cuánto vale resolverlo. Ese orden evita el gasto más común: pagar por algo que después nadie usa.",
       "steps": [
         {
           "title": "Diagnóstico",
@@ -98,28 +98,24 @@
     },
     "investment": {
       "eyebrow": "La inversión",
-      "title": "Esto no se mide en precio.",
-      "titleAccent": "Se mide en meses de repago.",
-      "lead": "Pensá en la tarea que más tiempo te consume. Contá las horas que se van por semana y multiplicalas por lo que vale esa hora en tu empresa. Ese es el ahorro de cada mes.",
+      "title": "Cuánto cuesta",
+      "titleAccent": "y en cuánto se recupera",
+      "lead": "El precio depende del alcance. Pero el criterio para decidir es siempre el mismo: cuántas horas por semana consume hoy el proceso y cuánto cuesta esa hora en tu empresa. Con eso se calcula en cuántos meses el ahorro cubre la inversión.",
       "items": [
         {
-          "title": "Se cotiza por esfuerzo, no por tu tamaño",
-          "body": "El precio sale de las horas que lleva el trabajo, estimadas y escritas antes de empezar. No sube porque tu empresa facture más."
-        },
-        {
           "title": "Se construye solo lo que usás",
-          "body": "Nada de funciones que vienen en el paquete y nadie abre. Eso es lo que baja el precio frente a un programa de los que se compran hechos."
+          "body": "Nada de módulos que vienen en el paquete y nadie abre. Esa es la diferencia de precio frente a un producto de estantería."
         },
         {
           "title": "El sistema queda a tu nombre",
-          "body": "Sin licencias por persona y sin permanencia. Si mañana querés que lo continúe otra persona, puede: queda documentado y en tu poder."
+          "body": "Sin licencias por persona, sin permanencia y sin depender de mí para seguir usándolo. Otro equipo puede continuarlo."
         },
         {
-          "title": "Empieza chico y comprobable",
-          "body": "El diagnóstico es un trabajo corto y con resultado propio. Salís con la lista de qué conviene resolver y cuánto llevaría, lo hagas conmigo o no."
+          "title": "La estimación de esfuerzo es el entregable",
+          "body": "El diagnóstico es un trabajo corto con resultado propio: una lista de procesos ordenada por retorno y cuántas horas lleva cada uno."
         }
       ],
-      "close": "No publico precios porque el número sin tu proceso adelante no significa nada. Contame qué querés resolver y te paso la cotización por escrito. Si no da, te lo digo ahí y no seguimos."
+      "close": "No publico precios porque una cifra sin conocer tu proceso no significa nada. Después de la primera reunión recibís una cotización por escrito con alcance, plazo y precio cerrado. Si el retorno no justifica la inversión, lo vas a saber antes de firmar."
     },
     "technologies": {
       "eyebrow": "Tecnologías con las que trabajo",
@@ -127,17 +123,17 @@
     },
     "founder": {
       "eyebrow": "Quién está detrás",
-      "title": "Nidra es nueva. La experiencia que la sostiene, no.",
-      "lead": "Soy Juan Mujica, ingeniero de software con {years} años de trabajo, hoy dedicado a que la inteligencia artificial sirva de verdad dentro de una empresa. Trabajo solo: no hay un equipo detrás, ni clientes propios que mostrar todavía. Lo que sí podés verificar es dónde estuve cada uno de esos años.",
+      "title": "Quién va a construir tu sistema",
+      "lead": "Soy Juan Mujica, ingeniero de software con {years} años de trabajo en desarrollo y arquitectura, hoy enfocado en llevar soluciones de inteligencia artificial a producción. Nidra es nueva y todavía no tiene cartera propia. Lo que sí podés verificar es dónde estuve cada uno de esos años.",
       "trackRecord": "Trayectoria",
       "ctaProfile": "Ver el perfil completo",
       "ctaLinkedin": "LinkedIn"
     },
     "closing": {
-      "title": "¿Cuántas horas por semana se te van en algo que podría hacerse solo?",
-      "lead": "Contame cuál es la tarea. En 30 minutos sabés si se puede resolver, cuánto saldría y en cuánto tiempo se paga sola. Si no te conviene, te lo digo ahí.",
+      "title": "¿Qué proceso te está consumiendo más horas?",
+      "lead": "Describilo en el formulario. En una reunión de 30 minutos vas a saber si conviene automatizarlo, qué alcance tendría y en cuánto tiempo se recupera la inversión.",
       "primaryCta": "Agendar una reunión",
-      "secondaryCta": "Escribir un mensaje"
+      "secondaryCta": "Enviar una consulta"
     }
   },
   "services": {
@@ -146,8 +142,8 @@
       "description": "Diagnóstico de IA, asistentes con documentación propia, automatización de procesos, buscador interno, producto a medida y evaluación de seguridad de IA."
     },
     "eyebrow": "Servicios",
-    "title": "Qué hago, con qué se entrega",
-    "lead": "Cada servicio arranca por el problema que resuelve, no por la tecnología. Los plazos son rangos honestos: si no sé, amplío el rango en vez de prometer corto.",
+    "title": "Qué incluye cada servicio",
+    "lead": "Cada servicio arranca por el problema que resuelve. Los plazos son estimaciones basadas en trabajos de alcance comparable: si un caso tiene más incertidumbre, el rango se amplía en vez de prometer corto.",
     "problemLabel": "El problema",
     "deliverablesLabel": "Qué se entrega",
     "timelineLabel": "Plazo estimado",
@@ -161,7 +157,7 @@
       "custom-ai-product": "Producto a medida con IA",
       "ai-evaluation-security": "Evaluación y seguridad de IA"
     },
-    "titleAccent": "y en cuánto tiempo"
+    "titleAccent": "y en cuánto tiempo se entrega"
   },
   "integrations": {
     "meta": {
@@ -186,16 +182,16 @@
     },
     "eyebrow": "Contacto",
     "title": "Hablemos de",
-    "lead": "Dos formas de empezar. Ninguna te compromete a nada y las dos terminan con vos sabiendo algo que hoy no sabés.",
+    "lead": "Dos formas de empezar. Ninguna te compromete a nada y las dos terminan con información concreta sobre tu proceso.",
     "booking": {
       "title": "Agendar una reunión",
-      "body": "Treinta minutos por videollamada. Salís sabiendo si tu proceso conviene automatizarlo y qué orden de magnitud tiene.",
+      "body": "Treinta minutos por videollamada. Salís sabiendo si conviene automatizar tu proceso y qué orden de magnitud tiene el trabajo.",
       "cta": "Ver horarios disponibles",
       "note": "Se abre en mi página de agenda."
     },
     "form": {
       "title": "Escribir una consulta",
-      "body": "Contame qué proceso querés resolver y qué herramientas usás hoy. Respondo dentro de un día hábil.",
+      "body": "Describí el proceso que querés resolver y qué herramientas usás hoy. Respondo dentro de un día hábil.",
       "name": "Nombre",
       "email": "Correo electrónico",
       "company": "Empresa",
@@ -204,7 +200,7 @@
       "servicePlaceholder": "Elegí una opción",
       "serviceOther": "Otra cosa / todavía no sé",
       "message": "Tu consulta",
-      "messageHint": "Contame qué proceso querés resolver y qué herramientas usás hoy.",
+      "messageHint": "Describí el proceso que querés resolver y qué herramientas usás hoy.",
       "submit": "Enviar consulta",
       "submitting": "Enviando…",
       "success": {
@@ -218,7 +214,7 @@
         "emailInvalid": "Ese correo no parece válido. Revisalo.",
         "serviceRequired": "Elegí sobre qué querés consultar.",
         "messageRequired": "Escribí tu consulta.",
-        "messageTooShort": "Contame un poco más: al menos 20 caracteres.",
+        "messageTooShort": "Agregá algo más de detalle: al menos 20 caracteres.",
         "messageTooLong": "La consulta es demasiado larga. Máximo 2000 caracteres.",
         "rejected": "No se pudo procesar el envío. Recargá la página e intentá de nuevo.",
         "rateLimit": "Llegaron varios envíos desde tu conexión. Esperá unos minutos e intentá de nuevo.",
@@ -238,12 +234,12 @@
     "next": {
       "title": "Qué pasa después",
       "steps": [
-        "Leo tu consulta y te respondo dentro de un día hábil, al correo que dejaste.",
-        "Si tiene sentido avanzar, coordinamos 30 minutos para ver el proceso en detalle y estimar cuántas horas se van en él.",
-        "Te paso por correo el alcance, el plazo y el precio por escrito, con la cuenta de en cuánto se paga. Sin compromiso: si no da, te lo digo ahí."
+        "Leo tu consulta y te respondo dentro de un día hábil al correo que dejaste.",
+        "Si tiene sentido avanzar, coordinamos 30 minutos para ver el proceso en detalle y estimar cuántas horas consume.",
+        "Recibís por correo, por escrito, el alcance, el plazo y el precio cerrado, con el cálculo de recupero. Si el retorno no justifica la inversión, lo vas a saber antes de firmar."
       ]
     },
-    "leadNoBooking": "Contame qué proceso te está consumiendo horas. No te compromete a nada.",
+    "leadNoBooking": "Describí el proceso que querés resolver. No te compromete a nada.",
     "titleAccent": "tu proceso"
   },
   "legal": {
