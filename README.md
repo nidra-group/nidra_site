@@ -170,6 +170,18 @@ maquetación: si la vista de impresión se ve bien, el PDF es correcto por defin
 La versión no se declara a mano: sale del hash y la fecha del último commit que tocó el YAML. El
 historial de git **es** el versionado del currículum.
 
+## El asistente conversacional
+
+Se desarrolla en un repositorio aparte y se conecta con el sitio por un solo
+punto: `NEXT_PUBLIC_CHAT_EMBED_URL`. El encargo completo, con las decisiones
+técnicas ya tomadas, está en [`docs/brief-chatbot.md`](docs/brief-chatbot.md).
+
+**Ese documento nombra tres cosas de este repositorio que hay que cambiar antes
+de encenderlo**, y las tres son bloqueantes: la política de privacidad promete
+actualizarse antes de que exista un asistente, la política de contenido supone
+que no hay código de terceros, y hoy el sitio no tiene base de datos con datos
+personales.
+
 ## Desplegar
 
 Los pasos completos —dominio, subdominio, correo, agenda y verificación— están
