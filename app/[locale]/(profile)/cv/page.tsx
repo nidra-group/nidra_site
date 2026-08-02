@@ -5,7 +5,7 @@ import { CvDocument } from '@/components/cv/CvDocument'
 import { CvDownload } from '@/components/cv/CvDownload'
 import { Link } from '@/i18n/navigation'
 import { routing, type Locale } from '@/i18n/routing'
-import { getProfile } from '@/lib/content'
+import { getProfile, getYearsOfExperience } from '@/lib/content'
 import { getCvVersion } from '@/lib/cv/version'
 import { listAvailableDownloads } from '@/lib/cv/downloads'
 import { buildMetadata } from '@/lib/seo/metadata'
@@ -37,7 +37,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     href: '/cv',
     title: t('title'),
-    description: t('description'),
+    // Los años se calculan del currículum y no se escriben a mano. Antes la
+    // descripción decía «más de 14 años» como texto fijo: el 1 de enero se
+    // desincronizaba sola y nadie se enteraba, porque una descripción para
+    // buscadores no se mira nunca.
+    description: t('description', { years: getYearsOfExperience(getProfile()) }),
     baseUrl: profileBaseUrl,
   })
 }

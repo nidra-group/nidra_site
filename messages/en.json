@@ -186,14 +186,14 @@
   "contact": {
     "meta": {
       "title": "Contact — Nidra",
-      "description": "Book a 30-minute call or send me a message. I reply within one business day."
+      "description": "Book a 30-minute call or send an enquiry. I reply within one business day."
     },
     "eyebrow": "Contact",
     "title": "Let's talk about",
     "lead": "Two ways to start. Neither commits you to anything, and both end with concrete information about your process.",
     "booking": {
       "title": "Book a call",
-      "body": "Thirty minutes over video. You leave knowing whether automating your process is worth it and what order of magnitude the work sits at.",
+      "body": "Thirty minutes over video. You leave knowing whether automating your process is worth it and how big the work would be.",
       "cta": "See available times",
       "note": "Opens my scheduling page."
     },
@@ -206,7 +206,7 @@
       "companyOptional": "optional",
       "service": "What would you like to ask about",
       "servicePlaceholder": "Choose an option",
-      "serviceOther": "Something else / not sure yet",
+      "serviceOther": "Something else, or I'm not sure yet",
       "message": "Your message",
       "messageHint": "Describe the process you want to solve and which tools you use today.",
       "submit": "Send message",
@@ -217,11 +217,11 @@
       },
       "errors": {
         "nameRequired": "Please enter your name.",
-        "nameTooShort": "That name is too short.",
+        "nameTooShort": "That name is too short. Please use at least two letters.",
         "emailRequired": "Please enter your email.",
-        "emailInvalid": "That email doesn't look valid. Please check it.",
+        "emailInvalid": "That email does not look valid. Check it has an @ and a domain.",
         "serviceRequired": "Please choose what you'd like to ask about.",
-        "messageRequired": "Please write your message.",
+        "messageRequired": "Write your enquiry before sending.",
         "messageTooShort": "Add a bit more detail: at least 20 characters.",
         "messageTooLong": "That message is too long. 2000 characters maximum.",
         "rejected": "The submission couldn't be processed. Please reload the page and try again.",
@@ -237,14 +237,14 @@
     },
     "direct": {
       "title": "Direct email",
-      "body": "If you'd rather write from your own mail client."
+      "body": "If you prefer to write from your own email."
     },
     "next": {
       "title": "What happens next",
       "steps": [
         "I read your message and reply within one business day to the address you gave.",
         "If it makes sense to move forward, we set up 30 minutes to walk the process in detail and estimate how many hours it consumes.",
-        "You receive the scope, timeline and a fixed price in writing, with the payback calculation. If the return does not justify the investment, you will know before you sign."
+        "You receive the scope, the timeline and a fixed price in writing, with the payback calculation. If the return does not justify the investment, you will know before you sign."
       ]
     },
     "leadNoBooking": "Describe the process you want to solve. It does not commit you to anything.",
@@ -349,7 +349,7 @@
   "cv": {
     "meta": {
       "title": "Juan Mujica — AI / GenAI Engineer",
-      "description": "Professional profile of Juan Mujica: 14+ years in software engineering, now focused on bringing AI solutions to production."
+      "description": "Professional profile of Juan Mujica: {years} years in software engineering, now focused on bringing AI solutions to production."
     },
     "backToSite": "Go to Nidra",
     "download": {
@@ -360,7 +360,7 @@
       "formatWeb": "Printable web version",
       "submit": "Download",
       "openPrintView": "Open printable version",
-      "unavailable": "Documents are generated at build time. In development, use the printable web version.",
+      "unavailable": "The documents are not available yet. You can open the printable version and save it from your browser.",
       "version": "Version"
     },
     "sections": {

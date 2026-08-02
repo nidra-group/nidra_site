@@ -311,3 +311,27 @@ describe('titulares partidos en dos tonos', () => {
     }
   })
 })
+
+describe('años de experiencia', () => {
+  // Los años se calculan de las fechas del currículum. Cualquier número
+  // escrito a mano en los mensajes se desincroniza solo el 1 de enero, y
+  // nadie se entera: la descripción para buscadores no se mira nunca.
+  //
+  // Esto pasó de verdad: cv.meta.description decía «más de 14 años» como
+  // texto fijo. Ahora llega como parámetro {years} desde la página.
+  it.each([
+    ['es', es],
+    ['en', en],
+  ])('los mensajes de %s no escriben los años a mano', (_locale, messages) => {
+    const raw = JSON.stringify(messages)
+    const encontrados = raw.match(/\b\d{1,2}\+?\s*(años|years)\b/gi) ?? []
+    expect(encontrados, 'usá el parámetro {years} en vez de un número fijo').toEqual([])
+  })
+
+  it('la plantilla de la descripción del currículum espera el parámetro', () => {
+    for (const messages of [es, en]) {
+      const cv = messages.cv as { meta: { description: string } }
+      expect(cv.meta.description).toContain('{years}')
+    }
+  })
+})

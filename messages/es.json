@@ -186,14 +186,14 @@
   "contact": {
     "meta": {
       "title": "Contacto — Nidra",
-      "description": "Agendá una reunión de 30 minutos o escribime una consulta. Respondo dentro de un día hábil."
+      "description": "Agendá una reunión de 30 minutos o enviá una consulta. Respondo dentro de un día hábil."
     },
     "eyebrow": "Contacto",
     "title": "Hablemos de",
     "lead": "Dos formas de empezar. Ninguna te compromete a nada y las dos terminan con información concreta sobre tu proceso.",
     "booking": {
       "title": "Agendar una reunión",
-      "body": "Treinta minutos por videollamada. Salís sabiendo si conviene automatizar tu proceso y qué orden de magnitud tiene el trabajo.",
+      "body": "Treinta minutos por videollamada. Salís sabiendo si conviene automatizar tu proceso y qué tamaño de trabajo implicaría.",
       "cta": "Ver horarios disponibles",
       "note": "Se abre en mi página de agenda."
     },
@@ -206,7 +206,7 @@
       "companyOptional": "opcional",
       "service": "Sobre qué querés consultar",
       "servicePlaceholder": "Elegí una opción",
-      "serviceOther": "Otra cosa / todavía no sé",
+      "serviceOther": "Otra cosa, o todavía no sé",
       "message": "Tu consulta",
       "messageHint": "Describí el proceso que querés resolver y qué herramientas usás hoy.",
       "submit": "Enviar consulta",
@@ -217,11 +217,11 @@
       },
       "errors": {
         "nameRequired": "Escribí tu nombre.",
-        "nameTooShort": "El nombre es demasiado corto.",
+        "nameTooShort": "El nombre es demasiado corto. Escribí al menos dos letras.",
         "emailRequired": "Escribí tu correo electrónico.",
-        "emailInvalid": "Ese correo no parece válido. Revisalo.",
+        "emailInvalid": "Ese correo no parece válido. Revisá que tenga arroba y dominio.",
         "serviceRequired": "Elegí sobre qué querés consultar.",
-        "messageRequired": "Escribí tu consulta.",
+        "messageRequired": "Escribí tu consulta antes de enviar.",
         "messageTooShort": "Agregá algo más de detalle: al menos 20 caracteres.",
         "messageTooLong": "La consulta es demasiado larga. Máximo 2000 caracteres.",
         "rejected": "No se pudo procesar el envío. Recargá la página e intentá de nuevo.",
@@ -237,14 +237,14 @@
     },
     "direct": {
       "title": "Correo directo",
-      "body": "Si preferís escribir desde tu propio cliente de correo."
+      "body": "Si preferís escribir desde tu propio correo."
     },
     "next": {
       "title": "Qué pasa después",
       "steps": [
         "Leo tu consulta y te respondo dentro de un día hábil al correo que dejaste.",
         "Si tiene sentido avanzar, coordinamos 30 minutos para ver el proceso en detalle y estimar cuántas horas consume.",
-        "Recibís por correo, por escrito, el alcance, el plazo y el precio cerrado, con el cálculo de recupero. Si el retorno no justifica la inversión, lo vas a saber antes de firmar."
+        "Recibís por escrito el alcance, el plazo y el precio cerrado, con el cálculo de en cuánto se recupera. Si el retorno no justifica la inversión, lo vas a saber antes de firmar."
       ]
     },
     "leadNoBooking": "Describí el proceso que querés resolver. No te compromete a nada.",
@@ -349,7 +349,7 @@
   "cv": {
     "meta": {
       "title": "Juan Mujica — Ingeniero de IA / GenAI",
-      "description": "Perfil profesional de Juan Mujica: más de 14 años en ingeniería de software, hoy enfocado en llevar soluciones de IA a producción."
+      "description": "Perfil profesional de Juan Mujica: {years} años en ingeniería de software, hoy enfocado en llevar soluciones de IA a producción."
     },
     "backToSite": "Ir a Nidra",
     "download": {
@@ -360,7 +360,7 @@
       "formatWeb": "Versión web imprimible",
       "submit": "Descargar",
       "openPrintView": "Abrir versión imprimible",
-      "unavailable": "Los documentos se generan al construir el sitio. En desarrollo, usá la versión web imprimible.",
+      "unavailable": "Los documentos todavía no están disponibles. Podés abrir la versión imprimible y guardarla desde el navegador.",
       "version": "Versión"
     },
     "sections": {
