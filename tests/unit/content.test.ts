@@ -335,3 +335,25 @@ describe('años de experiencia', () => {
     }
   })
 })
+
+describe('política de privacidad', () => {
+  // Cada párrafo de la política es una promesa concreta hecha al visitante.
+  // Reescribir la sección entera para mejorar la redacción es la forma más
+  // fácil de borrar una sin querer: pasó con el aviso del asistente
+  // conversacional, que quedó sobrescrito al agregar otro párrafo.
+  const PROMESAS: [string, RegExp, RegExp][] = [
+    ['sin cookies', /no usa cookies|uses no cookies/i, /no cookies|sin cookies/i],
+    ['no se vende a terceros', /no los vendo/i, /don't sell|do not sell/i],
+    ['se borra si lo pedís', /si me pedís que lo borre/i, /if you ask me to delete/i],
+    ['aviso previo del asistente', /asistente conversacional/i, /conversational assistant/i],
+    ['datos fuera del país', /fuera de Argentina/i, /outside Argentina/i],
+    ['ley que aplica', /Ley 25\.326/i, /Ley 25\.326/i],
+  ]
+
+  it.each(PROMESAS)('la promesa «%s» sigue en las dos versiones', (_nombre, esPat, enPat) => {
+    const texto = (messages: unknown) =>
+      JSON.stringify((messages as { legal: { privacy: unknown } }).legal.privacy)
+    expect(texto(es)).toMatch(esPat)
+    expect(texto(en)).toMatch(enPat)
+  })
+})

@@ -263,8 +263,8 @@
           "title": "Qué datos recojo",
           "body": [
             "Recojo únicamente los datos que dejás en el formulario de consulta: nombre, correo electrónico, empresa (opcional), el servicio sobre el que consultás y el texto de tu mensaje.",
-            "Este sitio no usa cookies ni identificadores persistentes de seguimiento. Por eso no vas a encontrar un cartel de consentimiento: no hay nada que consentir.",
-            "Mido visitas de forma agregada y anónima, sin datos personales y sin poder reconstruir quién sos ni seguirte entre sitios."
+            "Este sitio no usa cookies ni ningún otro sistema que te siga entre páginas o entre sitios. Por eso no vas a encontrar un cartel de consentimiento: no hay nada que consentir.",
+            "Cuento las visitas de forma anónima y en conjunto: sé cuántas personas entraron y a qué páginas, no quién sos ni qué hiciste."
           ]
         },
         {
@@ -276,23 +276,24 @@
         {
           "title": "Cuánto los conservo",
           "body": [
-            "El sitio no almacena las consultas en ninguna base de datos. El mensaje se entrega a mi casilla de correo y su conservación queda sujeta a mi gestión de correo, donde se conserva mientras dure la conversación comercial y hasta un máximo de dos años.",
+            "El sitio no guarda las consultas en ninguna base de datos. El mensaje llega a mi casilla de correo y ahí queda, mientras dure la conversación y como máximo dos años.",
             "Si me pedís que lo borre antes, lo borro."
           ]
         },
         {
           "title": "Servicios de terceros",
           "body": [
-            "Para la entrega de los correos uso un proveedor de correo transaccional, que procesa el mensaje para hacerlo llegar a mi casilla.",
-            "Si reservás una reunión, el agendamiento ocurre en una plataforma externa de calendario. Los datos que ingreses ahí se rigen por la política de privacidad de ese proveedor, no por esta.",
-            "La medición de visitas la realiza Vercel Analytics, que recoge datos agregados y anónimos, sin cookies ni identificadores persistentes.",
-            "Si en el futuro incorporo un asistente conversacional, actualizo esta política antes de ponerlo en funcionamiento, detallando qué datos recoge y con qué finalidad."
+            "Para entregar los correos uso un servicio externo, que procesa el mensaje solo para hacerlo llegar a mi casilla.",
+            "Si reservás una reunión, la reserva se hace en una plataforma externa de calendario. Los datos que cargues ahí se rigen por la política de privacidad de esa plataforma, no por esta.",
+            "Las visitas las mide Vercel Analytics, que recoge datos anónimos y en conjunto, sin cookies.",
+            "Estos proveedores están fuera de Argentina, así que tus datos salen del país al pasar por ellos.",
+            "Si en el futuro incorporo un asistente conversacional, actualizo esta política antes de ponerlo en funcionamiento, detallando qué datos recoge y para qué."
           ]
         },
         {
           "title": "Tus derechos",
           "body": [
-            "Podés pedirme acceso a los datos que tenga sobre vos, su rectificación o su supresión. Escribime a jmujica@nidra.cloud y respondo dentro de los plazos que fija la normativa aplicable.",
+            "Podés pedirme acceso a los datos que tenga sobre vos, su corrección o que los borre. Escribime a jmujica@nidra.cloud y respondo dentro de los plazos que fija la Ley 25.326 de Protección de Datos Personales.",
             "En Argentina, la autoridad de control en materia de datos personales es la Agencia de Acceso a la Información Pública."
           ]
         },
@@ -315,20 +316,20 @@
         {
           "title": "Alcance de este sitio",
           "body": [
-            "Este sitio describe los servicios de Nidra con fines informativos. Su contenido no constituye una oferta contractual ni un presupuesto: los alcances, plazos y precios de un trabajo se acuerdan por escrito en cada caso."
+            "Este sitio describe los servicios de Nidra con fines informativos. Nada de lo que dice es una oferta cerrada ni un presupuesto: el alcance, el plazo y el precio de un trabajo se acuerdan por escrito en cada caso."
           ]
         },
         {
           "title": "Plazos y estimaciones",
           "body": [
-            "Los plazos publicados en la sección de servicios son estimaciones basadas en trabajos de alcance comparable. El plazo real de un proyecto depende de su alcance, de la disponibilidad de información y de las dependencias del cliente, y se confirma al momento de acordar el trabajo."
+            "Los plazos que figuran en la página de servicios son estimaciones basadas en trabajos de alcance parecido. El plazo real depende del alcance que se acuerde, de cuánta información haya disponible y de lo que dependa de tu lado. Se confirma al cerrar el trabajo."
           ]
         },
         {
           "title": "Marcas de terceros",
           "body": [
-            "Los nombres de plataformas, productos y empresas mencionados en este sitio pertenecen a sus respectivos titulares y se usan de forma nominativa, únicamente para describir con qué tecnologías trabajo o con qué sistemas puedo integrar.",
-            "Su mención no implica sociedad comercial, certificación, patrocinio ni respaldo de esas organizaciones hacia Nidra."
+            "Los nombres de plataformas, productos y empresas que aparecen en este sitio pertenecen a sus titulares y se usan solo para nombrarlas: para describir con qué tecnologías trabajo y con qué sistemas puedo integrar.",
+            "Mencionarlas no implica sociedad comercial, certificación, patrocinio ni respaldo de esas empresas hacia Nidra."
           ]
         },
         {
