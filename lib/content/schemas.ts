@@ -94,6 +94,16 @@ export type IntegrationCategory = z.infer<typeof IntegrationCategory>
 const Technology = z.object({
   name: z.string().trim().min(1),
   relationship: z.enum(['technology', 'vendor']),
+  category: z.enum(['ai', 'data', 'cloud', 'dev']),
+  /**
+   * Identificador del logotipo en Simple Icons. Opcional a propósito: sin él
+   * la tecnología se muestra como marca denominativa en texto.
+   *
+   * OpenAI y Amazon Web Services van sin icono porque esas empresas pidieron
+   * ser retiradas de Simple Icons. Nombrarlas en texto es uso nominativo y es
+   * legítimo; reproducir su logotipo sin licencia, no.
+   */
+  icon: z.string().trim().min(1).optional(),
 })
 
 export const TechnologiesFile = z.array(Technology).min(1)

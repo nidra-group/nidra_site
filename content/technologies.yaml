@@ -1,26 +1,151 @@
-# Sección "Tecnologías con las que trabajamos" (FR-027).
+# Sección "Tecnologías con las que trabajo" (FR-027).
 #
 # `relationship` es un enum cerrado: `technology` | `vendor`.
 #
 # NO existe el valor `partner`, y no es un olvido. Declarar una alianza
-# comercial inexistente exigiría cambiar el esquema en
-# lib/content/schemas/integrations.ts, no solo este archivo. Cuando exista un
-# acuerdo verificable, se agrega el valor junto con el campo que documente su
-# origen.
+# comercial inexistente exigiría cambiar el esquema en lib/content/schemas.ts,
+# no solo este archivo. Cuando exista un acuerdo verificable, se agrega el
+# valor junto con el campo que documente su origen.
+#
+# ── SOBRE `icon` ─────────────────────────────────────────────────────────────
+# `icon` es el identificador del logotipo en Simple Icons. Es OPCIONAL: sin él
+# la tecnología se muestra como marca denominativa en texto y funciona igual.
+#
+# Dos marcas van SIN icono a propósito, y no por descuido:
+#
+#   OpenAI y Amazon Web Services fueron RETIRADAS de Simple Icons a pedido de
+#   esas empresas. Son las dos que más celan el uso de su marca. Reproducir sus
+#   logotipos sin licencia es exactamente el riesgo que ese retiro señala, así
+#   que se nombran en texto —uso nominativo, que es legítimo— y no se dibujan.
+#
+# Todos los logotipos se muestran en UN SOLO COLOR, nunca en su color
+# corporativo. Además de resolver la «sopa de logos», el monocromo evita la
+# lectura de «socio oficial» que produce un logotipo a color.
+#
+# `category` agrupa la grilla: ai | data | cloud | dev.
 
+# ── Inteligencia artificial ──────────────────────────────────────────────────
 - name: OpenAI
   relationship: technology
-- name: PostgreSQL
+  category: ai
+- name: Anthropic
   relationship: technology
-- name: Supabase
+  category: ai
+  icon: anthropic
+- name: Hugging Face
   relationship: technology
-- name: Qdrant
+  category: ai
+  icon: huggingface
+- name: LangChain
   relationship: technology
+  category: ai
+  icon: langchain
 - name: n8n
   relationship: technology
-- name: AWS
+  category: ai
+  icon: n8n
+
+# ── Datos ────────────────────────────────────────────────────────────────────
+- name: PostgreSQL
   relationship: technology
-- name: Docker
+  category: data
+  icon: postgresql
+- name: MySQL
   relationship: technology
+  category: data
+  icon: mysql
+- name: MongoDB
+  relationship: technology
+  category: data
+  icon: mongodb
+- name: Redis
+  relationship: technology
+  category: data
+  icon: redis
+- name: Supabase
+  relationship: technology
+  category: data
+  icon: supabase
+- name: Qdrant
+  relationship: technology
+  category: data
+  icon: qdrant
+- name: Elasticsearch
+  relationship: technology
+  category: data
+  icon: elasticsearch
 - name: Apache Kafka
   relationship: technology
+  category: data
+  icon: apachekafka
+- name: RabbitMQ
+  relationship: technology
+  category: data
+  icon: rabbitmq
+
+# ── Nube e infraestructura ───────────────────────────────────────────────────
+- name: Amazon Web Services
+  relationship: vendor
+  category: cloud
+- name: Google Cloud
+  relationship: vendor
+  category: cloud
+  icon: googlecloud
+- name: Docker
+  relationship: technology
+  category: cloud
+  icon: docker
+- name: Kubernetes
+  relationship: technology
+  category: cloud
+  icon: kubernetes
+- name: Cloudflare
+  relationship: vendor
+  category: cloud
+  icon: cloudflare
+- name: Vercel
+  relationship: vendor
+  category: cloud
+  icon: vercel
+- name: Terraform
+  relationship: technology
+  category: cloud
+  icon: terraform
+- name: GitHub
+  relationship: vendor
+  category: cloud
+  icon: github
+
+# ── Desarrollo ───────────────────────────────────────────────────────────────
+- name: Python
+  relationship: technology
+  category: dev
+  icon: python
+- name: TypeScript
+  relationship: technology
+  category: dev
+  icon: typescript
+- name: Node.js
+  relationship: technology
+  category: dev
+  icon: nodedotjs
+- name: FastAPI
+  relationship: technology
+  category: dev
+  icon: fastapi
+- name: NestJS
+  relationship: technology
+  category: dev
+  icon: nestjs
+- name: Spring
+  relationship: technology
+  category: dev
+  icon: spring
+- name: React
+  relationship: technology
+  category: dev
+  icon: react
+- name: Angular
+  relationship: technology
+  category: dev
+  icon: angular

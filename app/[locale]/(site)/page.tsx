@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import { ButtonLink, ButtonExternal } from '@/components/ui/Button'
 import { ServiceIcon } from '@/components/ui/ServiceIcon'
+import { TechGrid } from '@/components/site/TechGrid'
 import { FlowDiagram } from '@/components/site/FlowDiagram'
 import { Link } from '@/i18n/navigation'
 import { routing, type Locale } from '@/i18n/routing'
@@ -339,26 +340,35 @@ export default async function HomePage({ params }: Props) {
               </ul>
             </div>
 
-            {/* Las tecnologías viven acá y no en una sección propia: son un
-                dato de respaldo de la trayectoria, no un capítulo. Marcas
-                denominativas en texto, nunca logotipos: evita la sopa de
-                logos y, sobre todo, evita insinuar una relación comercial que
-                no existe (FR-028). */}
-            <div className="mt-12 border-t border-line pt-8 lg:col-span-2">
-              <p className="eyebrow eyebrow-muted">{t('technologies.eyebrow')}</p>
-              <ul className="mt-5 flex flex-wrap gap-2.5">
-                {technologies.map((tech) => (
-                  <li
-                    key={tech.name}
-                    className="rounded-full border border-line bg-paper/60 px-4 py-2 text-small text-ink/85"
-                  >
-                    {tech.name}
-                  </li>
-                ))}
-              </ul>
-              <p className="measure mt-5 text-[0.8125rem] leading-relaxed text-muted">
+          </div>
+        </div>
+      </section>
+
+      {/* ── Tecnologías ────────────────────────────────────────────────────
+          Sección propia: con veintiocho herramientas en cuatro categorías ya
+          no es un dato al pie de la trayectoria.
+
+          Los logotipos van en un solo color y se encienden al pasar el
+          cursor. Además de evitar la sopa de logos, el monocromo evita la
+          lectura de «socio oficial» que produce un logotipo a color — y esa
+          relación no existe (FR-028). La nota de abajo lo dice explícito. */}
+      <section className="border-t border-line bg-surface/25">
+        <div className="mx-auto max-w-6xl px-5 py-(--spacing-section) sm:px-8">
+          <div className="lg:grid lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-x-20">
+            <div className="lg:sticky lg:top-28 lg:self-start">
+              <p className="eyebrow">{t('technologies.eyebrow')}</p>
+              <h2 className="mt-5 max-w-[15ch] font-display text-[clamp(2rem,4.5vw,3rem)] font-extrabold leading-[1.06] tracking-[-0.03em]">
+                {t('technologies.title')}{' '}
+                <span className="accent-word">{t('technologies.titleAccent')}</span>
+              </h2>
+              <p className="measure-tight mt-5 text-body text-muted">{t('technologies.lead')}</p>
+              <p className="measure-tight mt-6 text-[0.8125rem] leading-relaxed text-muted">
                 {t('technologies.note')}
               </p>
+            </div>
+
+            <div className="reveal mt-14 lg:mt-0">
+              <TechGrid technologies={technologies} />
             </div>
           </div>
         </div>

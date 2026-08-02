@@ -118,8 +118,17 @@
       "close": "I do not publish prices because a figure without knowing your process means nothing. After the first call you receive a written quote with scope, timeline and a fixed price. If the return does not justify the investment, you will know before you sign."
     },
     "technologies": {
-      "eyebrow": "Technologies I work with",
-      "note": "I work on these platforms. I am not a commercial partner and I am not certified by them: they are the tools I build with."
+      "eyebrow": "Technologies",
+      "note": "I build on these platforms. I am not a commercial partner and I am not certified by any of them: these are the tools I work with, nothing more.",
+      "title": "What I build",
+      "titleAccent": "your system with",
+      "lead": "Industry-standard tools, not in-house inventions only I know how to maintain. If you work with another provider tomorrow, they will recognise everything inside.",
+      "categories": {
+        "ai": "Artificial intelligence",
+        "data": "Databases and messaging",
+        "cloud": "Cloud and infrastructure",
+        "dev": "Development"
+      }
     },
     "founder": {
       "eyebrow": "Who's behind this",
@@ -145,7 +154,7 @@
     "title": "What each service includes",
     "lead": "Every service starts from the problem it solves. Timelines are estimates based on work of comparable scope: when a case carries more uncertainty, the range widens instead of promising short.",
     "problemLabel": "The problem",
-    "deliverablesLabel": "What gets delivered",
+    "deliverablesLabel": "What you get",
     "timelineLabel": "Estimated timeline",
     "indexLabel": "Jump to",
     "cta": "Ask about this service",
@@ -162,18 +171,19 @@
   "integrations": {
     "meta": {
       "title": "Integrations — Nidra",
-      "description": "I integrate AI models, databases, CRMs, commerce platforms, management tools and cloud services."
+      "description": "AI models, databases, CRMs, commerce platforms, management tools and cloud services."
     },
     "eyebrow": "Integrations",
-    "title": "What I build connects to",
-    "lead": "If you already pay for a tool, the point is not to replace it: it is to stop it needing someone to copy data across. This list is representative, not exhaustive.",
-    "provenLabel": "In production",
-    "provenNote": "The marked platforms are the ones I have already built on and put into production. The rest are integrated through their public interfaces.",
+    "title": "Which systems",
+    "lead": "If you already pay for a tool, the point is not to replace it. It is to stop it needing someone to copy data across. This list is representative, not complete.",
+    "provenLabel": "Built in production",
+    "provenNote": "The marked platforms are the ones I have already built on and put into production. The rest work the same way, through their public interfaces.",
     "missing": {
       "title": "Not seeing the tool you use?",
-      "body": "Tell me which one. If it exposes an API, it can almost always be integrated without changing how your team works.",
+      "body": "Tell me which one. If it can be connected to from the outside, which is the norm, it can be integrated without changing how your team works.",
       "cta": "Ask about an integration"
-    }
+    },
+    "titleAccent": "it can connect to"
   },
   "contact": {
     "meta": {

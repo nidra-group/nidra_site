@@ -118,8 +118,17 @@
       "close": "No publico precios porque una cifra sin conocer tu proceso no significa nada. Después de la primera reunión recibís una cotización por escrito con alcance, plazo y precio cerrado. Si el retorno no justifica la inversión, lo vas a saber antes de firmar."
     },
     "technologies": {
-      "eyebrow": "Tecnologías con las que trabajo",
-      "note": "Trabajo sobre estas plataformas. No soy socio comercial ni estoy certificado por ellas: son las herramientas con las que construyo."
+      "eyebrow": "Tecnologías",
+      "note": "Trabajo sobre estas plataformas. No soy socio comercial ni estoy certificado por ninguna: son las herramientas con las que construyo, nada más.",
+      "title": "Con qué construyo",
+      "titleAccent": "lo que te entrego",
+      "lead": "Herramientas estándar de la industria, no desarrollos propios que solo yo sé mantener. Si mañana trabajás con otro proveedor, va a reconocer todo lo que hay adentro.",
+      "categories": {
+        "ai": "Inteligencia artificial",
+        "data": "Bases de datos y mensajería",
+        "cloud": "Nube e infraestructura",
+        "dev": "Desarrollo"
+      }
     },
     "founder": {
       "eyebrow": "Quién está detrás",
@@ -145,7 +154,7 @@
     "title": "Qué incluye cada servicio",
     "lead": "Cada servicio arranca por el problema que resuelve. Los plazos son estimaciones basadas en trabajos de alcance comparable: si un caso tiene más incertidumbre, el rango se amplía en vez de prometer corto.",
     "problemLabel": "El problema",
-    "deliverablesLabel": "Qué se entrega",
+    "deliverablesLabel": "Qué recibís",
     "timelineLabel": "Plazo estimado",
     "indexLabel": "Ir a",
     "cta": "Consultar por este servicio",
@@ -162,18 +171,19 @@
   "integrations": {
     "meta": {
       "title": "Integraciones — Nidra",
-      "description": "Integro modelos de IA, bases de datos, CRMs, plataformas de comercio, herramientas de gestión y servicios de nube."
+      "description": "Modelos de inteligencia artificial, bases de datos, CRMs, plataformas de comercio, herramientas de gestión y servicios de nube."
     },
     "eyebrow": "Integraciones",
-    "title": "Con qué se conecta lo que construyo",
-    "lead": "Si ya pagás por una herramienta, la idea no es reemplazarla: es que deje de necesitar que alguien copie datos de un lado al otro. Esta lista es representativa, no exhaustiva.",
-    "provenLabel": "En producción",
-    "provenNote": "Las plataformas marcadas son en las que ya construí y puse cosas en producción. El resto se integra por sus interfaces públicas.",
+    "title": "Con qué sistemas",
+    "lead": "Si ya pagás por una herramienta, la idea no es reemplazarla. Es que deje de necesitar que alguien copie datos de un lado al otro. Esta lista es representativa, no completa.",
+    "provenLabel": "Con trabajo en producción",
+    "provenNote": "Las plataformas marcadas son en las que ya construí y puse cosas a funcionar. Con el resto se trabaja igual, a través de sus interfaces públicas.",
     "missing": {
       "title": "¿No está la herramienta que usás?",
-      "body": "Escribime cuál es. Si expone una interfaz de programación, casi siempre se puede integrar sin cambiar cómo trabaja tu equipo.",
+      "body": "Decime cuál es. Si permite conectarse desde afuera, que es lo habitual, se puede integrar sin cambiar cómo trabaja tu equipo.",
       "cta": "Preguntar por una integración"
-    }
+    },
+    "titleAccent": "se puede conectar"
   },
   "contact": {
     "meta": {
