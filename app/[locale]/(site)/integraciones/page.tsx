@@ -33,15 +33,12 @@ export default async function IntegrationsPage({ params }: Props) {
 
   return (
     <>
-      <PageHeader eyebrow={t('eyebrow')} title={t('title')} lead={t('lead')}>
-        <p className="measure mt-6 flex items-start gap-2.5 text-small text-muted">
-          <span
-            aria-hidden="true"
-            className="mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
-          />
-          {t('provenNote')}
-        </p>
-      </PageHeader>
+      <PageHeader
+        eyebrow={t('eyebrow')}
+        title={t('title')}
+        titleAccent={t('titleAccent')}
+        lead={t('lead')}
+      />
 
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -50,19 +47,16 @@ export default async function IntegrationsPage({ params }: Props) {
               <h2 className="border-b border-line pb-4 text-[1.0625rem] font-bold text-ink">
                 {category.name[locale]}
               </h2>
+              {/* Todas las plataformas se muestran igual. El campo `proven`
+                  sigue existiendo en el contenido y sigue ordenando la lista
+                  —las de experiencia demostrable van primero— pero ya no se
+                  anuncia: quién tiene o no trabajo en producción con cada
+                  herramienta es una conversación de reunión, no un dato que
+                  el visitante necesite. */}
               <ul className="mt-5 space-y-3">
                 {category.items.map((item) => (
-                  <li key={item.name} className="flex items-baseline justify-between gap-3 text-body">
-                    <span className={item.proven ? 'text-ink' : 'text-muted'}>{item.name}</span>
-                    {item.proven && (
-                      /* Antes la distinción era un punto hueco con `border-line`:
-                         1.31:1 contra la tarjeta, o sea invisible, y el resto de
-                         la diferencia quedaba cifrada solo en el color del texto
-                         (WCAG 1.4.1). Ahora se lee. */
-                      <span className="shrink-0 rounded-full border border-accent/35 bg-accent/10 px-2.5 py-1 font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-accent">
-                        {t('provenLabel')}
-                      </span>
-                    )}
+                  <li key={item.name} className="text-body text-ink/85">
+                    {item.name}
                   </li>
                 ))}
               </ul>

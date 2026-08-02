@@ -176,8 +176,6 @@
     "eyebrow": "Integrations",
     "title": "Which systems",
     "lead": "If you already pay for a tool, the point is not to replace it. It is to stop it needing someone to copy data across. This list is representative, not complete.",
-    "provenLabel": "Built in production",
-    "provenNote": "The marked platforms are the ones I have already built on and put into production. The rest work the same way, through their public interfaces.",
     "missing": {
       "title": "Not seeing the tool you use?",
       "body": "Tell me which one. If it can be connected to from the outside, which is the norm, it can be integrated without changing how your team works.",

@@ -2,11 +2,18 @@
 #
 # Reglas de redacción, no negociables:
 # - `summary` <= 120 caracteres. Describe el resultado, no la tecnología.
-# - `problem` arranca por la situación del cliente, no por lo que hacemos.
+# - `problem` arranca por la situación del cliente, no por lo que hago.
 # - `deliverables` son cosas que se entregan y se pueden señalar. Nada de
 #   "acompañamiento" ni "asesoramiento continuo".
 # - `timeline` es un rango honesto. Si no se sabe, se amplía el rango; no se
 #   inventa uno corto para vender.
+# - Sin construcciones de negación del tipo "el riesgo no es X, es Y". Obligan
+#   a resolver una figura antes de entender la frase, y quien escanea la
+#   página no hace ese trabajo.
+# - Esta página admite vocabulario técnico moderado: quien llega acá ya
+#   decidió mirar en serio. Pero cada término se explica en su primera
+#   aparición, y la jerga de consultoría —"piloto", "puerta de calidad",
+#   "relación costo-beneficio"— se traduce a lenguaje corriente.
 
 - id: ai-roadmap
   order: 1
@@ -18,22 +25,22 @@
     en: Two weeks to learn what is worth fixing first in your company, and what is not.
   problem:
     es: >-
-      Sabés que hay procesos que consumen horas todos los días, pero no sabés cuáles se pueden
-      automatizar de verdad ni cuánto cuesta intentarlo. El riesgo real no es equivocarse de
-      herramienta: es gastar seis meses en un piloto que nunca llega a producción.
+      Sabés que hay procesos que consumen horas todos los días, pero no cuáles conviene automatizar
+      ni cuánto costaría hacerlo. Sin esos dos números cualquier decisión es una apuesta, y una
+      apuesta perdida acá se mide en meses de trabajo y presupuesto gastado.
     en: >-
-      You know some processes eat hours every day, but not which ones can actually be automated or
-      what trying costs. The real risk isn't picking the wrong tool: it's spending six months on a
-      pilot that never reaches production.
+      You know some processes eat hours every day, but not which ones are worth automating or what
+      it would cost. Without those two numbers any decision is a bet, and a lost bet here is
+      measured in months of work and budget spent.
   deliverables:
-    - es: Relevamiento de los procesos candidatos, con volumen y tiempo que consume cada uno.
-      en: Survey of candidate processes, with the volume and time each one consumes.
-    - es: Estimación de esfuerzo y retorno por caso, ordenada por relación costo-beneficio.
-      en: Effort and return estimate per case, ranked by cost-benefit.
-    - es: Lista explícita de lo que NO conviene automatizar todavía, y por qué.
-      en: An explicit list of what is not worth automating yet, and why.
-    - es: Documento de decisiones técnicas para que cualquier proveedor pueda ejecutarlo.
-      en: Technical decision record so any vendor can execute it.
+    - es: Relevamiento de los procesos que más tiempo consumen, con volumen y horas medidas.
+      en: A survey of the processes that consume the most time, with measured volume and hours.
+    - es: Estimación de horas y de ahorro para cada caso, ordenada por cuál conviene resolver primero.
+      en: An hours-and-savings estimate for each case, ranked by which is worth solving first.
+    - es: Lista de lo que no conviene automatizar todavía, con el motivo de cada caso.
+      en: A list of what is not worth automating yet, with the reason for each one.
+    - es: Documento de decisiones técnicas, para que cualquier proveedor pueda ejecutar el plan.
+      en: A technical decision record, so any provider can execute the plan.
   timeline:
     es: 2 a 3 semanas
     en: 2 to 3 weeks
@@ -48,22 +55,21 @@
     en: You stop answering the same ten questions by hand every day.
   problem:
     es: >-
-      El mismo puñado de preguntas se repite todos los días: precios, plazos, estado de un pedido,
-      cómo funciona tal cosa. Se responden a mano, con demora, y la respuesta cambia según quién
-      conteste.
+      Las mismas preguntas se repiten todos los días: precios, plazos, estado de un pedido, cómo
+      funciona tal cosa. Se responden a mano, con demora, y la respuesta cambia según quién
+      conteste ese día.
     en: >-
-      The same handful of questions comes up every day: pricing, lead times, order status, how
-      something works. They're answered by hand, late, and the answer changes depending on who
-      replies.
+      The same questions come up every day: pricing, lead times, order status, how something works.
+      They get answered by hand, late, and the answer changes depending on who replies that day.
   deliverables:
-    - es: Asistente conectado a tu documentación real, no a un modelo genérico.
-      en: An assistant connected to your actual documentation, not to a generic model.
-    - es: Respuestas con cita de la fuente, para que se pueda verificar de dónde salió cada dato.
-      en: Answers with source citations, so every claim can be traced.
-    - es: "Límites explícitos: qué contesta y qué deriva a una persona."
-      en: "Explicit boundaries: what it answers and what it hands off to a human."
-    - es: Panel de consultas sin resolver, para saber qué falta en la documentación.
-      en: A dashboard of unresolved queries, to reveal documentation gaps.
+    - es: Asistente que responde con tus documentos reales, no con conocimiento general de internet.
+      en: An assistant that answers from your actual documents, not from general internet knowledge.
+    - es: Cada respuesta cita de qué documento salió, para que se pueda verificar.
+      en: Every answer cites which document it came from, so it can be verified.
+    - es: "Límites definidos: qué contesta solo y qué deriva a una persona."
+      en: "Defined boundaries: what it answers on its own and what it hands to a person."
+    - es: Panel con las preguntas que no supo responder, que muestra qué falta documentar.
+      en: A panel of the questions it could not answer, showing what is missing from your documents.
   timeline:
     es: 4 a 8 semanas
     en: 4 to 8 weeks
@@ -79,17 +85,19 @@
   problem:
     es: >-
       Los datos viajan entre sistemas a mano: del correo a la planilla, de la planilla al sistema de
-      gestión. Cada salto es tiempo perdido y una oportunidad de error que aparece semanas después.
+      gestión. Cada salto es tiempo perdido y una oportunidad de error que aparece semanas después,
+      cuando ya se facturó.
     en: >-
       Data moves between systems by hand: from email to spreadsheet, from spreadsheet to your
-      management system. Every hop is lost time and a chance for an error that surfaces weeks later.
+      management system. Every hop is lost time and a chance for an error that surfaces weeks later,
+      once it has already been invoiced.
   deliverables:
-    - es: Flujos que corren solos, con registro de cada ejecución.
-      en: Workflows that run on their own, with a log of every execution.
-    - es: Alertas cuando algo falla, antes de que lo note un cliente.
-      en: Alerts when something fails, before a customer notices.
-    - es: Documentación del proceso para que no dependa de quien lo construyó.
-      en: Process documentation so it doesn't depend on whoever built it.
+    - es: Procesos que corren solos, con un registro de cada ejecución que podés consultar.
+      en: Processes that run on their own, with a log of every run you can check.
+    - es: Avisos cuando algo falla, para enterarte antes que el cliente.
+      en: Alerts when something fails, so you hear it before the customer does.
+    - es: Documentación de cómo quedó armado, para que no dependa de quien lo construyó.
+      en: Documentation of how it was built, so it does not depend on whoever built it.
   timeline:
     es: 3 a 6 semanas
     en: 3 to 6 weeks
@@ -105,18 +113,19 @@
   problem:
     es: >-
       La información existe: está en contratos, manuales, actas y carpetas compartidas. El problema
-      es encontrarla. Se termina preguntándole a la persona con más antigüedad, que se convierte en
-      un cuello de botella.
+      es encontrarla. Se termina preguntándole siempre a la misma persona, que pasa a ser un cuello
+      de botella para todo el equipo.
     en: >-
-      The information exists: it's in contracts, manuals, minutes and shared folders. The problem is
-      finding it. People end up asking whoever has been there longest, who becomes a bottleneck.
+      The information exists: it is in contracts, manuals, minutes and shared folders. The problem
+      is finding it. People end up always asking the same person, who becomes a bottleneck for the
+      whole team.
   deliverables:
-    - es: Búsqueda por significado sobre tus documentos, no por coincidencia de palabras.
-      en: Meaning-based search across your documents, not keyword matching.
-    - es: "Permisos por área: cada persona encuentra lo que le corresponde ver."
-      en: "Per-area permissions: each person finds only what they're allowed to see."
-    - es: Actualización automática cuando se agregan o cambian documentos.
-      en: Automatic updates when documents are added or changed.
+    - es: Búsqueda por significado, que encuentra el documento aunque no uses las palabras exactas.
+      en: Meaning-based search that finds the document even when you do not use the exact words.
+    - es: "Permisos por área: cada persona encuentra solo lo que le corresponde ver."
+      en: "Per-area permissions: each person finds only what they are allowed to see."
+    - es: Se actualiza solo cuando se agrega o se cambia un documento.
+      en: It updates on its own when a document is added or changed.
   timeline:
     es: 4 a 8 semanas
     en: 4 to 8 weeks
@@ -132,18 +141,19 @@
   problem:
     es: >-
       Lo que necesitás no existe como producto de estantería, o existe pero cobra por usuario y no
-      se adapta a cómo trabajás. Necesitás algo propio, y que no quede sin mantenimiento a los seis
-      meses.
+      se adapta a cómo trabajás. Necesitás algo propio, y que no quede abandonado a los seis meses
+      cuando el que lo hizo desaparece.
     en: >-
-      What you need doesn't exist off the shelf, or it does but charges per seat and doesn't fit how
-      you work. You need something of your own that won't go unmaintained in six months.
+      What you need does not exist off the shelf, or it does but charges per seat and does not fit
+      how you work. You need something of your own that will not be abandoned in six months when
+      whoever built it disappears.
   deliverables:
-    - es: Aplicación web o móvil funcionando en producción, con su código en tu poder.
-      en: A web or mobile application running in production, with the code in your hands.
-    - es: Pruebas automatizadas y despliegue continuo desde el primer día.
-      en: Automated tests and continuous deployment from day one.
-    - es: Arquitectura documentada, para que otro equipo pueda continuarla.
-      en: Documented architecture, so another team can pick it up.
+    - es: Aplicación web o móvil funcionando de verdad, con todo el desarrollo a tu nombre.
+      en: A web or mobile application actually running, with the whole build in your name.
+    - es: Pruebas automáticas que corren en cada cambio, desde el primer día.
+      en: Automated tests that run on every change, from day one.
+    - es: Documentación de cómo está hecho, para que otro equipo pueda continuarlo.
+      en: Documentation of how it is built, so another team can pick it up.
   timeline:
     es: 8 a 16 semanas
     en: 8 to 16 weeks
@@ -155,25 +165,25 @@
     en: AI evaluation and security
   summary:
     es: Saber si tu IA responde bien y que no cuente lo que no debe.
-    en: Know whether your AI answers well, and that it doesn't say what it shouldn't.
+    en: Know whether your AI answers well, and that it does not say what it shouldn't.
   problem:
     es: >-
-      Ya tenés algo con IA funcionando, pero nadie sabe si responde bien. "Parece que anda" no es
-      una métrica, y el día que conteste cualquier cosa a un cliente, o repita un dato privado, te
-      vas a enterar por el cliente.
+      Ya tenés algo con IA funcionando, pero nadie sabe si responde bien. «Parece que anda» no es
+      una medición, y el día que le conteste cualquier cosa a un cliente o repita un dato privado,
+      te vas a enterar por el cliente.
     en: >-
-      You already have something with AI running, but nobody knows whether it answers well. "Seems
-      fine" is not a metric, and the day it tells a customer something wrong, or repeats private
-      data, you'll hear it from the customer.
+      You already have something with AI running, but nobody knows whether it answers well. «Seems
+      fine» is not a measurement, and the day it tells a customer something wrong or repeats private
+      data, you will hear it from the customer.
   deliverables:
-    - es: Conjunto de casos de prueba con respuestas esperadas, ejecutado en cada cambio.
-      en: A suite of test cases with expected answers, run on every change.
-    - es: Puerta de calidad que bloquea el despliegue si la calidad baja del umbral.
-      en: A quality gate that blocks deployment if quality drops below threshold.
+    - es: Conjunto de preguntas con la respuesta esperada, que se ejecuta en cada cambio.
+      en: A set of questions with their expected answers, run on every change.
+    - es: Un control que impide publicar una versión si la calidad baja del mínimo acordado.
+      en: A check that blocks releasing a version if quality drops below the agreed minimum.
     - es: Filtros de entrada y salida contra fuga de datos y uso indebido.
-      en: Input and output filters against data leakage and misuse.
-    - es: Revisión contra los riesgos conocidos de aplicaciones con modelos de lenguaje.
-      en: Review against the known risk catalogue for language-model applications.
+      en: Input and output filters against data leaks and misuse.
+    - es: Revisión contra los riesgos ya documentados para este tipo de aplicaciones.
+      en: A review against the risks already documented for this kind of application.
   timeline:
     es: 3 a 5 semanas
     en: 3 to 5 weeks

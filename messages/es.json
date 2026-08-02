@@ -176,8 +176,6 @@
     "eyebrow": "Integraciones",
     "title": "Con qué sistemas",
     "lead": "Si ya pagás por una herramienta, la idea no es reemplazarla. Es que deje de necesitar que alguien copie datos de un lado al otro. Esta lista es representativa, no completa.",
-    "provenLabel": "Con trabajo en producción",
-    "provenNote": "Las plataformas marcadas son en las que ya construí y puse cosas a funcionar. Con el resto se trabaja igual, a través de sus interfaces públicas.",
     "missing": {
       "title": "¿No está la herramienta que usás?",
       "body": "Decime cuál es. Si permite conectarse desde afuera, que es lo habitual, se puede integrar sin cambiar cómo trabaja tu equipo.",

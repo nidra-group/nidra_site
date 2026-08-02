@@ -276,3 +276,38 @@ describe('imagen de vista previa para redes', () => {
     expect(source).toContain(`${hero.hero.title} ${hero.hero.titleAccent}`)
   })
 })
+
+describe('titulares partidos en dos tonos', () => {
+  // Varios titulares se guardan como `title` + `titleAccent` para pintar la
+  // segunda mitad con el color de acento. Si una página olvida pasar el
+  // acento al componente, la frase queda cortada y nadie lo nota hasta ver
+  // la página: pasó con integraciones, que mostró «Con qué sistemas» sin el
+  // «se puede conectar».
+  //
+  // Esta prueba no puede verificar el render, pero sí que ninguna de las dos
+  // mitades quede huérfana ni tenga sentido por sí sola.
+  const CON_ACENTO = [
+    ['home', 'pain'],
+    ['home', 'services'],
+    ['home', 'process'],
+    ['home', 'investment'],
+    ['home', 'technologies'],
+    ['services'],
+    ['integrations'],
+  ] as const
+
+  it.each([
+    ['es', es],
+    ['en', en],
+  ])('en %s cada título con acento tiene sus dos mitades', (_locale, messages) => {
+    for (const ruta of CON_ACENTO) {
+      const nodo = ruta.reduce<Record<string, unknown>>(
+        (acc, k) => acc[k] as Record<string, unknown>,
+        messages as unknown as Record<string, unknown>,
+      )
+      const donde = ruta.join('.')
+      expect(nodo.title, `${donde}.title vacío`).toBeTruthy()
+      expect(nodo.titleAccent, `${donde}.titleAccent vacío`).toBeTruthy()
+    }
+  })
+})
