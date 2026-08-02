@@ -170,6 +170,11 @@ maquetación: si la vista de impresión se ve bien, el PDF es correcto por defin
 La versión no se declara a mano: sale del hash y la fecha del último commit que tocó el YAML. El
 historial de git **es** el versionado del currículum.
 
+## Desplegar
+
+Los pasos completos —dominio, subdominio, correo, agenda y verificación— están
+en [`DESPLIEGUE.md`](DESPLIEGUE.md).
+
 ## Antes de desplegar
 
 Variables obligatorias en producción — sin ellas **el build falla**, que es deliberado:

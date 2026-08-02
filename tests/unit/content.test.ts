@@ -7,6 +7,7 @@ import en from '@/messages/en.json'
 import { getServices, getIntegrations, getTechnologies, getProfile, getYearsOfExperience } from '@/lib/content'
 import { ServicesFile, TechnologiesFile } from '@/lib/content/schemas'
 import { Profile } from '@/lib/content/profile-schema'
+import { securityHeaders } from '@/lib/seo/headers'
 
 function keys(value: unknown, prefix = ''): Set<string> {
   const out = new Set<string>()
@@ -355,5 +356,43 @@ describe('política de privacidad', () => {
       JSON.stringify((messages as { legal: { privacy: unknown } }).legal.privacy)
     expect(texto(es)).toMatch(esPat)
     expect(texto(en)).toMatch(enPat)
+  })
+})
+
+describe('cabeceras de seguridad', () => {
+  // Las cabeceras se envían en cada respuesta desde next.config.ts. Que una
+  // desaparezca no rompe nada visible: el sitio sigue funcionando igual y el
+  // control se pierde en silencio. Por eso hay prueba.
+  const porClave = (clave: string) => securityHeaders.find((h) => h.key === clave)
+
+  it('están las siete, en orden y con valor', () => {
+    expect(securityHeaders.map((h) => h.key)).toEqual([
+      'Strict-Transport-Security',
+      'X-Content-Type-Options',
+      'Referrer-Policy',
+      'Content-Security-Policy',
+      'X-Frame-Options',
+      'Permissions-Policy',
+      'Cross-Origin-Opener-Policy',
+    ])
+    for (const { key, value } of securityHeaders) {
+      expect(value.trim(), `${key} sin valor`).not.toBe('')
+    }
+  })
+
+  it('el sitio no se puede meter en un marco ajeno', () => {
+    // Defensa contra el secuestro de clics, declarada de las dos formas: la
+    // moderna y la que entienden los navegadores viejos.
+    expect(porClave('Content-Security-Policy')?.value).toContain("frame-ancestors 'none'")
+    expect(porClave('X-Frame-Options')?.value).toBe('DENY')
+  })
+
+  it('HTTPS obligatorio por un año y en los subdominios', () => {
+    // `includeSubDomains` alcanza a jmujica.nidra.cloud. Es la cabecera más
+    // difícil de revertir: los navegadores la recuerdan aunque se deje de
+    // enviar. Si alguien la afloja, que sea a propósito.
+    const hsts = porClave('Strict-Transport-Security')?.value ?? ''
+    expect(hsts).toContain('max-age=31536000')
+    expect(hsts).toContain('includeSubDomains')
   })
 })
