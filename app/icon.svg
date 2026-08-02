@@ -1,22 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- ═══ CORTE ÓPTICO CHICO — apertura 55% ═══
+  <!-- La n de Nidra: el sol naciente del que nace el horizonte.
 
-       El escalón más chico de la escalera de marca. A 16 píxeles la ene del
-       monograma se vuelve una mancha, así que acá va el símbolo solo.
-
-       NO es el corte maestro escalado, y eso es deliberado. Con la apertura
-       maestra del 32% el arco sube 4 píxeles sobre una caja de 64 mientras el
-       trazo mide 5,5: el trazo se traga la curva y a 16 píxeles queda un
-       bulto. Abrir el arco al 55% es la corrección óptica estándar — la misma
-       razón por la que una tipografía tiene cortes de texto y de titular.
-       Sigue sin ser un semicírculo, que empezaría a leerse como arcoíris.
+       Es el escalón más chico del sistema de marca. El logotipo completo no
+       entra en 16 píxeles —«idra» se vuelve una mancha—, así que acá va la
+       letra sola con el arranque del horizonte, que se corta contra el borde
+       a propósito: sugiere que sigue.
 
        Los colores están escritos a mano porque un favicon no lee el CSS del
        sitio. Al cambiar la paleta en `app/globals.css` hay que actualizarlos
        acá también. -->
   <rect width="64" height="64" rx="14" fill="#0a1322"/>
-  <path d="M 9 38 L 17 38" stroke="#9aa9c2" stroke-width="5" stroke-linecap="round"/>
-  <path d="M 47 38 L 55 38" stroke="#9aa9c2" stroke-width="5" stroke-linecap="round"/>
-  <path d="M 17 38 A 17.761 17.761 0 0 1 47 38"
-        fill="none" stroke="#edc27c" stroke-width="5" stroke-linecap="round"/>
+  <g transform="translate(9.5 12) scale(0.0975)">
+    <path d="M184.168 223C183.762 227.66 183.558 232.464 183.558 237.411V446H28.8232V223H184.168ZM539.296 345.498H1499.33V446H384.562V226.034C384.562 225.015 384.554 224.004 384.537 223H539.296V345.498ZM342.844 0C384.308 2.45877e-05 419.705 8.34324 449.034 25.0303C478.363 41.7173 500.612 65.2312 515.782 95.5713C530.019 123.126 537.79 155.269 539.097 192H380.843C376.89 175.701 369.787 162.268 359.53 151.7C343.349 134.508 319.836 125.911 288.99 125.911C267.752 125.911 249.042 130.462 232.86 139.564C217.185 148.666 205.048 161.561 196.452 178.248C194.198 182.623 192.243 187.208 190.58 192H28.8232V162.319L0 12.8945H155.493L170.184 103.423C171.57 101.018 172.994 98.654 174.456 96.3301C194.177 64.4729 218.449 40.4539 247.272 24.2725C276.096 8.09112 307.953 0 342.844 0Z" fill="#edc27c"/>
+  </g>
 </svg>

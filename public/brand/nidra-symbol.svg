@@ -1,30 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Nidra">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-46 -40 670 526" role="img" aria-label="Nidra">
   <title>Nidra</title>
-  <!-- ═══ EL SÍMBOLO — corte MAESTRO, apertura 32% ═══
+<!-- ═══ LOGOTIPO DE NIDRA ═══
 
-       Nidra es el sueño consciente: la frontera exacta entre la vigilia y el
-       sueño. Esta forma es esa frontera, y dice tres cosas a la vez sin
-       trucos: el sol asomando en el horizonte, el párpado superior sobre el
-       inferior, y la línea del umbral. No se sabe si el ojo se cierra o se
-       abre, si el sol sube o baja — que es justamente la definición del
-       nombre.
+     La n es el sol naciente y de su pie nace el horizonte, que corre hacia
+     la derecha mientras «idra» se apoya encima. Una banda horizontal de 31
+     unidades atraviesa el logotipo ENTERO —la letra, la barra y la palabra—
+     a la altura y = 192..223: no es una ranura en una letra, es un plano que
+     cruza todo. Eso es lo que la hace leer como decisión y no como defecto.
 
-       Sin pupila a propósito: un círculo adentro lo volvería una cámara de
-       vigilancia.
+     Trazado original construido en Figma sobre Unbounded 700.
 
-       La línea SE INTERRUMPE y el arco la continúa. Si la línea pasara por
-       debajo del arco, los extremos se pisarían y la unión quedaría sucia:
-       acá el horizonte es un solo trazo continuo que se levanta.
-
-       ── CUÁNDO USAR ESTE ARCHIVO ──
-       Reproducción grande: cartelería, papelería, presentaciones, cualquier
-       uso por encima de 64 píxeles. Para tamaños chicos NO se escala este
-       archivo, se usa el corte óptico de `app/icon.svg` (apertura 55%): a
-       32% el arco sube 4 píxeles sobre una caja de 64 y el grosor del trazo
-       se lo traga, así que a 16 píxeles se lee como un bulto y no como un
-       arco. -->
-  <path d="M 4 38 L 12 38" stroke="#9aa9c2" stroke-width="3.6" stroke-linecap="round"/>
-  <path d="M 52 38 L 60 38" stroke="#9aa9c2" stroke-width="3.6" stroke-linecap="round"/>
-  <path d="M 12 38 A 34.453 34.453 0 0 1 52 38"
-        fill="none" stroke="#edc27c" stroke-width="3.6" stroke-linecap="round"/>
+     ── SÍMBOLO ABREVIADO ──
+     Solo la n con el arranque del horizonte, recortado en formato casi
+     cuadrado. Para foto de perfil, icono de aplicación y sello. El horizonte
+     se corta contra el borde a propósito: sugiere que sigue.
+     -->
+  <defs><clipPath id="c"><rect x="-46" y="-40" width="670" height="526"/></clipPath></defs>
+  <g clip-path="url(#c)"><path d="M184.168 223C183.762 227.66 183.558 232.464 183.558 237.411V446H28.8232V223H184.168ZM539.296 345.498H1499.33V446H384.562V226.034C384.562 225.015 384.554 224.004 384.537 223H539.296V345.498ZM342.844 0C384.308 2.45877e-05 419.705 8.34324 449.034 25.0303C478.363 41.7173 500.612 65.2312 515.782 95.5713C530.019 123.126 537.79 155.269 539.097 192H380.843C376.89 175.701 369.787 162.268 359.53 151.7C343.349 134.508 319.836 125.911 288.99 125.911C267.752 125.911 249.042 130.462 232.86 139.564C217.185 148.666 205.048 161.561 196.452 178.248C194.198 182.623 192.243 187.208 190.58 192H28.8232V162.319L0 12.8945H155.493L170.184 103.423C171.57 101.018 172.994 98.654 174.456 96.3301C194.177 64.4729 218.449 40.4539 247.272 24.2725C276.096 8.09112 307.953 0 342.844 0Z" fill="#edc27c"/></g>
 </svg>

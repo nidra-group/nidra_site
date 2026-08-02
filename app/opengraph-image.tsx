@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { ImageResponse } from 'next/og'
 
 export const alt = 'Nidra — Desarrollo de software con IA para PyMEs'
@@ -17,6 +19,11 @@ export const contentType = 'image/png'
  * `app/globals.css`, actualizar también estos valores: `next/og` no lee CSS.
  */
 export default function OpengraphImage() {
+  // Lee el logotipo real desde `public/brand/` en vez de redibujarlo: si el
+  // trazado cambia, esta imagen cambia con él.
+  const logo = readFileSync(join(process.cwd(), 'public/brand/nidra-logo.svg'), 'utf8')
+  const logoUri = `data:image/svg+xml;base64,${Buffer.from(logo).toString('base64')}`
+
   return new ImageResponse(
     (
       <div
@@ -31,37 +38,8 @@ export default function OpengraphImage() {
           fontFamily: 'system-ui, sans-serif',
         }}
       >
-        {/* La marca: la palabra apoyada en el horizonte, con el arco naciendo
-            de la línea base justo antes de la ene. El arco se aproxima con un
-            borde superior redondeado porque `next/og` no traza arcos. */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-          <span
-            style={{
-              fontSize: 44,
-              fontWeight: 700,
-              color: '#f4efe6',
-              letterSpacing: '-0.02em',
-            }}
-          >
-            nidra
-          </span>
-          <div style={{ display: 'flex', alignItems: 'flex-end', marginTop: 7 }}>
-            <div
-              style={{
-                width: 34,
-                height: 17,
-                borderTop: '5px solid #edc27c',
-                borderLeft: '5px solid transparent',
-                borderRight: '5px solid transparent',
-                borderTopLeftRadius: 34,
-                borderTopRightRadius: 34,
-              }}
-            />
-            <div
-              style={{ width: 80, height: 5, borderRadius: 5, backgroundColor: '#9aa9c2' }}
-            />
-          </div>
-        </div>
+        {/* El logotipo real, no una reconstrucción. */}
+        <img src={logoUri} width={268} height={80} alt="" />
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           {/* Mismo titular que el héroe. Si el relato de la portada cambia y

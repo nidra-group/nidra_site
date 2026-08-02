@@ -1,184 +1,56 @@
 import { Link } from '@/i18n/navigation'
 
 /**
- * La marca de Nidra: la palabra apoyada en el horizonte, con el arco
- * naciendo de la propia línea base.
+ * La marca de Nidra.
+ *
+ * La n es el sol naciente y de su pie nace el horizonte, que corre hacia la
+ * derecha mientras «idra» se apoya encima. Una banda horizontal atraviesa el
+ * logotipo entero —la letra, la barra y la palabra— a una misma altura: no es
+ * una ranura en una letra, es un plano que cruza todo.
  *
  * ── EL SISTEMA ────────────────────────────────────────────────────────────
- * La marca vive a tres escalas y cada una es un fragmento de la anterior, así
- * que el símbolo y el nombre se refuerzan en vez de competir:
+ *   public/brand/nidra-logo.svg         principal, solo sobre fondo oscuro
+ *   public/brand/nidra-logo-light.svg   membrete, factura, impresión
+ *   public/brand/nidra-logo-mono.svg    sello, bordado, una tinta
+ *   public/brand/nidra-symbol.svg       la n sola: perfil, icono de aplicación
+ *   app/icon.svg                        la n sola: pestaña del navegador
  *
- *   C · esta pieza          — web, membrete, pie de correo
- *   B · el monograma        — icono de aplicación, foto de perfil (`Monogram`)
- *   A · el arco solo        — pestaña del navegador, sello
- *                             (`public/brand/nidra-symbol.svg`, `app/icon.svg`)
+ * ── POR QUÉ VA EN LÍNEA Y NO COMO <img> ───────────────────────────────────
+ * El trazado se escribe acá en vez de cargarse desde `public/`: son dos
+ * caminos y pesan menos que la petición HTTP que costaría traerlos. Además
+ * los colores salen de los tokens de la paleta, así que un cambio en
+ * `globals.css` arrastra la marca sin que haya que reexportar nada.
  *
- * ── POR QUÉ ASÍ ───────────────────────────────────────────────────────────
- * La línea NO cruza las letras. Una horizontal a media altura sobre una
- * palabra se lee como texto tachado —es el gesto universal de «cancelado»—,
- * que es lo peor que le puede pasar a un nombre. Acá la línea es el suelo: la
- * palabra se apoya en el horizonte y el arco asoma justo antes de la ene,
- * como el sol rompiendo la línea al principio del nombre.
- *
- * El texto es TEXTO, no una imagen: se puede seleccionar, lo lee un lector de
- * pantalla, escala con la tipografía del sistema y no pesa nada. Solo el
- * horizonte es SVG, porque solo el horizonte es geometría.
- *
- * Para la versión con la palabra en trazados —imprenta, bordado, un
- * proveedor que no tenga Manrope— hay que exportarla una vez; el símbolo en
- * `public/brand/` ya es portátil porque es geometría pura.
+ * El archivo de `public/brand/` sigue siendo la fuente para todo lo que vive
+ * fuera del sitio. Si se retoca el trazado, hay que copiarlo a los dos lados.
  */
+
+/** El sol y el horizonte. */
+const GOLD =
+  'M184.168 223C183.762 227.66 183.558 232.464 183.558 237.411V446H28.8232V223H184.168ZM539.296 345.498H1499.33V446H384.562V226.034C384.562 225.015 384.554 224.004 384.537 223H539.296V345.498ZM342.844 0C384.308 2.45877e-05 419.705 8.34324 449.034 25.0303C478.363 41.7173 500.612 65.2312 515.782 95.5713C530.019 123.126 537.79 155.269 539.097 192H380.843C376.89 175.701 369.787 162.268 359.53 151.7C343.349 134.508 319.836 125.911 288.99 125.911C267.752 125.911 249.042 130.462 232.86 139.564C217.185 148.666 205.048 161.561 196.452 178.248C194.198 182.623 192.243 187.208 190.58 192H28.8232V162.319L0 12.8945H155.493L170.184 103.423C171.57 101.018 172.994 98.654 174.456 96.3301C194.177 64.4729 218.449 40.4539 247.272 24.2725C276.096 8.09112 307.953 0 342.844 0Z'
+
+/** «idra», apoyada en el horizonte. */
+const CREAM =
+  'M972.762 318.471H891.408L885.493 271.591C875.15 288.07 862.086 300.999 846.297 310.374C830.103 319.885 811.596 324.64 790.775 324.64C769.184 324.64 750.163 319.885 733.712 310.374C717.518 300.606 704.795 286.983 695.541 269.504C688.279 255.586 683.869 240.084 682.306 223H762.912C764 228.161 765.705 232.995 768.027 237.502C772.654 245.984 778.952 252.667 786.92 257.551C794.888 262.178 804.013 264.491 814.295 264.491C825.091 264.491 835.244 262.178 844.755 257.551C854.265 252.667 862.619 245.984 869.816 237.502C873.641 232.995 876.957 228.161 879.766 223H961.344L972.762 318.471ZM1490.66 318.471H1408.92L1403.25 273.606C1393.12 289.127 1380.49 301.385 1365.35 310.374C1349.15 319.885 1330.65 324.64 1309.83 324.64C1288.24 324.64 1269.21 319.885 1252.76 310.374C1236.57 300.606 1223.85 286.983 1214.59 269.504C1207.33 255.586 1202.92 240.084 1201.36 223H1281.96C1283.05 228.161 1284.76 232.995 1287.08 237.502C1291.71 245.984 1298 252.667 1305.97 257.551C1313.94 262.178 1323.06 264.491 1333.35 264.491C1344.14 264.491 1354.3 262.178 1363.81 257.551C1373.32 252.667 1381.67 245.984 1388.87 237.502C1392.69 232.995 1396.01 228.161 1398.82 223H1478.64L1490.66 318.471ZM651.438 318.471H572.398V223H651.438V318.471ZM1089.33 223C1089.28 224.589 1089.25 226.21 1089.25 227.862V318.471H1010.6V223H1089.33ZM651.438 192H572.398V94.8428L612.111 102.554L651.438 94.8428V192ZM960.192 192H878.719C876.143 187.48 873.176 183.241 869.816 179.281C862.619 170.799 854.265 164.116 844.755 159.232C835.244 154.349 825.091 151.906 814.295 151.906C804.013 151.906 794.888 154.349 786.92 159.232C778.952 164.116 772.654 170.799 768.027 179.281C765.988 183.241 764.424 187.48 763.336 192H682.488C684.195 175.403 688.544 160.496 695.541 147.279C704.795 129.8 717.518 116.177 733.712 106.409C750.163 96.6416 769.184 91.7578 790.775 91.7578C811.596 91.7578 830.103 96.6416 846.297 106.409C861.743 115.339 874.696 127.783 885.157 143.738L899.891 21.585H981.63L960.192 192ZM1165.21 91.7578C1169.58 91.7578 1174.08 92.0152 1178.7 92.5293C1183.33 93.0434 1187.96 93.8146 1192.58 94.8428V161.931C1184.87 160.388 1177.55 159.361 1170.61 158.847C1163.92 158.076 1157.75 157.689 1152.1 157.689C1140.79 157.69 1130.38 160.003 1120.87 164.63C1111.36 169 1103.65 176.326 1097.73 186.607C1096.8 188.31 1095.94 190.108 1095.16 192H1010.6V172.341L995.944 98.3125H1076.14L1085.91 156.915C1089.68 145.913 1094.4 136.018 1100.05 127.23C1107.24 116.178 1116.11 107.566 1126.65 101.397C1137.19 94.9714 1150.04 91.7578 1165.21 91.7578ZM1309.83 91.7578C1330.65 91.7578 1349.15 96.6416 1365.35 106.409C1380.39 115.102 1393.06 127.126 1403.37 142.477L1408.92 98.3125H1490.66L1478.82 192H1397.77C1395.2 187.48 1392.23 183.241 1388.87 179.281C1381.67 170.799 1373.32 164.116 1363.81 159.232C1354.3 154.349 1344.14 151.906 1333.35 151.906C1323.06 151.906 1313.94 154.349 1305.97 159.232C1298 164.116 1291.71 170.799 1287.08 179.281C1285.04 183.241 1283.48 187.48 1282.39 192H1201.54C1203.25 175.403 1207.6 160.496 1214.59 147.279C1223.85 129.8 1236.57 116.177 1252.76 106.409C1269.21 96.6417 1288.24 91.7578 1309.83 91.7578ZM611.726 0.378906C625.863 0.378906 637.044 3.84914 645.27 10.7891C653.752 17.7292 657.993 26.983 657.993 38.5498C657.993 50.3738 653.752 59.7561 645.27 66.6963C637.044 73.3793 625.863 76.7207 611.726 76.7207C598.102 76.7207 587.05 73.3794 578.567 66.6963C570.085 59.7561 565.844 50.3738 565.844 38.5498C565.844 26.983 570.085 17.7292 578.567 10.7891C587.05 3.84912 598.103 0.378932 611.726 0.378906Z'
+
 export function Wordmark({ className = '' }: { className?: string }) {
   return (
     <Link
       href="/"
       aria-label="Nidra — inicio"
-      className={`inline-flex h-8 w-fit items-center ${className}`}
+      className={`inline-flex w-fit items-center ${className}`}
     >
-      {/* Dos correcciones que el conjunto necesita para no descolocarse:
-
-          1. `w-fit` en el enlace, o se estira al contenedor de la cabecera y
-             arrastra el horizonte 200 píxeles a la derecha del nombre.
-          2. El horizonte va POSICIONADO, no en el flujo. Un SVG en el flujo
-             aporta su ancho propio al cálculo del contenedor y termina
-             mandando él: la línea salía más ancha que la palabra y colgaba
-             solo hacia un lado. Fuera del flujo, el ancho lo fija la palabra
-             y el horizonte la calca exactamente. */}
-      <span className="relative inline-flex w-fit flex-col">
-        <span className="font-display text-[1.5rem] font-extrabold leading-none tracking-[-0.035em] text-ink">
-          nidra
-        </span>
-        <span aria-hidden="true" className="block h-[0.42em]" />
-        <Horizon />
-      </span>
+      {/* El alto manda y el ancho sigue: la proporción del logotipo es 3.36:1,
+          así que fijar el alto es lo que mantiene la cabecera estable. */}
+      <svg
+        viewBox="0 0 1500 446"
+        aria-hidden="true"
+        className="h-[26px] w-auto sm:h-[30px]"
+        fill="none"
+      >
+        <path d={GOLD} fill="var(--color-accent)" />
+        <path d={CREAM} fill="var(--color-ink)" />
+      </svg>
     </Link>
-  )
-}
-
-/**
- * El horizonte con el sol asomando: arco a la izquierda, línea hacia la
- * derecha. Un solo trazo continuo partido en dos colores — el oro es la luz
- * que ya llegó, el azul es la noche que todavía no se fue.
- *
- * `preserveAspectRatio="none"` estiraría el arco y lo volvería un óvalo. Se
- * evita dejando que el ancho mande y el alto siga: el conjunto escala como
- * una unidad.
- */
-function Horizon() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 120 16"
-      width="120"
-      height="16"
-      // Los atributos fijan la proporción; las clases dejan que el ancho lo
-      // mande la palabra de arriba y el alto siga solo. Sin los atributos, un
-      // SVG sin dimensiones cae a la altura de reemplazo del navegador y el
-      // horizonte se aplasta a tres píxeles.
-      className="absolute inset-x-0 bottom-0 h-auto w-full"
-      fill="none"
-      // Apertura 45%, no la maestra del 32%: acá el horizonte se dibuja a unos
-      // 57 píxeles de ancho y con la apertura maestra el arco sube 2 píxeles
-      // contra un trazo de 1,6 — se lee como un bulto, no como un arco. Es la
-      // misma corrección óptica que lleva el favicon, en menor medida.
-    >
-      <path
-        d="M 42 13 L 118 13"
-        stroke="var(--color-muted)"
-        strokeWidth="3.4"
-        strokeLinecap="round"
-      />
-      <path
-        d="M 2 13 A 26.722 26.722 0 0 1 42 13"
-        stroke="var(--color-accent)"
-        strokeWidth="3.4"
-        strokeLinecap="round"
-      />
-    </svg>
-  )
-}
-
-/**
- * El monograma: la ene partida por el umbral.
- *
- * Oro por encima de la línea, azul apagado por debajo. Es el paso intermedio
- * de la escalera de reducción — sirve para foto de perfil e icono de
- * aplicación, donde hay entre 40 y 180 píxeles.
- *
- * A 16 píxeles NO se usa: la ene cortada se vuelve una mancha. Ahí va el arco
- * solo, que es lo que sirve `app/icon.svg`.
- */
-export function Monogram({ size = 64, className = '' }: { size?: number; className?: string }) {
-  const cut = size * 0.6
-  const id = `nidra-mono-${size}`
-
-  return (
-    <svg
-      viewBox={`0 0 ${size} ${size}`}
-      width={size}
-      height={size}
-      className={className}
-      role="img"
-      aria-label="Nidra"
-    >
-      <defs>
-        <clipPath id={`${id}-up`}>
-          <rect x="0" y="0" width={size} height={cut} />
-        </clipPath>
-        <clipPath id={`${id}-down`}>
-          <rect x="0" y={cut} width={size} height={size - cut} />
-        </clipPath>
-        {/* La línea se abre al pasar por la letra en vez de cruzarla: sin
-            esto la ene queda tachada, igual que la palabra. */}
-        <mask id={`${id}-mask`}>
-          <rect width={size} height={size} fill="#fff" />
-          <text
-            x={size / 2}
-            y={size * 0.8}
-            fontFamily="var(--font-display)"
-            fontWeight="800"
-            fontSize={size * 0.8}
-            fill="#000"
-            stroke="#000"
-            strokeWidth={size * 0.09}
-            textAnchor="middle"
-          >
-            n
-          </text>
-        </mask>
-      </defs>
-
-      <line
-        x1={size * 0.04}
-        y1={cut}
-        x2={size * 0.96}
-        y2={cut}
-        stroke="var(--color-muted)"
-        strokeWidth={size * 0.045}
-        strokeLinecap="round"
-        mask={`url(#${id}-mask)`}
-      />
-      {(
-        [
-          [`${id}-up`, 'var(--color-accent)', 1],
-          [`${id}-down`, 'var(--color-muted)', 0.62],
-        ] as const
-      ).map(([clip, fill, opacity]) => (
-        <text
-          key={clip}
-          x={size / 2}
-          y={size * 0.8}
-          fontFamily="var(--font-display)"
-          fontWeight="800"
-          fontSize={size * 0.8}
-          fill={fill}
-          opacity={opacity}
-          textAnchor="middle"
-          clipPath={`url(#${clip})`}
-        >
-          n
-        </text>
-      ))}
-    </svg>
   )
 }
