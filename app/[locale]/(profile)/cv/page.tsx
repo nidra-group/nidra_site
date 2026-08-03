@@ -18,17 +18,19 @@ export function generateStaticParams() {
 }
 
 /**
- * Renderizado por petición, y la desviación está justificada.
+ * Estática, como el resto del sitio.
  *
- * El selector de descargas se construye comprobando qué documentos existen en
- * `public/downloads/` (FR-040: no ofrecer una combinación que descargaría un
- * 404). Esos documentos se generan después del build, así que en un render
- * estático la comprobación ocurriría cuando todavía no existen y el selector
- * quedaría vacío para siempre.
+ * Durante un tiempo fue dinámica: el selector de descargas comprueba qué
+ * documentos existen en `public/downloads/` (FR-040: no ofrecer una
+ * combinación que descargaría un 404), y esos documentos se generaban después
+ * del build, cuando el render estático ya había mirado un directorio vacío.
  *
- * Es una página de baja circulación y sin datos por usuario: el costo es nulo.
+ * Ahora los PDF se generan antes y se versionan, así que existen mucho antes
+ * de que se renderice esta página. Volver a estático no es solo una mejora de
+ * rendimiento: mientras fue dinámica, cada visita recalculaba la versión
+ * preguntándole a git, y en producción no hay repositorio. Ver
+ * `lib/cv/version.ts`.
  */
-export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params

@@ -25,8 +25,13 @@ enlaces de recuperación de todas las demás.
 En Vercel: **Add New → Project → Import Git Repository** y elegí
 `nidra-group/nidra_site`.
 
-No toques la configuración de build. Vercel detecta Next.js y usa `pnpm build`,
-que ya incluye la generación de los PDF del currículum.
+No toques la configuración de build. Vercel detecta Next.js y usa `pnpm build`.
+Todos los campos van en su valor por defecto: preset `Next.js`, raíz `./`,
+salida `.next`, instalación `pnpm install`. No actives ningún **Override**.
+
+Los PDF del currículum **no** se generan acá: se generan en tu máquina con
+`pnpm generate:cv` y viajan versionados. El servidor no tiene el navegador que
+hace falta para imprimirlos, ni el historial de git del que sale su versión.
 
 **Todavía no despliegues.** Primero cargá las variables del paso 2, o el build
 va a fallar — a propósito, ver más abajo.
@@ -40,14 +45,19 @@ En **Settings → Environment Variables**. Marcá las tres casillas
 
 ### Obligatorias
 
-Sin estas **el build falla**. Es deliberado: es preferible no poder desplegar
-a publicar un sitio que parece sano y pierde el 100% de las consultas en
-silencio.
-
 | Variable | Valor |
 |---|---|
 | `NEXT_PUBLIC_SITE_URL` | `https://nidra.cloud` |
 | `FORM_SECRET` | Generalo con el comando de abajo |
+
+Sin `FORM_SECRET` **el build falla**, y es deliberado: es preferible no poder
+desplegar a publicar un sitio que parece sano y pierde el 100% de las
+consultas en silencio. Por eso se valida al cargar el módulo y no al
+renderizar el formulario — ver [`lib/env.ts`](lib/env.ts).
+
+`NEXT_PUBLIC_SITE_URL` tiene `https://nidra.cloud` como valor por defecto, así
+que su ausencia no rompe nada. Cargala igual: dejar un valor crítico colgando
+de un respaldo silencioso es cómo se rompen las cosas más tarde.
 
 ```bash
 openssl rand -hex 32

@@ -37,8 +37,17 @@ test-results/
 .DS_Store
 Thumbs.db
 
-# Documentos generados en build (se regeneran desde content/cv/profile.yaml)
-public/downloads/*.pdf
+# Los PDF del currículum SÍ se versionan, aunque sean archivos derivados.
+#
+# Generarlos requiere un navegador que el servidor de despliegue no tiene, y
+# el historial de git del que sale su versión tampoco viaja al servidor. Así
+# que se generan acá con `pnpm generate:cv` y se suben ya hechos, junto a
+# public/downloads/version.json.
+#
+# El riesgo de versionar un derivado es que envejezca sin que nadie lo note.
+# Acá no puede: el nombre del archivo lleva el hash del último commit del
+# perfil, así que un PDF viejo simplemente deja de encontrarse, y
+# tests/unit/cv-version.test.ts falla si te olvidaste de regenerar.
 
 # Editores
 .idea/

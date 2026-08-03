@@ -6,23 +6,35 @@
  * resultado de imprimir la página. Si la vista se ve bien, el PDF es correcto
  * por definición.
  *
- * Corre DESPUÉS de `next build`, contra el servidor de producción: `next dev`
- * se demoniza en Next 16 y no sirve para un script que necesita esperar a que
- * el servidor esté listo y después apagarlo.
+ * ── ESTO SE CORRE EN TU MÁQUINA, NO EN EL SERVIDOR ────────────────────────
+ * Antes colgaba de `postbuild` y corría en cada despliegue. No funcionaba:
+ * `pnpm install` no descarga el navegador que Playwright necesita —hace falta
+ * `playwright install`, que nadie ejecuta en Vercel—, así que la generación
+ * fallaba, no quedaba ningún PDF y el build terminaba en código 1.
  *
- * Por eso la página `/cv` se renderiza por petición: el selector comprueba qué
- * archivos existen en `public/downloads/`, y en un render estático esa
- * comprobación ocurriría antes de que los documentos existan.
+ * Ahora los documentos se generan acá, se versionan en el repositorio y
+ * llegan al servidor ya hechos. El despliegue no necesita ni navegador ni
+ * historial de git.
  *
- * Si algo falla, se avisa y se sigue: el sitio se publica con la versión web
- * imprimible, que siempre funciona. Un build roto por no poder generar un PDF
- * sería peor que un formato menos.
+ * El orden importa y no es el evidente:
+ *
+ *   1. Se lee la versión del historial de git y se CONGELA en version.json.
+ *   2. Recién entonces se construye, porque la vista de impresión imprime esa
+ *      versión en el pie del documento. Construir antes produciría un PDF que
+ *      dice una versión y se llama por otra.
+ *   3. Se levanta el servidor de producción y se imprime.
+ *
+ * Cuándo correrlo: cada vez que cambia `content/cv/profile.yaml`, después de
+ * commitear el cambio. Si te olvidás, `tests/unit/cv-version.test.ts` falla y
+ * te lo dice antes de que llegue al despliegue.
  */
-import { spawn, execFileSync } from 'node:child_process'
-import { mkdirSync, rmSync, readdirSync } from 'node:fs'
+import { spawn, spawnSync } from 'node:child_process'
+import { mkdirSync, rmSync, readdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 import { chromium } from 'playwright'
+
+import { readGitCvVersion, cvFileName } from '../lib/cv/version.ts'
 
 const PORT = process.env.CV_PDF_PORT ?? '4319'
 const BASE = `http://127.0.0.1:${PORT}`
@@ -31,15 +43,6 @@ const LOCALES = [
   { locale: 'es', path: '/es/cv/imprimir' },
   { locale: 'en', path: '/en/cv/print' },
 ]
-
-function cvVersion() {
-  const out = execFileSync('git', ['log', '-1', '--format=%h|%cs', '--', 'content/cv/profile.yaml'], {
-    encoding: 'utf8',
-  }).trim()
-  const [hash, date] = out.split('|')
-  if (!hash || !date) throw new Error('content/cv/profile.yaml no tiene commits')
-  return { hash, date }
-}
 
 async function waitForServer(url, timeoutMs = 120_000) {
   const deadline = Date.now() + timeoutMs
@@ -55,9 +58,26 @@ async function waitForServer(url, timeoutMs = 120_000) {
   return false
 }
 
-const version = cvVersion()
+// 1 · Congelar la versión antes de construir.
+const version = readGitCvVersion()
 mkdirSync(OUT_DIR, { recursive: true })
+writeFileSync(
+  join(OUT_DIR, 'version.json'),
+  `${JSON.stringify(version, null, 2)}\n`,
+  'utf8',
+)
+console.log(`· versión congelada: ${version.date} · ${version.hash}`)
 
+// 2 · Construir, ya con la versión en su sitio.
+console.log('· construyendo el sitio…')
+const build = spawnSync('pnpm', ['exec', 'next', 'build'], { stdio: 'inherit' })
+if (build.status !== 0) {
+  console.error('✗ El build falló. Los PDF no se generaron.')
+  process.exit(1)
+}
+
+// 3 · Imprimir contra el servidor de producción. `next dev` se demoniza en
+// Next 16 y no sirve para un script que necesita esperar y después apagarlo.
 const server = spawn('pnpm', ['exec', 'next', 'start', '--port', PORT], {
   stdio: 'ignore',
   env: { ...process.env },
@@ -75,7 +95,7 @@ try {
   for (const { locale, path } of LOCALES) {
     await page.goto(`${BASE}${path}`, { waitUntil: 'networkidle' })
     await page.emulateMedia({ media: 'print' })
-    const fileName = `Juan_Mujica_CV_${locale.toUpperCase()}_${version.date}_${version.hash}.pdf`
+    const fileName = cvFileName(locale, version)
     await page.pdf({
       path: join(OUT_DIR, fileName),
       format: 'A4',
@@ -89,23 +109,19 @@ try {
 
   // Recién ahora que los nuevos existen se borran los de versiones anteriores.
   // Borrarlos antes dejaba el sitio sin descargas si la generación fallaba.
-  const current = new Set(
-    LOCALES.map(
-      ({ locale }) => `Juan_Mujica_CV_${locale.toUpperCase()}_${version.date}_${version.hash}.pdf`,
-    ),
-  )
+  const current = new Set(LOCALES.map(({ locale }) => cvFileName(locale, version)))
   for (const file of readdirSync(OUT_DIR)) {
     if (file.endsWith('.pdf') && !current.has(file)) rmSync(join(OUT_DIR, file))
   }
 
   ok = true
 } catch (error) {
-  console.warn(`⚠ No se generaron los PDF del currículum: ${error.message}`)
-  console.warn('  El sitio se publica igual; la versión web imprimible sigue disponible.')
+  console.error(`✗ No se generaron los PDF del currículum: ${error.message}`)
+  console.error('  Si falta el navegador, instalalo con: pnpm exec playwright install chromium')
 } finally {
   server.kill('SIGTERM')
 }
 
-// Falla el build si no quedó ningún documento disponible: publicar un selector
-// de descargas vacío incumple la promesa de la página.
-process.exit(ok || readdirSync(OUT_DIR).some((f) => f.endsWith('.pdf')) ? 0 : 1)
+// Falla ruidosamente y en tu máquina, que es donde se puede arreglar. El
+// despliegue ya no depende de este script.
+process.exit(ok ? 0 : 1)
