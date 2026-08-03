@@ -52,7 +52,23 @@ const publicSchema = z.object({
   SITE_URL: z.url(),
   PROFILE_URL: z.url().optional(),
   BOOKING_URL: z.url().optional(),
-  CHAT_EMBED_URL: z.url().optional(),
+  /**
+   * Esta variable apunta AL SCRIPT del asistente, no a su host.
+   *
+   * Se renderiza tal cual en `<script src="...">`. Con un origen pelado
+   * —`https://chatbot.nidra.cloud`— el navegador pide la raíz, recibe HTML e
+   * ignora la etiqueta: el widget no aparece y no hay error visible en la
+   * página. El origen para la política de contenido se deriva solo, en
+   * `lib/seo/headers.ts`, así que no hace falta declararlo aparte.
+   */
+  CHAT_EMBED_URL: z
+    .url()
+    .refine((value) => new URL(value).pathname !== '/', {
+      message:
+        'debe apuntar al archivo del script, no solo al host ' +
+        '(por ejemplo https://chatbot.nidra.cloud/embed.js)',
+    })
+    .optional(),
 })
 
 function readPublic() {

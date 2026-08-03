@@ -84,3 +84,40 @@ describe('el resto de las cabeceras', () => {
     }
   })
 })
+
+/**
+ * `NEXT_PUBLIC_CHAT_EMBED_URL` apunta al SCRIPT del asistente, no a su host.
+ *
+ * Se renderiza tal cual en `<script src="...">`. Con un origen pelado el
+ * navegador pide la raíz, recibe HTML e ignora la etiqueta: el widget no
+ * aparece y la página no muestra ningún error. Es un fallo silencioso, y el
+ * error es fácil de cometer porque la variable se llama «URL».
+ */
+describe('la URL del asistente', () => {
+  async function cargar(url: string) {
+    const { vi } = await import('vitest')
+    vi.resetModules()
+    process.env.NEXT_PUBLIC_CHAT_EMBED_URL = url
+    return import('@/lib/env')
+  }
+
+  it('rechaza un host sin ruta, que cargaría HTML como si fuera un script', async () => {
+    await expect(cargar('https://chatbot.nidra.cloud')).rejects.toThrow(/no solo al host/)
+  })
+
+  it('acepta la URL del script y enciende el asistente', async () => {
+    const env = await cargar('https://chatbot.nidra.cloud/embed.js')
+    expect(env.isChatEnabled).toBe(true)
+  })
+
+  it('el origen de la CSP se deriva de ella, sin una segunda variable', async () => {
+    const { vi } = await import('vitest')
+    vi.resetModules()
+    process.env.NEXT_PUBLIC_CHAT_EMBED_URL = 'https://chatbot.nidra.cloud/embed.js'
+    const { securityHeaders } = await import('@/lib/seo/headers')
+    const p = securityHeaders.find((h) => h.key === 'Content-Security-Policy')!.value
+
+    expect(p).toContain('https://chatbot.nidra.cloud')
+    delete process.env.NEXT_PUBLIC_CHAT_EMBED_URL
+  })
+})
