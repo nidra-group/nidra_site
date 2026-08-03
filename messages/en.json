@@ -276,7 +276,7 @@
         {
           "title": "How long I keep it",
           "body": [
-            "The site stores no enquiries in any database. The message reaches my mailbox and stays there, for as long as the conversation lasts and at most two years.",
+            "Contact form enquiries are not stored in any database. The message reaches my mailbox and stays there, for as long as the conversation lasts and at most two years.",
             "If you ask me to delete it sooner, I do."
           ]
         },
@@ -286,10 +286,59 @@
             "To deliver the emails I use an external service, which processes the message solely to get it to my mailbox.",
             "If you book a call, the booking happens on an external calendar platform. Whatever you enter there is governed by that platform’s privacy policy, not by this one.",
             "Visits are measured by Vercel Analytics, which collects anonymous, aggregate data, without cookies.",
-            "These providers are located outside Argentina, so your data leaves the country when it passes through them.",
+            "These providers are located outside Argentina, so your data leaves the country when it passes through them."
+          ]
+        }
+      ],
+      "assistantPending": [
+        {
+          "title": "Conversational assistant",
+          "body": [
             "If I add a conversational assistant in the future, I will update this policy before putting it into operation, stating what data it collects and what for."
           ]
+        }
+      ],
+      "assistant": [
+        {
+          "title": "The conversational assistant: what it stores",
+          "body": [
+            "It stores the whole conversation, word for word: what you write and what the assistant answers. It is not a summary, it is the full transcript.",
+            "That means if you type a personal detail into the text, that detail is stored. Before anything is saved, a filter blanks out what looks like a card number, a password or a tax ID and replaces it with “omitted”, so the original never reaches the database. That filter covers what someone pastes by mistake; it cannot cover everything you might write.",
+            "When the conversation ends, a model reads it and extracts a summary: the problem you described, your company’s sector and size if you mentioned them, what software you use today, which service it corresponds to and how advanced your enquiry appears to be. Anything you did not mention stays empty: it is not inferred or filled in.",
+            "Your email address is stored only if you type it yourself, together with the date and the exact wording of the explanation you saw when it was requested.",
+            "Also kept: the date, the language, how many messages there were and which page of the site the conversation was opened from.",
+            "When the assistant cannot answer something, I keep that question as you wrote it, to see what the site is missing."
+          ]
         },
+        {
+          "title": "What the assistant does not store",
+          "body": [
+            "It does not store your IP address, a device identifier, or browser details. There is nowhere to put them.",
+            "It installs no cookies, neither on this site nor on its own, and leaves nothing stored in your browser. As a result, if you reload the page the conversation is lost and you start a new one.",
+            "It neither asks for nor stores phone number, address, tax ID or payment details.",
+            "It does not read the contact form or any other part of the page: the assistant lives isolated in a frame of its own."
+          ]
+        },
+        {
+          "title": "Where that data lives and who else sees it",
+          "body": [
+            "Conversations are stored in the United States, in the Oregon region, on Supabase infrastructure. This is an international transfer of personal data: by using the assistant, your data leaves Argentina.",
+            "OpenAI processes the text of the conversation. It receives the full history with every answer, and again at the end to extract the summary. It is the provider with the broadest access to what you write, and its processing also happens in the United States.",
+            "If you click the link to book a call, Cal.com opens with a summary of your enquiry and your email already filled into the address. If you do not click, nothing is transmitted.",
+            "No other tool is involved: no analytics, no marketing, no customer management systems."
+          ]
+        },
+        {
+          "title": "How long conversations last and how to ask for deletion",
+          "body": [
+            "Conversations are deleted twelve months after the last message. They are really deleted: not flagged as deleted, not archived.",
+            "You can ask for deletion sooner and it is immediate. There is a link inside the conversation itself while your visit lasts, and if you left your email you can write to me. In that case I verify the address is yours before deleting anything, so that nobody can delete someone else’s conversation.",
+            "After a deletion only a record that it happened remains, with its date. Your email does not remain, nor the conversation identifier, nor anything that would allow reconstructing whose it was.",
+            "Questions the assistant could not answer may be kept with no link at all to you or to your conversation, provided their text contains no personal data. If it appears to contain any, they are deleted too."
+          ]
+        }
+      ],
+      "closing": [
         {
           "title": "Your rights",
           "body": [

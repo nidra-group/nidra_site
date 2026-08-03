@@ -276,7 +276,7 @@
         {
           "title": "Cuánto los conservo",
           "body": [
-            "El sitio no guarda las consultas en ninguna base de datos. El mensaje llega a mi casilla de correo y ahí queda, mientras dure la conversación y como máximo dos años.",
+            "Las consultas del formulario no se guardan en ninguna base de datos. El mensaje llega a mi casilla de correo y ahí queda, mientras dure la conversación y como máximo dos años.",
             "Si me pedís que lo borre antes, lo borro."
           ]
         },
@@ -286,10 +286,59 @@
             "Para entregar los correos uso un servicio externo, que procesa el mensaje solo para hacerlo llegar a mi casilla.",
             "Si reservás una reunión, la reserva se hace en una plataforma externa de calendario. Los datos que cargues ahí se rigen por la política de privacidad de esa plataforma, no por esta.",
             "Las visitas las mide Vercel Analytics, que recoge datos anónimos y en conjunto, sin cookies.",
-            "Estos proveedores están fuera de Argentina, así que tus datos salen del país al pasar por ellos.",
+            "Estos proveedores están fuera de Argentina, así que tus datos salen del país al pasar por ellos."
+          ]
+        }
+      ],
+      "assistantPending": [
+        {
+          "title": "Asistente conversacional",
+          "body": [
             "Si en el futuro incorporo un asistente conversacional, actualizo esta política antes de ponerlo en funcionamiento, detallando qué datos recoge y para qué."
           ]
+        }
+      ],
+      "assistant": [
+        {
+          "title": "El asistente conversacional: qué guarda",
+          "body": [
+            "Guarda la conversación completa, palabra por palabra: lo que escribís vos y lo que responde el asistente. No es un resumen, es la transcripción entera.",
+            "Eso significa que si escribís un dato personal en el texto, ese dato queda guardado. Antes de guardar, un filtro tacha lo que parece número de tarjeta, contraseña o CUIT y lo reemplaza por «dato omitido», de modo que el original no llega a la base. Ese filtro cubre lo que alguien pega por error; no puede cubrir todo lo que se te ocurra escribir.",
+            "Al terminar la conversación, un modelo la lee y extrae un resumen: el problema que describiste, el rubro y el tamaño de tu empresa si los mencionaste, qué software usás hoy, a qué servicio corresponde y qué tan avanzada parece tu consulta. Lo que no mencionaste queda vacío: no se deduce ni se completa.",
+            "Tu correo electrónico se guarda solamente si lo escribís vos, y junto a él queda la fecha y el texto exacto de la explicación que viste al pedírtelo.",
+            "También quedan la fecha, el idioma, cuántos mensajes hubo y desde qué página del sitio se abrió la conversación.",
+            "Cuando el asistente no sabe responder algo, guardo esa pregunta tal como la escribiste, para ver qué le falta al sitio."
+          ]
         },
+        {
+          "title": "Lo que el asistente no guarda",
+          "body": [
+            "No guarda tu dirección IP, ni un identificador de tu dispositivo, ni datos de tu navegador. No hay dónde guardarlos.",
+            "No instala cookies, ni en este sitio ni en el suyo, y no deja nada guardado en tu navegador. Como consecuencia, si recargás la página la conversación se pierde y empezás una nueva.",
+            "No te pide ni guarda teléfono, dirección, CUIT ni datos de pago.",
+            "No lee el formulario de consulta ni ninguna otra parte de la página: el asistente vive aislado en un marco propio."
+          ]
+        },
+        {
+          "title": "Dónde están esos datos y quién más los ve",
+          "body": [
+            "Las conversaciones se guardan en Estados Unidos, en la región de Oregón, sobre la infraestructura de Supabase. Esto es una transferencia internacional de datos personales: al usar el asistente, tus datos salen de Argentina.",
+            "OpenAI procesa el texto de la conversación. Recibe el historial completo en cada respuesta, y otra vez al terminar para extraer el resumen. Es el proveedor con el acceso más amplio a lo que escribís, y su procesamiento también ocurre en Estados Unidos.",
+            "Si hacés clic en el enlace para agendar una reunión, se abre Cal.com con un resumen de tu consulta y tu correo ya cargados en la dirección. Si no hacés clic, no se transmite nada.",
+            "No hay ninguna otra herramienta involucrada: ni analítica, ni marketing, ni sistemas de gestión de clientes."
+          ]
+        },
+        {
+          "title": "Cuánto duran las conversaciones y cómo pedir que se borren",
+          "body": [
+            "Las conversaciones se borran doce meses después del último mensaje. Se eliminan de verdad: no se marcan como borradas ni quedan archivadas.",
+            "Podés pedir el borrado antes y es inmediato. Hay un enlace dentro de la propia conversación mientras dura tu visita, y si dejaste tu correo podés escribirme. En ese caso verifico que la dirección sea tuya antes de borrar nada, para que nadie pueda borrar la conversación de otra persona.",
+            "Después de un borrado solo queda constancia de que ocurrió, con su fecha. No queda tu correo, ni el identificador de la conversación, ni nada que permita reconstruir de quién era.",
+            "Las preguntas que el asistente no supo responder pueden quedar guardadas sin ningún vínculo con vos ni con tu conversación, siempre que su texto no contenga datos personales. Si parece contenerlos, se borran también."
+          ]
+        }
+      ],
+      "closing": [
         {
           "title": "Tus derechos",
           "body": [
