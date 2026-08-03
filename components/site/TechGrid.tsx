@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl'
 
-import { TECH_ICON_PATHS } from '@/lib/content/tech-icons'
+import { TECH_ICONS, TECH_SPRITE } from '@/lib/content/tech-icons'
 import type { Technology } from '@/lib/content/schemas'
 
 const ORDEN = ['ai', 'data', 'cloud', 'dev'] as const
@@ -50,8 +50,21 @@ export function TechGrid({ technologies }: { technologies: Technology[] }) {
   )
 }
 
+/**
+ * El logotipo se REFERENCIA, no se dibuja.
+ *
+ * Los trazados viven en `public/logos/tech.svg` y el navegador los descarga
+ * una sola vez para las veintiocho cápsulas. Dibujarlos acá los mandaba dos
+ * veces por página —en el HTML y otra vez en la carga de hidratación—, unos
+ * 94 KB de los 233 que pesaba la portada.
+ *
+ * Se comprobó en Chromium, WebKit y Firefox que una lámina externa referenciada
+ * con `<use>` dibuja Y hereda `currentColor`, que es de lo que depende el
+ * encendido al pasar el cursor. WebKit era el riesgo real —es el motor de todos
+ * los iPhone— y pasa.
+ */
 function TechChip({ tech }: { tech: Technology }) {
-  const path = tech.icon ? TECH_ICON_PATHS[tech.icon] : undefined
+  const icono = tech.icon && TECH_ICONS.has(tech.icon) ? tech.icon : undefined
 
   return (
     <span
@@ -59,16 +72,15 @@ function TechChip({ tech }: { tech: Technology }) {
                  bg-paper/60 px-4 py-2.5 text-small text-ink/80 transition-colors duration-200
                  hover:border-accent/45 hover:text-ink"
     >
-      {path && (
+      {icono && (
         <svg
-          viewBox="0 0 24 24"
           aria-hidden="true"
           // `fill-current` hereda el color del texto: el logotipo se enciende
           // junto con el nombre en vez de ser una pieza aparte.
           className="h-[1.125rem] w-[1.125rem] shrink-0 fill-current text-muted
                      transition-colors duration-200 group-hover:text-accent"
         >
-          <path d={path} />
+          <use href={`${TECH_SPRITE}#${icono}`} />
         </svg>
       )}
       {tech.name}

@@ -15,7 +15,7 @@
  *
  *   node scripts/build-tech-icons.mjs
  */
-import { readFileSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { parse } from 'yaml'
 import * as simpleIcons from 'simple-icons'
@@ -23,6 +23,9 @@ import * as simpleIcons from 'simple-icons'
 const RAIZ = process.cwd()
 const ORIGEN = join(RAIZ, 'content/technologies.yaml')
 const DESTINO = join(RAIZ, 'lib/content/tech-icons.ts')
+const LAMINA = join(RAIZ, 'public/logos/tech.svg')
+
+mkdirSync(join(RAIZ, 'public/logos'), { recursive: true })
 
 const tecnologias = parse(readFileSync(ORIGEN, 'utf8'))
 const identificadores = [...new Set(tecnologias.map((t) => t.icon).filter(Boolean))].sort()
@@ -39,30 +42,59 @@ if (faltantes.length > 0) {
   process.exit(1)
 }
 
-const entradas = identificadores
+/* -------------------------------------------------------------------------- */
+/* 1 · La lámina de símbolos que descarga el navegador                        */
+/* -------------------------------------------------------------------------- */
+
+const simbolos = identificadores
   .map((id) => {
     const { title, path } = porSlug.get(id)
-    return `  // ${title}\n  ${JSON.stringify(id)}: ${JSON.stringify(path)},`
+    return `  <symbol id="${id}" viewBox="0 0 24 24"><title>${title}</title><path d="${path}"/></symbol>`
   })
   .join('\n')
 
+const lamina = `<svg xmlns="http://www.w3.org/2000/svg">
+  <!-- GENERADO POR scripts/build-tech-icons.mjs — NO EDITAR A MANO.
+
+       Los iconos de Simple Icons son CC0. Las MARCAS siguen siendo de sus
+       titulares y acá se usan de forma nominativa, para describir con qué se
+       trabaja. Por eso se pintan en un solo color y nunca en el suyo: un
+       logotipo a color sugiere una relación comercial que no existe. -->
+${simbolos}
+</svg>
+`
+
+writeFileSync(LAMINA, lamina)
+
+/* -------------------------------------------------------------------------- */
+/* 2 · La lista de cuáles existen, que sí necesita el servidor                */
+/* -------------------------------------------------------------------------- */
+
 const contenido = `// GENERADO POR scripts/build-tech-icons.mjs — NO EDITAR A MANO.
 //
-// Trazados de los logotipos que nombra content/technologies.yaml, extraídos de
-// Simple Icons. Se versiona a propósito: así el diff muestra cuándo cambia un
-// logotipo y el sitio no depende del paquete para renderizar.
+// Qué logotipos existen en public/logos/tech.svg. Solo los nombres: los
+// trazados viven en esa lámina y los descarga el navegador una sola vez.
+//
+// Antes acá estaban los trazados y se dibujaban dentro de cada página. Eso
+// mandaba 47 KB de curvas DOS VECES —una en el HTML y otra en la carga de
+// hidratación, porque React necesita reconstruir el árbol—, unos 94 KB de los
+// 233 que pesaba la portada. Para el logotipo de Nidra dibujarlo en línea
+// sigue siendo lo correcto: son dos trazados y ahorran una petición. Con
+// veintiséis, la cuenta se da vuelta.
+//
+// Esta lista existe para poder decidir en el servidor si un logotipo está
+// disponible: sin él, la tecnología se muestra solo con su nombre en vez de
+// dejar un hueco.
 //
 // Para regenerar, después de tocar el YAML:  pnpm build:icons
-//
-// Los iconos de Simple Icons son CC0. Las MARCAS siguen siendo de sus
-// titulares y acá se usan de forma nominativa, para describir con qué se
-// trabaja. Por eso se pintan en un solo color y nunca en su color corporativo:
-// un logotipo a color sugiere una relación comercial que no existe.
 
-export const TECH_ICON_PATHS: Record<string, string> = {
-${entradas}
-}
+export const TECH_ICONS = new Set<string>([
+${identificadores.map((id) => `  ${JSON.stringify(id)},`).join('\n')}
+])
+
+/** La lámina de símbolos, servida como archivo estático y cacheable. */
+export const TECH_SPRITE = '/logos/tech.svg'
 `
 
 writeFileSync(DESTINO, contenido)
-console.log(`${identificadores.length} logotipos escritos en lib/content/tech-icons.ts`)
+console.log(`${identificadores.length} logotipos → public/logos/tech.svg (${Math.round(lamina.length / 1024)} KB)`)
