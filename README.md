@@ -7,6 +7,26 @@ Construido con desarrollo guiado por especificación: la fuente de verdad de qu�
 qué está en [`specs/001-nidra-public-site/`](specs/001-nidra-public-site/), y las reglas que ningún
 cambio puede romper, en [`.specify/memory/constitution.md`](.specify/memory/constitution.md).
 
+**Dónde está cada cosa:** [repositorio público](#este-repositorio-es-público) ·
+[puesta en marcha](#puesta-en-marcha) · [comandos](#comandos) ·
+[paleta](#cambiar-la-paleta-de-colores) · [contenido](#editar-el-contenido) ·
+[marca](#la-marca) · [currículum](#el-currículum) ·
+[asistente](#el-asistente-conversacional) · [desplegar](#desplegar) ·
+[rendimiento](#rendimiento) · [verificación](#verificación)
+
+## Este repositorio es público
+
+Lo exige el plan gratuito de Vercel. Nada de lo que se commitea acá es privado.
+
+**Ningún secreto entra al repositorio.** Todo valor sensible llega por variable de entorno y
+`.env.local` está en `.gitignore`. `.env.example` lleva los nombres con los valores vacíos.
+
+Si alguna vez se filtra una clave, **no alcanza con borrarla en un commit nuevo**: queda en el
+historial y hay que rotarla en el proveedor.
+
+Lo que sí es público a propósito: el contenido del sitio, el currículum del fundador, las
+especificaciones y esta documentación.
+
 ## Stack
 
 Next.js 16 (App Router) · TypeScript `strict` · Tailwind CSS 4 · next-intl · Zod · Resend · Playwright
@@ -31,14 +51,19 @@ pnpm dev
 ## Comandos
 
 ```bash
-pnpm dev          # desarrollo (puerto 3210)
-pnpm build        # build + genera los PDF del currículum
-pnpm test         # pruebas unitarias
-pnpm test:e2e     # formulario en un navegador real, con y sin JavaScript
-pnpm typecheck    # tipos
-pnpm lint         # eslint
-pnpm generate:cv  # regenera solo los PDF del currículum
+pnpm dev           # desarrollo (puerto 3210)
+pnpm build         # build
+pnpm test          # 116 pruebas unitarias
+pnpm test:e2e      # formulario en un navegador real, con y sin JavaScript
+pnpm typecheck     # tipos
+pnpm lint          # eslint
+pnpm generate:cv   # congela la versión, construye e imprime los PDF del currículum
+pnpm build:icons   # reextrae los logotipos de tecnologías desde Simple Icons
 ```
+
+`pnpm build` **no** genera los PDF del currículum. Antes sí, y no funcionaba: el
+servidor de despliegue no tiene el navegador que hace falta para imprimirlos ni
+el historial de git del que sale su versión. Ver [El currículum](#el-currículum).
 
 El puerto 3210 no es el de Next por defecto: el 3000 está reservado para otra aplicación en la
 máquina de desarrollo. Está fijado en `package.json`, en
@@ -125,39 +150,55 @@ idioma y olvidarlo en el otro: es el mismo nodo del árbol.
 ## La marca
 
 Nidra es sánscrito: en el yoga nidra nombra el **sueño consciente**, la frontera exacta entre la
-vigilia y el sueño. El logotipo es esa frontera — **un arco sobre una línea** — y dice tres cosas a
-la vez: el sol asomando en el horizonte, el párpado superior sobre el inferior, y la línea del
-umbral. No se sabe si el ojo se cierra o se abre, si el sol sube o baja, que es justamente la
-definición del nombre. Sin pupila a propósito: un círculo adentro lo volvería una cámara de
-vigilancia.
+vigilia y el sueño. El logotipo es esa frontera: **la ene es el sol naciente**, de su pie nace el
+horizonte que corre hacia la derecha, y «idra» se apoya encima. Una banda horizontal atraviesa la
+letra, la barra y la palabra a una misma altura — no es una ranura en una letra, es un plano que
+cruza todo.
 
-Vive a tres escalas, y cada una es un fragmento de la anterior, así que el símbolo y el nombre se
+Vive a dos escalas, y la chica es un fragmento de la grande, así que el símbolo y el nombre se
 refuerzan en vez de competir:
 
 | Pieza | Dónde | Archivo |
 |---|---|---|
-| La palabra sobre el horizonte | Web, membrete, pie de correo | [`components/site/Wordmark.tsx`](components/site/Wordmark.tsx) |
-| El monograma (la ene partida) | Icono de aplicación, foto de perfil | `Monogram` en el mismo archivo |
-| El arco solo | Pestaña del navegador, sello | [`app/icon.svg`](app/icon.svg) · [`public/brand/`](public/brand/) |
+| La palabra completa | Web, membrete, pie de correo | [`components/site/Wordmark.tsx`](components/site/Wordmark.tsx) |
+| La ene sola | Pestaña del navegador, icono de aplicación | [`app/icon.svg`](app/icon.svg) |
 
-**El símbolo tiene dos cortes ópticos y no son intercambiables.** El maestro abre el arco al 32% y
-sirve para reproducción grande; el favicon lo abre al 55%. No es un capricho: con la apertura
-maestra el arco sube 4 píxeles sobre una caja de 64 mientras el trazo mide 5,5, así que a 16 píxeles
-el trazo se traga la curva y queda un bulto. Es la misma razón por la que una tipografía tiene
-cortes de texto y de titular.
+Fuera de la web, en [`public/brand/`](public/brand/): `nidra-logo.svg` es el principal y **solo va
+sobre fondo oscuro**; `nidra-logo-light.svg` es para membrete, factura e impresión;
+`nidra-logo-mono.svg` para sello, bordado o una sola tinta. `nidra-symbol.svg` y su versión mono son
+la ene aislada.
 
-La línea **se interrumpe** y el arco la continúa: si la línea pasara por debajo, los extremos se
-pisarían y la unión quedaría sucia. Y nunca cruza la palabra — una horizontal a media altura sobre
-un nombre se lee como texto tachado.
+**Los trazados están escritos en el componente, no cargados desde `public/`.** Son dos caminos y
+pesan menos que la petición HTTP que costaría traerlos, y los colores salen de los tokens de la
+paleta, así que un cambio en `globals.css` arrastra la marca sin reexportar nada. El archivo de
+`public/brand/` sigue siendo la fuente para todo lo que vive fuera del sitio: si se retoca el
+trazado, hay que copiarlo a los dos lados.
 
-En la web el nombre es **texto**, no una imagen: se puede seleccionar, lo lee un lector de pantalla
-y escala solo. Únicamente el horizonte es SVG, porque únicamente el horizonte es geometría. Para una
-versión con la palabra en trazados (imprenta, bordado, un proveedor sin Manrope) hay que exportarla
-una vez; el símbolo de `public/brand/` ya es portátil porque es geometría pura.
+El favicon es **otro corte**, no una reducción del mismo archivo. A 16 píxeles la palabra entera se
+vuelve una mancha, así que ahí va la ene sola con el arranque del horizonte, cortado contra el borde
+a propósito para sugerir que sigue. Sus colores están escritos a mano porque un favicon no lee el
+CSS del sitio: **al cambiar la paleta hay que actualizarlos también ahí**.
 
-Los logotipos de integraciones **no** se usan: las plataformas se listan como texto. Evita la sopa de
-logos, evita problemas de licencia de marca y, sobre todo, evita insinuar una relación comercial que
-no existe. Si en el futuro se quieren logos, `public/logos/` está preparado.
+### Los logotipos de tecnologías
+
+La portada y la página de integraciones muestran los logotipos de las tecnologías con las que se
+trabaja, extraídos de [Simple Icons](https://simpleicons.org) (CC0) por
+[`scripts/build-tech-icons.mjs`](scripts/build-tech-icons.mjs) hacia
+[`public/logos/tech.svg`](public/logos/tech.svg), un único archivo que el navegador descarga una vez
+y cachea.
+
+Antes iban dibujados en línea en cada página. Medido: eran 47 KB de trazados que viajaban **dos
+veces** —una en el HTML y otra en la carga de hidratación—, unos 94 KB de los 233 que pesaba la
+portada. Con el archivo aparte, el HTML bajó a 152 KB.
+
+Todos se pintan **en un solo color** y se encienden al pasar el cursor. No es solo estética: un
+logotipo en su color corporativo se lee como sello de «socio oficial», y Nidra no lo es de ninguna
+de esas empresas. OpenAI y AWS aparecen **sin logotipo**, como marca denominativa en texto: las dos
+pidieron ser retiradas de Simple Icons, y nombrarlas es uso nominativo legítimo mientras que dibujar
+su marca sin licencia no lo es.
+
+Los logotipos de **integraciones** siguen sin usarse: esas plataformas se listan como texto, para no
+insinuar una relación comercial que no existe.
 
 ## El currículum
 
@@ -170,17 +211,79 @@ maquetación: si la vista de impresión se ve bien, el PDF es correcto por defin
 La versión no se declara a mano: sale del hash y la fecha del último commit que tocó el YAML. El
 historial de git **es** el versionado del currículum.
 
+### Se generan en tu máquina, no en el despliegue
+
+```bash
+pnpm generate:cv
+```
+
+El orden importa y no es el evidente: **primero** congela la versión de git en
+`public/downloads/version.json`, **después** construye —la vista de impresión imprime esa versión en
+el pie, así que construir antes daría un PDF que dice una versión y se llama por otra— y recién
+entonces imprime. Los tres archivos que produce se commitean junto al cambio del perfil.
+
+Colgaba de `postbuild` y corría en cada despliegue. No funcionaba, y tardó en notarse: `pnpm install`
+no descarga el navegador que Playwright necesita, así que la generación fallaba, no quedaba ningún
+PDF y el build terminaba en error **antes de publicar nada**.
+
+Peor era lo otro: la versión se derivaba de git **en cada visita**, y la página del currículum era
+dinámica. En producción no hay repositorio, así que `/cv` devolvía 500 — y como el subdominio del
+perfil sirve esa misma ruta, el espacio profesional entero quedaba caído. Se comprobó levantando el
+servidor de producción con un `git` que falla en el PATH: la portada respondía 200 y `/cv`, 500.
+
+Si editás `content/cv/profile.yaml` y te olvidás de regenerar,
+[`tests/unit/cv-version.test.ts`](tests/unit/cv-version.test.ts) falla en tu máquina con el comando
+exacto en el mensaje. Otra prueba prohíbe importar `readGitCvVersion` desde `app/` o `components/`:
+está a un autocompletado de distancia y su costo es un 500 en producción.
+
 ## El asistente conversacional
 
-Se desarrolla en un repositorio aparte y se conecta con el sitio por un solo
-punto: `NEXT_PUBLIC_CHAT_EMBED_URL`. El encargo completo, con las decisiones
-técnicas ya tomadas, está en [`docs/brief-chatbot.md`](docs/brief-chatbot.md).
+Se desarrolla en un repositorio aparte y se conecta con el sitio por **un solo punto**:
 
-**Ese documento nombra tres cosas de este repositorio que hay que cambiar antes
-de encenderlo**, y las tres son bloqueantes: la política de privacidad promete
-actualizarse antes de que exista un asistente, la política de contenido supone
-que no hay código de terceros, y hoy el sitio no tiene base de datos con datos
-personales.
+```
+NEXT_PUBLIC_CHAT_EMBED_URL=https://chatbot.nidra.cloud/embed.js
+```
+
+El encargo, con las decisiones técnicas y sus motivos, está en
+[`docs/brief-chatbot.md`](docs/brief-chatbot.md). La frontera entre ambos proyectos —qué garantiza
+cada lado— está en
+[`specs/001-nidra-public-site/contracts/chatbot-widget.md`](specs/001-nidra-public-site/contracts/chatbot-widget.md).
+
+**Apunta al script, no al host.** Se renderiza tal cual en `<script src="...">`, así que un origen
+pelado carga HTML y la etiqueta se ignora en silencio. `lib/env.ts` lo rechaza al construir.
+
+### Esa variable enciende cuatro cosas a la vez
+
+| Qué | Dónde |
+|---|---|
+| El punto de montaje y el script del widget | [`components/chat/ChatMount.tsx`](components/chat/ChatMount.tsx) |
+| La versión de la política de privacidad que declara el asistente | [`components/site/LegalDocument.tsx`](components/site/LegalDocument.tsx) |
+| El origen autorizado en `frame-src` y `connect-src` | [`lib/seo/headers.ts`](lib/seo/headers.ts) |
+| La declaración de transferencia internacional de datos | `messages/*.json` → `legal.privacy.assistant` |
+
+**Que sea una sola variable es la decisión central.** La política de privacidad tiene dos estados
+incompatibles: sin asistente el sitio no tiene ninguna base de datos y lo afirma; con asistente
+guarda transcripciones completas en Estados Unidos y tiene que declararlo. Mientras el interruptor
+sea uno solo, **es imposible publicar un asistente que recoja datos junto a una política que jure
+que no hay base de datos**. La contradicción no puede existir.
+
+El corolario incómodo es el simétrico: cargar la variable antes de que el asistente exista publica
+una política que declara un tratamiento de datos que todavía no ocurre. Si querés dejarla
+configurada de antemano, cargala **solo en Preview**.
+
+`NEXT_PUBLIC_CHAT_EMBED_URL` se lee al **construir**, no al servir: encenderlo o apagarlo exige un
+despliegue nuevo.
+
+### Lo que sigue abierto
+
+Dos de los tres bloqueos que nombraba el encargo están resueltos: la política declara el asistente y
+la política de contenido acota al widget. Queda uno, y no es técnico: con una base de datos de
+personas y transferencia internacional, **la inscripción ante la AAIP que exige la Ley 25.326 pasa a
+ser una pregunta real**. Es un trámite para consultar con un profesional antes de encender.
+
+La región de la base de datos del asistente todavía puede cambiar. Hoy la política declara Oregón;
+si se mueve, hay que actualizar **los dos idiomas** —una prueba comprueba que coincidan— porque el
+fallo realista es acordarse de uno solo.
 
 ## Desplegar
 
@@ -208,10 +311,54 @@ Opcionales — si faltan, la interfaz se adapta en vez de publicar un enlace mue
 Ninguna de estas tiene valor por defecto, a propósito: un destino plausible pero inexistente se
 publica en silencio y rompe la conversión sin que nadie se entere.
 
+## Rendimiento
+
+Medido sobre producción, móvil con red 4G simulada, **mediana de tres corridas** — una sola corrida
+de Lighthouse varía lo suficiente como para declarar cumplido un umbral que no se cumple:
+
+| | Al empezar | Hoy | Presupuesto |
+|---|---|---|---|
+| Rendimiento móvil | 77 | **97** | — |
+| Accesibilidad | 96 | **100** | — |
+| LCP | 3,1 s | **2,31 s** | ≤ 2,5 s |
+| CLS | 0,05 | **0** | ≤ 0,1 |
+| HTML de la portada | 233 KB | **138 KB** | — |
+
+Escritorio: 100. Buenas prácticas y SEO: 100.
+
+Tres cambios lo explican, y ninguno tocó el diseño: los logotipos dejaron de viajar duplicados, las
+traducciones dejaron de mandarse enteras a cada página, y la animación de aparición dejó de volverse
+casi invisible.
+
+**Solo llegan al navegador los textos que necesita.** `NextIntlClientProvider` serializa por defecto
+el diccionario completo en cada página; ahora viajan cuatro espacios de nombres, uno por cada
+componente de cliente, declarados en [`i18n/client-messages.ts`](i18n/client-messages.ts). Agregar un
+componente de cliente que traduzca algo fuera de esa lista rompe `useTranslations` en producción, así
+que [`tests/unit/mensajes-cliente.test.ts`](tests/unit/mensajes-cliente.test.ts) lee los
+`useTranslations` reales de cada archivo con `'use client'` y falla nombrando el culpable.
+
+**La aparición al desplazar solo mueve, no desvanece.** Animar la opacidad desde `0.01` hacía que las
+auditorías midieran el contraste mientras el elemento era casi transparente y reportaran 1,01:1 sobre
+textos cuyo contraste real es 7,82:1 y 10,48:1. El puntaje era lo de menos: cualquiera que auditara
+el sitio leía «fallos de contraste» y sacaba la conclusión equivocada.
+
+El único umbral de la constitución que no se cumple es el JavaScript inicial, y **se enmendó en la
+versión 1.1.0 en vez de ignorarlo**: los 120 KB originales se escribieron antes de elegir la
+tecnología y no son alcanzables con Next App Router. La vista de impresión del currículum —una página
+casi sin nada interactivo— envía 172 KB y la portada completa 173: un kilobyte de diferencia entre la
+página más rica y la más pobre, que es la medición que demuestra que el peso no es del código propio.
+La regla ahora acota lo que sí se controla: que el código propio no agregue más de 15 KB sobre el
+piso del marco de trabajo.
+
 ## Verificación
 
 Los escenarios de validación están en
 [`specs/001-nidra-public-site/quickstart.md`](specs/001-nidra-public-site/quickstart.md).
+
+Las 116 pruebas unitarias no comprueban solo que el código funcione: varias existen porque algo se
+rompió una vez y no queremos que vuelva. Un cambio que reintroduzca `script-src` sin resolver los
+nonces, que devuelva la afirmación absoluta sobre la base de datos, que deje el currículum sin
+regenerar o que anime la opacidad de la aparición **falla nombrando qué hacer**.
 
 Para capturas en varios anchos:
 
