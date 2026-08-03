@@ -562,13 +562,23 @@
     }
   }
 
+  /* Solo desplazamiento, sin desvanecido, y la razón no es estética.
+
+     Animar la opacidad desde 0.01 hacía que las herramientas de auditoría
+     midieran el contraste MIENTRAS el elemento todavía era casi transparente,
+     y reportaran 1.01:1 —el fondo comparado consigo mismo— sobre textos cuyo
+     contraste real es 7.82:1 y 10.48:1, medido sobre los píxeles pintados.
+
+     El puntaje es lo de menos. Cualquiera que audite este sitio leía «fallos
+     de contraste» y sacaba la conclusión equivocada; si quien audita es el
+     técnico de un cliente, ese informe llega antes que la explicación.
+
+     El elemento entra subiendo a su lugar y nunca es invisible en el camino. */
   @keyframes reveal-up {
     from {
-      opacity: 0.01;
       transform: translateY(1.5rem);
     }
     to {
-      opacity: 1;
       transform: none;
     }
   }

@@ -71,3 +71,37 @@ describe('paleta de marca', () => {
     ).toBeGreaterThanOrEqual(minimum)
   })
 })
+
+/**
+ * La aparición al desplazar no vuelve a animar la opacidad.
+ *
+ * Animarla desde 0.01 no rompía nada visualmente, pero hacía que toda
+ * herramienta de auditoría midiera el contraste MIENTRAS el elemento era casi
+ * transparente y reportara 1.01:1 sobre textos cuyo contraste real es 7.82:1 y
+ * 10.48:1. Costaba cuatro puntos de accesibilidad y, peor, hacía que un
+ * informe externo dijera que el sitio tiene problemas de contraste.
+ *
+ * Es fácil de reintroducir sin querer: un desvanecido es lo primero que uno
+ * agrega a una animación de entrada.
+ */
+describe('animación de aparición', () => {
+  const css = readFileSync(join(process.cwd(), 'app/globals.css'), 'utf8')
+  const keyframes = css.match(/@keyframes\s+reveal-up\s*\{[\s\S]*?\n\s*\}\s*\n\s*\}/)?.[0] ?? ''
+
+  it('existe la animación', () => {
+    expect(keyframes, 'No se encontró @keyframes reveal-up en app/globals.css').not.toBe('')
+  })
+
+  it('no anima la opacidad', () => {
+    expect(
+      /opacity\s*:/.test(keyframes),
+      'reveal-up volvió a animar la opacidad.\n' +
+        'Un elemento semitransparente hace que las auditorías reporten fallos\n' +
+        'de contraste falsos. Animá solo `transform`.',
+    ).toBe(false)
+  })
+
+  it('sigue moviendo algo, o no es una aparición', () => {
+    expect(/transform\s*:/.test(keyframes)).toBe(true)
+  })
+})
