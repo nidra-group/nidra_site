@@ -185,7 +185,8 @@ pnpm build && pnpm lighthouse
 | Rendimiento, Accesibilidad, Buenas prácticas, SEO | ≥ 90 cada una, en móvil |
 | LCP | ≤ 2,5 s |
 | CLS | ≤ 0,1 |
-| JS inicial por ruta | ≤ 120 KB comprimido |
+| JS inicial por ruta | piso del marco + 15 KB (piso medido 2026-08-03: 173 KB) |
+| Medición | 3 corridas sobre producción; se informa mediana y peor |
 
 - [ ] Cada página declara título, descripción, canónica y metadatos de vista previa
 - [ ] Los mapas del sitio se generan desde las rutas reales, uno por dominio

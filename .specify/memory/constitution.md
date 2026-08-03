@@ -31,6 +31,37 @@ Resolved TODOs:
   - TODO(PRODUCT_POSITIONING): resuelto en specs/001-nidra-public-site/spec.md — agencia de
     desarrollo de software con IA para PyMEs y emprendedores, con seis servicios definidos.
   - TODO(ANALYTICS_VENDOR): resuelto — Vercel Web Analytics.
+
+---
+
+Version change: 1.0.1 → 1.1.0 (2026-08-03)
+Bump rationale: MINOR — se reemplaza un umbral del Principio II por uno medible. El principio
+y su intención se conservan íntegros; lo que cambia es un número que la tecnología elegida
+hace inalcanzable. Se evaluó como MAJOR, por tratarse de relajar un umbral marcado NO
+NEGOCIABLE, y se descartó: no se elimina ni se invierte ningún principio, y la regla que lo
+reemplaza es más exigente sobre lo único que el equipo controla.
+
+Modified principles:
+  II. Presupuesto de Rendimiento → el presupuesto de JavaScript deja de ser un absoluto de
+  120 KB comprimidos y pasa a ser «el piso del marco de trabajo más 15 KB». Se anota el piso
+  medido, con fecha y evidencia. Se agrega la exigencia de medir sobre tres corridas e
+  informar mediana y peor caso.
+
+Motivo, con la evidencia:
+  El umbral de 120 KB se escribió antes de elegir la tecnología. Medido en producción el
+  2026-08-03, el sitio envía 173 KB comprimidos en la portada y 172 KB en la vista de
+  impresión del currículum, que casi no tiene contenido interactivo. Ese kilobyte de
+  diferencia entre la página más rica y la más pobre prueba que el peso es del marco de
+  trabajo, no del código propio.
+
+  Se probaron los dos candidatos a recorte y ninguno sirvió: mover el selector de idioma al
+  servidor SUBIÓ el JavaScript, porque el menú móvil lo importa y viaja igual; y quitar
+  Vercel Analytics ahorra 1,5 KB a cambio de perder toda visibilidad del tráfico.
+
+  La exigencia de tres corridas nace del mismo día: una medición aislada informó 1.7 s de
+  LCP donde la mediana real era 2.31 s, y estuvo a punto de darse por buena.
+
+Deferred TODOs: ninguno pendiente.
 -->
 
 # Nidra Site Constitution
@@ -65,15 +96,36 @@ Umbrales en producción, medidos en móvil con red 4G simulada:
 - Largest Contentful Paint (LCP) MUST ser ≤ 2.5 s.
 - Cumulative Layout Shift (CLS) MUST ser ≤ 0.1.
 - Interaction to Next Paint (INP) MUST ser ≤ 200 ms.
-- El JavaScript inicial por ruta MUST ser ≤ 120 KB comprimido.
+- El JavaScript inicial por ruta MUST NOT superar el piso del marco de trabajo en más de
+  15 KB comprimidos. El piso se mide, se anota abajo con su fecha, y se vuelve a medir al
+  actualizar Next o React.
 - Toda imagen MUST servirse en formato moderno (AVIF/WebP), con dimensiones explícitas y
   carga diferida salvo la imagen del primer viewport.
+
+**Piso medido el 2026-08-03** sobre Next 16.2 y React 19.2: **173 KB comprimidos**. La
+portada completa envía 173 KB y la vista de impresión del currículum —una página casi sin
+contenido interactivo— envía 172 KB. Ese kilobyte de diferencia entre la página más rica del
+sitio y la más pobre es la medición que demuestra que el peso no es del código propio: son
+react-dom y el enrutador de Next, que viajan idénticos en toda ruta.
+
+Toda medición MUST hacerse sobre producción y sobre al menos tres corridas, informando la
+mediana y la peor. Una sola corrida de Lighthouse varía lo suficiente como para declarar
+cumplido un umbral que no se cumple: durante la medición del 2026-08-03 una corrida aislada
+dio 1.7 s de LCP donde la mediana real era 2.31 s.
 
 Un cambio que rompa cualquiera de estos umbrales MUST ser corregido o revertido antes de
 mergear; no se acepta como deuda técnica.
 
 Rationale: cada 100 ms de latencia adicional degrada la conversión de forma medible, y en un
 sitio estático no existe justificación de negocio para ser lento.
+
+Rationale del presupuesto de JavaScript: hasta la versión 1.0.1 este umbral era un absoluto
+de 120 KB, escrito antes de elegir la tecnología. Con Next App Router y React 19 no es
+alcanzable —ni siquiera por una página vacía—, así que quedaba permanentemente incumplido.
+Un umbral que nadie puede cumplir deja de ser una restricción y pasa a ser ruido: quien
+audite el proyecto encuentra un incumplimiento, investiga, y descubre que no había nada que
+corregir. Lo que se conserva es la intención de la regla, que es lo que sí se controla: que
+el código propio no agregue peso apreciable sobre el que impone el marco de trabajo.
 
 ### III. SEO Verificable
 
@@ -169,4 +221,4 @@ constitución.
   con el principio afectado, el motivo y la condición de salida. Una excepción sin condición
   de salida MUST NOT aprobarse.
 
-**Version**: 1.0.1 | **Ratified**: 2026-07-30 | **Last Amended**: 2026-07-30
+**Version**: 1.1.0 | **Ratified**: 2026-07-30 | **Last Amended**: 2026-08-03

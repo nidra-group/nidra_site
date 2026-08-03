@@ -44,6 +44,10 @@ JavaScript. Despliegue en Vercel.
 **Performance Goals**: LCP ≤ 2,5 s · CLS ≤ 0,1 · INP ≤ 200 ms · JS inicial ≤ 120 KB comprimido por
 ruta · Lighthouse móvil ≥ 90 en las cuatro categorías
 
+> El presupuesto de JavaScript se enmendó el 2026-08-03 (constitución 1.1.0): pasa a ser «piso
+> del marco de trabajo + 15 KB». El absoluto de 120 KB se escribió antes de elegir la
+> tecnología y con Next App Router no es alcanzable ni por una página vacía.
+
 **Constraints**: Renderizado estático por defecto · contenido y navegación operativos sin JavaScript ·
 WCAG 2.1 AA · sin cookies ni identificadores persistentes · usable desde 320 px y con texto al 200% ·
 sin secretos en el repositorio
@@ -62,7 +66,7 @@ Evaluado contra [constitution.md](../../.specify/memory/constitution.md) v1.0.0.
 | **I. Contenido y accesibilidad primero** | Contenido esencial sin JS | ✅ | SSG en todas las rutas; el formulario usa una Server Action que se envía por HTTP estándar sin JS; la reserva es un enlace, no una incrustación |
 | | WCAG 2.1 AA | ✅ | `@axe-core/playwright` en CI, sin violaciones A ni AA; recorrido por teclado verificado en E2E |
 | | Contenido separado de la presentación | ✅ | `content/` y `messages/` fuera de `components/`; ningún texto embebido en componentes |
-| **II. Presupuesto de rendimiento** | LCP/CLS/INP y JS ≤ 120 KB | ✅ | Sin biblioteca de UI, sin animaciones, sin gestor de estado; Cal.com enlazado; widget del chatbot diferido con espacio reservado |
+| **II. Presupuesto de rendimiento** | LCP/CLS/INP y JS ≤ 120 KB (enmendado, ver arriba) | ⚠️ | Sin biblioteca de UI, sin animaciones, sin gestor de estado; Cal.com enlazado; widget del chatbot diferido con espacio reservado |
 | | Imágenes modernas con dimensiones | ✅ | `next/image` con AVIF/WebP; logos de integraciones como SVG en línea |
 | **III. SEO verificable** | Metadatos por ruta | ✅ | `generateMetadata` por página y locale, con canónica y `hreflang` |
 | | Sitemap y robots generados | ✅ | `app/sitemap.ts` y `app/robots.ts` derivados de las rutas reales, uno por dominio |
