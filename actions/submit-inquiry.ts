@@ -1,6 +1,7 @@
 'use server'
 
 import { headers } from 'next/headers'
+import { getTranslations } from 'next-intl/server'
 import { Resend } from 'resend'
 
 import { SENDER_EMAIL } from '@/lib/contact'
@@ -45,12 +46,36 @@ function withinRateLimit(fingerprint: string, now = Date.now()): boolean {
   return true
 }
 
-function textBody(inquiry: Inquiry): string {
+/**
+ * El nombre del servicio tal como lo leyó quien consultó.
+ *
+ * Antes acá viajaba `inquiry.service`, que es el identificador interno. El
+ * asunto del aviso llegaba diciendo «Consulta — workflow-automation — Lucas»,
+ * y el asunto es lo único que se ve antes de decidir si abrir el correo ahora
+ * o más tarde. Un identificador no ayuda a tomar esa decisión.
+ *
+ * Se resuelve en el idioma del formulario, no en uno fijo: si alguien
+ * consultó en inglés, el aviso nombra el servicio como esa persona lo vio, y
+ * la respuesta se puede escribir con sus mismas palabras.
+ */
+async function serviceLabel(inquiry: Inquiry): Promise<string> {
+  const { service, locale } = inquiry
+
+  if (service === 'other') {
+    const t = await getTranslations({ locale, namespace: 'contact.form' })
+    return t('serviceOther')
+  }
+
+  const t = await getTranslations({ locale, namespace: 'services' })
+  return t(`items.${service}`)
+}
+
+function textBody(inquiry: Inquiry, service: string): string {
   return [
     `Nombre:   ${inquiry.name}`,
     `Correo:   ${inquiry.email}`,
     `Empresa:  ${inquiry.company || '—'}`,
-    `Servicio: ${inquiry.service}`,
+    `Servicio: ${service}`,
     `Idioma:   ${inquiry.locale}`,
     '',
     'Consulta:',
@@ -64,6 +89,7 @@ async function deliver(inquiry: Inquiry): Promise<boolean> {
 
   const resend = new Resend(config.apiKey)
   const key = idempotencyKey(inquiry)
+  const service = await serviceLabel(inquiry)
 
   for (let attempt = 0; attempt < 3; attempt += 1) {
     try {
@@ -72,10 +98,10 @@ async function deliver(inquiry: Inquiry): Promise<boolean> {
           from: `Nidra <${SENDER_EMAIL}>`,
           to: config.inbox,
           replyTo: inquiry.email,
-          subject: `[Nidra] Consulta — ${inquiry.service} — ${inquiry.name}`,
+          subject: `[Nidra] Consulta — ${service} — ${inquiry.name}`,
           // El contenido del visitante se envía como texto plano: nunca se
           // interpreta como HTML.
-          text: textBody(inquiry),
+          text: textBody(inquiry, service),
         },
         { idempotencyKey: key },
       )
