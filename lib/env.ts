@@ -100,3 +100,18 @@ export const bookingUrl = publicEnv.BOOKING_URL ?? null
 
 /** Base del espacio profesional. Sin subdominio configurado, vive en el sitio. */
 export const profileBaseUrl = publicEnv.PROFILE_URL ?? publicEnv.SITE_URL
+
+/**
+ * A dónde lleva «ver el perfil completo», según dónde viva el perfil.
+ *
+ * Con subdominio configurado es su raíz —`jmujica.nidra.cloud/es`—, que es la
+ * dirección limpia que el proxy sirve. Sin subdominio es la ruta interna
+ * `/es/cv`.
+ *
+ * Existe porque no es una simple concatenación: en el subdominio el perfil
+ * vive en la raíz y agregarle `/cv` daría una dirección que solo redirige.
+ * Cada página que arme ese enlace a mano se equivoca en uno de los dos casos.
+ */
+export function profileHref(locale: string): string {
+  return publicEnv.PROFILE_URL ? `${publicEnv.PROFILE_URL}/${locale}` : `/${locale}/cv`
+}

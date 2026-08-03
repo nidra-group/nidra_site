@@ -9,7 +9,7 @@ import { getProfile, getYearsOfExperience } from '@/lib/content'
 import { getCvVersion } from '@/lib/cv/version'
 import { listAvailableDownloads } from '@/lib/cv/downloads'
 import { buildMetadata } from '@/lib/seo/metadata'
-import { profileBaseUrl } from '@/lib/env'
+import { profileBaseUrl, publicEnv } from '@/lib/env'
 
 type Props = { params: Promise<{ locale: Locale }> }
 
@@ -37,7 +37,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'cv.meta' })
   return buildMetadata({
     locale,
-    href: '/cv',
+    // Con subdominio configurado, el perfil vive en SU RAÍZ: la dirección
+    // oficial es `jmujica.nidra.cloud/es`, no `.../es/cv`, que solo
+    // redirige. Declarar como canónica una dirección que rebota deja a los
+    // buscadores eligiendo por su cuenta cuál indexar.
+    href: publicEnv.PROFILE_URL ? '/' : '/cv',
     title: t('title'),
     // Los años se calculan del currículum y no se escriben a mano. Antes la
     // descripción decía «más de 14 años» como texto fijo: el 1 de enero se

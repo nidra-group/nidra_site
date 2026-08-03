@@ -9,7 +9,7 @@ import { Link } from '@/i18n/navigation'
 import { routing, type Locale } from '@/i18n/routing'
 import { getServices, getTechnologies, getProfile, getYearsOfExperience } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo/metadata'
-import { bookingUrl } from '@/lib/env'
+import { bookingUrl, profileHref } from '@/lib/env'
 
 type Props = { params: Promise<{ locale: Locale }> }
 
@@ -308,9 +308,14 @@ export default async function HomePage({ params }: Props) {
               </h2>
               <p className="measure mt-6 text-body text-muted">{t('founder.lead', { years })}</p>
               <p className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
-                <Link href="/cv" className="link inline-flex min-h-[2.75rem] items-center text-small font-semibold">
+                {/* Absoluto, no interno: el perfil vive en su propio
+                    subdominio cuando está configurado. Ver profileHref. */}
+                <a
+                  href={profileHref(locale)}
+                  className="link inline-flex min-h-[2.75rem] items-center text-small font-semibold"
+                >
                   {t('founder.ctaProfile')} →
-                </Link>
+                </a>
                 {linkedin && (
                   <a href={linkedin.url} rel="noopener" target="_blank" className="link text-small">
                     {t('founder.ctaLinkedin')} ↗

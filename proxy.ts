@@ -48,13 +48,28 @@ export default function middleware(request: NextRequest): NextResponse {
     }
 
     const rest = pathname.slice(segment.length + 1)
-    if (!rest.startsWith('/cv')) {
+
+    // En el subdominio, `/cv` no es una dirección: es un detalle de cómo está
+    // organizado el código. Toda forma que lo nombre se manda a la dirección
+    // limpia.
+    //
+    // Sin esto, el selector de idioma —que arma sus enlaces desde la ruta ya
+    // reescrita— llevaba de `jmujica.nidra.cloud/es` a
+    // `jmujica.nidra.cloud/en/cv`, y el `/cv` que el subdominio existe para
+    // esconder aparecía en la barra de direcciones al segundo clic.
+    //
+    // Se resuelve acá y no en el selector a propósito: cualquier enlace de
+    // cualquier componente, o alguien que pegue la dirección a mano, termina
+    // en la misma forma. Un solo lugar decide cómo se ve una dirección.
+    if (rest === '/cv' || rest.startsWith('/cv/')) {
       const target = request.nextUrl.clone()
-      target.pathname = `/${segment}/cv${rest}`
-      return NextResponse.rewrite(target)
+      target.pathname = `/${segment}${rest.slice('/cv'.length)}`
+      return NextResponse.redirect(target, 308)
     }
 
-    return NextResponse.next()
+    const target = request.nextUrl.clone()
+    target.pathname = `/${segment}/cv${rest}`
+    return NextResponse.rewrite(target)
   }
 
   return intlMiddleware(request) as NextResponse

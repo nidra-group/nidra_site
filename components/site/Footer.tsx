@@ -1,13 +1,15 @@
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 import { Link } from '@/i18n/navigation'
 import { CONTACT_EMAIL } from '@/lib/contact'
+import { profileHref } from '@/lib/env'
 import { Wordmark } from './Wordmark'
 
 export function Footer() {
   const t = useTranslations('footer')
   const nav = useTranslations('nav')
   const site = useTranslations('site')
+  const locale = useLocale()
   const year = new Date().getFullYear()
 
   return (
@@ -65,9 +67,12 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <Link href="/cv" className="flex min-h-[2.75rem] items-center text-muted hover:text-ink">
+                <a
+                  href={profileHref(locale)}
+                  className="flex min-h-[2.75rem] items-center text-muted hover:text-ink"
+                >
                   {t('founder')}
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
