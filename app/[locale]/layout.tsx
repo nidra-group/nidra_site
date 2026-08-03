@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from 'next'
 import { notFound } from 'next/navigation'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
-import { setRequestLocale } from 'next-intl/server'
+import { getMessages, setRequestLocale } from 'next-intl/server'
 import { Manrope, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 
 import { routing } from '@/i18n/routing'
+import { podarMensajes } from '@/i18n/client-messages'
 
 import '../globals.css'
 
@@ -46,6 +47,7 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
 }
 
+
 export default async function LocaleLayout({
   children,
   params,
@@ -66,7 +68,9 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${sans.variable} ${mono.variable}`}>
       <body>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={podarMensajes(await getMessages())}>
+          {children}
+        </NextIntlClientProvider>
         <Analytics />
       </body>
     </html>
