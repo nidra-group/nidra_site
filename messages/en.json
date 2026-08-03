@@ -323,6 +323,7 @@
           "title": "Where that data lives and who else sees it",
           "body": [
             "Conversations are stored in the United States, in the Oregon region, on Supabase infrastructure. This is an international transfer of personal data: by using the assistant, your data leaves Argentina.",
+            "The assistant runs on a private Nidra server in São Paulo, Brazil. Your messages pass through it before being stored, so they leave the country by that route as well.",
             "OpenAI processes the text of the conversation. It receives the full history with every answer, and again at the end to extract the summary. It is the provider with the broadest access to what you write, and its processing also happens in the United States.",
             "If you click the link to book a call, Cal.com opens with a summary of your enquiry and your email already filled into the address. If you do not click, nothing is transmitted.",
             "No other tool is involved: no analytics, no marketing, no customer management systems."
@@ -332,6 +333,7 @@
           "title": "How long conversations last and how to ask for deletion",
           "body": [
             "Conversations are deleted twelve months after the last message. They are really deleted: not flagged as deleted, not archived.",
+            "The deletion happens on its own, every day, inside the database itself. It does not depend on me remembering to run it, or on a separate process staying alive.",
             "You can ask for deletion sooner and it is immediate. There is a link inside the conversation itself while your visit lasts, and if you left your email you can write to me. In that case I verify the address is yours before deleting anything, so that nobody can delete someone else’s conversation.",
             "After a deletion only a record that it happened remains, with its date. Your email does not remain, nor the conversation identifier, nor anything that would allow reconstructing whose it was.",
             "Questions the assistant could not answer may be kept with no link at all to you or to your conversation, provided their text contains no personal data. If it appears to contain any, they are deleted too."

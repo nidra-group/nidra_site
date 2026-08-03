@@ -323,6 +323,7 @@
           "title": "Dónde están esos datos y quién más los ve",
           "body": [
             "Las conversaciones se guardan en Estados Unidos, en la región de Oregón, sobre la infraestructura de Supabase. Esto es una transferencia internacional de datos personales: al usar el asistente, tus datos salen de Argentina.",
+            "El asistente funciona sobre un servidor propio de Nidra en São Paulo, Brasil. Tus mensajes pasan por ahí antes de guardarse, así que también salen del país por esa vía.",
             "OpenAI procesa el texto de la conversación. Recibe el historial completo en cada respuesta, y otra vez al terminar para extraer el resumen. Es el proveedor con el acceso más amplio a lo que escribís, y su procesamiento también ocurre en Estados Unidos.",
             "Si hacés clic en el enlace para agendar una reunión, se abre Cal.com con un resumen de tu consulta y tu correo ya cargados en la dirección. Si no hacés clic, no se transmite nada.",
             "No hay ninguna otra herramienta involucrada: ni analítica, ni marketing, ni sistemas de gestión de clientes."
@@ -332,6 +333,7 @@
           "title": "Cuánto duran las conversaciones y cómo pedir que se borren",
           "body": [
             "Las conversaciones se borran doce meses después del último mensaje. Se eliminan de verdad: no se marcan como borradas ni quedan archivadas.",
+            "El borrado ocurre solo, todos los días, dentro de la propia base de datos. No depende de que yo me acuerde de ejecutarlo ni de que un proceso aparte siga vivo.",
             "Podés pedir el borrado antes y es inmediato. Hay un enlace dentro de la propia conversación mientras dura tu visita, y si dejaste tu correo podés escribirme. En ese caso verifico que la dirección sea tuya antes de borrar nada, para que nadie pueda borrar la conversación de otra persona.",
             "Después de un borrado solo queda constancia de que ocurrió, con su fecha. No queda tu correo, ni el identificador de la conversación, ni nada que permita reconstruir de quién era.",
             "Las preguntas que el asistente no supo responder pueden quedar guardadas sin ningún vínculo con vos ni con tu conversación, siempre que su texto no contenga datos personales. Si parece contenerlos, se borran también."

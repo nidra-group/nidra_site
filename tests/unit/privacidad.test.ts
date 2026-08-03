@@ -67,6 +67,40 @@ describe('política de privacidad', () => {
     expect(t, 'No dice cuánto se conservan las conversaciones').toMatch(
       locale === 'es' ? /doce meses/i : /twelve months/i,
     )
+    // El asistente corre en un servidor propio fuera de Argentina: los mensajes
+    // pasan por ahí antes de guardarse, y esa es una segunda salida del país.
+    expect(t, 'No declara dónde corre el asistente').toMatch(
+      locale === 'es' ? /São Paulo, Brasil/ : /São Paulo, Brazil/,
+    )
+  })
+
+  it.each(locales)('el plazo de borrado tiene un mecanismo detrás, en %s', (locale) => {
+    const t = texto(privacidad(locale).assistant)
+
+    // Un plazo sin mecanismo es una promesa que nadie cumple. El borrado corre
+    // solo, dentro de la base; decirlo es lo que hace verificable el plazo.
+    expect(t, 'Promete un plazo pero no dice que el borrado sea automático').toMatch(
+      locale === 'es' ? /todos los días, dentro de la propia base/i : /every day, inside the database/i,
+    )
+  })
+
+  it('la región de almacenamiento coincide entre idiomas', () => {
+    // La región de la base todavía puede cambiar. El día que se mueva hay que
+    // tocar los dos idiomas, y el fallo realista es acordarse de uno solo.
+    // Se comparan sin acentos: «Oregón» y «Oregon» son la misma región escrita
+    // en dos idiomas, y esa diferencia no es el error que se busca.
+    const sinTildes = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '')
+
+    const region = (locale: string) =>
+      sinTildes(texto(privacidad(locale).assistant))
+        .match(/Oregon|Sao Paulo|Ireland|Irlanda|Frankfurt/g)
+        ?.sort()
+
+    expect(
+      region('es'),
+      'Las ubicaciones declaradas no coinciden entre español e inglés.\n' +
+        'Si moviste la base de datos, actualizá los dos idiomas.',
+    ).toEqual(region('en'))
   })
 
   it.each(locales)('el estado apagado no promete de más, en %s', (locale) => {
