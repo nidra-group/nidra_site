@@ -47,8 +47,14 @@ public/downloads/*.pdf
 # Configuración local de Claude Code (puede contener credenciales)
 .claude/settings.local.json
 .claude/*.local.json
+
+# Capturas de pantalla: auditorías, recorridos y comparaciones visuales.
+# Son material de trabajo de una sesión, no del sitio. Pesan megabytes cada
+# una y Vercel clona el repositorio en cada despliegue: versionarlas es pagar
+# ese peso en cada build a cambio de nada.
 .shots/
 .shots*/
+.tour/
 
 # Banco de pruebas de paletas: capturas y copia de seguridad temporal del CSS.
 # Las candidatas en candidatas/ SÍ se versionan: son la memoria de qué se probó.
