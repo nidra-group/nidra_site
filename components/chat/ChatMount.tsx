@@ -14,16 +14,31 @@ import { publicEnv } from '@/lib/env'
  *    `position: fixed`, para que el widget no desplace contenido al montarse
  *    (FR-023, SC-007).
  * 3. El script se carga diferido y nunca bloquea el renderizado.
+ *
+ * Vive en el layout de `(site)`, así que NO aparece en el subdominio del
+ * perfil: `jmujica.nidra.cloud` usa el layout de `(profile)`. Eso cumple la
+ * cláusula del contrato sin necesidad de comprobar el host.
  */
-export function ChatMount() {
+export function ChatMount({ locale }: { locale: string }) {
   if (!publicEnv.CHAT_EMBED_URL) {
     return null
   }
 
   return (
     <>
+      {/* `data-locale` sale del enrutado, que es la única fuente de verdad del
+          idioma: el widget MUST iniciar la conversación en este idioma.
+
+          El contrato también preveía `data-page` y `data-service`. No se
+          emiten, y es deliberado: este componente vive en el layout, que no
+          sabe qué página está debajo. Emitirlos desde acá exigiría propagarlos
+          por cada página y quedarían desincronizados en el primer olvido,
+          mientras que el widget puede leer `location.pathname` —las rutas son
+          estables y están declaradas en i18n/routing.ts— y obtener lo mismo
+          sin que nadie lo mantenga. */}
       <div
         id="nidra-chat-root"
+        data-locale={locale}
         aria-live="polite"
         className="pointer-events-none fixed bottom-5 right-5 z-[9000] h-16 w-16"
       />
