@@ -64,6 +64,11 @@ export function buildStructuredData(): [organizacion: Entidad, sitio: Entidad] {
       { '@type': 'Place', name: 'América Latina' },
     ],
     knowsLanguage: ['es', 'en'],
+    // Con mes, que es más de lo que admite el campo equivalente de LinkedIn
+    // —ahí es solo año, y dice 2025—. Las dos fichas tienen que coincidir: una
+    // antigüedad distinta en cada lado es una señal de que no son la misma
+    // empresa, justo lo contrario de lo que busca `sameAs`.
+    foundingDate: '2025-08',
     /**
      * La página de empresa en LinkedIn, que apunta de vuelta a este dominio.
      *

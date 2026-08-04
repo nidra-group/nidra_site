@@ -143,6 +143,12 @@ describe('datos estructurados', () => {
     }
   })
 
+  it('la fundación coincide con el año declarado en LinkedIn', () => {
+    // LinkedIn admite solo año y dice 2025. Si acá se pone otro, las dos fichas
+    // se contradicen y el buscador tiene un motivo para no unirlas.
+    expect(organizacion.foundingDate).toMatch(/^2025(-\d{2})?$/)
+  })
+
   it('declara los dos idiomas del sitio', () => {
     expect(organizacion.knowsLanguage).toEqual([...locales])
     expect(sitio.inLanguage).toEqual([...locales])
