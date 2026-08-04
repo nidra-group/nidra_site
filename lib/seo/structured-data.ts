@@ -64,6 +64,17 @@ export function buildStructuredData(): [organizacion: Entidad, sitio: Entidad] {
       { '@type': 'Place', name: 'América Latina' },
     ],
     knowsLanguage: ['es', 'en'],
+    /**
+     * La página de empresa en LinkedIn, que apunta de vuelta a este dominio.
+     *
+     * Ese ida y vuelta es lo que le permite al buscador afirmar que las dos
+     * son la misma entidad, y no dos empresas parecidas. Importa más de lo
+     * habitual acá: «Nidra» convive en LinkedIn con una consultora india, una
+     * textil, una de packaging y una naviera croata.
+     *
+     * Es además, hoy, el único enlace entrante al dominio.
+     */
+    sameAs: ['https://www.linkedin.com/company/nidracloud'],
     founder: {
       '@type': 'Person',
       name: profile.person.name,

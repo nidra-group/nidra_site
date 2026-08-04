@@ -93,6 +93,20 @@ describe('datos estructurados', () => {
     expect(organizacion.logo).toBe('https://nidra.cloud/apple-icon')
   })
 
+  /**
+   * El `sameAs` de la EMPRESA no es el mismo que el del fundador.
+   *
+   * Uno dice «esta empresa es la de linkedin.com/company/nidracloud»; el otro,
+   * «la fundó esta persona». Confundirlos fusiona las dos entidades, que es
+   * justo lo que el subdominio del perfil existe para evitar.
+   */
+  it('la empresa enlaza a SU página de LinkedIn, no a la del fundador', () => {
+    const empresa = organizacion.sameAs as string[]
+
+    expect(empresa).toContain('https://www.linkedin.com/company/nidracloud')
+    expect(empresa.some((u) => u.includes('/in/'))).toBe(false)
+  })
+
   it('el fundador enlaza a LinkedIn, la única presencia con antigüedad', () => {
     const fundador = organizacion.founder as { sameAs?: string[] }
 
