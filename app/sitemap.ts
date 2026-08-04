@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next'
 
 import { getPathname } from '@/i18n/navigation'
 import { locales, type Locale } from '@/i18n/routing'
+import { CONTENT_UPDATED } from '@/lib/seo/content-date'
 import { publicEnv } from '@/lib/env'
 
 const SITE_ROUTES = [
@@ -27,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const locale of locales) {
       entries.push({
         url: `${publicEnv.SITE_URL}${getPathname({ href, locale })}`,
-        lastModified: new Date(),
+        lastModified: CONTENT_UPDATED,
         changeFrequency: 'monthly',
         priority: href === '/' ? 1 : 0.8,
         alternates: {
