@@ -1,3 +1,6 @@
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
+
 import { describe, expect, it } from 'vitest'
 
 import sitemap from '@/app/sitemap'
@@ -102,6 +105,28 @@ describe('datos estructurados', () => {
     const fundador = organizacion.founder as { url: string }
 
     expect(fundador.url).not.toBe('https://nidra.cloud')
+  })
+
+  /**
+   * La ficha no puede prometer una zona que la web no ofrece, ni callarse una
+   * que sí. Nació al revés: se declaró solo Argentina mientras la portada decía
+   * «Argentina y América Latina», y eso deja fuera de alcance búsquedas que sí
+   * se pueden tomar.
+   *
+   * Se comprueba contra el texto publicado y no contra una lista fija, para que
+   * cambiar la portada sin tocar la ficha rompa acá y no en silencio.
+   */
+  it('la zona de servicio coincide con lo que dice la portada', () => {
+    const home = JSON.parse(
+      readFileSync(join(process.cwd(), 'messages/es.json'), 'utf8'),
+    ).home.credibility.locationDetail as string
+
+    const zonas = (organizacion.areaServed as { name: string }[]).map((z) => z.name)
+
+    expect(zonas).toContain('Argentina')
+    for (const zona of zonas) {
+      expect(home, `la portada no menciona «${zona}»`).toContain(zona)
+    }
   })
 
   it('declara los dos idiomas del sitio', () => {

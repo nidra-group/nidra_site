@@ -50,11 +50,19 @@ export function buildStructuredData(): [organizacion: Entidad, sitio: Entidad] {
       addressLocality: 'Buenos Aires',
       addressCountry: 'AR',
     },
-    // Sale de `content/cv/profile.yaml`, que declara «Buenos Aires, Argentina ·
-    // Remoto». Si mañana se atiende fuera del país, esto hay que ampliarlo: una
-    // zona declarada de más es peor que ninguna, porque atrae consultas que no
-    // se pueden tomar.
-    areaServed: { '@type': 'Country', name: 'Argentina' },
+    // Son dos y no una a propósito. Argentina va explícita porque es la que
+    // acompaña a la dirección de Buenos Aires y sostiene la señal local, que es
+    // la más fuerte de las dos. América Latina va además porque la portada
+    // declara «trabajo a distancia con empresas de Argentina y América Latina»:
+    // dejarla afuera dejaba fuera de alcance búsquedas que sí se pueden tomar.
+    //
+    // Si esto cambia, tiene que cambiar también el texto de la portada
+    // (`home.credibility.locationDetail` en `messages/`). La ficha no puede
+    // prometer una zona que la web no ofrece.
+    areaServed: [
+      { '@type': 'Country', name: 'Argentina' },
+      { '@type': 'Place', name: 'América Latina' },
+    ],
     knowsLanguage: ['es', 'en'],
     founder: {
       '@type': 'Person',
