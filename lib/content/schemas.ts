@@ -55,6 +55,16 @@ export type Service = z.infer<typeof Service>
 const Integration = z.object({
   name: z.string().trim().min(1),
   proven: z.boolean(),
+  /**
+   * Identificador del logotipo en Simple Icons, opcional igual que en
+   * `Technology`. Sin él la herramienta se muestra solo con su nombre.
+   *
+   * Acá la ausencia es la norma y no la excepción: casi ninguna plataforma
+   * argentina —Tiendanube, ARCA, Tango, Andreani, Fudo— está en el paquete.
+   * Dibujar esas marcas a mano sería reproducir un logotipo registrado sin
+   * licencia, que es lo mismo que se evita con OpenAI y AWS.
+   */
+  icon: z.string().trim().min(1).optional(),
 })
 
 const IntegrationCategory = z.object({

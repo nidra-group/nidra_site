@@ -18,8 +18,22 @@ const leer = (ruta: string) => readFileSync(join(process.cwd(), ruta), 'utf8')
  */
 describe('lámina de logotipos', () => {
   const lamina = leer('public/logos/tech.svg')
-  const yaml = parse(leer('content/technologies.yaml')) as { name: string; icon?: string }[]
-  const pedidos = [...new Set(yaml.map((t) => t.icon).filter(Boolean))] as string[]
+
+  // Las dos listas alimentan la MISMA lámina: la portada declara con qué se
+  // construye y el catálogo con qué se conecta, pero hay marcas en ambas
+  // —n8n, Supabase, Docker— y separarlas mandaría el mismo trazado dos veces.
+  const tecnologias = parse(leer('content/technologies.yaml')) as { icon?: string }[]
+  const integraciones = parse(leer('content/integrations.yaml')) as {
+    categories: { items: { icon?: string }[] }[]
+  }
+
+  const pedidos = [
+    ...new Set(
+      [...tecnologias, ...integraciones.categories.flatMap((c) => c.items)]
+        .map((entrada) => entrada.icon)
+        .filter(Boolean),
+    ),
+  ] as string[]
 
   it('tiene un símbolo por cada logotipo que nombra el contenido', () => {
     const faltan = pedidos.filter((id) => !lamina.includes(`id="${id}"`))
@@ -49,14 +63,14 @@ describe('lámina de logotipos', () => {
  * lo natural al escribir el componente.
  */
 describe('la grilla referencia, no dibuja', () => {
-  it('TechGrid no contiene ningún trazado', () => {
-    const fuente = leer('components/site/TechGrid.tsx')
-
-    expect(
-      /<path\s/.test(fuente),
-      'TechGrid volvió a dibujar trazados en línea.\n' +
-        'Referencialos con <use href={`${TECH_SPRITE}#${id}`} />.',
-    ).toBe(false)
+  it('ningún componente contiene trazados', () => {
+    for (const ruta of ['components/site/TechGrid.tsx', 'components/site/TechLogo.tsx']) {
+      expect(
+        /<path\s/.test(leer(ruta)),
+        `${ruta} volvió a dibujar trazados en línea.\n` +
+          'Referencialos con <use href={`${TECH_SPRITE}#${id}`} />.',
+      ).toBe(false)
+    }
   })
 
   it('tech-icons.ts no vuelve a cargar con los trazados', () => {

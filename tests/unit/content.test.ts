@@ -71,6 +71,47 @@ describe('integraciones y tecnologías', () => {
     }
   })
 
+  it('cada categoría tiene su identificador y su orden', () => {
+    // El catálogo pasó de once categorías a dieciocho y se edita a mano. Un
+    // `order` repetido no rompe nada visible: reordena la página en silencio.
+    const categories = getIntegrations()
+    const ids = categories.map((c) => c.id)
+    const orders = categories.map((c) => c.order)
+
+    expect(new Set(ids).size, `ids repetidos: ${ids.join(', ')}`).toBe(ids.length)
+    expect(new Set(orders).size, `orders repetidos: ${orders.join(', ')}`).toBe(orders.length)
+  })
+
+  /**
+   * Las dos listas responden preguntas distintas y no se pueden cruzar.
+   *
+   * La portada dice «trabajo sobre estas plataformas»: es una afirmación de
+   * experiencia. El catálogo dice con qué se puede CONECTAR, y aclara que la
+   * lista es representativa. Mover un sistema de negocio del cliente a la
+   * grilla de tecnologías no agrega una fila: vuelve falsa una frase que ya
+   * está publicada.
+   */
+  it('los sistemas del cliente no se cuelan en la grilla de «con qué construyo»', () => {
+    const construyeCon = getTechnologies().map((t) => t.name)
+
+    const delCliente = [
+      'Tiendanube',
+      'Mercado Pago',
+      'ARCA (ex AFIP)',
+      'Tango Gestión',
+      'Andreani',
+      'Fudo',
+      'Kommo',
+    ]
+
+    for (const sistema of delCliente) {
+      expect(
+        construyeCon,
+        `«${sistema}» es un sistema del cliente: va en integrations.yaml.`,
+      ).not.toContain(sistema)
+    }
+  })
+
   it('el esquema rechaza declarar una alianza comercial inexistente', () => {
     // FR-028: el enum no contiene `partner`. Declararla exige cambiar código,
     // no solo contenido.

@@ -7,6 +7,35 @@
 # sin lugar donde escribir una afirmación sobre el dominio de una plataforma,
 # no se puede exagerar por descuido. La diferencia entre probada y no probada
 # se expresa solo en el orden.
+#
+# ── QUÉ VA ACÁ Y QUÉ VA EN technologies.yaml ─────────────────────────────────
+# Son dos listas que responden preguntas distintas y no conviene mezclarlas:
+#
+#   technologies.yaml  → «con qué construyo». Es una afirmación de experiencia:
+#                        la portada dice «trabajo sobre estas plataformas».
+#   este archivo       → «con qué me puedo conectar». La página aclara que la
+#                        lista es representativa y no completa.
+#
+# Los sistemas de negocio del cliente —Tiendanube, ARCA, Tango, Andreani— van
+# acá y no allá. Nombrarlos en la portada volvería falsa una frase que ya está
+# publicada.
+#
+# ── SOBRE `icon` ─────────────────────────────────────────────────────────────
+# Identificador del logotipo en Simple Icons, opcional. Sin él la herramienta
+# se muestra solo con su nombre, que es lo que pasa con casi todas las
+# argentinas: Tiendanube, ARCA, Tango, Xubio, Andreani, Fudo y las demás no
+# están en el paquete. Dibujarlas a mano sería reproducir marcas registradas
+# sin licencia, que es justo lo que acá se evita.
+#
+# OpenAI, AWS y Slack tampoco tienen: las tres pidieron ser retiradas.
+#
+# Y hay un tercer motivo para no poner `icon` aunque exista: WooCommerce,
+# Cal.com, Odoo y Zoho tienen marca DENOMINATIVA —el nombre escrito, no un
+# símbolo—. Dentro del recuadro de 18 px quedan de tres o cuatro píxeles de
+# alto: una mancha al lado del nombre, que se lee peor que el nombre solo.
+# Antes de agregar un `icon`, mirá si la marca es un símbolo.
+#
+# Después de tocar este archivo:  pnpm build:icons
 
 categories:
   - id: ai-models
@@ -16,53 +45,61 @@ categories:
       en: AI models and platforms
     items:
       - { name: OpenAI, proven: true }
-      - { name: Anthropic, proven: false }
-      - { name: Google Gemini, proven: false }
+      - { name: Anthropic, proven: false, icon: anthropic }
+      - { name: Google Gemini, proven: false, icon: googlegemini }
       - { name: Azure OpenAI, proven: false }
 
-  - id: data-vectors
+  - id: ecommerce
     order: 2
     name:
-      es: Bases de datos y vectores
-      en: Databases and vector stores
+      es: Comercio electrónico
+      en: E-commerce
     items:
-      - { name: PostgreSQL, proven: true }
-      - { name: Supabase, proven: true }
-      - { name: pgvector, proven: true }
-      - { name: Qdrant, proven: true }
-      - { name: MongoDB, proven: true }
+      - { name: Tiendanube, proven: false }
+      - { name: Mercado Shops, proven: false }
+      - { name: WooCommerce, proven: false }
+      - { name: Shopify, proven: false, icon: shopify }
+      - { name: Jumpseller, proven: false }
+      - { name: Empretienda, proven: false }
 
-  - id: automation
+  - id: payments
     order: 3
     name:
-      es: Automatización y orquestación
-      en: Automation and orchestration
+      es: Pagos y cobros
+      en: Payments and collections
     items:
-      - { name: n8n, proven: true }
-      - { name: Make, proven: false }
-      - { name: Zapier, proven: false }
+      - { name: Mercado Pago, proven: false, icon: mercadopago }
+      - { name: Ualá Bis, proven: false }
+      - { name: MODO, proven: false }
+      - { name: Getnet, proven: false }
+      - { name: Payway, proven: false }
+      - { name: dLocal, proven: false }
+      - { name: Stripe, proven: false, icon: stripe }
+      - { name: Increase, proven: false }
 
-  - id: messaging
+  - id: billing
     order: 4
     name:
-      es: Mensajería y eventos
-      en: Messaging and events
+      es: Facturación y contabilidad
+      en: Invoicing and accounting
     items:
-      - { name: Apache Kafka, proven: true }
-      - { name: RabbitMQ, proven: true }
+      - { name: ARCA (ex AFIP), proven: false }
+      - { name: Xubio, proven: false }
+      - { name: Colppy, proven: false }
+      - { name: Contabilium, proven: false }
+      - { name: Alegra, proven: false }
+      - { name: TusFacturasAPP, proven: false }
+      - { name: Facturante, proven: false }
 
-  - id: communication
+  - id: erp
     order: 5
     name:
-      es: Comunicación y colaboración
-      en: Communication and collaboration
+      es: Gestión y ERP
+      en: Business management and ERP
     items:
-      - { name: Gmail, proven: true }
-      - { name: Google Workspace, proven: true }
-      - { name: Slack, proven: false }
-      - { name: Microsoft Teams, proven: false }
-      - { name: WhatsApp Business, proven: false }
-      - { name: Telegram, proven: false }
+      - { name: Tango Gestión, proven: false }
+      - { name: Bejerman, proven: false }
+      - { name: Odoo, proven: false }
 
   - id: crm
     order: 6
@@ -70,61 +107,139 @@ categories:
       es: CRM y ventas
       en: CRM and sales
     items:
-      - { name: HubSpot, proven: false }
+      - { name: Kommo, proven: false }
+      - { name: HubSpot, proven: false, icon: hubspot }
       - { name: Salesforce, proven: false }
       - { name: Pipedrive, proven: false }
+      - { name: Bitrix24, proven: false }
       - { name: Zoho, proven: false }
 
-  - id: marketing
+  - id: channels
     order: 7
     name:
-      es: Marketing y publicidad
-      en: Marketing and advertising
+      es: Canales de mensajería
+      en: Messaging channels
     items:
-      - { name: Google Ads, proven: true }
-      - { name: Meta Ads, proven: false }
-      - { name: Mailchimp, proven: false }
+      - { name: WhatsApp Business API, proven: false, icon: whatsapp }
+      - { name: Telegram, proven: false, icon: telegram }
+      - { name: Instagram Direct, proven: false, icon: instagram }
+      - { name: Chatwoot, proven: false, icon: chatwoot }
+      - { name: Twilio, proven: false }
+      - { name: 360dialog, proven: false }
 
-  - id: commerce
+  - id: shipping
     order: 8
     name:
-      es: Comercio y pagos
-      en: Commerce and payments
+      es: Envíos y logística
+      en: Shipping and logistics
     items:
-      - { name: Mercado Pago, proven: false }
-      - { name: Shopify, proven: false }
-      - { name: WooCommerce, proven: false }
-      - { name: Stripe, proven: false }
+      - { name: Andreani, proven: false }
+      - { name: OCA, proven: false }
+      - { name: Correo Argentino, proven: false }
+      - { name: Envíopack, proven: false }
+      - { name: Zippin, proven: false }
+      - { name: Mercado Envíos, proven: false }
+
+  - id: scheduling
+    order: 9
+    name:
+      es: Turnos y agenda
+      en: Booking and scheduling
+    items:
+      - { name: AgendaPro, proven: false }
+      - { name: Calendly, proven: false, icon: calendly }
+      - { name: Cal.com, proven: false }
+
+  - id: vertical
+    order: 10
+    name:
+      es: Sistemas por rubro
+      en: Industry-specific systems
+    items:
+      - { name: Fudo, proven: false }
+      - { name: Bistrosoft, proven: false }
 
   - id: productivity
-    order: 9
+    order: 11
     name:
       es: Gestión y productividad
       en: Management and productivity
     items:
-      - { name: Google Sheets, proven: true }
-      - { name: Notion, proven: false }
-      - { name: Airtable, proven: false }
-      - { name: Jira, proven: false }
-      - { name: Trello, proven: false }
+      - { name: Google Sheets, proven: true, icon: googlesheets }
+      - { name: Notion, proven: false, icon: notion }
+      - { name: Airtable, proven: false, icon: airtable }
+      - { name: Jira, proven: false, icon: jira }
+      - { name: Trello, proven: false, icon: trello }
+
+  - id: communication
+    order: 12
+    name:
+      es: Comunicación y colaboración
+      en: Communication and collaboration
+    items:
+      - { name: Gmail, proven: true, icon: gmail }
+      - { name: Google Workspace, proven: true }
+      - { name: Slack, proven: false }
+      - { name: Microsoft Teams, proven: false }
+
+  - id: storage
+    order: 13
+    name:
+      es: Documentos y almacenamiento
+      en: Documents and storage
+    items:
+      - { name: Google Drive, proven: true, icon: googledrive }
+      - { name: Microsoft 365, proven: false }
+      - { name: Dropbox, proven: false, icon: dropbox }
+
+  - id: marketing
+    order: 14
+    name:
+      es: Marketing y publicidad
+      en: Marketing and advertising
+    items:
+      - { name: Google Ads, proven: true, icon: googleads }
+      - { name: Meta Ads, proven: false, icon: meta }
+      - { name: Mailchimp, proven: false, icon: mailchimp }
+
+  - id: automation
+    order: 15
+    name:
+      es: Automatización y orquestación
+      en: Automation and orchestration
+    items:
+      - { name: n8n, proven: true, icon: n8n }
+      - { name: Make, proven: false, icon: make }
+      - { name: Zapier, proven: false, icon: zapier }
+
+  - id: data-vectors
+    order: 16
+    name:
+      es: Bases de datos y vectores
+      en: Databases and vector stores
+    items:
+      - { name: PostgreSQL, proven: true, icon: postgresql }
+      - { name: Supabase, proven: true, icon: supabase }
+      - { name: pgvector, proven: true }
+      - { name: Qdrant, proven: true, icon: qdrant }
+      - { name: MongoDB, proven: true, icon: mongodb }
+
+  - id: messaging
+    order: 17
+    name:
+      es: Colas y eventos
+      en: Queues and events
+    items:
+      - { name: Apache Kafka, proven: true, icon: apachekafka }
+      - { name: RabbitMQ, proven: true, icon: rabbitmq }
 
   - id: cloud
-    order: 10
+    order: 18
     name:
       es: Nube e infraestructura
       en: Cloud and infrastructure
     items:
       - { name: AWS, proven: true }
-      - { name: Docker, proven: true }
-      - { name: Vercel, proven: false }
-      - { name: Cloudflare, proven: false }
-
-  - id: storage
-    order: 11
-    name:
-      es: Documentos y almacenamiento
-      en: Documents and storage
-    items:
-      - { name: Google Drive, proven: true }
-      - { name: Microsoft 365, proven: false }
-      - { name: Dropbox, proven: false }
+      - { name: Docker, proven: true, icon: docker }
+      - { name: Vercel, proven: false, icon: vercel }
+      - { name: Cloudflare, proven: false, icon: cloudflare }

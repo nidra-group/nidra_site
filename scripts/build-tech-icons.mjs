@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * Extrae de Simple Icons los trazados de los logotipos que nombra
- * `content/technologies.yaml` y los escribe en `lib/content/tech-icons.ts`.
+ * Extrae de Simple Icons los trazados de los logotipos que nombran
+ * `content/technologies.yaml` y `content/integrations.yaml`, y los escribe en
+ * `lib/content/tech-icons.ts`.
  *
  * Se genera en tiempo de construcción y no en tiempo de ejecución por dos
  * razones. Primero, el paquete completo pesa varios megabytes y sólo se usan
@@ -21,14 +22,22 @@ import { parse } from 'yaml'
 import * as simpleIcons from 'simple-icons'
 
 const RAIZ = process.cwd()
-const ORIGEN = join(RAIZ, 'content/technologies.yaml')
 const DESTINO = join(RAIZ, 'lib/content/tech-icons.ts')
 const LAMINA = join(RAIZ, 'public/logos/tech.svg')
 
 mkdirSync(join(RAIZ, 'public/logos'), { recursive: true })
 
-const tecnologias = parse(readFileSync(ORIGEN, 'utf8'))
-const identificadores = [...new Set(tecnologias.map((t) => t.icon).filter(Boolean))].sort()
+const leer = (ruta) => parse(readFileSync(join(RAIZ, ruta), 'utf8'))
+
+// Las dos listas comparten una sola lámina a propósito: hay marcas en ambas
+// —n8n, Supabase, Docker— y duplicar los trazados en dos archivos obligaría al
+// navegador a descargar dos veces lo mismo.
+const nombrados = [
+  ...leer('content/technologies.yaml'),
+  ...leer('content/integrations.yaml').categories.flatMap((c) => c.items),
+].map((entrada) => entrada.icon)
+
+const identificadores = [...new Set(nombrados.filter(Boolean))].sort()
 
 const porSlug = new Map()
 for (const icono of Object.values(simpleIcons)) {
@@ -38,7 +47,7 @@ for (const icono of Object.values(simpleIcons)) {
 const faltantes = identificadores.filter((id) => !porSlug.has(id))
 if (faltantes.length > 0) {
   console.error(`No existen en Simple Icons: ${faltantes.join(', ')}`)
-  console.error('Corregí el campo `icon` en content/technologies.yaml o quitalo.')
+  console.error('Corregí el campo `icon` en el YAML que lo nombra, o quitalo.')
   process.exit(1)
 }
 
