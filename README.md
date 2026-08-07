@@ -162,22 +162,40 @@ refuerzan en vez de competir:
 |---|---|---|
 | La palabra completa | Web, membrete, pie de correo | [`components/site/Wordmark.tsx`](components/site/Wordmark.tsx) |
 | La ene sola | Pestaña del navegador, icono de aplicación | [`app/icon.svg`](app/icon.svg) |
+| Redes | Foto de perfil y portada, en SVG y PNG | [`public/brand/redes/`](public/brand/redes/) |
 
-Fuera de la web, en [`public/brand/`](public/brand/): `nidra-logo.svg` es el principal y **solo va
-sobre fondo oscuro**; `nidra-logo-light.svg` es para membrete, factura e impresión;
-`nidra-logo-mono.svg` para sello, bordado o una sola tinta. `nidra-symbol.svg` y su versión mono son
-la ene aislada.
+**Hay una sola copia de los trazados y está en
+[`lib/brand/paths.ts`](lib/brand/paths.ts).** Todo lo demás se genera desde ahí:
 
-**Los trazados están escritos en el componente, no cargados desde `public/`.** Son dos caminos y
-pesan menos que la petición HTTP que costaría traerlos, y los colores salen de los tokens de la
-paleta, así que un cambio en `globals.css` arrastra la marca sin reexportar nada. El archivo de
-`public/brand/` sigue siendo la fuente para todo lo que vive fuera del sitio: si se retoca el
-trazado, hay que copiarlo a los dos lados.
+```bash
+pnpm build:brand
+```
+
+Nació al revés —el trazado pegado dentro del componente y copiado a mano en otros siete archivos— y
+retocar la forma obligaba a acordarse de los siete lugares. Ahora el componente lo importa, el
+script lo lee, y `tests/unit/brand.test.ts` falla si algún archivo generado quedó con la versión
+vieja. Los archivos generados llevan la nota en el encabezado; **no se editan a mano**.
+
+Fuera de la web, en [`public/brand/`](public/brand/): `nidra-logo-glow.svg` es el principal, con
+degradado metálico y halo, y **solo va sobre fondo oscuro**; `nidra-logo-glow-placa.svg` trae su
+propia placa índigo para cuando el fondo lo pone otro. Las versiones planas siguen siendo las que
+aguantan donde el degradado no existe: `nidra-logo-light.svg` para membrete, factura e impresión, y
+`nidra-logo-mono.svg` para sello, bordado o una sola tinta.
+
+**El degradado es la cara de la marca, no su estructura.** La forma tiene que aguantar en negro
+sobre blanco, sin degradado ni halo; si no aguanta, el color la estaba sosteniendo. Por eso el
+favicon, el mono y la impresión son planos, y no es una limitación de la versión premium sino la
+prueba de que la marca está bien resuelta. La parada más oscura del oro da 5.94:1 sobre el índigo,
+por encima del 4.5:1 que exige la paleta — hay una prueba que lo verifica.
 
 El favicon es **otro corte**, no una reducción del mismo archivo. A 16 píxeles la palabra entera se
-vuelve una mancha, así que ahí va la ene sola con el arranque del horizonte, cortado contra el borde
-a propósito para sugerir que sigue. Sus colores están escritos a mano porque un favicon no lee el
-CSS del sitio: **al cambiar la paleta hay que actualizarlos también ahí**.
+vuelve una mancha, así que ahí va la ene sola. Sus colores están escritos porque un favicon no lee
+el CSS del sitio: **al cambiar la paleta hay que correr `pnpm build:brand`**.
+
+**La ene sola no lleva el horizonte.** No es un recorte del lienzo: la barra vive dentro del mismo
+subtrazado que el pie derecho de la letra, así que se reescribe el subtrazado para que cierre donde
+termina la ene. La versión anterior la dibujaba y la tapaba con el borde, y asomaba un muñón — se
+veía sobre todo en la foto de perfil recortada en círculo.
 
 ### Los logotipos de tecnologías
 

@@ -19,9 +19,23 @@ export const contentType = 'image/png'
  * `app/globals.css`, actualizar también estos valores: `next/og` no lee CSS.
  */
 export default function OpengraphImage() {
-  // Lee el logotipo real desde `public/brand/` en vez de redibujarlo: si el
-  // trazado cambia, esta imagen cambia con él.
-  const logo = readFileSync(join(process.cwd(), 'public/brand/nidra-logo.svg'), 'utf8')
+  /**
+   * El logotipo real, leído de `public/brand/`: si el trazado cambia, esta
+   * imagen cambia con él.
+   *
+   * Va la versión premium y no la plana porque este es el único lugar del
+   * sistema donde la marca se ve grande de verdad —280 px de ancho sobre 1200—
+   * y a ese tamaño el degradado metálico se lee. En la cabecera, a 30 px de
+   * alto, apenas se insinúa.
+   *
+   * El halo, en cambio, NO se ve acá y no hay nada que arreglar: a 280 px el
+   * desenfoque mide 1,4 px al 40 % de opacidad, o sea por debajo de lo que el
+   * ojo separa del fondo. Se probó hornearlo en un PNG con Chromium y los
+   * píxeles del borde salieron iguales, así que el PNG era un archivo generado
+   * de más para un efecto invisible. El halo existe para la marca grande:
+   * presentación, portada, foto de perfil.
+   */
+  const logo = readFileSync(join(process.cwd(), 'public/brand/nidra-logo-glow.svg'), 'utf8')
   const logoUri = `data:image/svg+xml;base64,${Buffer.from(logo).toString('base64')}`
 
   return new ImageResponse(
@@ -38,8 +52,9 @@ export default function OpengraphImage() {
           fontFamily: 'system-ui, sans-serif',
         }}
       >
-        {/* El logotipo real, no una reconstrucción. */}
-        <img src={logoUri} width={268} height={80} alt="" />
+        {/* El logotipo real, no una reconstrucción. 280 × 93 es la proporción
+            del lienzo con halo —1580 × 526—, no la del trazado a secas. */}
+        <img src={logoUri} width={280} height={93} alt="" />
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           {/* Mismo titular que el héroe. Si el relato de la portada cambia y

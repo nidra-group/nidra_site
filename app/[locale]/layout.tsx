@@ -7,6 +7,7 @@ import { Analytics } from '@vercel/analytics/next'
 
 import { routing } from '@/i18n/routing'
 import { podarMensajes } from '@/i18n/client-messages'
+import { BrandDefs } from '@/components/site/BrandDefs'
 
 import '../globals.css'
 
@@ -68,6 +69,10 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${sans.variable} ${mono.variable}`}>
       <body>
+        {/* El degradado y el halo de la marca. Van acá, y no dentro del
+            logotipo, porque el logotipo aparece dos o tres veces por página y
+            repetir los `id` es HTML inválido. */}
+        <BrandDefs />
         <NextIntlClientProvider messages={podarMensajes(await getMessages())}>
           {children}
         </NextIntlClientProvider>

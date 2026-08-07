@@ -1,16 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- La n de Nidra: el sol naciente del que nace el horizonte.
+  <!-- GENERADO POR scripts/build-brand.mjs — NO EDITAR A MANO.
 
-       Es el escalón más chico del sistema de marca. El logotipo completo no
-       entra en 16 píxeles —«idra» se vuelve una mancha—, así que acá va la
-       letra sola con el arranque del horizonte, que se corta contra el borde
-       a propósito: sugiere que sigue.
+     La n es el sol naciente y de su pie nace el horizonte, que corre hacia la
+     derecha mientras «idra» se apoya encima. Una banda horizontal de 31
+     unidades atraviesa el logotipo ENTERO a la altura y = 192..223: no es una
+     ranura en una letra, es un plano que cruza todo.
 
-       Los colores están escritos a mano porque un favicon no lee el CSS del
-       sitio. Al cambiar la paleta en `app/globals.css` hay que actualizarlos
-       acá también. -->
+     El trazado vive en lib/brand/paths.ts. Para regenerar:  pnpm build:brand -->
   <rect width="64" height="64" rx="14" fill="#0a1322"/>
-  <g transform="translate(9.5 12) scale(0.0975)">
-    <path d="M184.168 223C183.762 227.66 183.558 232.464 183.558 237.411V446H28.8232V223H184.168ZM539.296 345.498H1499.33V446H384.562V226.034C384.562 225.015 384.554 224.004 384.537 223H539.296V345.498ZM342.844 0C384.308 2.45877e-05 419.705 8.34324 449.034 25.0303C478.363 41.7173 500.612 65.2312 515.782 95.5713C530.019 123.126 537.79 155.269 539.097 192H380.843C376.89 175.701 369.787 162.268 359.53 151.7C343.349 134.508 319.836 125.911 288.99 125.911C267.752 125.911 249.042 130.462 232.86 139.564C217.185 148.666 205.048 161.561 196.452 178.248C194.198 182.623 192.243 187.208 190.58 192H28.8232V162.319L0 12.8945H155.493L170.184 103.423C171.57 101.018 172.994 98.654 174.456 96.3301C194.177 64.4729 218.449 40.4539 247.272 24.2725C276.096 8.09112 307.953 0 342.844 0Z" fill="#edc27c"/>
+  <g transform="translate(7.8161434977578494 12) scale(0.089686)">
+    <path fill="#edc27c" d="M184.168 223C183.762 227.66 183.558 232.464 183.558 237.411V446H28.8232V223H184.168ZM539.296 223V446H384.562V226.034C384.562 225.015 384.554 224.004 384.537 223H539.296ZM342.844 0C384.308 2.45877e-05 419.705 8.34324 449.034 25.0303C478.363 41.7173 500.612 65.2312 515.782 95.5713C530.019 123.126 537.79 155.269 539.097 192H380.843C376.89 175.701 369.787 162.268 359.53 151.7C343.349 134.508 319.836 125.911 288.99 125.911C267.752 125.911 249.042 130.462 232.86 139.564C217.185 148.666 205.048 161.561 196.452 178.248C194.198 182.623 192.243 187.208 190.58 192H28.8232V162.319L0 12.8945H155.493L170.184 103.423C171.57 101.018 172.994 98.654 174.456 96.3301C194.177 64.4729 218.449 40.4539 247.272 24.2725C276.096 8.09112 307.953 0 342.844 0Z"/>
   </g>
 </svg>

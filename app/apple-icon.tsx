@@ -29,7 +29,11 @@ export default function AppleIcon() {
           backgroundColor: '#0a1322',
         }}
       >
-        <img src={dataUri} width={122} height={96} alt="" />
+        {/* 146 × 124 conserva la proporción del símbolo —619.3 × 526, aire del
+            lienzo incluido— y deja la letra ocupando el 70 % del icono. Con la
+            barra del horizonte el símbolo era más ancho y estos números eran
+            otros: si vuelven a no cuadrar, mirá `CAJA_SIMBOLO`. */}
+        <img src={dataUri} width={146} height={124} alt="" />
       </div>
     ),
     size,
