@@ -57,6 +57,62 @@ describe('servicios', () => {
   })
 })
 
+/**
+ * Los plazos se prometen en TRES lugares y ninguno se entera de los otros: el
+ * campo `timeline` de la ficha, el resumen de la misma tarjeta y la etapa
+ * «Diagnóstico» de la portada.
+ *
+ * Ya se contradijeron una vez. El diagnóstico bajó a días y quedaron colgadas
+ * dos frases —«Dos semanas para saber qué conviene…» en la propia tarjeta y
+ * «Dos o tres semanas mirando cómo trabaja tu empresa» en la portada— diciendo
+ * un plazo que la ficha de al lado ya desmentía.
+ *
+ * Un visitante que ve dos plazos distintos para lo mismo no concluye que hay
+ * un texto viejo: concluye que el plazo no es en serio.
+ */
+describe('coherencia de los plazos', () => {
+  const diagnostico = getServices().find((s) => s.id === 'ai-roadmap')!
+
+  const UNIDAD_MAYOR = /semanas?|mes(es)?\b|weeks?|months?\b/i
+
+  /**
+   * «Una semana» SÍ se tolera con un plazo en días, y no es una excepción
+   * cómoda: siete días contienen a cinco, así que decir «en una semana lo
+   * tenés» no promete más de lo que la ficha declara. Es un techo, no un plazo
+   * distinto. «Dos semanas» o «un mes» sí prometerían más.
+   */
+  const TOLERADO = /\b(una semana|one week)\b/gi
+
+  it('el resumen de la tarjeta no promete más tiempo que su propio plazo', () => {
+    // Si el plazo se mide en días, el resumen no puede hablar de semanas.
+    if (!/días|days/i.test(diagnostico.timeline.es)) return
+
+    expect(diagnostico.summary.es.replace(TOLERADO, '')).not.toMatch(UNIDAD_MAYOR)
+    expect(diagnostico.summary.en.replace(TOLERADO, '')).not.toMatch(UNIDAD_MAYOR)
+  })
+
+  it('la etapa de diagnóstico de la portada no contradice la ficha', () => {
+    if (!/días|days/i.test(diagnostico.timeline.es)) return
+
+    // La primera etapa es «Diagnóstico»: es la que describe este servicio.
+    const etapa = es.home.process.steps[0]!.body.replace(TOLERADO, '')
+    const step = en.home.process.steps[0]!.body.replace(TOLERADO, '')
+
+    expect(etapa, 'la portada promete semanas y la ficha días').not.toMatch(UNIDAD_MAYOR)
+    expect(step, 'the homepage promises weeks and the card says days').not.toMatch(UNIDAD_MAYOR)
+  })
+
+  it('cada plazo declara un rango con la misma unidad en los dos idiomas', () => {
+    for (const service of getServices()) {
+      const dias = /días|days/i
+      expect(
+        dias.test(service.timeline.es),
+        `${service.id}: «${service.timeline.es}» y «${service.timeline.en}» no usan la misma unidad`,
+      ).toBe(dias.test(service.timeline.en))
+    }
+  })
+})
+
 describe('integraciones y tecnologías', () => {
   it('ninguna herramienta aparece en dos categorías', () => {
     const names = getIntegrations().flatMap((c) => c.items.map((i) => i.name))

@@ -21,8 +21,8 @@
     es: Diagnóstico y hoja de ruta
     en: Assessment and roadmap
   summary:
-    es: Dos semanas para saber qué conviene resolver primero en tu empresa, y qué no.
-    en: Two weeks to learn what is worth fixing first in your company, and what is not.
+    es: En una semana sabés qué conviene resolver primero en tu empresa, y qué no.
+    en: In one week you know what is worth fixing first in your company, and what is not.
   problem:
     es: >-
       Sabés que hay procesos que consumen horas todos los días, pero no cuáles conviene automatizar
@@ -42,8 +42,8 @@
     - es: Documento de decisiones técnicas, para que cualquier proveedor pueda ejecutar el plan.
       en: A technical decision record, so any provider can execute the plan.
   timeline:
-    es: 2 a 3 semanas
-    en: 2 to 3 weeks
+    es: 3 a 5 días
+    en: 3 to 5 days
 
 - id: conversational-assistants
   order: 2
@@ -71,8 +71,8 @@
     - es: Panel con las preguntas que no supo responder, que muestra qué falta documentar.
       en: A panel of the questions it could not answer, showing what is missing from your documents.
   timeline:
-    es: 4 a 8 semanas
-    en: 4 to 8 weeks
+    es: 1 a 2 semanas
+    en: 1 to 2 weeks
 
 - id: workflow-automation
   order: 3
@@ -99,8 +99,8 @@
     - es: Documentación de cómo quedó armado, para que no dependa de quien lo construyó.
       en: Documentation of how it was built, so it does not depend on whoever built it.
   timeline:
-    es: 3 a 6 semanas
-    en: 3 to 6 weeks
+    es: 2 a 4 semanas
+    en: 2 to 4 weeks
 
 - id: internal-knowledge-base
   order: 4
@@ -127,8 +127,8 @@
     - es: Se actualiza solo cuando se agrega o se cambia un documento.
       en: It updates on its own when a document is added or changed.
   timeline:
-    es: 4 a 8 semanas
-    en: 4 to 8 weeks
+    es: 2 a 4 semanas
+    en: 2 to 4 weeks
 
 - id: custom-ai-product
   order: 5
@@ -155,8 +155,8 @@
     - es: Documentación de cómo está hecho, para que otro equipo pueda continuarlo.
       en: Documentation of how it is built, so another team can pick it up.
   timeline:
-    es: 8 a 16 semanas
-    en: 8 to 16 weeks
+    es: 4 a 6 semanas
+    en: 4 to 6 weeks
 
 - id: ai-evaluation-security
   order: 6
@@ -185,5 +185,5 @@
     - es: Revisión contra los riesgos ya documentados para este tipo de aplicaciones.
       en: A review against the risks already documented for this kind of application.
   timeline:
-    es: 3 a 5 semanas
-    en: 3 to 5 weeks
+    es: 2 a 4 semanas
+    en: 2 to 4 weeks
