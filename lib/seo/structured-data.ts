@@ -1,5 +1,7 @@
 import { CONTACT_EMAIL } from '@/lib/contact'
-import { getProfile } from '@/lib/content'
+import { getProfile, getServices } from '@/lib/content'
+import { getPathname } from '@/i18n/navigation'
+import { locales, type Locale } from '@/i18n/routing'
 import { publicEnv } from '@/lib/env'
 
 const DESCRIPTION =
@@ -27,7 +29,9 @@ const DESCRIPTION =
 type Entidad = Record<string, unknown> & { '@id': string }
 
 /** Siempre son dos —empresa y sitio—, y el tipo lo dice para que quien las lea no tenga que comprobarlo. */
-export function buildStructuredData(): [organizacion: Entidad, sitio: Entidad] {
+export function buildStructuredData(
+  locale: Locale = 'es',
+): [organizacion: Entidad, sitio: Entidad] {
   const profile = getProfile()
   const linkedin = profile.person.links.find((link) => link.type === 'linkedin')
 
@@ -63,7 +67,47 @@ export function buildStructuredData(): [organizacion: Entidad, sitio: Entidad] {
       { '@type': 'Country', name: 'Argentina' },
       { '@type': 'Place', name: 'América Latina' },
     ],
-    knowsLanguage: ['es', 'en'],
+    knowsLanguage: [...locales],
+    /**
+     * Por dónde se contacta a la empresa, y en qué idiomas se responde.
+     *
+     * El `email` de arriba dice cuál es la dirección; esto dice para qué sirve
+     * y a quién atiende. Es lo que permite que el buscador ofrezca la vía de
+     * contacto en la ficha en lugar de obligar a entrar a la web a buscarla.
+     */
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      email: CONTACT_EMAIL,
+      url: `${publicEnv.SITE_URL}${getPathname({ href: '/contacto', locale })}`,
+      availableLanguage: ['Spanish', 'English'],
+      areaServed: 'AR',
+    },
+    /**
+     * Los seis servicios, leídos del catálogo y no escritos otra vez acá.
+     *
+     * `hasOfferCatalog` es lo que convierte a la ficha de «una empresa que
+     * existe» en «una empresa que vende estas seis cosas». Sin él, el buscador
+     * tiene el nombre y la dirección, y ninguna señal de qué se hace.
+     *
+     * Se arma desde `content/services.yaml`, así que agregar un servicio al
+     * sitio lo agrega también a la ficha. Una lista escrita a mano acá se
+     * quedaría con los servicios del día que se escribió.
+     */
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: locale === 'es' ? 'Servicios' : 'Services',
+      itemListElement: getServices().map((service) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          '@id': `${publicEnv.SITE_URL}/#service-${service.id}`,
+          name: service.name[locale],
+          description: service.summary[locale],
+          provider: { '@id': organizationId },
+        },
+      })),
+    },
     // Con mes, que es más de lo que admite el campo equivalente de LinkedIn
     // —ahí es solo año, y dice 2025—. Las dos fichas tienen que coincidir: una
     // antigüedad distinta en cada lado es una señal de que no son la misma
@@ -99,7 +143,7 @@ export function buildStructuredData(): [organizacion: Entidad, sitio: Entidad] {
     name: 'Nidra',
     url: publicEnv.SITE_URL,
     description: DESCRIPTION,
-    inLanguage: ['es', 'en'],
+    inLanguage: [...locales],
     publisher: { '@id': organizationId },
   }
 

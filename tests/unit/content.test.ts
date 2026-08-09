@@ -8,6 +8,8 @@ import { getServices, getIntegrations, getTechnologies, getProfile, getYearsOfEx
 import { ServicesFile, TechnologiesFile } from '@/lib/content/schemas'
 import { Profile } from '@/lib/content/profile-schema'
 import { securityHeaders } from '@/lib/seo/headers'
+import { OG_SLUGS, ogCopy } from '@/lib/seo/og-cards'
+import { locales } from '@/i18n/routing'
 
 function keys(value: unknown, prefix = ''): Set<string> {
   const out = new Set<string>()
@@ -365,13 +367,42 @@ describe('lenguaje llano en la portada', () => {
 })
 
 describe('imagen de vista previa para redes', () => {
-  // Quien comparte el enlace en LinkedIn o WhatsApp anuncia el titular de
-  // esta imagen. Ya se desincronizó dos veces del héroe: cuando pasa, el
-  // enlace promete una cosa y la página entrega otra.
-  it('repite el titular del héroe', () => {
-    const source = readFileSync(join(process.cwd(), 'app/opengraph-image.tsx'), 'utf8')
-    const hero = es.home as { hero: { title: string; titleAccent: string } }
-    expect(source).toContain(`${hero.hero.title} ${hero.hero.titleAccent}`)
+  /**
+   * Quien comparte el enlace en LinkedIn o WhatsApp anuncia el titular de esta
+   * imagen. Ya se desincronizó dos veces del héroe: cuando pasa, el enlace
+   * promete una cosa y la página entrega otra.
+   *
+   * Antes esto se comprobaba buscando el titular escrito dentro de
+   * `app/opengraph-image.tsx`. Ahora la tarjeta lee los mensajes, así que lo
+   * que hay que vigilar cambió: que cada página tenga tarjeta en los dos
+   * idiomas, y que ninguna salga vacía o con el titular de otra.
+   */
+  it('la portada anuncia el titular del héroe, en los dos idiomas', () => {
+    for (const locale of locales) {
+      const hero = (locale === 'es' ? es : en).home.hero
+      expect(ogCopy('home', locale).title).toBe(`${hero.title} ${hero.titleAccent}`)
+    }
+  })
+
+  it('cada página tiene su propia tarjeta, con texto en su idioma', () => {
+    for (const locale of locales) {
+      const titulos = new Set<string>()
+
+      for (const slug of OG_SLUGS) {
+        const tarjeta = ogCopy(slug, locale)
+
+        for (const [campo, valor] of Object.entries(tarjeta)) {
+          expect(valor.trim(), `${slug}/${locale}: ${campo} vacío`).not.toBe('')
+        }
+        // Sin marcadores sin resolver: `{years}` llegó a publicarse tal cual en
+        // una descripción, y en una tarjeta no se ve hasta que alguien comparte.
+        expect(JSON.stringify(tarjeta), `${slug}/${locale}`).not.toMatch(/\{\w+\}/)
+
+        titulos.add(tarjeta.title)
+      }
+
+      expect(titulos.size, `${locale}: dos páginas comparten titular`).toBe(OG_SLUGS.length)
+    }
   })
 })
 

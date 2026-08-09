@@ -3,8 +3,10 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import { InquiryForm } from '@/components/site/InquiryForm'
 import { PageHeader } from '@/components/site/PageHeader'
+import { BreadcrumbJsonLd } from '@/components/site/BreadcrumbJsonLd'
 import { routing, type Locale } from '@/i18n/routing'
 import { buildMetadata } from '@/lib/seo/metadata'
+import { ogImagePath } from '@/lib/seo/og-cards'
 import { CONTACT_EMAIL } from '@/lib/contact'
 import { bookingUrl } from '@/lib/env'
 import { issueTimestamp, SERVICE_OPTIONS } from '@/lib/validation/inquiry'
@@ -40,6 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildMetadata({
     locale,
     href: '/contacto',
+    imagePath: ogImagePath('contact', locale),
     title: t('title'),
     description: t('description'),
   })
@@ -68,6 +71,7 @@ export default async function ContactPage({ params, searchParams }: Props) {
 
   return (
     <>
+      <BreadcrumbJsonLd locale={locale} href='/contacto' name={t('eyebrow')} />
       <PageHeader
         eyebrow={t('eyebrow')}
         title={t('title')}

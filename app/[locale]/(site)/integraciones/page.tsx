@@ -3,11 +3,13 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import { Link } from '@/i18n/navigation'
 import { PageHeader } from '@/components/site/PageHeader'
+import { BreadcrumbJsonLd } from '@/components/site/BreadcrumbJsonLd'
 import { TechLogo } from '@/components/site/TechLogo'
 import { TECH_ICONS } from '@/lib/content/tech-icons'
 import { routing, type Locale } from '@/i18n/routing'
 import { getIntegrations } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo/metadata'
+import { ogImagePath } from '@/lib/seo/og-cards'
 
 type Props = { params: Promise<{ locale: Locale }> }
 
@@ -21,6 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildMetadata({
     locale,
     href: '/integraciones',
+    imagePath: ogImagePath('integrations', locale),
     title: t('title'),
     description: t('description'),
   })
@@ -35,6 +38,7 @@ export default async function IntegrationsPage({ params }: Props) {
 
   return (
     <>
+      <BreadcrumbJsonLd locale={locale} href='/integraciones' name={t('eyebrow')} />
       <PageHeader
         eyebrow={t('eyebrow')}
         title={t('title')}

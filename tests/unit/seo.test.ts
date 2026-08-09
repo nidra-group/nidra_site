@@ -1,10 +1,15 @@
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 import { describe, expect, it } from 'vitest'
 
 import sitemap from '@/app/sitemap'
 import robots from '@/app/robots'
+import manifest from '@/app/manifest'
+import { config } from '@/proxy'
+import { getServices } from '@/lib/content'
+import { buildMetadata } from '@/lib/seo/metadata'
+import { ogImagePath } from '@/lib/seo/og-cards'
 import { locales } from '@/i18n/routing'
 import { CONTENT_UPDATED } from '@/lib/seo/content-date'
 import { buildStructuredData } from '@/lib/seo/structured-data'
@@ -152,5 +157,137 @@ describe('datos estructurados', () => {
   it('declara los dos idiomas del sitio', () => {
     expect(organizacion.knowsLanguage).toEqual([...locales])
     expect(sitio.inLanguage).toEqual([...locales])
+  })
+})
+
+/**
+ * Lo que ve quien recibe un enlace del sitio por WhatsApp, LinkedIn o Slack.
+ *
+ * Estas comprobaciones existen porque el síntoma de que se rompan es
+ * invisible: la página sigue funcionando, el enlace sigue abriendo, y lo único
+ * que cambia es que la tarjeta pierde el logotipo o se queda en la versión
+ * chica. Nadie revisa la vista previa de un enlace que ya funcionaba.
+ */
+describe('vista previa al compartir', () => {
+  const meta = buildMetadata({
+    locale: 'en',
+    href: '/servicios',
+    title: 'Services — Nidra',
+    description: 'Lo que sea.',
+    imagePath: ogImagePath('services', 'en'),
+  })
+
+  /**
+   * Open Graph pide `idioma_TERRITORIO`. El sitio publicaba `es` a secas, que
+   * no es un valor válido: el rastreador de Facebook —el mismo de WhatsApp y
+   * Messenger— descarta el campo cuando no puede interpretarlo.
+   */
+  it('el idioma va en la forma que pide Open Graph', () => {
+    expect(meta.openGraph?.locale).toBe('en_US')
+    expect(buildMetadata({ locale: 'es', href: '/', title: 't', description: 'd' }).openGraph?.locale).toBe('es_AR')
+  })
+
+  it('anuncia que la página existe en el otro idioma', () => {
+    expect(meta.openGraph?.alternateLocale).toEqual(['es_AR'])
+  })
+
+  /**
+   * La URL de la tarjeta no termina en `.png`: es una ruta generada. Un
+   * rastreador que decide por la extensión no tiene de dónde deducir el tipo, y
+   * varios descartan la imagen y muestran la tarjeta chica, sin logotipo.
+   */
+  it('la imagen declara tamaño y tipo', () => {
+    const imagenes = meta.openGraph?.images as { width: number; height: number; type: string }[]
+
+    expect(imagenes[0]).toMatchObject({ width: 1200, height: 630, type: 'image/png' })
+  })
+
+  it('cada página anuncia su propia tarjeta, no la de la portada', () => {
+    expect(JSON.stringify(meta.openGraph?.images)).toContain('/og/en/services')
+    expect(meta.twitter).toMatchObject({ card: 'summary_large_image' })
+  })
+
+  /**
+   * Sin `max-image-preview: large`, Google muestra una miniatura de unos 100 px
+   * o ninguna. Es el mismo activo que ya existe, mostrado grande.
+   */
+  it('le pide a Google la imagen grande en los resultados', () => {
+    const robots = meta.robots as { googleBot: Record<string, unknown> }
+
+    expect(robots.googleBot['max-image-preview']).toBe('large')
+    expect(robots.googleBot['max-snippet']).toBe(-1)
+  })
+
+  it('las páginas que no se indexan lo dicen', () => {
+    const oculta = buildMetadata({ locale: 'es', href: '/', title: 't', description: 'd', index: false })
+
+    expect(oculta.robots).toMatchObject({ index: false, follow: false })
+  })
+
+  /**
+   * Las tarjetas viven fuera del espacio traducido a propósito: si el proxy las
+   * tomara, un rastreador que espera un PNG recibiría una redirección de
+   * negociación de idioma. Ver `lib/seo/og-cards.ts`.
+   */
+  it('el proxy no toca las tarjetas', () => {
+    // Next ancla el patrón a la ruta completa; `new RegExp` no lo hace solo.
+    const patron = new RegExp(`^${config.matcher[0]}$`)
+
+    expect(patron.test('/og/es/home'), '/og/es/home entra al proxy').toBe(false)
+    expect(patron.test('/es/servicios')).toBe(true)
+  })
+})
+
+describe('manifiesto de aplicación web', () => {
+  const m = manifest()
+
+  it('los iconos son PNG: ningún Android lee el SVG del manifiesto', () => {
+    expect(m.icons?.length).toBeGreaterThan(0)
+    for (const icono of m.icons ?? []) {
+      expect(icono.type, `${icono.src} no es PNG`).toBe('image/png')
+    }
+  })
+
+  it('los archivos que declara existen de verdad', () => {
+    for (const icono of m.icons ?? []) {
+      const ruta = join(process.cwd(), 'public', icono.src!)
+      expect(existsSync(ruta), `falta ${icono.src} — corré pnpm build:brand`).toBe(true)
+    }
+  })
+
+  /**
+   * Android recorta el icono a la forma del sistema. Sin una entrada
+   * `maskable`, recorta el `any` y se come las esquinas de la placa.
+   */
+  it('trae una versión para el recorte de Android', () => {
+    expect(m.icons?.some((i) => i.purpose === 'maskable')).toBe(true)
+  })
+})
+
+/**
+ * El catálogo de servicios dentro de la ficha de la empresa. Es lo que
+ * convierte «una empresa que existe» en «una empresa que vende estas seis
+ * cosas»: sin él, el buscador tiene el nombre y la dirección, y ninguna señal
+ * de qué se hace.
+ */
+describe('catálogo de servicios en la ficha', () => {
+  it('lista los seis servicios del catálogo, no una copia escrita a mano', () => {
+    const [organizacion] = buildStructuredData('es')
+    const catalogo = organizacion.hasOfferCatalog as {
+      itemListElement: { itemOffered: { name: string } }[]
+    }
+
+    const nombres = catalogo.itemListElement.map((o) => o.itemOffered.name)
+
+    expect(nombres).toEqual(getServices().map((s) => s.name.es))
+  })
+
+  it('se traduce con el sitio', () => {
+    const [ingles] = buildStructuredData('en')
+    const catalogo = ingles.hasOfferCatalog as {
+      itemListElement: { itemOffered: { name: string } }[]
+    }
+
+    expect(catalogo.itemListElement[0]?.itemOffered.name).toBe(getServices()[0]?.name.en)
   })
 })

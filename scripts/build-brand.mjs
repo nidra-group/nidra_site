@@ -189,19 +189,26 @@ escribir(
 /**
  * Ninguna red acepta SVG: LinkedIn, Instagram y X piden PNG o JPG. Los tamaños
  * no son redondeos estéticos, son los que pide cada plataforma.
+ *
+ * El destino es una ruta relativa a `public/brand/`, porque no todo lo de acá
+ * es para redes: los dos últimos son los iconos del manifiesto de aplicación
+ * web —lo que ve quien guarda el sitio en la pantalla de inicio del teléfono—,
+ * y ahí un PNG es obligatorio: ningún Android lee el SVG del manifiesto.
  */
 const EXPORTAR = [
-  ['public/brand/redes/nidra-avatar.svg', 'nidra-avatar-1000.png', 1000, 1000, true],
-  ['public/brand/redes/nidra-avatar.svg', 'nidra-avatar-400.png', 400, 400, true],
-  ['public/brand/redes/nidra-avatar.svg', 'nidra-avatar-300.png', 300, 300, true],
+  ['public/brand/redes/nidra-avatar.svg', 'redes/nidra-avatar-1000.png', 1000, 1000, true],
+  ['public/brand/redes/nidra-avatar.svg', 'redes/nidra-avatar-400.png', 400, 400, true],
+  ['public/brand/redes/nidra-avatar.svg', 'redes/nidra-avatar-300.png', 300, 300, true],
+  ['public/brand/redes/nidra-avatar.svg', 'nidra-icon-192.png', 192, 192, true],
+  ['public/brand/redes/nidra-avatar.svg', 'nidra-icon-512.png', 512, 512, true],
   // Portada de página de empresa: 1128×191 exacto, y el doble para pantallas
   // de alta densidad, que es donde se nota el borde del degradado.
-  ['public/brand/redes/nidra-cover-linkedin.svg', 'nidra-cover-linkedin.png', 1128, 191, true],
-  ['public/brand/redes/nidra-cover-linkedin.svg', 'nidra-cover-linkedin@2x.png', 2256, 382, true],
+  ['public/brand/redes/nidra-cover-linkedin.svg', 'redes/nidra-cover-linkedin.png', 1128, 191, true],
+  ['public/brand/redes/nidra-cover-linkedin.svg', 'redes/nidra-cover-linkedin@2x.png', 2256, 382, true],
   // El logotipo suelto, con fondo transparente, para presentaciones y firmas.
-  ['public/brand/nidra-logo-glow.svg', 'nidra-logo-1580.png', 1580, 526, false],
+  ['public/brand/nidra-logo-glow.svg', 'redes/nidra-logo-1580.png', 1580, 526, false],
   // Y con placa, para cuando el fondo lo pone otro.
-  ['public/brand/nidra-logo-glow-placa.svg', 'nidra-logo-placa-1800.png', 1800, 626, true],
+  ['public/brand/nidra-logo-glow-placa.svg', 'redes/nidra-logo-placa-1800.png', 1800, 626, true],
 ]
 
 const navegador = await chromium.launch()
@@ -220,11 +227,11 @@ for (const [origen, destino, ancho, alto, opaco] of EXPORTAR) {
   await pagina.locator('img').waitFor()
 
   await pagina.screenshot({
-    path: join(REDES, destino),
+    path: join(MARCA, destino),
     omitBackground: !opaco,
     clip: { x: 0, y: 0, width: ancho, height: alto },
   })
-  generados.push(`public/brand/redes/${destino}`)
+  generados.push(`public/brand/${destino}`)
 }
 
 await navegador.close()

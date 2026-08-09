@@ -76,5 +76,12 @@ export default function middleware(request: NextRequest): NextResponse {
 }
 
 export const config = {
-  matcher: ['/((?!api|_next|_vercel|downloads|logos|opengraph-image|icon|apple-icon|.*\\..*).*)'],
+  /**
+   * `og/` son las tarjetas de vista previa. Quedan fuera a propósito: son
+   * activos con su propio idioma en la ruta, y pasarlas por el negociador de
+   * idioma las mandaría a redirigir justo cuando un rastreador espera un PNG.
+   */
+  matcher: [
+    '/((?!api|_next|_vercel|downloads|logos|og/|opengraph-image|icon|apple-icon|.*\\..*).*)',
+  ],
 }

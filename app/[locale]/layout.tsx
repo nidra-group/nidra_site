@@ -40,8 +40,42 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
+/**
+ * Metadatos que valen para todo el sitio.
+ *
+ * Los que cambian por página —título, descripción, canónica, tarjeta— los arma
+ * `lib/seo/metadata.ts`. Acá va solo lo que es cierto en las trece páginas y en
+ * los dos idiomas.
+ */
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nidra.cloud'),
+  applicationName: 'Nidra',
+  /**
+   * Quién firma el sitio.
+   *
+   * `creator` y `publisher` son los que aparecen en el panel de algunos
+   * lectores y en la ficha de LinkedIn cuando no encuentra otra cosa. Sin
+   * ellos, algunos clientes muestran el dominio pelado.
+   */
+  authors: [{ name: 'Juan Mujica', url: 'https://www.linkedin.com/company/nidracloud' }],
+  creator: 'Juan Mujica',
+  publisher: 'Nidra',
+  /**
+   * Apaga la detección automática de teléfonos y direcciones en iOS.
+   *
+   * Safari en iPhone convierte por su cuenta cualquier cosa que se parezca a un
+   * número en un enlace azul con su propio estilo: los años del currículum, los
+   * rangos de plazos —«3 a 5 días»—, los identificadores de versión. El sitio
+   * ya pone un enlace donde de verdad hay un teléfono.
+   */
+  formatDetection: { telephone: false, address: false, email: false },
+  /**
+   * El manifiesto de aplicación web: nombre, color e iconos para cuando alguien
+   * guarda el sitio en la pantalla de inicio del teléfono. Ver `app/manifest.ts`.
+   */
+  manifest: '/manifest.webmanifest',
+  appleWebApp: { capable: false, title: 'Nidra', statusBarStyle: 'black-translucent' },
+  category: 'technology',
 }
 
 export function generateStaticParams() {

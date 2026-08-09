@@ -9,6 +9,7 @@ import { getProfile, getYearsOfExperience } from '@/lib/content'
 import { getCvVersion } from '@/lib/cv/version'
 import { listAvailableDownloads } from '@/lib/cv/downloads'
 import { buildMetadata } from '@/lib/seo/metadata'
+import { ogImagePath } from '@/lib/seo/og-cards'
 import { profileBaseUrl, publicEnv } from '@/lib/env'
 
 type Props = { params: Promise<{ locale: Locale }> }
@@ -49,6 +50,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // buscadores no se mira nunca.
     description: t('description', { years: getYearsOfExperience(getProfile()) }),
     baseUrl: profileBaseUrl,
+    // La tarjeta vive en el sitio principal aunque la página viva en el
+    // subdominio: es un activo, no contenido del perfil.
+    imagePath: ogImagePath('cv', locale),
   })
 }
 

@@ -9,6 +9,7 @@ import { Link } from '@/i18n/navigation'
 import { routing, type Locale } from '@/i18n/routing'
 import { getServices, getTechnologies, getProfile, getYearsOfExperience } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo/metadata'
+import { ogImagePath } from '@/lib/seo/og-cards'
 import { bookingUrl, profileHref } from '@/lib/env'
 
 type Props = { params: Promise<{ locale: Locale }> }
@@ -23,6 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildMetadata({
     locale,
     href: '/',
+    imagePath: ogImagePath('home', locale),
     title: t('title'),
     description: t('description'),
   })
