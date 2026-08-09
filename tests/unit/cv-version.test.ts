@@ -1,4 +1,4 @@
-import { existsSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 import { describe, expect, it } from 'vitest'
@@ -85,5 +85,62 @@ describe('git no se consulta al atender una visita', () => {
       'readGitCvVersion lee el historial de git, que no existe en el servidor.\n' +
         'Usá getCvVersion(), que lee la versión ya congelada.',
     ).toEqual([])
+  })
+})
+
+/**
+ * El retrato.
+ *
+ * Se comprueba acá y no en `brand.test.ts` porque el guardián real es el mismo
+ * que el de los PDF: los dos archivos son artefactos generados que se versionan
+ * en el repositorio, y el modo de fallar es idéntico —alguien cambia la foto,
+ * no corre el script, y lo que se publica es la anterior—.
+ */
+describe('retrato del currículum', () => {
+  const RETRATOS = [
+    'public/brand/retrato/juan-mujica-web.png',
+    'public/brand/retrato/juan-mujica-impresion.png',
+  ]
+
+  it('los dos archivos existen', () => {
+    for (const ruta of RETRATOS) {
+      expect(
+        existsSync(join(process.cwd(), ruta)),
+        `falta ${ruta} — corré pnpm build:portrait`,
+      ).toBe(true)
+    }
+  })
+
+  it('salen del original que vive en el repositorio', () => {
+    // Sin el original no se pueden regenerar, y el día que haya que cambiar el
+    // encuadre no quedaría de dónde partir.
+    expect(existsSync(join(process.cwd(), 'content/cv/retrato-original.jpg'))).toBe(true)
+  })
+
+  /**
+   * Cada vista usa SU variante. Cruzarlas es el error silencioso de este
+   * diseño: el de impresión sobre el fondo oscuro de la web se ve plano, y el
+   * de web sobre papel imprime un cerco gris alrededor de la cara.
+   */
+  it('cada vista usa su propia variante', () => {
+    const web = readFileSync(join(process.cwd(), 'app/[locale]/(profile)/cv/page.tsx'), 'utf8')
+    const impresion = readFileSync(
+      join(process.cwd(), 'app/[locale]/(profile)/cv/imprimir/page.tsx'),
+      'utf8',
+    )
+
+    expect(web).toMatch(/destino="web"/)
+    expect(impresion).toMatch(/destino="impresion"/)
+  })
+
+  /**
+   * La versión del currículum se deriva del historial de `content/cv/`. Si
+   * alguien la vuelve a atar solo a `profile.yaml`, cambiar la foto deja de
+   * mover la versión y quedan dos PDF distintos con el mismo sello.
+   */
+  it('la versión cubre todo el contenido del currículum, no solo el perfil', () => {
+    const fuente = readFileSync(join(process.cwd(), 'lib/cv/version.ts'), 'utf8')
+
+    expect(fuente).toMatch(/const PROFILE_PATH = 'content\/cv'/)
   })
 })
