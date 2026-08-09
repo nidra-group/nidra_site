@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import { CvDocument } from '@/components/cv/CvDocument'
+import { Portrait } from '@/components/cv/Portrait'
 import { routing, type Locale } from '@/i18n/routing'
 import { getProfile } from '@/lib/content'
 import { getCvVersion } from '@/lib/cv/version'
@@ -41,18 +42,24 @@ export default async function CvPrintPage({ params }: Props) {
         {t('printHint')}
       </p>
 
-      <header className="print-block border-b border-line pb-5">
-        <h1 className="font-display text-[2.5rem] font-extrabold leading-none tracking-[-0.03em] print:text-[24pt]">
-          {profile.person.name}
-        </h1>
-        <p className="mt-2 text-lead text-muted print:text-[11pt]">
-          {profile.person.headline[locale]}
-        </p>
-        <p className="mt-3 text-small text-muted print:text-[9pt]">
-          {profile.person.location[locale]} · {profile.person.email}
-          {profile.person.phone ? ` · ${profile.person.phone}` : ''}
-          {profile.person.links.map((link) => ` · ${link.label}`).join('')}
-        </p>
+      {/* En el documento el retrato es más chico que en la web —24 mm— y la
+          fila no se apila nunca: una hoja A4 no cambia de ancho. */}
+      <header className="print-block flex items-center gap-6 border-b border-line pb-5">
+        <Portrait destino="impresion" lado={92} />
+
+        <div>
+          <h1 className="font-display text-[2.5rem] font-extrabold leading-none tracking-[-0.03em] print:text-[24pt]">
+            {profile.person.name}
+          </h1>
+          <p className="mt-2 text-lead text-muted print:text-[11pt]">
+            {profile.person.headline[locale]}
+          </p>
+          <p className="mt-3 text-small text-muted print:text-[9pt]">
+            {profile.person.location[locale]} · {profile.person.email}
+            {profile.person.phone ? ` · ${profile.person.phone}` : ''}
+            {profile.person.links.map((link) => ` · ${link.label}`).join('')}
+          </p>
+        </div>
       </header>
 
       <div className="mt-8">

@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import { CvDocument } from '@/components/cv/CvDocument'
 import { CvDownload } from '@/components/cv/CvDownload'
+import { Portrait } from '@/components/cv/Portrait'
 import { Link } from '@/i18n/navigation'
 import { routing, type Locale } from '@/i18n/routing'
 import { getProfile, getYearsOfExperience } from '@/lib/content'
@@ -87,32 +88,47 @@ export default async function CvPage({ params }: Props) {
           {/* La vuelta al sitio vive en la barra del envoltorio, no acá: en
               una esquina y a 13 px era invisible, y esta página es el destino
               de «Ver el perfil completo» desde la portada. */}
-          <div>
-            <h1 className="font-display text-[clamp(2.5rem,7vw,3.75rem)] font-extrabold leading-none tracking-[-0.035em]">
-              {profile.person.name}
-            </h1>
-            <p className="mt-3 text-lead text-muted">{profile.person.headline[locale]}</p>
-            <p className="mt-1 text-small text-muted">{profile.person.location[locale]}</p>
+          {/* Retrato a la izquierda y el bloque de identidad a la derecha.
+              En vertical se apila, alineado a la izquierda como todo lo demás:
+              centrar solo la foto rompería el eje de lectura de la página. */}
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
+            <Portrait destino="web" lado={132} />
+
+            <div>
+              <h1 className="font-display text-[clamp(2.5rem,7vw,3.75rem)] font-extrabold leading-none tracking-[-0.035em]">
+                {profile.person.name}
+              </h1>
+              <p className="mt-3 text-lead text-muted">{profile.person.headline[locale]}</p>
+              <p className="mt-1 text-small text-muted">{profile.person.location[locale]}</p>
+
+              {/* Los enlaces van DENTRO de esta columna, no debajo de la fila.
+                  Colgados del contenedor arrancaban bajo el retrato, en un eje
+                  distinto del nombre: la cabecera tenía dos márgenes
+                  izquierdos y se leía como dos bloques sin relación. */}
+              <ul className="mt-3 flex flex-wrap items-center gap-x-6 text-small">
+                <li>
+                  <a
+                    href={`mailto:${profile.person.email}`}
+                    className="link inline-flex min-h-[2.75rem] items-center"
+                  >
+                    {profile.person.email}
+                  </a>
+                </li>
+                {profile.person.links.map((link) => (
+                  <li key={link.url}>
+                    <a
+                      href={link.url}
+                      rel="noopener"
+                      className="link inline-flex min-h-[2.75rem] items-center"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          <ul className="mt-4 flex flex-wrap items-center gap-x-6 text-small">
-            <li>
-              <a href={`mailto:${profile.person.email}`} className="link inline-flex min-h-[2.75rem] items-center">
-                {profile.person.email}
-              </a>
-            </li>
-            {profile.person.links.map((link) => (
-              <li key={link.url}>
-                <a
-                  href={link.url}
-                  rel="noopener"
-                  className="link inline-flex min-h-[2.75rem] items-center"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
         </header>
 
         <div className="my-10">

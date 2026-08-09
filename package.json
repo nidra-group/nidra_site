@@ -12,7 +12,8 @@
     "test:e2e": "playwright test",
     "generate:cv": "node scripts/generate-cv-pdf.mjs",
     "build:icons": "node scripts/build-tech-icons.mjs",
-    "build:brand": "node scripts/build-brand.mjs"
+    "build:brand": "node scripts/build-brand.mjs",
+    "build:portrait": "node scripts/build-portrait.mjs"
   },
   "keywords": [],
   "author": "",

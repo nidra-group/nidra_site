@@ -7,7 +7,15 @@ export type CvVersion = {
   date: string
 }
 
-const PROFILE_PATH = 'content/cv/profile.yaml'
+/**
+ * De qué depende la versión del currículum.
+ *
+ * Es el DIRECTORIO y no solo `profile.yaml`, porque ahí vive también el
+ * retrato. Con el archivo suelto, agregar o cambiar la foto modificaba el PDF
+ * sin mover la versión: dos documentos distintos con el mismo sello, que es
+ * exactamente lo que un número de versión existe para impedir.
+ */
+const PROFILE_PATH = 'content/cv'
 const VERSION_FILE = join(process.cwd(), 'public', 'downloads', 'version.json')
 
 /**

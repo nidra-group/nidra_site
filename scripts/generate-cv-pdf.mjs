@@ -24,7 +24,8 @@
  *      dice una versión y se llama por otra.
  *   3. Se levanta el servidor de producción y se imprime.
  *
- * Cuándo correrlo: cada vez que cambia `content/cv/profile.yaml`, después de
+ * Cuándo correrlo: cada vez que cambia algo de `content/cv/` —el perfil o el
+ * retrato—, después de
  * commitear el cambio. Si te olvidás, `tests/unit/cv-version.test.ts` falla y
  * te lo dice antes de que llegue al despliegue.
  */
