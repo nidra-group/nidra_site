@@ -322,8 +322,8 @@
         {
           "title": "Where that data lives and who else sees it",
           "body": [
-            "Conversations are stored in the United States, in the Oregon region, on Supabase infrastructure. This is an international transfer of personal data: by using the assistant, your data leaves Argentina.",
-            "The assistant runs on a private Nidra server in São Paulo, Brazil. Your messages pass through it before being stored, so they leave the country by that route as well.",
+            "Conversations are stored in São Paulo, Brazil, on Supabase infrastructure — Supabase administers that database on our behalf. This is an international transfer of personal data: by using the assistant, your data leaves Argentina.",
+            "The assistant runs on a private Nidra server, also in São Paulo. Your messages pass through it before being stored.",
             "OpenAI processes the text of the conversation. It receives the full history with every answer, and again at the end to extract the summary. It is the provider with the broadest access to what you write, and its processing also happens in the United States.",
             "If you click the link to book a call, Cal.com opens with a summary of your enquiry and your email already filled into the address. If you do not click, nothing is transmitted.",
             "No other tool is involved: no analytics, no marketing, no customer management systems."

@@ -322,8 +322,8 @@
         {
           "title": "Dónde están esos datos y quién más los ve",
           "body": [
-            "Las conversaciones se guardan en Estados Unidos, en la región de Oregón, sobre la infraestructura de Supabase. Esto es una transferencia internacional de datos personales: al usar el asistente, tus datos salen de Argentina.",
-            "El asistente funciona sobre un servidor propio de Nidra en São Paulo, Brasil. Tus mensajes pasan por ahí antes de guardarse, así que también salen del país por esa vía.",
+            "Las conversaciones se guardan en São Paulo, Brasil, sobre la infraestructura de Supabase, que es quien administra esa base por nosotros. Esto es una transferencia internacional de datos personales: al usar el asistente, tus datos salen de Argentina.",
+            "El asistente funciona sobre un servidor propio de Nidra, también en São Paulo. Tus mensajes pasan por ahí antes de guardarse.",
             "OpenAI procesa el texto de la conversación. Recibe el historial completo en cada respuesta, y otra vez al terminar para extraer el resumen. Es el proveedor con el acceso más amplio a lo que escribís, y su procesamiento también ocurre en Estados Unidos.",
             "Si hacés clic en el enlace para agendar una reunión, se abre Cal.com con un resumen de tu consulta y tu correo ya cargados en la dirección. Si no hacés clic, no se transmite nada.",
             "No hay ninguna otra herramienta involucrada: ni analítica, ni marketing, ni sistemas de gestión de clientes."
