@@ -396,6 +396,64 @@
           ]
         }
       ]
+    },
+    "dataDeletion": {
+      "meta": {
+        "title": "Data deletion — Nidra",
+        "description": "What NIDRA STUDIO stores from a linked Instagram or TikTok account, and how to request its deletion."
+      },
+      "title": "Data deletion",
+      "updated": "Last updated",
+      "sections": [
+        {
+          "title": "What this page is about",
+          "body": [
+            "NIDRA STUDIO is the tool I use to produce and publish content for my own projects. To do that, an Instagram or TikTok account is linked to the application, and the application stores some data from that account.",
+            "This page says what it stores, for how long, and how to ask for it to be deleted. If you linked an account and want nothing left behind, the last section says exactly what to do."
+          ]
+        },
+        {
+          "title": "What it stores from a linked account",
+          "body": [
+            "The access grant the network issues on linking, stored encrypted. It is what allows publishing and reading statistics on the account's behalf; it does not give access to the password, which Nidra never sees.",
+            "The notifications the network sends about that account — comments and mentions on its own posts — exactly as they arrive.",
+            "Statistics for posts made through the tool: views, reach, likes, comments and saves.",
+            "The media of the pieces produced (video, audio and images), deleted ten days after the publication is confirmed."
+          ]
+        },
+        {
+          "title": "What it does NOT store",
+          "body": [
+            "It does not store private messages. The application neither reads nor writes direct messages: there is not a single line of code that touches them.",
+            "It does not store other people's data beyond what the network itself sends in a public comment on a post of the linked account.",
+            "None of this is used for advertising, cross-referenced with other sources, sold or shared."
+          ]
+        },
+        {
+          "title": "How to cut access right now",
+          "body": [
+            "On Instagram: Settings → Apps and websites → NIDRA STUDIO → Remove. On TikTok: Settings → Security → Manage connected apps.",
+            "Revoking from the network is immediate and does not depend on me: from that moment the application can no longer publish, read statistics, or receive notifications for that account.",
+            "Revoking cuts access but does not delete what was already stored. For that, see below."
+          ]
+        }
+      ],
+      "closing": [
+        {
+          "title": "How to request deletion",
+          "body": [
+            "Email me at jmujica@nidra.cloud from an address that lets me verify the account is yours, stating the Instagram or TikTok username.",
+            "I reply within 72 hours and delete within 30 days: the access grant, the notifications received, the statistics and the media for that account.",
+            "A record that the deletion took place remains — date and account — without the deleted content. It is the proof that the request was honoured, and it is the only thing that survives."
+          ]
+        },
+        {
+          "title": "Responsible",
+          "body": [
+            "Juan Mujica (Nidra), Buenos Aires, Argentina. Contact: jmujica@nidra.cloud"
+          ]
+        }
+      ]
     }
   },
   "cv": {
