@@ -27,11 +27,7 @@ type Section = { title: string; body: string[] }
  * Cuando el asistente esté en producción y no haya vuelta atrás, el bloque
  * `assistantPending` de los mensajes queda muerto y se puede borrar.
  */
-export function LegalDocument({
-  namespace,
-}: {
-  namespace: 'legal.privacy' | 'legal.terms' | 'legal.dataDeletion'
-}) {
+export function LegalDocument({ namespace }: { namespace: 'legal.privacy' | 'legal.terms' }) {
   const t = useTranslations(namespace)
 
   // `t.raw` LANZA si la clave no existe, no devuelve undefined. Los términos

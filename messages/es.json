@@ -396,64 +396,6 @@
           ]
         }
       ]
-    },
-    "dataDeletion": {
-      "meta": {
-        "title": "Eliminación de datos — Nidra",
-        "description": "Qué datos guarda NIDRA STUDIO de una cuenta de Instagram o TikTok vinculada, y cómo pedir que se borren."
-      },
-      "title": "Eliminación de datos",
-      "updated": "Última actualización",
-      "sections": [
-        {
-          "title": "De qué se trata esta página",
-          "body": [
-            "NIDRA STUDIO es la herramienta con la que produzco y publico el contenido de mis propios proyectos. Para hacerlo, una cuenta de Instagram o de TikTok se vincula a la aplicación y ésta guarda algunos datos de esa cuenta.",
-            "Acá está qué guarda, por cuánto tiempo, y cómo pedir que se borre. Si vinculaste una cuenta y querés que no quede nada, la última sección dice exactamente qué hacer."
-          ]
-        },
-        {
-          "title": "Qué guarda de una cuenta vinculada",
-          "body": [
-            "El permiso de acceso que la red entrega al vincular, guardado cifrado. Es lo que permite publicar y leer estadísticas en nombre de la cuenta; no da acceso a la contraseña, que Nidra nunca ve.",
-            "Los avisos que la red envía sobre la propia cuenta —comentarios y menciones en sus publicaciones— tal como llegan.",
-            "Las estadísticas de las publicaciones hechas desde la herramienta: vistas, alcance, likes, comentarios y guardados.",
-            "El material de las piezas producidas (video, audio y imágenes), que se borra a los diez días de la publicación confirmada."
-          ]
-        },
-        {
-          "title": "Qué NO guarda",
-          "body": [
-            "No guarda mensajes privados. La aplicación no lee ni escribe mensajes directos: no hay una sola línea de código que los toque.",
-            "No guarda datos de otras personas más allá de lo que la propia red envía en un comentario público sobre una publicación de la cuenta vinculada.",
-            "No usa nada de esto para publicidad, no lo cruza con otras fuentes y no lo vende ni lo cede."
-          ]
-        },
-        {
-          "title": "Cómo cortar el acceso ahora mismo",
-          "body": [
-            "En Instagram: Configuración → Aplicaciones y sitios web → NIDRA STUDIO → Eliminar. En TikTok: Configuración → Seguridad → Administrar aplicaciones conectadas.",
-            "Revocar el permiso desde la red es inmediato y no depende de mí: a partir de ese momento la aplicación no puede publicar, ni leer estadísticas, ni recibir avisos de esa cuenta.",
-            "Revocar corta el acceso pero no borra lo que ya se guardó. Para eso, lo de abajo."
-          ]
-        }
-      ],
-      "closing": [
-        {
-          "title": "Cómo pedir que se borre",
-          "body": [
-            "Escribime a jmujica@nidra.cloud desde una dirección con la que pueda comprobar que la cuenta es tuya, indicando el usuario de Instagram o TikTok.",
-            "Respondo dentro de las 72 horas y borro dentro de los 30 días: el permiso de acceso, los avisos recibidos, las estadísticas y el material de esa cuenta.",
-            "Queda un registro de que la eliminación se hizo —fecha y cuenta— sin el contenido borrado. Es la constancia de haber cumplido el pedido, y es lo único que sobrevive."
-          ]
-        },
-        {
-          "title": "Responsable",
-          "body": [
-            "Juan Mujica (Nidra), Buenos Aires, Argentina. Contacto: jmujica@nidra.cloud"
-          ]
-        }
-      ]
     }
   },
   "cv": {

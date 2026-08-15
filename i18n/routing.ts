@@ -24,9 +24,6 @@ export const pathnames = {
   '/contacto': { es: '/contacto', en: '/contact' },
   '/privacidad': { es: '/privacidad', en: '/privacy' },
   '/terminos': { es: '/terminos', en: '/terms' },
-  // La URL de eliminación de datos la lee un revisor de Meta y la tipea un
-  // humano que quiere borrar lo suyo: se escribe entera y sin abreviar.
-  '/eliminacion-de-datos': { es: '/eliminacion-de-datos', en: '/data-deletion' },
   '/cv': '/cv',
   '/cv/imprimir': { es: '/cv/imprimir', en: '/cv/print' },
 } as const
